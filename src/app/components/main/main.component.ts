@@ -25,19 +25,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     // try to log in automatically
-    this.accountService.identity().subscribe();
 
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.updateTitle();
-      }
-    });
-
-    this.translateService.onLangChange.subscribe((langChangeEvent: LangChangeEvent) => {
-      this.updateTitle();
-      dayjs.locale(langChangeEvent.lang);
-      this.renderer.setAttribute(document.querySelector('html'), 'lang', langChangeEvent.lang);
-    });
   }
 
   private getPageTitle(routeSnapshot: ActivatedRouteSnapshot): string {
@@ -53,6 +41,6 @@ export class MainComponent implements OnInit {
     if (!pageTitle) {
       pageTitle = 'global.title';
     }
-    this.translateService.get(pageTitle).subscribe(title => this.titleService.setTitle(title));
+
   }
 }
