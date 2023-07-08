@@ -2,9 +2,7 @@ import { Component, OnInit, RendererFactory2, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import * as dayjs from 'dayjs';
 
-import { AccountService } from 'app/core/auth/account.service';
 
 @Component({
   selector: 'okoho-main',
