@@ -41,7 +41,12 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     { provide: LOCALE_ID, useValue: 'fr' },
     httpInterceptorProviders,
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, ActiveMenuDirective, FooterComponent],
+  declarations: [
+    MainComponent,
+     NavbarComponent, 
+     ErrorComponent, 
+     ActiveMenuDirective, 
+     FooterComponent],
   bootstrap: [MainComponent]
 })
 export class AppModule { }
