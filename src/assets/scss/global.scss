@@ -114,38 +114,6 @@ Custom alerts for notification
     width: 50%;
   }
 
-  .head-footer .Apropos ul .logo #logo{
-
-    width: 150px;;
-    height: 63px;
-    padding-bottom: 20px;
-  }
-  ul li{
-  
-     list-style-type: none;
-  
-  }
-  .row g-3{
-    display: flex;
-  }
-  h6{
-  
-    color: #eee;
-    font-weight: bold;
-    font-size: small;
-  }
- 
-  .footer-footer{
-    display: block;
-     justify-content: space-around;
-  }
-  .footer-footer  .droits-reserved a{
-  text-decoration: none;
-  }
-  .alignement-logo {
-    display:inline-block ;
-    
-    }
 }
 
 /* ==========================================================================
@@ -175,6 +143,25 @@ entity detail page css
       margin-left: 0;
     }
   }
+  
+
+}
+@media screen and (min-width:768px) and (max-width:992px){
+
+  .head-footer{
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 50px;
+   
+  }
+  .footer-footer{
+    flex-direction: column;
+    justify-content:space-between;
+    
+  }
+  
 }
 
 /* ==========================================================================
@@ -193,104 +180,3 @@ ui bootstrap tweaks
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.footer{
-
-  background-color: #3b5998;
-  width: 100%;
-  height: 100%;
-}
-.head-footer .Apropos ul .logo #logo{
-
-  width: 140px;;
-  height: 42px;
-}
-ul li{
-
-   list-style-type: none;
-
-}
-h6{
-
-  color: #eee;
-  font-weight: bold;
-  font-size: small;
-}
-.head-footer .Apropos, .ForCandidates, .ForEmployers, .AboutUs, .JoinUs, ul li a{
-  text-decoration: none;
-  font-size: smaller;
-  cursor:pointer;
-}
-.head-footer{
-  display: flex;
-  justify-content: space-between;
-  justify-content: space-around;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 50px;
- 
-}
-.footer-footer{
-  display: flex;
-  justify-content: space-evenly;
-}
-.alignement-logo {
-display: flex;
-justify-content:space-evenly;
-padding-top:5px;
-padding-bottom: 10px;
-}
-.alignement-logo span{
-
-  padding-left: 20px;
- 
- }
-hr{
-  color: #ffffff;
-}
-.copyright span{
-
-  color: #eee;
-  margin-left: 15px;
-}
-.copyright{
-
-  font-size: smaller;
-  padding-bottom: 10px;
-  padding-top: 5px;
-  justify-content:start;
-  justify-items:flex-start;
-}
-
-#inputPassword2{
-
-  position: relative;
-  width: 15.0em;
-  margin-top: 1.5em;
-  margin-right: 0.8em;
-  margin-left: 0.6em;
-   }
-
-.btn-danger{
-
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  margin-top:1.9em;
-  left: 72.8em;
-}
-.bi-envelope{
-  font-size: small;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 0.0em;
-  height: 0.0em;  
-
-}
-.footer{
-
-  padding: 50px 2px 10px 10px;
-}
-.alignement-logo .bi-facebook,.bi-twitter,.bi-instagram,.bi-linkedin{
-  font-size: x-small;
- }

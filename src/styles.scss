@@ -2,3 +2,111 @@
 @import "./assets/scss/bootstrap-variables.scss";
 @import "./assets/scss/global.scss";
 
+.footer{
+
+    background-color: #3b5998;
+   
+  }
+  .head-footer .Apropos ul .logo #logo{
+  
+    width: 140px;;
+    height: 42px;
+  }
+  ul li{
+  
+     list-style-type: none;
+  
+  }
+  h6{
+  
+    color: #eee;
+    font-weight: bold;
+    font-size: small;
+  }
+  .head-footer .Apropos, .ForCandidates, .ForEmployers, .AboutUs, .JoinUs, ul li a{
+    text-decoration: none;
+    font-size: smaller;
+    cursor:pointer;
+  }
+  .head-footer{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 50px;
+   
+  }
+  .footer-footer{
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .alignement-logo {
+  display: flex;
+  justify-content:space-evenly;
+  padding-top:5px;
+  padding-bottom: 10px;
+  
+  }
+  .alignement-logo span{
+    padding-right: 30px;
+   
+   }
+  hr{
+    color: #ffffff;
+  }
+  .copyright span{
+  
+    color: #ffffff;
+   
+    
+  }
+  .copyright{
+  
+    font-size: smaller;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    justify-content:start;
+    justify-items:flex-start;
+  }
+  
+  #inputPassword2{
+  
+    position: relative;
+    width: 15.0em;
+    margin-top: 1.5em;
+    margin-right: 0.8em;
+    margin-left: 0.6em;
+     }
+  
+  .btn-danger{
+  
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    margin-top:1.9em;
+    left: 72.8em;
+  }
+  .bi-envelope{
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0.0em;
+    height: 0.0em;  
+  
+  }
+  .bi-envelope:hover{
+  
+    color:#ffd700
+  }
+  .footer{
+  
+    padding: 50px 2px 10px 10px;
+  }
+  .alignement-logo .bi-facebook,.bi-twitter,.bi-instagram,.bi-linkedin{
+    font-size: x-small;
+   }
+  
+  
