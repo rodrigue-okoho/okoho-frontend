@@ -2,3 +2,196 @@
 @import "./assets/scss/bootstrap-variables.scss";
 @import "./assets/scss/global.scss";
 
+*{
+
+  width: 100%;
+}
+
+.footer{
+    background-color:#2C5697; 
+    width: 100%;
+    padding: 20px 10px; 
+    overflow: hidden;    
+    position: sticky;  
+    top:100%;
+    box-sizing: border-box;
+    box-shadow: #2C5697;
+  }
+  #logo{
+
+    width: 201.64715576171875px;
+    height: 65.99993896484375px;
+    top: 6749px;
+    left: 314px;
+    padding-left: 30px;
+
+  }
+  .sendEmail{
+
+   
+  }
+.valider{
+
+
+  
+}
+ .single-box{
+    line-height: 2.1;
+ }
+ 
+h6{
+
+  font-size: 10px;
+  margin-left: 32px;
+  font-weight: 700;
+ }
+ .footer-first{
+
+  padding-left: 120px;   
+  padding-right: 120px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 100%;
+  height: 80%;
+
+ }
+  .footer-second{
+    background-color:#2C5697; 
+    width: 100%;
+    height: 5%;
+    padding-left: 150px;
+    padding-right: 90px;   
+    
+  }
+ .single-box i{
+
+  margin-right: 20px;
+  font-size: 16px;
+ }
+   .icons { 
+    width: 13px;
+    height: 15.57373046875px;
+    top: 7122.6904296875px;
+    left: 1590px;
+
+  }
+
+  .bi-facebook{
+    width: 8px;
+height: 15.57373046875px;
+top: 7122.6904296875px;
+left: 1444px;
+font-family: Font Awesome 5 Brands;;
+font-size: 14px;;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0em;
+text-align: left;
+
+  }
+  .bi-twitter{
+
+
+    width: 14px;
+height: 15.57373046875px;
+top: 7122.6904296875px;
+left: 1489px;
+font-family: Font Awesome 5 Brands;
+font-size: 14px;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0em;
+text-align: left;
+
+
+  }
+  .bi-instagram{
+
+    width: 13px;
+height: 15.57373046875px;
+top: 7122.6904296875px;
+left: 1540px;
+font-family: Font Awesome 5 Brands;
+font-size: 14px;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0em;
+text-align: left;
+  }
+.bi-linkedin{
+
+  width: 13px;
+  height: 15.57373046875px;
+  top: 7122.6904296875px;
+  left: 1590px;  
+}
+.btn-danger{
+  
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 6846px;
+  left: 1553px;
+  border-radius: 8px;
+  font-family: Font Awesome 5 Brands;
+font-size: 14px;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+ul li{
+  
+  list-style-type: none;
+
+}
+
+#iLogo{
+  width: 201.64715576171875px;
+  height: 65.99993896484375px;
+  top: 6749px;
+  left: 314px;
+  
+}
+
+ h6{
+  
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: small;
+  }
+   a{
+    text-decoration: none;
+    font-size: smaller;
+    cursor:pointer;
+    
+  }
+ 
+  hr{
+    color: #ffffff;
+  }
+  @media screen and (min-width: 480px) {
+    *{
+      box-sizing : border-box;
+    }
+    
+
+  }
+
+
+  @media screen and (min-width: 768px) {
+    
+    
+  }
+  @media screen and (min-width:768px) and (max-width:992px){
+    .footer-second{
+
+      display: flex;
+    }
+    .footer-first{
+      width: 100%;
+    
+     }
+
+  }

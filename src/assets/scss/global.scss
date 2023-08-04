@@ -11,12 +11,16 @@ h2,
 h3,
 h4 {
   font-weight: 300;
+  font-family: LEMON MILK Pro FTR ;
+  color: #FFFFFF;
+  height: 100vh;
+
 }
 
 /* Increase contrast of links to get 100% on Lighthouse Accessability Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
 a {
-  color: #533f03;
-  font-weight: bold;
+  color: #FFFFFF;
+  font-weight:lighter;
 }
 
 a:hover {
