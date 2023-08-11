@@ -26,15 +26,25 @@
     padding-left: 30px;
 
   }
-  .sendEmail{
-
+  #form-email{
+    z-index: 10;
+    height: 45px;
+    border-radius: 10px;
    
   }
-.valider{
-
-
+  .input-group{
+    width: 280px;
+  }
+#button-addon2{
+z-index: 100;
+width: 35px;  
+left: -40px;
+top: 5px;
+height: 35px; 
+border-radius: 10px;
   
 }
+
  .single-box{
     line-height: 2.1;
  }
