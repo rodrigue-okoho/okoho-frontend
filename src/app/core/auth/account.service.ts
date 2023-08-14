@@ -6,9 +6,9 @@ import { SessionStorageService } from 'ngx-webstorage';
 import { Observable, ReplaySubject, of } from 'rxjs';
 import { shareReplay, tap, catchError } from 'rxjs/operators';
 
-import { StateStorageService } from 'app/core/auth/state-storage.service';
 import { ApplicationConfigService } from '../config/application-config.service';
-import { Account } from 'app/core/auth/account.model';
+import {Account} from "./account.model";
+import {StateStorageService} from "./state-storage.service";
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -77,7 +77,7 @@ export class AccountService {
   }
 
   private fetch(): Observable<Account> {
-    return this.http.get<Account>(this.applicationConfigService.getEndpointFor('api/account'));
+    return this.http.get<Account>(this.applicationConfigService.getEndpointFor('v1/user-accounts'));
   }
 
   private navigateToStoredUrl(): void {

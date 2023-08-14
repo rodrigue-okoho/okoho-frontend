@@ -5,10 +5,14 @@ import { map } from 'rxjs/operators';
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 
 import { ApplicationConfigService } from '../config/application-config.service';
-import { Login } from 'app/login/login.model';
+import {RegisterModel} from "../models/register.model";
+import {Login} from "../models/login.model";
 
 type JwtToken = {
-  id_token: string;
+  accessToken: string;
+  email: string;
+  id: string;
+  roles: [string];
 };
 
 @Injectable({ providedIn: 'root' })
@@ -28,10 +32,14 @@ export class AuthServerProvider {
 
   login(credentials: Login): Observable<void> {
     return this.http
-      .post<JwtToken>(this.applicationConfigService.getEndpointFor('api/authenticate'), credentials)
+      .post<JwtToken>(this.applicationConfigService.getEndpointFor('auth/signin'), credentials)
       .pipe(map(response => this.authenticateSuccess(response, credentials.rememberMe)));
   }
-
+  register(registerModel: RegisterModel): Observable<void> {
+    return this.http
+      .post<any>(this.applicationConfigService.getEndpointFor('auth/signup'), registerModel)
+      .pipe(map(response => {}));
+  }
   logout(): Observable<void> {
     return new Observable(observer => {
       this.localStorageService.clear('authenticationToken');
@@ -41,7 +49,7 @@ export class AuthServerProvider {
   }
 
   private authenticateSuccess(response: JwtToken, rememberMe: boolean): void {
-    const jwt = response.id_token;
+    const jwt = response.accessToken;
     if (rememberMe) {
       this.localStorageService.store('authenticationToken', jwt);
       this.sessionStorageService.clear('authenticationToken');

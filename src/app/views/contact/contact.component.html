@@ -1,0 +1,63 @@
+<div class="row title-content">
+  <h4 class="h4">
+    Contact
+  </h4>
+  <h5>Home / Contact</h5>
+</div>
+<div class="row justify-content-center">
+  <div class="col-8 container">
+    <div class="row content-contact">
+      <div class="col-md-4">
+        <div>
+          <fa-icon icon="location-pin"></fa-icon>
+        </div>
+        <p>Address</p>
+        <p>Langer Steinweg 60, 32825 Blomberg</p>
+      </div>
+      <div class="col-md-4">
+        <div>
+          <fa-icon icon="phone-alt"></fa-icon>
+        </div>
+        <p>Call Us</p>
+        <p>+49 160 96 20 50 12</p>
+      </div>
+      <div class="col-md-4">
+        <div>
+          <fa-icon icon="message"></fa-icon>
+        </div>
+        <p>Email</p>
+        <p>info@okoho.de</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row flex justify-content-center">
+  <div class="col-6 form-contact">
+    <h4 class="title">Leave A Message</h4>
+    <form class="form mt-3">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label class="form-control-label" jhiTranslate="global.field.your_name" for="field_name">ID</label>
+          <input type="number" class="form-control input-contact" name="id" id="field_name" data-cy="id"/>
+        </div>
+        <div class="col-md-6 form-group">
+          <label class="form-control-label" jhiTranslate="global.field.your_email" for="field_email">Your Email</label>
+          <input type="number" class="form-control input-contact" name="id" id="field_email" data-cy="id"/>
+        </div>
+        <div class="col-12 form-group">
+          <label class="form-control-label" jhiTranslate="global.field.your_subject" for="field_subject">Subject</label>
+          <input type="number" class="form-control input-contact" name="id" id="field_subject" data-cy="id"/>
+        </div>
+        <div class="col-12 form-group">
+          <label class="form-control-label" jhiTranslate="global.field.message" for="field_message">Your Email</label>
+          <textarea rows="4" class="form-control input-contact" name="id" id="field_message" data-cy="id"></textarea>
+        </div>
+      </div>
+      <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-send mt-3" (click)="sendMessage()">
+        &nbsp;<span jhiTranslate="entity.action.send_message">Send Message</span>
+      </button>
+    </form>
+  </div>
+</div>
+

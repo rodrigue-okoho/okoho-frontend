@@ -5,7 +5,7 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
   selector: '[okohoActiveMenu]',
 })
 export class ActiveMenuDirective implements OnInit {
-  @Input() jhiActiveMenu?: string;
+  @Input() okohoActiveMenu?: string;
 
   constructor(private el: ElementRef, private renderer: Renderer2, private translateService: TranslateService) {}
 
@@ -18,7 +18,7 @@ export class ActiveMenuDirective implements OnInit {
   }
 
   updateActiveFlag(selectedLanguage: string): void {
-    if (this.jhiActiveMenu === selectedLanguage) {
+    if (this.okohoActiveMenu === selectedLanguage) {
       this.renderer.addClass(this.el.nativeElement, 'active');
     } else {
       this.renderer.removeClass(this.el.nativeElement, 'active');

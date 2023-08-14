@@ -1,0 +1,114 @@
+<div class="content">
+<div class="container search">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="input-group justify-content-between  search-input">
+          <span class="input-group-text" data-password="false">
+          <fa-icon icon="search"></fa-icon>
+        </span>
+        <input [(ngModel)]="currentSearch" type="text" id="password" class="form-control border-top-0 border-left-0"
+               placeholder="Job title,keyword or company">
+
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="input-group justify-content-between  search-input">
+          <span class="input-group-text" data-password="false">
+          <fa-icon icon="location-pin"></fa-icon>
+        </span>
+        <input [(ngModel)]="bycity" type="text" id="postcode" class="form-control border-top-0 border-left-0"
+               placeholder="City or postcode">
+
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="input-group justify-content-between  search-input">
+          <span class="input-group-text" data-password="false">
+          <fa-icon icon="folder"></fa-icon>
+        </span>
+        <select id="categorie" [(ngModel)]="bycategory" class="form-control form-select border-top-0 border-left-0">
+          <option>All Categories</option>
+        </select>
+
+      </div>
+    </div>
+    <div class="col-md-3 d-grid gap-2">
+      <button (click)="search()" class="btn search-button btn-block">
+        Find Employers
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-center ">
+  <div class="btn-group mb-2">
+    <select type="button" class="btn btn-company dropdown-toggle">
+      <option>Company Size</option>
+      <option>Populary</option>
+      <option>Most view</option>
+    </select>
+  </div>
+  <div class="btn-group mb-2">
+    <select type="button" class="btn btn-company">
+      <option>Founded Date</option>
+      <option>Show 20</option>
+      <option>Show 50</option>
+    </select>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-6 showing-employer">
+      <p> <okoho-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage}">
+      </okoho-item-count> <span jhiTranslate="global.item-employer">Employers</span></p>
+    </div>
+    <div class="col-6">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="btn-group mb-2">
+          <select (change)="onChangeMost()" type="button" class="btn btn-most dropdown-toggle">
+            <option>Most Recent</option>
+            <option>Populary</option>
+            <option>Most view</option>
+          </select>
+        </div>
+        <div class="btn-group mb-2">
+          <select (change)="onChangeMost()" type="button" class="btn btn-most">
+            <option>Show 10</option>
+            <option>Show 20</option>
+            <option>Show 50</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div *ngIf="employers && employers.length > 0">
+  <div class="row">
+    <div class="col-3 job-card" *ngFor="let employer of employers; trackBy: trackId">
+      <div>
+        <span class="private">Private</span>
+        <span class="fulltime">Fulltime</span>
+      </div>
+      <div class="text-center">
+        <img class="logo" src="http://via.placeholder.com/640x360">
+      </div>
+      <div class="candiadte-name">
+        {{employer.entreprise}}
+      </div>
+      <div class="location">
+      <fa-icon icon="location"></fa-icon>
+      <span class="pr-3">London, UK</span>
+    </div>
+      <div class="catalyst">
+        <fa-icon icon="location"></fa-icon>
+        <span>Accounting / Finance</span>
+      </div>
+
+      <div class="d-grid  gap-2 mt-3">
+        <button class="btn btn-outline-primary">Open Jobs – 2</button>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>

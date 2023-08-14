@@ -1,0 +1,37 @@
+.breadcrumb,
+.breadcrumb * {
+  box-sizing: border-box;
+}
+.breadcrumb {
+
+}
+.frequently-asked-questions {
+  color: var(--color-two, #202124);
+  text-align: center;
+  font: 500 30px "Jost", sans-serif;
+}
+.home-faq {
+  color: var(--text-color, #696969);
+  text-align: center;
+  font: 400 15px "Jost", sans-serif;
+  margin-top: 25px;
+}
+.payments,
+.payments * {
+  box-sizing: border-box;
+}
+.payments {
+  color: var(--color-two, #202124);
+  text-align: left;
+  font: 500 26px "Jost", sans-serif;
+  margin-top: 10px;
+}
+.accordion .card-header:after {
+  font-family: 'FontAwesome';
+  content: "\f068";
+  float: right;
+}
+.accordion .card-header.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "\f067";
+}

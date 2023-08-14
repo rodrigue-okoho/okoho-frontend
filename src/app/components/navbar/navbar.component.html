@@ -1,1 +1,369 @@
-ici le header
+<!--<nav data-cy="navbar" class="navbar navbar-light navbar-expand-sm bg-light">
+  <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
+    <span class="logo-img"></span>
+  </a>
+  <a
+    class="navbar-toggler d-lg-none"
+    href="javascript:void(0);"
+    data-toggle="collapse"
+    data-target="#navbarResponsive"
+    aria-controls="navbarResponsive"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    (click)="toggleNavbar()"
+  >
+    <fa-icon icon="bars"></fa-icon>
+  </a>
+  <div class="navbar-collapse collapse" id="navbarResponsive"  [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
+    <ul class="navbar-nav nav ml-auto float-lg-end">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+          <span>
+            <span jhiTranslate="global.menu.home">Home</span>
+          </span>
+        </a>
+      </li>
+      <li  class="nav-item">
+       <a class="nav-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="/find-job" id="Find" (click)="collapseNavbar()">
+          <span jhiTranslate="global.menu.findjob">Find Jobs </span>
+        </a>
+      </li>
+      <li  class="nav-item">
+        <a class="nav-link"
+           routerLink="/employers"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           id="Employers"  (click)="collapseNavbar()">
+          <span jhiTranslate="global.menu.employer">Employers</span>
+        </a>
+      </li>
+      <li  class="nav-item">
+        <a class="nav-link" routerLink="/candidats"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           id="Candidates"  (click)="collapseNavbar()">
+          <span jhiTranslate="global.menu.candidate">Candidates</span>
+        </a>
+      </li>
+      <li  class="nav-item">
+        <a class="nav-link"  routerLink="/blog"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="collapseNavbar()" id="blog" data-cy="logout">
+          <span jhiTranslate="global.menu.blog">Blog </span>
+        </a>
+      </li>
+    </ul>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+     &lt;!&ndash; <div class="d-flex">
+        <ul class="navbar-nav me-auto">
+          <li ngbDropdown class="nav-item dropdown pointer" display="dynamic">
+        <a class="nav-link dropdown-toggle"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
+          <span>
+            <span jhiTranslate="global.menu.page">Pages</span>
+          </span>
+        </a>
+        <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
+          <li>
+            <a
+              class="dropdown-item" routerLink="/about"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              href="javascript:void(0);"
+              (click)="collapseNavbar()" jhiTranslate="global.menu.about">About</a>
+          </li>
+          <li>
+            <a
+              class="dropdown-item" routerLink="/contact"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              href="javascript:void(0);"
+              (click)="collapseNavbar()" jhiTranslate="global.menu.contact">Contact</a>
+          </li>
+          <li>
+            <a
+              class="dropdown-item" routerLink="/faq"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              href="javascript:void(0);"
+              (click)="collapseNavbar()" jhiTranslate="global.menu.faq">Faq</a>
+          </li>
+        </ul>
+      </li>
+      <li
+        ngbDropdown
+        class="nav-item dropdown pointer"
+        display="dynamic"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        *ngSwitchCase="true"
+      >
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu" data-cy="accountMenu">
+          <span *ngIf="!account?.imageUrl">
+            <fa-icon icon="user"></fa-icon>
+            <span jhiTranslate="global.menu.account.main">Account</span>
+          </span>
+          <span *ngIf="account?.imageUrl">
+            <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
+          </span>
+        </a>
+        <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="account-menu">
+          <li *ngSwitchCase="true">
+            <a class="dropdown-item" routerLink="/account/settings" routerLinkActive="active" (click)="collapseNavbar()" data-cy="settings">
+              <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
+              <span jhiTranslate="global.menu.account.settings">Settings</span>
+            </a>
+          </li>
+          <li *ngSwitchCase="true">
+            <a
+              class="dropdown-item"
+              routerLink="/account/password"
+              routerLinkActive="active"
+              (click)="collapseNavbar()"
+              data-cy="passwordItem"
+            >
+              <fa-icon icon="lock" [fixedWidth]="true"></fa-icon>
+              <span jhiTranslate="global.menu.account.password">Password</span>
+            </a>
+          </li>
+          <li *ngSwitchCase="true">
+            <a class="dropdown-item" (click)="logout()" id="logout" data-cy="logout">
+              <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
+              <span jhiTranslate="global.menu.account.logout">Sign out</span>
+            </a>
+          </li>
+          &lt;!&ndash;<li *ngSwitchCase="false">
+            <a class="dropdown-item" (click)="login()" id="login" data-cy="login">
+              <fa-icon icon="sign-in-alt" [fixedWidth]="true"></fa-icon>
+              <span jhiTranslate="global.menu.account.login">Sign in</span>
+            </a>
+          </li>
+          <li *ngSwitchCase="false">
+            <a class="dropdown-item" routerLink="account/register" routerLinkActive="active" (click)="collapseNavbar()" data-cy="register">
+              <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
+              <span jhiTranslate="global.menu.account.register">Register</span>
+            </a>
+          </li>&ndash;&gt;
+        </ul>
+      </li>
+      <li  class="nav-item float-end" *ngSwitchCase="false">
+        <a class="nav-link" (click)="signin.openModal();collapseNavbar()" id="login" data-cy="login">
+          <span jhiTranslate="global.menu.account.login">Login / Register</span>
+        </a>
+      </li>
+      <li  class="nav-item text-center justify-content-end">
+        <a class="post  nav-link" style="">
+          <span  class="JobPost nav-link pt-3" style="">Job Post</span>
+        </a>
+      </li></ul>
+      </div>&ndash;&gt;
+
+  </div>
+</nav>-->
+<nav class="navbar navbar-expand-sm navbar-light bg-success">
+  <div class="container-fluid">
+    <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
+      <span class="logo-img"></span>
+    </a>
+    <a
+      class="navbar-toggler d-lg-none"
+      href="javascript:void(0);"
+      data-toggle="collapse"
+      data-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="toggleNavbar()"
+    >
+      <fa-icon icon="bars"></fa-icon>
+    </a>
+  <!--  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>-->
+    <div class="collapse navbar-collapse " id="navbarResponsive"  [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+          <span>
+            <span jhiTranslate="global.menu.home">Home</span>
+          </span>
+          </a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }"
+             routerLink="/find-job" id="Find" (click)="collapseNavbar()">
+            <span jhiTranslate="global.menu.findjob">Find Jobs </span>
+          </a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link"
+             routerLink="/employers"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }"
+             id="Employers"  (click)="collapseNavbar()">
+            <span jhiTranslate="global.menu.employer">Employers</span>
+          </a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link" routerLink="/candidats"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }"
+             id="Candidates"  (click)="collapseNavbar()">
+            <span jhiTranslate="global.menu.candidate">Candidates</span>
+          </a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link"  routerLink="/blog"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }"
+             (click)="collapseNavbar()" id="blog" data-cy="logout">
+            <span jhiTranslate="global.menu.blog">Blog </span>
+          </a>
+        </li>
+        <li ngbDropdown class="nav-item dropdown pointer" display="dynamic">
+          <a class="nav-link dropdown-toggle"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }"
+             ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
+          <span>
+            <span jhiTranslate="global.menu.page">Pages</span>
+          </span>
+          </a>
+          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
+            <li>
+              <a
+                class="dropdown-item" routerLink="/about"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                href="javascript:void(0);"
+                (click)="collapseNavbar()" jhiTranslate="global.menu.about">About</a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item" routerLink="/contact"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                href="javascript:void(0);"
+                (click)="collapseNavbar()" jhiTranslate="global.menu.contact">Contact</a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item" routerLink="/faq"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                href="javascript:void(0);"
+                (click)="collapseNavbar()" jhiTranslate="global.menu.faq">Faq</a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item" routerLink="/term-condition"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                href="javascript:void(0);"
+                (click)="collapseNavbar()" jhiTranslate="global.menu.term-condition">term-condition</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li
+          ngbDropdown
+          class="nav-item dropdown pointer"
+          display="dynamic"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          *ngSwitchCase="true"
+        >
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);"
+             id="account-menu" data-cy="accountMenu">
+          <span *ngIf="!account?.imageUrl">
+            <fa-icon icon="user"></fa-icon>
+            <span jhiTranslate="global.menu.account.main">Account</span>
+          </span>
+            <span *ngIf="account?.imageUrl">
+            <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
+          </span>
+          </a>
+          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="account-menu">
+            <li *ngSwitchCase="true">
+              <a class="dropdown-item" routerLink="/account/settings" routerLinkActive="active" (click)="collapseNavbar()" data-cy="settings">
+                <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.account.settings">Settings</span>
+              </a>
+            </li>
+            <li *ngSwitchCase="true">
+              <a
+                class="dropdown-item"
+                routerLink="/account/password"
+                routerLinkActive="active"
+                (click)="collapseNavbar()"
+                data-cy="passwordItem"
+              >
+                <fa-icon icon="lock" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.account.password">Password</span>
+              </a>
+            </li>
+            <li *ngSwitchCase="true">
+              <a class="dropdown-item" (click)="logout()" id="logout" data-cy="logout">
+                <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.account.logout">Sign out</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="nav-item pt-lg-2"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          *ngSwitchCase="false">
+          <a class="nav-link"  href="javascript:void(0);" (click)="signin.openModal();collapseNavbar()" id="login" data-cy="login">
+            <span jhiTranslate="global.menu.account.login">Login / Register</span>
+          </a>
+        </li>
+        <li  class="nav-item text-center justify-content-end">
+          <a class="post  nav-link" style="">
+            <span  class="JobPost nav-link pt-3" style="">Job Post</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<app-signin #signin></app-signin>
+<!--
+<div class="header">
+  <div class="rectangle49" style=""></div>
+  <div class="logo" style="">
+    <div class="vector_tilte" style=""></div>
+    <div class="okoho" style="">OKOHO</div>
+    <div class="rigthNow" style="">rigth now!</div>
+  </div>
+  <nav class=" navbar nav navbar-expand-md bg-dark" style="">
+    <div class="navbar-collapse collapse HomeFindJobsEmployersCandidatesBlogPages" style="">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" routerLinkActive="active" >Home</li>
+        <li class="nav-item">Find Jobs </li>
+<li class="nav-item">Employers </li>
+        <li class="nav-item">Candidates </li>
+        <li class="nav-item">Blog </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="LoginRegister" style="">Login / Register</div>
+  <div class="post" style="">
+    <div class="Rectangle3" style=""></div>
+    <div class="JobPost" style="">Job Post</div>
+  </div>
+</div>
+-->

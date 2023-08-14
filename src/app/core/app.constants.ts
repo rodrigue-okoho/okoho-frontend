@@ -9,5 +9,5 @@ declare const __SERVER_API_URL__: string;
 
 export const VERSION = "5.2";
 //export const DEBUG_INFO_ENABLED = __DEBUG_INFO_ENABLED__;
-//export const SERVER_API_URL = __SERVER_API_URL__;
+export const SERVER_API_URL = ""
 export const TIMESTAMP = "Douala";

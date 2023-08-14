@@ -13,8 +13,10 @@ const routes: Routes = [
     }
   },
   {
-    path: '**',
-    redirectTo: ''
+    path: '',
+    data: {
+    },
+    loadChildren: () => import('./views/views-routing.module').then(m => m.ViewsRoutingModule),
   },
   ...LAYOUT_ROUTES,
 ];

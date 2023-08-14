@@ -11,6 +11,7 @@ h2,
 h3,
 h4 {
   font-weight: 300;
+  font-family: Jost sans-serif;
 }
 
 /* Increase contrast of links to get 100% on Lighthouse Accessability Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
@@ -18,7 +19,9 @@ a {
   color: #533f03;
   font-weight: bold;
 }
-
+body{
+  background: #fff;
+}
 a:hover {
   color: #533f03;
 }
@@ -33,7 +36,7 @@ a:not([href]):not([tabindex]):hover.dropdown-item {
 
 .jh-card {
   padding: 1.5%;
-  margin-top: 20px;
+  margin-top: 5px;
   border: none;
 }
 

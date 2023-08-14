@@ -1,0 +1,203 @@
+<div class="container-fluid content">
+  <div class="container search">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="input-group justify-content-between  search-input">
+          <span class="input-group-text" data-password="false">
+          <fa-icon icon="search"></fa-icon>
+        </span>
+          <input [(ngModel)]="currentSearch"  type="text" id="password" class="form-control border-top-0 border-left-0"
+                 placeholder="Job title,keyword or company">
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-group justify-content-between  search-input">
+          <span class="input-group-text" data-password="false">
+          <fa-icon icon="location-pin"></fa-icon>
+        </span>
+          <input [(ngModel)]="bycity"  type="text" id="postcode" class="form-control border-top-0 border-left-0"
+                 placeholder="City or postcode">
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-group justify-content-between  search-input">
+          <span class="input-group-text" data-password="false">
+          <fa-icon icon="folder"></fa-icon>
+        </span>
+          <select [(ngModel)]="bycategory"  id="categorie" class="form-control form-select border-top-0 border-left-0">
+            <option>All Categories</option>
+          </select>
+
+        </div>
+      </div>
+      <div class="col-md-3 d-grid gap-2">
+        <button (click)="search()" class="btn search-button btn-block">
+          Find Jobs
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-4 pb-4">
+  <div class="row">
+    <div class="col-md-3 siderbar">
+      <div class="job-type">
+        <div class="freelance-full-time-internship-part-time-temporary">
+          <h5 class="date-posted">Job type</h5>
+          <div class="form-check form-switch">
+            <input (change)="searchByJobType($event)" class="form-check-input" type="checkbox"
+                   id="freelance" value="freelance" checked>
+            <label class="form-check-label ms-2" for="freelance">Freelance</label>
+          </div>
+          <div class="form-check form-switch">
+            <input (change)="searchByJobType($event)" class="form-check-input" type="checkbox" value="fulltime" id="fulltime">
+            <label class="form-check-label ms-2" for="fulltime">Full Time</label>
+          </div>
+          <div class="form-check form-switch">
+            <input (change)="searchByJobType($event)" class="form-check-input" type="checkbox" value="internship" id="Internship">
+            <label class="form-check-label ms-2" for="Internship">Internship</label>
+          </div>
+          <div class="form-check form-switch">
+            <input (change)="searchByJobType($event)" class="form-check-input" type="checkbox" value="parttime" id="parttime">
+            <label class="form-check-label ms-2" for="parttime">Part Time</label>
+          </div>
+          <div class="form-check form-switch mt-1">
+            <input (change)="searchByJobType($event)" class="form-check-input" type="checkbox" value="temporary" id="Temporary">
+            <label class="form-check-label ms-2" for="Temporary">Temporary</label>
+          </div>
+        </div>
+        <div class="freelance-full-time-internship-part-time-temporary">
+          <div class="date-posted">Date Posted</div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last_hour" id="last_hour" checked>
+            <label class="form-check-label ms-2" for="last_hour">
+              Last Hour
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last24_hour" id="last24_hour">
+            <label class="form-check-label ms-2" for="last24_hour">
+              Last 24 Hours
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last7_day" id="last7_day">
+            <label class="form-check-label ms-2" for="last7_day">
+              Last 7 Days
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last14_day" id="last14_day">
+            <label class="form-check-label ms-2" for="last14_day">
+              Last 14 Days
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last30_day" id="last30_day">
+            <label class="form-check-label ms-2" for="last30_day">
+              Last 30 Days
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="all" id="all">
+            <label class="form-check-label ms-2" for="all">
+              All
+            </label>
+          </div>
+        </div>
+        <div class="freelance-full-time-internship-part-time-temporary">
+          <div class="date-posted">Experience Level</div>
+          <div class="form-check">
+            <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="all" id="flexCheckCheckedDisabled">
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              All
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="intership2" id="intership2">
+            <label class="form-check-label ms-2" for="intership2">
+              Internship2
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="entry_level" id="entry_level">
+            <label class="form-check-label ms-2" for="entry_level">
+              Entry level
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="Associate2" id="Associate2">
+            <label class="form-check-label ms-2" for="Associate2">
+              Associate2
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="Mid-Senior level4" id="Associate">
+            <label class="form-check-label ms-2" for="Associate">
+              Mid-Senior level4
+            </label>
+          </div>
+        </div>
+        <div>
+          <label for="example-range" class="form-label">Salary</label>
+          <input (change)="searchBySalary($event)" class="form-range" id="example-range" type="range" name="range" min="500" max="10000">
+        </div>
+        <div class="freelance-full-time-internship-part-time-temporary">
+          <div class="date-posted">Tags</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-6 showing-employer">
+          <p> <okoho-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage}">
+          </okoho-item-count> <span jhiTranslate="global.item-job">Jobs</span></p>
+        </div>
+        <div class="col-6">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <div class="btn-group mb-2">
+              <select type="button" class="btn btn-most dropdown-toggle">
+                <option>Most Recent</option>
+                <option>Populary</option>
+                <option>Most view</option>
+              </select>
+            </div>
+            <div class="btn-group mb-2">
+              <select type="button" class="btn btn-most">
+                <option>Show 10</option>
+                <option>Show 20</option>
+                <option>Show 50</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div *ngIf="jobs && jobs.length > 0">
+      <div class="row">
+        <div class="col-6 job-card" *ngFor="let job of jobs; trackBy: trackId">
+          <div>
+            <span class="private">Private</span>
+            <span class="fulltime">Fulltime</span>
+          </div>
+          <div class="text-center">
+              <img class="logo" src="favicon.ico">
+          </div>
+          <div class="catalyst">
+            <span>{{job.description}}</span></div>
+
+          <div class="software-engineer-android-libraries">
+            {{job.title}}
+          </div>
+          <div class="location"><fa-icon icon="location"></fa-icon> <span>London, UK</span></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+</div>

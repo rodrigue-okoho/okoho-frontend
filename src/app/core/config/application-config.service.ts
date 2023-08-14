@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApplicationConfigService {
-  private endpointPrefix = '';
+  private endpointPrefix = `${environment.apiUrl}/`;
 
   setEndpointPrefix(endpointPrefix: string): void {
     this.endpointPrefix = endpointPrefix;

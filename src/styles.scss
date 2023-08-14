@@ -2,3 +2,37 @@
 @import "./assets/scss/bootstrap-variables.scss";
 @import "./assets/scss/global.scss";
 
+.col-6 {
+    flex: 0 0 auto;
+    width: 48% !important;
+  }
+  .col-4{
+    flex: 0 0 auto;
+    width: 32.1222% !important;
+  }
+  .col-3 {
+    flex: 0 0 auto;
+    width: 24% !important;
+  }
+.title-content{
+  border-radius: 8px;
+  border: 1px solid var(--border-color, #ECEDF2);
+  background: var(--color-bg-2, #F0F5F7);
+  min-height: 165px;
+  box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+  h4{
+    color: var(--color-two, #202124);
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  h5{
+    color: var(--text-color, #696969);
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

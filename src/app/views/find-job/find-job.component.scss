@@ -1,0 +1,180 @@
+.breadcrumb {
+  color: #2C5697;
+  background-color: #fff;
+}
+
+.search,
+.search * {
+  box-sizing: border-box;
+}
+
+.search {
+  background: #ffffff;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: var(--border-color, #ecedf2);
+  border-width: 1px;
+  min-height: 100px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  box-shadow: var(
+      --shadow-1-box-shadow,
+      0px 6px 15px 0px rgba(64, 79, 104, 0.05)
+  );
+}
+
+.search-input {
+  height: 100px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  input, span, select {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background-color: #ffffff;
+    font: 400 15px "Jost", sans-serif;
+  }
+;
+  &:after{
+    height: 50px;
+    width: 1px;
+    border: 1px solid #2c5697;
+    content: "";
+    margin-top: 20px;
+  }
+
+}
+
+.search-button {
+  height: 100px;
+  background: var(--color-one, #2c5697);
+  color: #ffffff;
+}
+
+.siderbar,
+.siderbar * {
+  box-sizing: border-box;
+}
+
+.siderbar {
+  background: var(--color-bg, #f5f7fc);
+  border-radius: 8px;
+  min-height: 50px;
+}
+
+.job-type,
+.job-type * {
+  box-sizing: border-box;
+}
+
+.job-type {
+  min-height: 50px;
+}
+
+.freelance-full-time-internship-part-time-temporary {
+  color: var(--text-color, #696969);
+  text-align: left;
+  margin-top: 10px;
+}
+
+.date-posted {
+  color: var(--color-two, #202124);
+  text-align: left;
+  font: 500 18px "Jost", sans-serif;
+}
+
+.job-card {
+  padding: 1.5%;
+  margin: 5px;
+  background: #ffffff;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: var(--border-color, #ecedf2);
+  border-width: 1px;
+
+  .logo,
+  .logo * {
+    box-sizing: border-box;
+  }
+
+  .logo {
+    text-align: center;
+    width: 90px;
+    height: 90px;
+    background: #262e50;
+    border-radius: 50%;
+  }
+
+  .software-engineer-android-libraries,
+  .software-engineer-android-libraries * {
+    box-sizing: border-box;
+  }
+
+  .software-engineer-android-libraries {
+    color: var(--color-two, #202124);
+    text-align: center;
+    font: 500 16px "Jost", sans-serif;
+  }
+
+  .location {
+    color: var(--text-color, #696969);
+    text-align: center;
+    font: 400 14px "Jost", sans-serif;
+  }
+
+  .private {
+    background: var(--color-four, #34a853);
+    border-radius: 0px 60px 60px 0px;
+    opacity: 0.33000000596046448;
+    color: var(--color-four, #333);
+    text-align: left;
+    font: 400 13px "Jost", sans-serif;
+    padding: 5px;
+  }
+
+  .fulltime {
+    background: var(--color-one, #2c5697);
+    border-radius: 60px;
+    text-align: right;
+    font: 400 13px "Jost", sans-serif;
+    float: right;
+    opacity: 0.40000000596046448;
+    padding: 5px;
+  }
+  .catalyst {
+    color: var(--color-four, #34a853);
+    text-align: center;
+    font: 400 14px "Jost", sans-serif;
+  }
+
+}
+.showing-employer {
+  text-align: left;
+  font: 400 15px "Jost", sans-serif;
+  position: relative;
+}.btn-most{
+   background: var(--color-bg-2, #f0f5f7);
+   border-radius: 8px;
+   height: 45px;
+   color: var(--text-color, #696969);
+   text-align: left;
+   font: 400 14px "Jost", sans-serif;
+ }
+.btn-company{
+  background: var(--color-one, #f0f5f7);
+  border-radius: 8px;
+  width: 160px;
+  height: 45px;
+  color: var(--color-one, #2c5697);
+  text-align: left;
+  font: 400 14px "Jost", sans-serif;
+}
+.content{
+  background: #f5f7fc;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+
+
