@@ -14,20 +14,22 @@
     flex: 0 0 auto;
     width: 24% !important;
   }
-.title-content{
+.title-content {
   border-radius: 8px;
   border: 1px solid var(--border-color, #ECEDF2);
   background: var(--color-bg-2, #F0F5F7);
   min-height: 165px;
   box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
-  h4{
+
+  h4 {
     color: var(--color-two, #202124);
     text-align: center;
     font-size: 30px;
     font-style: normal;
     font-weight: 500;
   }
-  h5{
+
+  h5 {
     color: var(--text-color, #696969);
     text-align: center;
     font-size: 15px;
@@ -35,4 +37,224 @@
     font-weight: 400;
     line-height: normal;
   }
+
+  * {
+
+    width: 100%;
+  }
+
+  .footer {
+    background-color: #2C5697;
+    width: 100%;
+    padding: 20px 10px;
+    overflow: hidden;
+    position: sticky;
+    top: 100%;
+    box-sizing: border-box;
+    box-shadow: #2C5697;
+  }
+
+  #logo {
+
+    width: 201.64715576171875px;
+    height: 65.99993896484375px;
+    top: 6749px;
+    left: 314px;
+    padding-left: 30px;
+
+  }
+
+  #form-email {
+    z-index: 10;
+    height: 45px;
+    border-radius: 10px;
+
+  }
+
+  .input-group {
+    width: 280px;
+  }
+
+  #button-addon2 {
+    z-index: 100;
+    width: 35px;
+    left: -40px;
+    top: 5px;
+    height: 35px;
+    border-radius: 10px;
+
+  }
+
+  .single-box {
+    line-height: 2.1;
+  }
+
+  h6 {
+
+    font-size: 10px;
+    margin-left: 32px;
+    font-weight: 700;
+  }
+
+  .footer-first {
+
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    height: 80%;
+
+  }
+
+  .footer-second {
+    background-color: #2C5697;
+    width: 100%;
+    height: 5%;
+    padding-left: 150px;
+    padding-right: 90px;
+
+  }
+
+  .single-box i {
+
+    margin-right: 20px;
+    font-size: 16px;
+  }
+
+  .icons {
+    width: 13px;
+    height: 15.57373046875px;
+    top: 7122.6904296875px;
+    left: 1590px;
+
+  }
+
+  .bi-facebook {
+    width: 8px;
+    height: 15.57373046875px;
+    top: 7122.6904296875px;
+    left: 1444px;
+    font-family: Font Awesome 5 Brands;;
+    font-size: 14px;;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+
+  }
+
+  .bi-twitter {
+
+
+    width: 14px;
+    height: 15.57373046875px;
+    top: 7122.6904296875px;
+    left: 1489px;
+    font-family: Font Awesome 5 Brands;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+
+
+  }
+
+  .bi-instagram {
+
+    width: 13px;
+    height: 15.57373046875px;
+    top: 7122.6904296875px;
+    left: 1540px;
+    font-family: Font Awesome 5 Brands;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  .bi-linkedin {
+
+    width: 13px;
+    height: 15.57373046875px;
+    top: 7122.6904296875px;
+    left: 1590px;
+  }
+
+  .btn-danger {
+
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 6846px;
+    left: 1553px;
+    border-radius: 8px;
+    font-family: Font Awesome 5 Brands;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+
+  }
+
+  ul li {
+
+    list-style-type: none;
+
+  }
+
+  #iLogo {
+    width: 201.64715576171875px;
+    height: 65.99993896484375px;
+    top: 6749px;
+    left: 314px;
+
+  }
+
+  h6 {
+
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: small;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: smaller;
+    cursor: pointer;
+
+  }
+
+  hr {
+    color: #ffffff;
+  }
+
+  @media screen and (min-width: 480px) {
+    * {
+      box-sizing: border-box;
+    }
+
+
+  }
+
+
+  @media screen and (min-width: 768px) {
+
+
+  }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    .footer-second {
+
+      display: flex;
+    }
+    .footer-first {
+      width: 100%;
+
+    }
+
+  }
 }
+
