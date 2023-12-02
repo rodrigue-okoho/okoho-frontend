@@ -32,6 +32,9 @@ export class AccountService {
   authenticate(identity: Account | null): void {
     this.userIdentity = identity;
     this.authenticationState.next(this.userIdentity);
+    if (!identity) {
+      this.accountCache$ = null;
+    }
   }
 
   hasAnyAuthority(authorities: string[] | string): boolean {
@@ -41,31 +44,28 @@ export class AccountService {
     if (!Array.isArray(authorities)) {
       authorities = [authorities];
     }
-    return this.userIdentity.authorities.some((authority: string) => authorities.includes(authority));
+    return this.userIdentity.roles.some((authority: string) => authorities.includes(authority));
   }
 
   identity(force?: boolean): Observable<Account | null> {
-    if (!this.accountCache$ || force || !this.isAuthenticated()) {
+    if (!this.accountCache$ || force) {
       this.accountCache$ = this.fetch().pipe(
-        catchError(() => of(null)),
-        tap((account: Account | null) => {
+        tap((account: Account) => {
           this.authenticate(account);
 
           // After retrieve the account info, the language will be changed to
           // the user's preferred language configured in the account setting
           // unless user have choosed other language in the current session
-          if (!this.sessionStorageService.retrieve('locale') && account) {
+          if (!this.stateStorageService.getLocale()) {
             this.translateService.use(account.langKey);
           }
 
-          if (account) {
-            this.navigateToStoredUrl();
-          }
+          this.navigateToStoredUrl();
         }),
-        shareReplay()
+        shareReplay(),
       );
     }
-    return this.accountCache$;
+    return this.accountCache$.pipe(catchError(() => of(null)));
   }
 
   isAuthenticated(): boolean {

@@ -1,0 +1,341 @@
+<div class="layout">
+  <div class="vertical-layout row">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <app-siderbar-candidate></app-siderbar-candidate>
+    </div>
+    <div class="col-md-9 col-sm-12 col-xs-12">
+      <section class="user-dashboard">
+        <div class="dashboard-outer">
+          <div class="upper-title-box">
+            <h3>My Resume</h3>
+            <div class="text">Ready to jump back in?</div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- Ls widget -->
+              <div class="ls-widget">
+                <div class="tabs-box">
+                  <div class="widget-title">
+                    <h4>My Profile</h4>
+                  </div>
+
+                  <div class="widget-content">
+                    <form class="default-form">
+                      <div class="row">
+                        <!-- Input -->
+                     <!--   <div class="form-group col-lg-6 col-md-12">
+                          <label>Select Your CV</label>
+                          <select class="form-select chosen-select" style="" >
+                            <option *ngFor="let cv of candidat?.cvs">{{cv.name}}</option>
+                          </select>
+
+                        </div>-->
+
+                        <!-- About Company -->
+                        <div class="form-group col-lg-12 col-md-12">
+                          <label>Description</label>
+                          <textarea placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present">
+                            {{candidat?.description}}
+                          </textarea>
+                        </div>
+
+                        <div class="form-group col-lg-12 col-md-12">
+                          <!-- Resume / Education -->
+                          <div class="resume-outer">
+                            <div class="upper-title">
+                              <h4>Education</h4>
+                              <button class="add-info-btn"  (click)="openLg(content)"><fa-icon icon="plus"></fa-icon> Add Aducation</button>
+                            </div>
+                            <!-- Resume BLock -->
+                            <div class="resume-block" *ngFor="let education of candidat?.educations">
+                              <div class="inner">
+                                <span class="name">{{education.libelle.charAt(0)}}</span>
+                                <div class="title-box">
+                                  <div class="info-box">
+                                    <h3>{{education.libelle}}</h3>
+                                    <span>{{education.location}}</span>
+                                  </div>
+                                  <div class="edit-box">
+                                    <span class="year">{{education.begin|date:'yyyy'}} - {{education.begin|date:'yyyy'}}</span>
+                                    <div class="edit-btns">
+                                      <button><fa-icon icon="edit"></fa-icon></button>
+                                      <button><fa-icon icon="trash"></fa-icon>
+                                       </button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="text">{{education.description}}</div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <!-- Resume / Work & Experience -->
+                          <div class="resume-outer theme-blue">
+                            <div class="upper-title">
+                              <h4>Work &amp; Experience</h4>
+                              <button class="add-info-btn" (click)="openLg(contentWork)"><fa-icon icon="plus"></fa-icon> Add Work</button>
+                            </div>
+                            <!-- Resume BLock -->
+                            <div class="resume-block" *ngFor="let work of candidat?.works">
+                              <div class="inner">
+                                <span class="name">{{work.libelle.charAt(0)}}</span>
+                                <div class="title-box">
+                                  <div class="info-box">
+                                    <h3>{{work.libelle}}</h3>
+                                    <span>{{work.location}}</span>
+                                  </div>
+                                  <div class="edit-box">
+                                    <span class="year">{{work.begin|date:'yyyy'}} - {{work.end|date:'yyyy'}}</span>
+                                    <div class="edit-btns">
+                                      <button><fa-icon icon="edit"></fa-icon></button>
+                                      <button><fa-icon icon="trash"></fa-icon></button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="text">
+                                  {{work.description}}
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="form-group col-lg-6 col-md-12">
+                          <div class="uploading-outer">
+                            <div class="uploadButton">
+                              <input class="uploadButton-input" type="file" name="attachments[]" accept="image/*, application/pdf" id="upload" multiple="">
+                              <label class="uploadButton-button ripple-effect" for="upload">Add Portfolio</label>
+                              <span class="uploadButton-file-name"></span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group col-lg-12 col-md-12">
+                          <!-- Resume / Awards -->
+                          <div class="resume-outer theme-yellow">
+                            <div class="upper-title">
+                              <h4>Awards</h4>
+                              <button class="add-info-btn" (click)="openLg(contentAward)"><fa-icon icon="plus"></fa-icon> Awards</button>
+                            </div>
+                            <!-- Resume BLock -->
+                            <div class="resume-block"  *ngFor="let award of candidat?.awards">
+                              <div class="inner">
+                                <span class="name">{{award.libelle.charAt(0)}}</span>
+                                <div class="title-box">
+                                  <div class="info-box">
+                                    <h3>{{award.libelle}}</h3>
+                                    <span>{{award.location}}</span>
+                                  </div>
+                                  <div class="edit-box">
+                                    <span class="year">{{award.begin|date:'yyyy'}} - {{award.begin|date:'yyyy'}}</span>
+                                    <div class="edit-btns">
+                                      <button><fa-icon icon="edit"></fa-icon></button>
+                                      <button><fa-icon icon="trash"></fa-icon></button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="text">
+                                  {{award.description}}
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <!-- Search Select -->
+                      <!--  <div class="form-group col-lg-6 col-md-12">
+                          <label>Skills </label>
+                          <select data-placeholder="Categories" class="chosen-select multiple" multiple="" tabindex="-1" style="">
+                            <option value="Banking">Banking</option>
+                            <option value="Digital&amp;Creative">Digital &amp; Creative</option>
+                            <option value="Retail">Retail</option>
+                            <option value="Human Resources">Human Resources</option>
+                            <option value="Management">Management</option>
+                          </select>
+
+                        </div>-->
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-12 col-md-12">
+                          <button class="theme-btn btn-style-one">Save</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title">Add education</h6>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+ <form class="form-bookmark needs-validation" [formGroup]="form" id="bookmark-form"
+       >
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="con-intitule">Intitule</label>
+              <input formControlName="libelle" class="form-control"  id="con-intitule" type="text"
+                     placeholder="Bachlors in Fine Arts"
+                     required="" autocomplete="off">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="con-phone">Location</label>
+              <input formControlName="location"  class="form-control" id="con-phone" type="text"
+                     placeholder="Modern College"
+                     required="" autocomplete="off">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="con-phone">Debut </label>
+              <input formControlName="begin" class="form-control" id="con-phone" type="date"
+                     placeholder="2000/09/12"
+                     required="" autocomplete="off">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="con-phone">Fin</label>
+              <input formControlName="end" class="form-control" id="con-phone" type="date"
+                     placeholder=""
+                     required="" autocomplete="off">
+            </div>
+            <div class="form-group col-lg-12 col-md-12">
+              <label>Description</label>
+              <textarea formControlName="description" class="form-control" rows="4" placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present">
+
+                          </textarea>
+            </div>
+          </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    <button class="btn btn-secondary mr-1  pull-right" type="button" (click)="saveEducation()"
+    >Save</button>
+  </div>
+</ng-template>
+<ng-template #contentAward let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title">Add Award</h6>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="form-bookmark needs-validation" [formGroup]="form" id="bookmark-form">
+
+
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="con-intitule">Intitule</label>
+          <input formControlName="libelle" class="form-control"  id="con-intitule" type="text"
+                 placeholder="Perfect Attendance Programs"
+                 required="" autocomplete="off">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="con-phone">Location</label>
+          <input formControlName="location"  class="form-control" id="con-phone" type="text"
+                 placeholder=""
+                 required="" autocomplete="off">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="con-phone">Debut </label>
+          <input formControlName="begin" class="form-control" id="con-phone" type="date"
+                 placeholder=""
+                 required="" autocomplete="off">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="con-phone">Fin</label>
+          <input formControlName="end" class="form-control" id="con-phone" type="date"
+                 placeholder=""
+                 required="" autocomplete="off">
+        </div>
+        <div class="form-group col-lg-12 col-md-12">
+          <label>Description</label>
+          <textarea formControlName="description" class="form-control" rows="4" placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present">
+
+                          </textarea>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    <button class="btn btn-secondary mr-1  pull-right" type="button" (click)="saveAward()"
+
+    >Save</button>
+  </div>
+</ng-template>
+<ng-template #contentWork let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title">Add work experience</h6>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="form-bookmark needs-validation" [formGroup]="form" id="bookmark-form">
+
+
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="con-intitule">Intitule</label>
+          <input formControlName="libelle" class="form-control"  id="con-intitule" type="text"
+                 placeholder="Product Designer"
+                 required="" autocomplete="off">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="con-phone">Location</label>
+          <input formControlName="location"  class="form-control" id="con-phone" type="text"
+                 placeholder="Spotify Inc."
+                 required="" autocomplete="off">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="con-phone">Debut </label>
+          <input formControlName="begin" class="form-control" id="con-phone" type="date"
+                 placeholder=""
+                 required="" autocomplete="off">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="con-phone">Fin</label>
+          <input formControlName="end" class="form-control" id="con-phone" type="date"
+                 placeholder=""
+                 required="" autocomplete="off">
+        </div>
+        <div class="form-group col-lg-12 col-md-12">
+          <label>Description</label>
+          <textarea formControlName="description" class="form-control" rows="4"
+                    placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present">
+
+                          </textarea>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    <button class="btn btn-secondary mr-1  pull-right" type="button" (click)="saveWork()"
+
+    >Save</button>
+  </div>
+</ng-template>

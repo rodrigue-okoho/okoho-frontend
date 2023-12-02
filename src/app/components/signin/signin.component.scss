@@ -1,4 +1,44 @@
 
+.bottom-box a{
+  color: #2C5697;
+}
+.blocker {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #000;
+  background-color: rgba(0,0,0,0.75);
+  text-align: center;
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.auth-spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  border-top-color: #000000;
+  animation: spinner 0.8s linear infinite;
+}
+a{
+  color: #77838F;
+}
 /* ========= min and max scss for 1200 to 1366 screen ========= */
 @media screen and (max-width: 1660px) {
   .login_password {
@@ -121,89 +161,3 @@
     word-wrap: break-word
   }
 }
-/*
-.login_form{
-  width: 420px; height: 383px; left: 40px; top: 101px; position: absolute
-}
-.popup{
-  width: 500px; height: 630px; position: relative
-}
-.social{
-  width: 420px; height: 45px; left: 40px; top: 554px; position: absolute
-}
-.logInViaFacebook{
-  width: 200px; height: 45px; left: 0px; top: 0px; position: absolute;
-  background: white; border-radius: 8px; border: 0.50px #2C5697 solid ;
-  .btn_facebook{
-    position: absolute; color: #2C5697; font-size: 14px;
-    font-family: Jost; font-weight: 400; word-wrap: break-word;
-  }
-
-}
-.logInViaGoogle{
-  width: 200px; height: 45px; left: 220px; top: 0px; position: absolute;
-  background: white; border-radius: 8px; border: 0.50px #D93025 solid;
-  .btn_google{
-   position: absolute; color: #D93025; font-size: 14px;
-    font-family: Jost; font-weight: 400; word-wrap: break-word
-  }
-}
-.login_title{
-  left: 159px; top: 36px; position: absolute; text-align: center; color: #202124; font-size: 24px;
-  font-family: Jost; font-weight: 500; word-wrap: break-word
-}
-.icon-facebook{
-  width: 8px; height: 15.57px; left: 27px; top: 15.69px;
-  position: absolute; color: #2C5697; font-size: 14px;
-  font-family: Font Awesome 5 Brands;
-  font-weight: 400; text-transform: capitalize; word-wrap: break-word
-}
-.icon-google{
-  width: 8px; height: 15.57px;
-  margin-left: 5px;
-  margin-top: 5px;
-  position: absolute; color: #D93025; font-size: 14px;
-  font-family: Font Awesome 5 Brands;
-  font-weight: 400; text-transform: capitalize; word-wrap: break-word
-}
-.logIn{
-  width: 420px; height: 60px;
-  position: absolute;
-  background: #2C5697;
-  border-radius: 8px;
-  color: white;
-  font-size: 15px;
-  font-family: Jost;
-  font-weight: 400;
-  margin-top: 300px;
-  word-wrap: break-word
-}
-.login_input{
-  width: 420px; height: 60px; left: 0px; top: 26px;
-  position: absolute; background: white; box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
-  border-radius: 8px; border: 0.50px #2C5697 solid;
-  position: absolute; color: #696969; font-size: 15px;
-  font-family: Jost; font-weight: 400; word-wrap: break-word
-}
-.login_label{
-  left: 0px; top: 0px; position: absolute; color: #202124; font-size: 15px;
-  font-family: Jost; font-weight: 400; word-wrap: break-word
-}
-.login_label_pass{
-top: 130px; position: absolute; color: #202124; font-size: 15px;
-  font-family: Jost; font-weight: 400; word-wrap: break-word
-}
-.login_password{
-  width: 420px; height: 60px;position: absolute;
-  background: #F0F5F7; border-radius: 8px;
-  top: 160px;color: #696969; font-size: 15px;
-  font-family: Jost; font-weight: 400; word-wrap: break-word
-}
-.rememberMe{
-  left: 29px; top: 234px; position: absolute; color: #696969; font-size: 14px;
-  font-family: Jost; font-weight: 400; word-wrap: break-word
-}
-.checkbox{
-  width: 20px; height: 20px; left: 0px; top: 232px; position: absolute; background: white; border-radius: 4px; border: 0.50px #ECEDF2 solid
-}
-*/

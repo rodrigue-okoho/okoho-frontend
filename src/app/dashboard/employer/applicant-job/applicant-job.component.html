@@ -1,0 +1,207 @@
+<div class="layout">
+  <div class="vertical-layout row">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <app-siderbar-recruteur></app-siderbar-recruteur>
+    </div>
+    <div class="col-md-9 col-sm-12 col-xs-12">
+      <section class="user-dashboard">
+        <div class="dashboard-outer">
+          <div class="upper-title-box">
+            <h3>All Aplicants</h3>
+            <div class="text">Ready to jump back in?</div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- Ls widget -->
+              <div class="ls-widget">
+                <div class="tabs-box">
+                  <div class="widget-title">
+                    <h4>Applicant</h4>
+
+                    <div class="chosen-outer">
+                      <!--Tabs Box-->
+                      <!--<ngx-select [placeholder]="placehoder" [items]="jobs" (select)="changeJob()" class="chosen-select"
+                                  optionValueField="id" optionTextField="title" ></ngx-select>-->
+                      <ng-select (change)="changeJob($event)" class="chosen-select" placeholder="Select job">
+
+                        <ng-option *ngFor="let job of jobs" [value]="job">
+                          {{job.title}}
+                        </ng-option>
+                      </ng-select>
+
+                      <!--Tabs Box-->
+                      <select class="chosen-select form-select">
+                        <option>All Status</option>
+                        <option>Last 12 Months</option>
+                        <option>Last 16 Months</option>
+                        <option>Last 24 Months</option>
+                        <option>Last 5 year</option>
+                      </select>
+                  </div></div>
+
+                  <div class="widget-content">
+
+                    <div class="tabs-box">
+                      <div class="aplicants-upper-bar">
+                        <h6>{{itemJob?.title}}</h6>
+                        <ul class="aplicantion-status tab-buttons clearfix">
+
+                        <li class="tab-btn active-btn totals" data-tab="#totals" (click)="changeStatus('all')">Total(s): 6</li>
+                          <li class="tab-btn approved"><a (click)="changeStatus('approuve')">Approved: 2</a></li>
+                          <li class="tab-btn rejected" (click)="changeStatus('reject')">Rejected(s): 4</li>
+                        </ul>
+                      </div>
+                      <div class="tabs-content">
+
+                          <div class="row">
+                            <!-- Candidate block three -->
+                            <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12"  *ngFor="let appy of applies">
+                              <div class="inner-box">
+                                <div class="content">
+                                  <figure class="image">
+                                    <img *ngIf="appy?.candidat.userAccount.imageUrl == null"
+                                         src="assets/images/avatar/image-place-holder.png" alt="Image">
+                                    <img src="{{appy?.candidat.userAccount.imageUrl}}" alt="">
+                                  </figure>
+                                  <h4 class="name"><a href="#">{{appy.candidat.userAccount.firstName}} </a></h4>
+                                  <ul class="candidate-info">
+                                    <li class="designation">{{appy.candidat.jobTitle}}</li>
+                                    <li><span class="icon flaticon-map-locator"></span>
+                                      <fa-icon icon="map-location"></fa-icon>{{appy.candidat.town}}, {{appy.candidat.country}}</li>
+                                    <li><fa-icon icon="money-bill"></fa-icon> $99 / hour</li>
+                                  </ul>
+                                  <ul class="post-tags">
+                                    <li><a href="#">App</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Digital</a></li>
+                                  </ul>
+                                </div>
+                                <div class="option-box">
+                                  <ul class="option-list">
+                                    <li><button data-text="View Aplication"><fa-icon icon="eye"></fa-icon></button></li>
+                                    <li><button data-text="Approve Aplication"><fa-icon icon="check"></fa-icon></button></li>
+                                    <li><button data-text="Reject Aplication"><fa-icon icon="times"></fa-icon></button></li>
+                                    <li><button data-text="Delete Aplication"><fa-icon icon="trash"></fa-icon></button></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                      </div>
+                      <!--<tabset>
+                      <tab heading="Total(s): {{totalItems}}" class="aplicants-upper-bar" (tap)="changeStatus('all')">
+                        <div class="tabs-content">
+                          <div class="row">
+                            &lt;!&ndash; Candidate block three &ndash;&gt;
+                            <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12" *ngFor="let appy of applies">
+                              <div class="inner-box">
+                                <div class="content">
+                                  <figure class="image"><img src="assets/images/1.png" alt=""></figure>
+                                  <h4 class="name"><a href="#">{{appy.candidat.userAccount.firstName}} </a></h4>
+                                  <ul class="candidate-info">
+                                    <li class="designation">{{appy.candidat.jobTitle}}</li>
+                                    <li><span class="icon flaticon-map-locator"></span>
+                                      <fa-icon icon="map-location"></fa-icon>{{appy.candidat.town}}, {{appy.candidat.country}}</li>
+                                    <li><fa-icon icon="money-bill"></fa-icon> $99 / hour</li>
+                                  </ul>
+                                  <ul class="post-tags">
+                                    <li><a href="#">App</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Digital</a></li>
+                                  </ul>
+                                </div>
+                                <div class="option-box">
+                                  <ul class="option-list">
+                                    <li><button data-text="View Aplication"><fa-icon icon="eye"></fa-icon></button></li>
+                                    <li><button data-text="Approve Aplication"><fa-icon icon="check"></fa-icon></button></li>
+                                    <li><button data-text="Reject Aplication"><fa-icon icon="times"></fa-icon></button></li>
+                                    <li><button data-text="Delete Aplication"><fa-icon icon="trash"></fa-icon></button></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </tab>
+                      <tab heading="Approved: 2"  (tap)="changeStatus('approve')">
+                        <div class="tabs-content">
+                          <div class="row">
+                            &lt;!&ndash; Candidate block three &ndash;&gt;
+                            <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12" *ngFor="let appy of applies">
+                              <div class="inner-box">
+                                <div class="content">
+                                  <figure class="image"><img src="assets/images/1.png" alt=""></figure>
+                                  <h4 class="name"><a href="#">{{appy.candidat.userAccount.firstName}} </a></h4>
+                                  <ul class="candidate-info">
+                                    <li class="designation">{{appy.candidat.jobTitle}}</li>
+                                    <li><span class="icon flaticon-map-locator"></span>
+                                      <fa-icon icon="map-location"></fa-icon>{{appy.candidat.town}}, {{appy.candidat.country}}</li>
+                                    <li><fa-icon icon="money-bill"></fa-icon> $99 / hour</li>
+                                  </ul>
+                                  <ul class="post-tags">
+                                    <li><a href="#">App</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Digital</a></li>
+                                  </ul>
+                                </div>
+                                <div class="option-box">
+                                  <ul class="option-list">
+                                    <li><button data-text="View Aplication"><fa-icon icon="eye"></fa-icon></button></li>
+                                    <li><button data-text="Approve Aplication"><fa-icon icon="check"></fa-icon></button></li>
+                                    <li><button data-text="Reject Aplication"><fa-icon icon="times"></fa-icon></button></li>
+                                    <li><button data-text="Delete Aplication"><fa-icon icon="trash"></fa-icon></button></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </tab>
+                      <tab heading="Rejected(s): 4"  (tap)="changeStatus('reject')">
+                        <div class="tabs-content">
+                          <div class="row">
+                            &lt;!&ndash; Candidate block three &ndash;&gt;
+                            <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12" *ngFor="let appy of applies">
+                              <div class="inner-box">
+                                <div class="content">
+                                  <figure class="image"><img src="assets/images/1.png" alt=""></figure>
+                                  <h4 class="name"><a href="#">{{appy.candidat.userAccount.firstName}} </a></h4>
+                                  <ul class="candidate-info">
+                                    <li class="designation">{{appy.candidat.jobTitle}}</li>
+                                    <li><span class="icon flaticon-map-locator"></span>
+                                      <fa-icon icon="map-location"></fa-icon>{{appy.candidat.town}}, {{appy.candidat.country}}</li>
+                                    <li><fa-icon icon="money-bill"></fa-icon> $99 / hour</li>
+                                  </ul>
+                                  <ul class="post-tags">
+                                    <li><a href="#">App</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Digital</a></li>
+                                  </ul>
+                                </div>
+                                <div class="option-box">
+                                  <ul class="option-list">
+                                    <li><button data-text="View Aplication"><fa-icon icon="eye"></fa-icon></button></li>
+                                    <li><button data-text="Approve Aplication"><fa-icon icon="check"></fa-icon></button></li>
+                                    <li><button data-text="Reject Aplication"><fa-icon icon="times"></fa-icon></button></li>
+                                    <li><button data-text="Delete Aplication"><fa-icon icon="trash"></fa-icon></button></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </tab>
+                    </tabset>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

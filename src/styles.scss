@@ -1,260 +1,119 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/scss/bootstrap-variables.scss";
-@import "./assets/scss/global.scss";
-
-.col-6 {
-    flex: 0 0 auto;
-    width: 48% !important;
-  }
-  .col-4{
-    flex: 0 0 auto;
-    width: 32.1222% !important;
-  }
-  .col-3 {
-    flex: 0 0 auto;
-    width: 24% !important;
-  }
-.title-content {
-  border-radius: 8px;
-  border: 1px solid var(--border-color, #ECEDF2);
-  background: var(--color-bg-2, #F0F5F7);
-  min-height: 165px;
-  box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
-
-  h4 {
-    color: var(--color-two, #202124);
-    text-align: center;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 500;
-  }
-
-  h5 {
-    color: var(--text-color, #696969);
-    text-align: center;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
-  * {
-
-    width: 100%;
-  }
-
-  .footer {
-    background-color: #2C5697;
-    width: 100%;
-    padding: 20px 10px;
-    overflow: hidden;
-    position: sticky;
-    top: 100%;
-    box-sizing: border-box;
-    box-shadow: #2C5697;
-  }
-
-  #logo {
-
-    width: 201.64715576171875px;
-    height: 65.99993896484375px;
-    top: 6749px;
-    left: 314px;
-    padding-left: 30px;
-
-  }
-
-  #form-email {
-    z-index: 10;
-    height: 45px;
-    border-radius: 10px;
-
-  }
-
-  .input-group {
-    width: 280px;
-  }
-
-  #button-addon2 {
-    z-index: 100;
-    width: 35px;
-    left: -40px;
-    top: 5px;
-    height: 35px;
-    border-radius: 10px;
-
-  }
-
-  .single-box {
-    line-height: 2.1;
-  }
-
-  h6 {
-
-    font-size: 10px;
-    margin-left: 32px;
-    font-weight: 700;
-  }
-
-  .footer-first {
-
-    padding-left: 120px;
-    padding-right: 120px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    width: 100%;
-    height: 80%;
-
-  }
-
-  .footer-second {
-    background-color: #2C5697;
-    width: 100%;
-    height: 5%;
-    padding-left: 150px;
-    padding-right: 90px;
-
-  }
-
-  .single-box i {
-
-    margin-right: 20px;
-    font-size: 16px;
-  }
-
-  .icons {
-    width: 13px;
-    height: 15.57373046875px;
-    top: 7122.6904296875px;
-    left: 1590px;
-
-  }
-
-  .bi-facebook {
-    width: 8px;
-    height: 15.57373046875px;
-    top: 7122.6904296875px;
-    left: 1444px;
-    font-family: Font Awesome 5 Brands;;
-    font-size: 14px;;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
-
-  }
-
-  .bi-twitter {
-
-
-    width: 14px;
-    height: 15.57373046875px;
-    top: 7122.6904296875px;
-    left: 1489px;
-    font-family: Font Awesome 5 Brands;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
-
-
-  }
-
-  .bi-instagram {
-
-    width: 13px;
-    height: 15.57373046875px;
-    top: 7122.6904296875px;
-    left: 1540px;
-    font-family: Font Awesome 5 Brands;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
-  }
-
-  .bi-linkedin {
-
-    width: 13px;
-    height: 15.57373046875px;
-    top: 7122.6904296875px;
-    left: 1590px;
-  }
-
-  .btn-danger {
-
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 6846px;
-    left: 1553px;
-    border-radius: 8px;
-    font-family: Font Awesome 5 Brands;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
-
-  }
-
-  ul li {
-
-    list-style-type: none;
-
-  }
-
-  #iLogo {
-    width: 201.64715576171875px;
-    height: 65.99993896484375px;
-    top: 6749px;
-    left: 314px;
-
-  }
-
-  h6 {
-
-    color: #FFFFFF;
-    font-weight: bold;
-    font-size: small;
-  }
-
-  a {
-    text-decoration: none;
-    font-size: smaller;
-    cursor: pointer;
-
-  }
-
-  hr {
-    color: #ffffff;
-  }
-
-  @media screen and (min-width: 480px) {
-    * {
-      box-sizing: border-box;
-    }
-
-
-  }
-
-
-  @media screen and (min-width: 768px) {
-
-
-  }
-  @media screen and (min-width: 768px) and (max-width: 992px) {
-    .footer-second {
-
-      display: flex;
-    }
-    .footer-first {
-      width: 100%;
-
-    }
-
-  }
+@import "./assets/scss/variables";
+@import 'ngx-toastr/toastr';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+//@import "./assets/scss/global.scss";
+@import "./assets/scss/nav-menu";
+//@import "./assets/scss/dashboard";
+@import "./assets/scss/front";
+@import "./assets/scss/responsive";
+@import '../node_modules/intl-tel-input/build/css/intlTelInput.css';
+:root
+{
+  --okoho-theme-color: #1967D2;
+  --okoho-theme-color-015: rgba(25,103,210,0.15);
+  --okoho-theme-hover-color:#1451a4;
 }
+.ng-select.ng-select-single .ng-select-container {
+  position: relative;
+  width: 100%;
+  height: 60px !important;
+  line-height: 30px;
+  padding: 1px 2px;
+  font-size: 15px;
+  color: #696969;
+  background: #F0F5F7;
+  border: 1px solid #F0F5F7;
+  box-sizing: border-box;
+  border-radius: 8px;
+  transition: all 300ms ease;
+}
+.layout{
+  margin-top: 90px;
+  background-color: #F5F7FC;
+}
+.custom-group-input{
+  width: 88% !important;
+}
+.banner-section-eight .bottom-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 160px;
+}
+.blocker {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #000;
+  background-color: rgba(0,0,0,0.75);
+  text-align: center;
+}
+.page-title {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  padding: 100px 0 40px !important;
+  background: #F5F7FC;
+}
+fa-icon{
+  margin-right: 5px;
+}
+.btn-follow{
+  background-color: #1967D2 !important;
+  color: #F0F5F7;
+}
+.btn-theme {
+  color: #fff;
+  background-color: #1967D2;
+  border-color: #ffffff;
+}
+.btn-theme-lighten{
+  background: #1967D2 !important;
+  color: #fff;
+}
+.btn-theme-lighten:hover, .btn-theme-lighten:focus {
+  color: #fff;
+  background: #1967D2 !important;
+}
+.bg-connect{
+  background-image: url("assets/images/bg-connect.png");
+  //position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.iti { width: 100%;
+  height: 100%;}
+  .phone-tel{
+    background-color: transparent;
+  height: 100%;
+  }
+/* .iti--allow-dropdown input, .iti--allow-dropdown input[type="text"], .iti--allow-dropdown input[type="tel"], .iti--separate-dial-code input, .iti--separate-dial-code input[type="text"], .iti--separate-dial-code input[type="tel"] {
+  padding-right: 6px;
+  padding-left: 52px !important;
+  margin-left: 0;
+}
+.iti {
+  position: relative;
+  display: block !important;
+} */
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,93 @@
+<div class="layout">
+  <div class="vertical-layout row">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <app-siderbar-candidate></app-siderbar-candidate>
+    </div>
+    <div class="col-md-9 col-sm-12 col-xs-12">
+      <section class="user-dashboard">
+        <div class="dashboard-outer">
+          <div class="upper-title-box">
+            <h3>Applied Jobs</h3>
+            <div class="text">Ready to jump back in?</div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- Ls widget -->
+              <div class="ls-widget">
+                <div class="tabs-box">
+                  <div class="widget-title">
+                    <h4>My Applied Jobs</h4>
+
+                    <div class="chosen-outer">
+                      <!--Tabs Box-->
+                      <select class="form-select chosen-select" style="display: none;">
+                        <option>Last 6 Months</option>
+                        <option>Last 12 Months</option>
+                        <option>Last 16 Months</option>
+                        <option>Last 24 Months</option>
+                        <option>Last 5 year</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="widget-content">
+                    <div class="table-outer">
+                      <table class="default-table manage-job-table">
+                        <thead>
+                        <tr>
+                          <th>Job Title</th>
+                          <th>Date Applied</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr *ngFor="let apply of applies">
+                          <td>
+                            <!-- Job Block -->
+                            <div class="job-block">
+                              <div class="inner-box">
+                                <div class="content">
+                                  <span class="company-logo">
+                                     <img *ngIf="apply?.offerJob.recruteur.userAccount.imageUrl == null"
+                                          src="assets/images/avatar/image-place-holder.png" alt="Image">
+                                    <img src="{{apply?.offerJob.recruteur.userAccount.imageUrl}}" alt=""></span>
+                                  <h4><a href="#">{{apply?.offerJob.title}}</a></h4>
+                                  <ul class="job-info">
+                                    <li> <fa-icon icon="briefcase"></fa-icon>Segment</li>
+                                    <li><span class="icon flaticon-map-locator"></span>
+                                      <fa-icon icon="map-location"></fa-icon>{{apply?.offerJob.recruteur.town}}, {{apply?.offerJob.recruteur.country}}</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>{{apply?.createdAt|date}}</td>
+                          <td class="status">{{apply?.status}}</td>
+                          <td>
+                            <div class="option-box">
+                              <ul class="option-list">
+                                <li><a [routerLink]="['/find-job', 'detail', apply?.offerJob.id]" data-text="View Aplication">
+                                  <fa-icon icon="eye"></fa-icon></a></li>
+                                <li><a data-text="Delete Aplication"><fa-icon icon="trash"></fa-icon></a></li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

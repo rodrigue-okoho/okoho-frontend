@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "Cablapp",
+    "title": "OKOHO plateforme",
     "browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"http://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
     "menu": {
       "home": "Accueil",
@@ -13,14 +13,39 @@
       "contact": "Contatez nous",
       "faq": "Faq",
       "term-condition": "Terms and conditions",
-
+      "private-center": "Privacy Center",
+      "security-center": "Security Center",
+      "accessibility-center": "Accessibility Center",
+      "data-protection": "Data Protection",
+      "impressum": "Impressum",
+      "Datenschutz": "Datenschutzerklärung",
+      "browse-employer": "Browse Employer",
+      "browse-job": "Browse Job",
+      "browse-category": "Browse Category",
+      "add-job": "Add Job",
       "account": {
-        "main": "Compte",
+        "main": "Mon Compte",
         "settings": "Profil",
         "password": "Mot de passe",
         "sessions": "Sessions",
         "login": "S'authentifier/Créer un compte",
         "logout": "Déconnexion",
+        "dashboard": "Dashboard",
+        "profil": "Profil",
+        "my_resume": "Mon CV",
+        "my_apply": "Mes candidatures",
+        "shortlist_job": "Emplois preselectionés",
+        "following_employee": "Suivre les entreprises",
+        "alert_job": "Alerte emploi",
+        "candidat_alert": "Alerte des condidats",
+        "package": "Packages",
+        "meeting": "Rencontres",
+        "my_job": "Mes emplois",
+        "add_job": "Ajouter un emploi",
+        "applicant_job": "Candidatures aux emploi",
+        "shortlist_candidat": "Liste des candidats",
+        "cv_manager":"Gestion des CVs",
+        "delete_profil":"Supprimer le profil",
         "register": "Créer un compte"
       },
       "language": "Langue"
@@ -121,7 +146,21 @@
       "patternLogin": "Ce champ ne peut contenir que des lettres, des chiffres ou des adresses e-mail."
     }
   },
+  "MESSAGES": {
+    "SAVE_SUCCESS": "Enregistrement avec success",
+    "SAVE_ERROR": "Enregistrement avec echec"
+  },
   "error": {
+    "title": "Page d'erreur !",
+    "http": {
+      "400": "Mauvaise requête.",
+      "403": "Vous n'avez pas les droits pour accéder à cette page.",
+      "404": "La page n'existe pas.",
+      "405": "Le verbe HTTP que vous avez utilisé n'est pas reconnu par cet URL.",
+      "500": "Erreur interne du serveur."
+    },
+    "concurrencyFailure": "Un autre utilisateur a modifié ces données en même temps que vous. Vos changements n'ont pas été sauvegardés.",
+    "validation": "Erreur de validation côté serveur.",
     "internalServerError": "Erreur interne du serveur",
     "server.not.reachable": "Serveur inaccessible",
     "url.not.found": "Non trouvé",
@@ -138,7 +177,9 @@
       "not.image": "Le fichier doit être une image et non du type \"{{ fileType }}\""
     }
   },
-  "footer": "Ceci est votre pied de page",
+  "footer": {
+    "call-us": "Cantact us"
+  },
   "password": {
     "title": "Changer le mot de passe pour [<strong>{{username}}</strong>]",
     "form": {
@@ -147,6 +188,84 @@
     "messages": {
       "error": "<strong>Une erreur est survenue !</strong> Le mot de passe n'a pas pu être modifié.",
       "success": "<strong>Le mot de passe a été modifié !</strong>"
+    }
+  },
+  "activate":{
+    "title": "Activation",
+    "messages": {
+      "success": "<strong>Your user account has been activated.</strong> Please ",
+      "error": "<strong>Your user could not be activated.</strong> Please use the registration form to sign up."
+    }
+  },
+  "title": {
+    "home": "Okoho plateforme de recrutement",
+    "find-job": "OKOHO- recherche enploi",
+    "candidat-list": "OKOHO- Liste des candidats",
+    "recruteur-list": "OKOHO- liste des recruteurs"
+
+  },
+  "home": {
+    "title-box": {
+      "h3": "There Are <span class='colored'>{{stastitc }}</span> Postings Here<br> For you!",
+      "div": "Find Jobs, Employment &amp; Career Opportunities"
+    },
+    "btn_title": "Find Jobs",
+    "popular_searches": "Popular Searches :",
+    "features": {
+      "title": "Register an account to start",
+      "title2": "Explore over thousands of resumes",
+      "title3": "Find the most suitable candidate"
+    },
+    "job_category": {
+      "h2": "Jobs by category",
+      "text": "2020 jobs live - 293 added today.",
+      "content_1": "Accounting / Finance",
+      "content_2": "Marketing",
+      "content_3": "Design",
+      "content_4": "Development",
+      "content_5": "Project Management",
+      "content_6": "Human Resource"
+    },
+    "job_section": {
+      "h2": "Professional CV is your ticket to the dream job",
+      "div": "To start searching for jobs, you can attend job fairs online or in person, use job boards and career websites or reach out directly to recruiters in a targeted company to broaden your network.",
+      "a": "Post Resume"
+    },
+    "job_lastest": {
+      "h2": "Latest Jobs",
+      "text": "Know your worth and find the job that qualify your life",
+      "title_1": "Freelance",
+      "title_2": "Full Time",
+      "title_3": "Internship",
+      "not-found": "No job alert found."
+    },
+    "banner1": {
+      "h3": "Employers",
+      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud.",
+      "a": "Register Account"
+    },
+    "banner2": {
+      "h3": "Candidate",
+      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud exercitation.",
+      "a": "Register Account"
+    },
+    "top_company": {
+      "h2": "Top Company Registered",
+      "div": "Some of the companies we've helped recruit excellent applicants over the years."
+    },
+    "plans": {
+      "h2": "Choose a plan that’s right for you.",
+      "div": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
+    },
+    "subscribe": {
+      "h2": "Download the App",
+      "div": "New features. New appearance. No risk and"
+    },
+    "bottom": {
+      "counter-title-1": "4 million daily active users",
+      "counter-title-2": "Over 12k open job positions",
+      "counter-title-3": "Over 20 million stories shared",
+      "counter-title-4": "4 million daily active users"
     }
   }
 }

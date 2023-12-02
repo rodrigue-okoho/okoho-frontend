@@ -1,0 +1,209 @@
+<div class="layout">
+  <div class="vertical-layout row">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <app-siderbar-candidate></app-siderbar-candidate>
+    </div>
+    <div class="col-md-9 col-sm-12 col-xs-12">
+      <section class="user-dashboard">
+        <div class="dashboard-outer">
+          <div class="upper-title-box">
+            <h3>Job Alerts</h3>
+            <div class="text">Ready to jump back in?</div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- Ls widget -->
+              <div class="ls-widget">
+                <div class="tabs-box">
+                  <div class="widget-title">
+                    <h4>My Job Alerts</h4>
+
+                    <div class="chosen-outer">
+                      <!--Tabs Box-->
+                      <select class="form-select chosen-select" style="">
+                        <option>Last 6 Months</option>
+                        <option>Last 12 Months</option>
+                        <option>Last 16 Months</option>
+                        <option>Last 24 Months</option>
+                        <option>Last 5 year</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="widget-content">
+                    <div class="table-outer">
+                      <table class="default-table manage-job-table">
+                        <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Criteria</th>
+                          <th>Created</th>
+                          <th>Action</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr *ngFor="let job of jobs">
+                          <td>
+                            <h6>{{job?.title}}</h6>
+                            <span class="info"><fa-icon icon="map-location"></fa-icon> {{job?.country}}, {{job?.town}}</span>
+                          </td>
+                          <td>Human Resources, Junior</td>
+                          <td>{{job?.createdAt | date }}</td>
+                          <td>
+                            <div class="option-box">
+                              <ul class="option-list">
+                                <li><button data-text="View Aplication"><fa-icon icon="eye"></fa-icon></button></li>
+                                <li><button data-text="Delete Aplication"><fa-icon icon="trash"></fa-icon></button></li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+     <!-- <div class="box-dashboard-wrapper">
+        <h3 class="title">Alert jobs</h3>
+        <div class="inner-list">
+          <div class="search-orderby-wrapper flex-middle-sm">
+            <div class="search-jobs-alert-form search-applicants-form">
+              <form action="" method="get">
+                <div class="flex-middle">
+                  <button class="search-submit btn btn-sm btn-search" name="submit">
+                    <fa-icon icon="search"></fa-icon>
+                  </button>
+                  <input type="text" placeholder="Search ..." class="form-control" name="search" value="">
+                </div>
+                <input type="hidden" name="paged" value="1">
+              </form>
+            </div>
+            <div class="sort-jobs-alert-form sortby-form">
+
+              <div class="orderby-wrapper flex-middle">
+					<span class="text-sort">
+						Sort by: 					</span>
+                <form class="my-jobs-ordering" method="get">
+                  <select name="orderby" class="orderby select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                    <option value="menu_order">Default</option>
+                    <option value="newest" selected="selected">Newest</option>
+                    <option value="oldest">Oldest</option>
+                  </select><span class="select2 select2-container select2-container&#45;&#45;default" dir="ltr" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection&#45;&#45;single" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-orderby-2e-container" role="combobox"><span class="select2-selection__rendered" id="select2-orderby-2e-container" role="textbox" aria-readonly="true" title="Newest">Newest</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                  <input type="hidden" name="paged" value="1">
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="job-table">
+              <thead>
+              <tr>
+                <th class="job-title">Title</th>
+                <th class="alert-query">Alert Query</th>
+                <th class="job-number">Number Jobs</th>
+                <th class="job-times">Times</th>
+                <th class="job-actions">Actions</th>
+              </tr>
+              </thead>
+
+              <tbody><tr class="job-alert-wrapper post-1685 page type-page status-publish hentry">
+                <td>
+                  <div class="job-table-info-content-title">
+                    <a href="https://apusthemes.com/wp-demo/superio/job-list/?filter-distance=50&amp;filter-category=48&amp;filter-date-posted=30days&amp;filter-salary-from=0&amp;filter-salary-to=850" rel="bookmark">Designer Jobs</a>
+                  </div>
+                </td>
+                <td>
+                  <div class="alert-query">
+                    <ul class="list">
+                      <li><strong class="text">Category:</strong> <span class="value">Design</span></li>
+                      <li><strong class="text">Posted Date:</strong> <span class="value">Last 30 days</span></li>
+                      <li><strong class="text">Salary Max:</strong> <span class="value"><span class="suffix">$</span><span class="price-text">850</span></span></li>
+                    </ul>
+                  </div>
+                </td>
+                <td>
+                  <div class="job-found">
+                    Jobs found 0						        </div>
+                </td>
+                <td>
+                  <div class="job-metas">
+                    Daily						        </div>
+                </td>
+                <td>
+                  <a href="javascript:void(0)" class="btn-remove-job-alert btn-action-icon deleted" data-alert_id="9085" data-nonce="3d886f596f" data-toggle="tooltip" title="" data-original-title="Remove"><i class="ti-close"></i></a>
+                </td>
+              </tr>
+
+
+              <tr class="job-alert-wrapper post-1685 page type-page status-publish hentry">
+                <td>
+                  <div class="job-table-info-content-title">
+                    <a href="https://apusthemes.com/wp-demo/superio/job-list/?filter-title=pro&amp;filter-center-location&amp;filter-center-latitude&amp;filter-center-longitude&amp;filter-distance=50&amp;filter-category&amp;filter-salary-from=15&amp;filter-salary-to=25" rel="bookmark">Test 1</a>
+                  </div>
+                </td>
+                <td>
+                  <div class="alert-query">
+                    <ul class="list">
+                      <li><strong class="text">Job Title:</strong> <span class="value">pro</span></li>
+                      <li><strong class="text">Salary:</strong> <span class="value"><span class="suffix">$</span><span class="price-text">15</span> - <span class="suffix">$</span><span class="price-text">25</span></span></li>
+                    </ul>
+                  </div>
+                </td>
+                <td>
+                  <div class="job-found">
+                    Jobs found 2						        </div>
+                </td>
+                <td>
+                  <div class="job-metas">
+                    Weekly						        </div>
+                </td>
+                <td>
+                  <a href="javascript:void(0)" class="btn-remove-job-alert btn-action-icon deleted" data-alert_id="1811" data-nonce="3d886f596f" data-toggle="tooltip" title="" data-original-title="Remove"><i class="ti-close"></i></a>
+                </td>
+              </tr>
+
+
+              <tr class="job-alert-wrapper post-1685 page type-page status-publish hentry">
+                <td>
+                  <div class="job-table-info-content-title">
+                    <a href="https://apusthemes.com/wp-demo/superio/job-list/?filter-title&amp;filter-center-location&amp;filter-center-latitude&amp;filter-center-longitude&amp;filter-distance=50&amp;filter-category&amp;filter-salary-from=15&amp;filter-salary-to=25" rel="bookmark">Test</a>
+                  </div>
+                </td>
+                <td>
+                  <div class="alert-query">
+                    <ul class="list">
+                      <li><strong class="text">Salary:</strong> <span class="value"><span class="suffix">$</span><span class="price-text">15</span> - <span class="suffix">$</span><span class="price-text">25</span></span></li>
+                    </ul>
+                  </div>
+                </td>
+                <td>
+                  <div class="job-found">
+                    Jobs found 2						        </div>
+                </td>
+                <td>
+                  <div class="job-metas">
+                    Daily						        </div>
+                </td>
+                <td>
+                  <a href="javascript:void(0)" class="btn-remove-job-alert btn-action-icon deleted" data-alert_id="1810" data-nonce="3d886f596f" data-toggle="tooltip" title="" data-original-title="Remove"><i class="ti-close"></i></a>
+                </td>
+              </tr>
+
+              </tbody></table>
+          </div>
+
+        </div>
+      </div>-->
+    </div>
+  </div>
+</div>

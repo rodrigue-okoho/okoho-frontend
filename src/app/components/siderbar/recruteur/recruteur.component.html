@@ -1,0 +1,133 @@
+<div class="side-nav nav-menu-light scrollable">
+  <ul class="navbar-nav nav-menu">
+    <li class="nav-menu-item router-link-active">
+      <a routerLink="/dash/dash-employer"
+         routerLinkActive="active"
+         class="nav-link {{setActivate('dash-employer')}}"
+         (click)="collapseNavbar()">
+        <fa-icon icon="dashboard"></fa-icon>
+        <span class="nav-menu-item-title"> Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-menu-item router-link-active">
+      <a routerLink="/dash/dash-employer-profile"
+         routerLinkActive="active" class="{{setActivate('dash-employer-profile')}}"
+         (click)="collapseNavbar()">
+        <fa-icon icon="user"></fa-icon>
+        <span class="nav-menu-item-title"> profiles</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-employer-my-job"
+         routerLinkActive="active" class="{{setActivate('dash-employer-my-job')}}">
+        <fa-icon icon="briefcase"></fa-icon>
+        <span class="nav-menu-item-title">My Job</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-employer-submit-job"
+         routerLinkActive="active" class="{{setActivate('dash-employer-submit-job')}}">
+        <fa-icon icon="user-alt"></fa-icon>
+        <span class="nav-menu-item-title"> Submit job</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-employer-applicant-job"
+         routerLinkActive="active" class="{{setActivate('dash-employer-applicant-job')}}">
+        <fa-icon icon="file"></fa-icon>
+        <span class="nav-menu-item-title"> Applicant jobs</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-employer-shortlist"
+         routerLinkActive="active" class="{{setActivate('dash-employer-shortlist')}}">
+        <fa-icon icon="bookmark"></fa-icon>
+        <span class="nav-menu-item-title"> Shortlist candidates</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-employer-candidat-alert"
+         routerLinkActive="active" class="{{setActivate('dash-employer-candidat-alert')}}">
+        <fa-icon icon="bell"></fa-icon>
+        <span class="nav-menu-item-title">Candidat alerts</span>
+      </a>
+    </li>
+<!--    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-employer-package"
+         routerLinkActive="active" class="{{setActivate('dash-employer-package')}}">
+        <fa-icon icon="box"></fa-icon>
+        <span class="nav-menu-item-title"> package</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-employer-meeting"
+         routerLinkActive="active" class="{{setActivate('dash-employer-meeting')}}">
+        <fa-icon icon="video-camera"></fa-icon>
+        <span class="nav-menu-item-title"> Meetings</span>
+      </a>
+    </li>-->
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-employer-message"
+         routerLinkActive="active" class="{{setActivate('dash-employer-message')}}">
+        <fa-icon icon="message"></fa-icon>
+        <span class="nav-menu-item-title"> Messages</span>
+      </a>
+    </li>
+
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-change-password"
+         routerLinkActive="active" class="{{setActivate('dash-change-password')}}">
+        <fa-icon icon="lock"></fa-icon>
+        <span class="nav-menu-item-title"> Change password</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a (click)="deleteProfil(delete)">
+        <fa-icon icon="trash"></fa-icon>
+        <span class="nav-menu-item-title"> delete profile</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a class="{{setActivate('dash-candidate')}}" (click)="logout()">
+        <fa-icon icon="power-off"></fa-icon>
+        <span class="nav-menu-item-title"> logout</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<ng-template #delete let-modal>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="assets/images/5225083%201.png">
+      </div>
+      <div class="col-md-6 ">
+        <h6 class="pt-5">Do you realy want to delete your profiles?</h6>
+        <form class="pt-5" [formGroup]="form" >
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <input type="radio" class="btn-check" value="yes" formControlName="type"  id="success-outlined" autocomplete="off">
+              <label class="text-center btn theme-btn btn-outline-success d-flex p-2 bd-highlight justify-content-center" for="success-outlined">Yes</label>
+            </div>
+            <div class="col-md-6 text-center">
+              <input type="radio" class="btn-check" (click)="cancelDelete()" value="no" formControlName="type"  id="danger-outlined" autocomplete="off">
+              <label class="theme-btn btn btn-outline-danger d-flex p-2 bd-highlight justify-content-center" for="danger-outlined">No</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" formControlName="message">
+
+          </textarea>
+
+          </div>
+          <div class="col-md-8 mb-3">
+            <button [class.auth-spinner]="loading" [disabled]="loading" (click)="confimDelete()" class="theme-btn btn-style-one" type="submit" name="log-in">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</ng-template>

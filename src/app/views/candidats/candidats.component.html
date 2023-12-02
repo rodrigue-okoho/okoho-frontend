@@ -1,241 +1,586 @@
-<div class="row">
-<!--  <google-map
-    height="300px"
-    width="100%"
-    [zoom]="zoom"
-    [center]="center"
-    [options]="options"
-  ></google-map>-->
+<section class="page-title">
+  <div class="auto-container">
+    <div class="title-outer">
+      <h1>Showing All Candidates</h1>
+      <ul class="page-breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li>Candidate</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="ls-section">
+  <div class="auto-container">
+    <div class="filters-backdrop"></div>
+
+    <div class="row">
+
+      <!-- Filters Column -->
+      <div class="filters-column col-lg-4 col-md-12 col-sm-12">
+        <div class="inner-column">
+          <div class="filters-outer">
+            <button type="button" class="theme-btn close-filters">X</button>
+
+            <!-- Filter Block -->
+            <div class="filter-block">
+              <h4>Search by Keywords</h4>
+              <div class="form-group">
+                <div class="input-group input-group-merge">
+                <input class="custom-group-input" type="text" (keyup)="searchByResume($event)"  placeholder="By Resumes">
+                <span class="icon flaticon-search-3"></span>
+                <div class="input-group-text">
+                  <fa-icon icon="search"></fa-icon>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Filter Block -->
+            <div class="filter-block">
+              <h4>Location</h4>
+              <div class="form-group">
+                <div class="input-group input-group-merge">
+                <input class="custom-group-input"  (change)="searchByLocation($event)" type="text" name="listing-search" placeholder="City or postcode">
+                <span class="icon flaticon-map-locator"></span>
+                <div class="input-group-text">
+                  <fa-icon icon="map-location"></fa-icon>
+                </div>
+              </div>
+              </div>
+<!--              <p>Radius around selected destination</p>
+              <div class="range-slider-one">
+                <div class="area-range-slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                  <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 50%;"></div>
+                  <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+                        style="left: 0%;"></span><span tabindex="0"
+                                                       class="ui-slider-handle ui-corner-all ui-state-default"
+                                                       style="left: 50%;"></span></div>
+                <div class="input-outer">
+                  <div class="amount-outer"><span class="area-amount">50</span>km</div>
+                </div>
+              </div>-->
+            </div>
+
+            <!-- Filter Block -->
+            <div class="filter-block">
+              <h4>Category</h4>
+              <div class="form-group">
+                <div class="input-group input-group-merge">
+                <select (change)="searchByCategory($event)" class="form-select chosen-select custom-group-input" style="">
+                  <option selected>Choose a category</option>
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="industrial">Industrial</option>
+                  <option value="apartments">Apartments</option>
+                </select>
+                <div class="input-group-text">
+                  <fa-icon icon="folder"></fa-icon>
+                </div>
 </div>
-<div class="container  ">
+              </div>
+            </div>
+
+            <!-- Filter Block -->
+            <div class="filter-block">
+              <h4>Candidate Gender</h4>
+              <div class="form-group">
+                <div class="input-group input-group-merge">
+                <select (change)="searchByGender($event)" class="form-select chosen-select custom-group-input">
+                  <option selected value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">other</option>
+                </select>
+               <div class="input-group-text">
+                <fa-icon icon="heart"></fa-icon>
+              </div>
+              </div>
+              </div>
+            </div>
+
+            <!-- Checkboxes Ouer -->
+            <div class="checkbox-outer">
+              <h4>Date Posted</h4>
+              <ul class="checkboxes">
+                <li>
+                  <input value="all" (change)="searchByDatePosted($event)" id="check-1" type="checkbox" name="check">
+                  <label for="check-1">All</label>
+                </li>
+                <li>
+                  <input value="last_hour" (change)="searchByDatePosted($event)" id="check-a" type="checkbox" name="check">
+                  <label for="check-a">Last Hour</label>
+                </li>
+                <li>
+                  <input value="last24_hour" (change)="searchByDatePosted($event)" id="check-b" type="checkbox" name="check">
+                  <label for="check-b">Last 24 Hours</label>
+                </li>
+                <li>
+                  <input value="last7_day" (change)="searchByDatePosted($event)" id="check-c" type="checkbox" name="check">
+                  <label for="check-c">Last 7 Days</label>
+                </li>
+                <li>
+                  <input value="last14_day" (change)="searchByDatePosted($event)" id="check-d" type="checkbox" name="check">
+                  <label for="check-d">Last 14 Days</label>
+                </li>
+                <li>
+                  <input value="last30_day" (change)="searchByDatePosted($event)" id="check-e" type="checkbox" name="check">
+                  <label for="check-e">Last 30 Days</label>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Checkboxes Ouer -->
+            <div class="checkbox-outer">
+              <h4>Experience</h4>
+              <ul class="checkboxes">
+                <li>
+                  <input value="0_2_year" (change)="searchByExperience($event)" id="check-f" type="checkbox" name="check">
+                  <label for="check-f">0-2 Years</label>
+                </li>
+                <li>
+                  <input value="10_12_year" (change)="searchByExperience($event)" id="check-g" type="checkbox" name="check">
+                  <label for="check-g">10-12 Years</label>
+                </li>
+                <li>
+                  <input value="12_16_year" (change)="searchByExperience($event)" id="check-h" type="checkbox" name="check">
+                  <label for="check-h">12-16 Years</label>
+                </li>
+                <li>
+                  <input value="16_20_year" (change)="searchByExperience($event)" id="check-i" type="checkbox" name="check">
+                  <label for="check-i">16-20 Years</label>
+                </li>
+                <li>
+                  <input value="20_25_year" (change)="searchByExperience($event)" id="check-j" type="checkbox" name="check">
+                  <label for="check-j">20-25 Years</label>
+                </li>
+                <li>
+                  <button class="view-more"><span class="icon flaticon-plus"></span> View More</button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Checkboxes Ouer -->
+            <div class="checkbox-outer">
+              <h4>Education Levels</h4>
+              <ul class="checkboxes">
+                <li>
+                  <input value="certificate" (change)="searchByEducation($event)" id="check-2" type="checkbox" name="check">
+                  <label for="check-2">Certificate</label>
+                </li>
+                <li>
+                  <input value="diploma" (change)="searchByEducation($event)" id="check-3" type="checkbox" name="check">
+                  <label for="check-3">Diploma</label>
+                </li>
+                <li>
+                  <input value="associate degree" (change)="searchByEducation($event)" id="check-4" type="checkbox" name="check">
+                  <label for="check-4">Associate Degree</label>
+                </li>
+                <li>
+                  <input value="bachelor degree" (change)="searchByEducation($event)" id="check-5" type="checkbox" name="check">
+                  <label for="check-5">Bachelor Degree</label>
+                </li>
+                <li>
+                  <input value="master’s degree" (change)="searchByEducation($event)" id="check-6" type="checkbox" name="check">
+                  <label for="check-6">Master’s Degree</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Content Column -->
+      <div class="content-column col-lg-8 col-md-12 col-sm-12">
+        <div class="ls-outer"  *ngIf="candidats && candidats.length > 0">
+          <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
+
+          <!-- ls Switcher -->
+          <div class="ls-switcher">
+            <div class="showing-result">
+              <p>
+                <okoho-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage}">
+                </okoho-item-count>
+                <span jhiTranslate="global.item-candidat">candidats</span></p>
+            </div>
+            <div class="sort-by">
+              <select class="form-select chosen-select" style="display: none;">
+                <option>New Jobs</option>
+                <option>Freelance</option>
+                <option>Full Time</option>
+                <option>Internship</option>
+                <option>Part Time</option>
+                <option>Temporary</option>
+              </select>
+
+              <select class="form-select chosen-select" style="display: none;">
+                <option>Show 10</option>
+                <option>Show 20</option>
+                <option>Show 30</option>
+                <option>Show 40</option>
+                <option>Show 50</option>
+                <option>Show 60</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <!-- Candidate block Four -->
+            <div class="candidate-block-four col-lg-6 col-md-6 col-sm-12"  *ngFor="let candidat of candidats; trackBy: trackId">
+              <div class="inner-box">
+                <ul class="job-other-info">
+                  <li class="green">Featured</li>
+                </ul>
+                <span class="thumb">
+                  <img src="{{candidat.userAccount.imageUrl}}" alt="">
+                 <img *ngIf="candidat?.userAccount.imageUrl == null"
+                      src="assets/images/avatar/image-place-holder.png" alt="Image">
+                </span>
+                <h3 class="name"><a [routerLink]="['/candidats', 'detail', candidat.id]">{{candidat.userAccount.firstName}}</a></h3>
+                <span class="cat">{{candidat.jobTitle}}</span>
+                <ul class="job-info">
+                  <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                  <li><span class="icon flaticon-money"></span> $99 / hour</li>
+                </ul>
+                <ul class="post-tags">
+                  <li><a href="#">App</a></li>
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Digital</a></li>
+                </ul>
+                <a [routerLink]="['/candidats', 'detail', candidat.id]" class="theme-btn btn-style-three">View Profile</a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Pagination -->
+          <nav class="ls-pagination">
+            <div class="row justify-content-center">
+              <ngb-pagination
+                [collectionSize]="totalItems"
+                [(page)]="ngbPaginationPage"
+                [pageSize]="itemsPerPage"
+                [maxSize]="5"
+                [rotate]="true"
+                [boundaryLinks]="true"
+                (pageChange)="loadPage($event)"
+              ></ngb-pagination>
+            </div>
+          </nav>
+
+
+      </div>
+        <div  *ngIf="!candidats || candidats.length == 0">
+          <div class="not-found">No candidat found.</div>
+        </div>
+    </div>
+  </div>
+  </div>
+</section>
+<!--<section>
   <div class="row">
-    <div class="col-md-3 siderbar">
-      <div class="mb-3">
-        <label for="example-resume" class="form-label date-posted">Search by Keywords</label>
-        <div class=" input-group s-input">
+    &lt;!&ndash;  <google-map
+        height="300px"
+        width="100%"
+        [zoom]="zoom"
+        [center]="center"
+        [options]="options"
+      ></google-map>&ndash;&gt;
+  </div>
+  <div class="container  ">
+    <div class="row">
+      <div class="col-md-3 siderbar">
+        <div class="mb-3">
+          <label for="example-resume" class="form-label date-posted">Search by Keywords</label>
+          <div class=" input-group s-input">
            <span class="input-group-text" data-password="false">
           <fa-icon icon="search"></fa-icon>
         </span>
-          <input (change)="searchByResume($event)" type="text" class="form-control" id="example-resume" placeholder="By Resumes">
+            <input (change)="searchByResume($event)" type="text" class="form-control" id="example-resume"
+                   placeholder="By Resumes">
+          </div>
         </div>
-      </div>
-      <div class="mb-3">
-        <label for="example-static" class="form-label date-posted">Location</label>
-        <div class=" input-group s-input">
+        <div class="mb-3">
+          <label for="example-static" class="form-label date-posted">Location</label>
+          <div class=" input-group s-input">
            <span class="input-group-text" data-password="false">
           <fa-icon icon="location-pin"></fa-icon>
         </span>
-          <input (change)="searchByLocation($event)" type="text" class="form-control" id="example-static" placeholder="City or postcode">
+            <input (change)="searchByLocation($event)" type="text" class="form-control" id="example-static"
+                   placeholder="City or postcode">
+          </div>
         </div>
-      </div>
-      <div class="mb-3">
-        <label for="example-cat" class="form-label date-posted">Category</label>
-        <div class=" input-group s-input">
+        <div class="mb-3">
+          <label for="example-cat" class="form-label date-posted">Category</label>
+          <div class=" input-group s-input">
            <span class="input-group-text" data-password="false">
           <fa-icon icon="folder"></fa-icon>
         </span>
-          <select (change)="searchByCategory($event)" class="form-control form-select" id="example-cat">
-            <option>All Categories</option>
-          </select>
+            <select (change)="searchByCategory($event)" class="form-control form-select" id="example-cat">
+              <option>All Categories</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="mb-3">
-        <label for="example-static" class="form-label date-posted">Candidate Gender</label>
-        <div class=" input-group s-input">
+        <div class="mb-3">
+          <label for="example-static" class="form-label date-posted">Candidate Gender</label>
+          <div class=" input-group s-input">
            <span class="input-group-text" data-password="false">
           <fa-icon icon="user"></fa-icon>
         </span>
-          <select (change)="searchByGender($event)" class="form-control form-select" id="gender">
-            <option selected value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
+            <select (change)="searchByGender($event)" class="form-control form-select" id="gender">
+              <option selected value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="posted">
+          <div class="date-posted">Date Posted</div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last_hour"
+                   id="flexCheckCheckedDisabled" checked>
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              Last Hour
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last24_hour"
+                   id="last24_hour">
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              Last 24 Hours
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last7_day"
+                   id="last7_day">
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              Last 7 Days
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last14_day"
+                   id="last14_day">
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              Last 14 Days
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last30_day"
+                   id="last30_day">
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              Last 30 Days
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="all" id="all">
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              All
+            </label>
+          </div>
+        </div>
+        <div class="freelance-full-time-internship-part-time-temporary">
+          <div class="date-posted">Experience Level</div>
+          <div class="form-check">
+            <input (change)="searchByExperience($event)" class="form-check-input" checked type="checkbox" value="0_2_year"
+                   id="0_2_year">
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              0-2 Years
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="10_12_year"
+                   id="10_12_year">
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              10-12 Years
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="12_16_year"
+                   id="12_16_year">
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              12-16 Years
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="16_20_year"
+                   id="16_20_year">
+            <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
+              16-20 Years
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="20_22_year"
+                   id="20_22_year">
+            <label class="form-check-label ms-2" for="20_22_year">
+              20-25 Years
+            </label>
+          </div>
+        </div>
+        <div class="freelance-full-time-internship-part-time-temporary">
+          <div class="date-posted">Education Levels</div>
+          <div class="form-check">
+            <input (change)="searchByEducation($event)" class="form-check-input" type="checkbox" value="certificate"
+                   id="certificate">
+            <label class="form-check-label ms-2" for="certificate">
+              Certificate
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByEducation($event)" class="form-check-input" type="checkbox" checked value="diploma"
+                   id="diploma">
+            <label class="form-check-label ms-2" for="diploma">
+              Diploma
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByEducation($event)" class="form-check-input" type="checkbox" value="associate_degree"
+                   id="associate_degree">
+            <label class="form-check-label ms-2" for="associate_degree">
+              Associate Degree
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByEducation($event)" class="form-check-input" type="checkbox" value="bachelor_degree"
+                   id="bachelor_degree">
+            <label class="form-check-label ms-2" for="bachelor_degree">
+              Bachelor Degree
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="searchByEducation($event)" class="form-check-input" type="checkbox" value="master"
+                   id="master">
+            <label class="form-check-label ms-2" for="master">
+              Master’s
+            </label>
+          </div>
         </div>
       </div>
-      <div class="posted">
-        <div class="date-posted">Date Posted</div>
-        <div class="form-check">
-          <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last_hour" id="flexCheckCheckedDisabled" checked>
-          <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
-            Last Hour
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last24_hour" id="last24_hour">
-          <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
-            Last 24 Hours
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last7_day" id="last7_day">
-          <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
-            Last 7 Days
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last14_day" id="last14_day">
-          <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
-            Last 14 Days
-          </label>
-        </div>
-        <div class="form-check">
-          <input  (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="last30_day" id="last30_day">
-          <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
-            Last 30 Days
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByDatePosted($event)" class="form-check-input" type="checkbox" value="all" id="all">
-          <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
-            All
-          </label>
-        </div>
-      </div>
-      <div class="freelance-full-time-internship-part-time-temporary">
-        <div class="date-posted">Experience Level</div>
-        <div class="form-check">
-          <input (change)="searchByExperience($event)" class="form-check-input" checked type="checkbox" value="0_2_year" id="0_2_year">
-          <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
-            0-2 Years
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="10_12_year" id="10_12_year">
-          <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
-            10-12 Years
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="12_16_year" id="12_16_year">
-          <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
-            12-16 Years
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="16_20_year" id="16_20_year">
-          <label class="form-check-label ms-2" for="flexCheckCheckedDisabled">
-            16-20 Years
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByExperience($event)" class="form-check-input" type="checkbox" value="20_22_year" id="20_22_year">
-          <label class="form-check-label ms-2" for="20_22_year">
-            20-25 Years
-          </label>
-        </div>
-      </div>
-      <div class="freelance-full-time-internship-part-time-temporary">
-        <div class="date-posted">Education Levels</div>
-        <div class="form-check">
-          <input (change)="searchByEducation($event)" class="form-check-input" type="checkbox" value="certificate" id="certificate">
-          <label class="form-check-label ms-2" for="certificate">
-            Certificate
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByEducation($event)" class="form-check-input" type="checkbox" checked value="diploma" id="diploma">
-          <label class="form-check-label ms-2" for="diploma">
-            Diploma
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByEducation($event)" class="form-check-input" type="checkbox" value="associate_degree" id="associate_degree">
-          <label class="form-check-label ms-2" for="associate_degree">
-            Associate Degree
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByEducation($event)" class="form-check-input" type="checkbox" value="bachelor_degree" id="bachelor_degree">
-          <label class="form-check-label ms-2" for="bachelor_degree">
-            Bachelor Degree
-          </label>
-        </div>
-        <div class="form-check">
-          <input (change)="searchByEducation($event)" class="form-check-input" type="checkbox" value="master" id="master">
-          <label class="form-check-label ms-2" for="master">
-            Master’s
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-6 showing-employer">
-         <p> <okoho-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage}">
-          </okoho-item-count> <span jhiTranslate="global.item-candidat">candidatsp</span></p>
-
-         <!-- <span>Showing 41-60 </span><span>of Employers</span>-->
-        </div>
-        <div class="col-6">
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <div class="btn-group mb-2">
-              <select (change)="recentView($event)" type="button" class="btn btn-most dropdown-toggle">
-                <option value="most recent">Most Recent</option>
-                <option value="populary">Populary</option>
-                <option value="most view">Most view</option>
-              </select>
+      <div class="col-md-9">
+        <div *ngIf="candidats && candidats.length > 0">
+          <div class="row">
+            <div class="col-6 showing-employer">
+              <p>
+                <okoho-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage}">
+                </okoho-item-count>
+                <span jhiTranslate="global.item-candidat">candidatsp</span></p>
             </div>
-            <div class="btn-group mb-2">
-              <select (change)="showing($event)" type="button" class="btn btn-most">
-                <option value="show_10">Show 10</option>
-                <option value="show_20">Show 20</option>
-                <option value="show_20">Show 50</option>
-              </select>
+            <div class="col-6">
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <div class="btn-group mb-2">
+                  <select (change)="recentView($event)" type="button" class="btn btn-most dropdown-toggle">
+                    <option value="most recent">Most Recent</option>
+                    <option value="populary">Populary</option>
+                    <option value="most view">Most view</option>
+                  </select>
+                </div>
+                <div class="btn-group mb-2">
+                  <select (change)="showing($event)" type="button" class="btn btn-most">
+                    <option value="show_10">Show 10</option>
+                    <option value="show_20">Show 20</option>
+                    <option value="show_20">Show 50</option>
+                  </select>
+                </div>
+              </div>
+
             </div>
           </div>
+          <div *ngIf="candidats && candidats.length > 0">
 
+
+            <div class="row">
+              <div class="col-4 candidate-grid candidate-archive-layout margin-right-3" *ngFor="let candidat of candidats; trackBy: trackId">
+
+                <span class="featured-text">Featured</span>
+
+                <a title="Shortlist" href="javascript:void(0);" class="btn-action-job btn-add-candidate-shortlist btn-follow"
+                   data-candidate_id="1031" data-nonce="c770ade9e2"><span class="text hidden">Shortlist</span><i
+                  class="flaticon-bookmark"></i></a>
+                <div class="candidate-logo">
+                  <a href="https://apusthemes.com/wp-demo/superio/candidate/ali-tufan/">
+                    <div class="image-wrapper image-loaded"><img width="100" height="100"
+                                                                 src="https://apusthemes.com/wp-demo/superio/wp-content/uploads/2021/05/member5.jpg"
+                                                                 class="attachment-thumbnail size-thumbnail unveil-image"
+                                                                 alt=""></div>
+                  </a>
+                </div>
+
+                <h2 class="candidate-title">
+                  <a [routerLink]="['/candidats', 'detail', candidat.id]" rel="bookmark">
+                    {{candidat.userAccount.firstName}} {{candidat.userAccount.lastName}}</a>
+                </h2>
+
+                <div class="candidate-job">
+                  Job Title
+                </div>
+                <div class="candidate-info">
+                  <div class="job-metas">
+                    <div class="candidate-location with-icon"><i class="flaticon-location"></i>
+                      <a href="https://apusthemes.com/wp-demo/superio/candidate-location/new-york/">New York</a>
+                    </div>
+                    <div class="candidate-salary with-icon"><i class="flaticon-money-1"></i> <span
+                      class="suffix">$</span><span class="price-text">2000</span> / year
+                    </div>
+                  </div>
+                  <div class="candidate-tags">
+                    <a class="tag-candidate" href="https://apusthemes.com/wp-demo/superio/candidate-tag/administrative/">administrative</a>
+                    <a class="tag-candidate" href="https://apusthemes.com/wp-demo/superio/candidate-tag/app/">app</a>
+                    <a class="tag-candidate" href="https://apusthemes.com/wp-demo/superio/candidate-tag/jobs/">Jobs</a>
+
+                    <span class="count-more-tags">+1</span>
+
+                  </div>
+                </div>
+                <div class="candidate-link">
+                  <a  [routerLink]="['/candidats', 'detail', candidat.id]"
+                      class="btn btn-block btn-theme-lighten">View Profile</a>
+                </div>
+              </div>
+              &lt;!&ndash; <div class="col-4 job-card" *ngFor="let candidat of candidats; trackBy: trackId">
+                 <div>
+                   <span class="private">Private</span>
+                   <span class="fulltime">Fulltime</span>
+                 </div>
+                 <div class="text-center">
+                   <img class="logo" src="favicon.ico">
+                 </div>
+                 <div class="candiadte-name">
+                   {{candidat.userAccount.firstName}} {{candidat.userAccount.lastName}}
+                 </div>
+                 <div class="catalyst">
+                   <span>UI Designer</span>
+                 </div>
+                 <div class="location">
+                   <fa-icon icon="location"></fa-icon>
+                   <span class="pr-3">London, UK</span>
+                   <fa-icon icon="location"></fa-icon>
+                   <span>$99 / hour</span>
+                 </div>
+                 <div class="tags">
+                   <span class="badge bg-primary m-1">Design</span>
+                   <span class="badge bg-primary m-1">Digital</span>
+                   <span class="badge bg-primary m-1">App</span>
+                 </div>
+                 <div class="d-grid  gap-2">
+                   <button class="btn view-profile">View Profile</button>
+                 </div>
+
+               </div>&ndash;&gt;
+            </div>
+            <div class="row justify-content-center">
+              <ngb-pagination
+                [collectionSize]="totalItems"
+                [(page)]="ngbPaginationPage"
+                [pageSize]="itemsPerPage"
+                [maxSize]="5"
+                [rotate]="true"
+                [boundaryLinks]="true"
+                (pageChange)="loadPage($event)"
+              ></ngb-pagination>
+            </div>
+          </div>
         </div>
       </div>
-      <div *ngIf="candidats && candidats.length > 0">
-       <!--  <div class="row justify-content-center">
-          <okoho-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></okoho-item-count>
-        </div>-->
 
-
-      <div class="row">
-        <div class="col-4 job-card" *ngFor="let candidat of candidats; trackBy: trackId">
-          <div>
-            <span class="private">Private</span>
-            <span class="fulltime">Fulltime</span>
-          </div>
-          <div class="text-center">
-            <img class="logo" src="favicon.ico">
-          </div>
-          <div class="candiadte-name">
-            {{candidat.userAccount.firstName}} {{candidat.userAccount.lastName}}
-          </div>
-          <div class="catalyst">
-            <span>UI Designer</span>
-          </div>
-          <div class="location">
-            <fa-icon icon="location"></fa-icon>
-            <span class="pr-3">London, UK</span>
-            <fa-icon icon="location"></fa-icon>
-            <span>$99 / hour</span>
-          </div>
-          <div class="tags">
-            <span class="badge bg-primary m-1">Design</span>
-            <span class="badge bg-primary m-1">Digital</span>
-            <span class="badge bg-primary m-1">App</span>
-          </div>
-          <div class="d-grid  gap-2">
-            <button class="btn view-profile">View Profile</button>
-          </div>
-
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <ngb-pagination
-          [collectionSize]="totalItems"
-          [(page)]="ngbPaginationPage"
-          [pageSize]="itemsPerPage"
-          [maxSize]="5"
-          [rotate]="true"
-          [boundaryLinks]="true"
-          (pageChange)="loadPage($event)"
-        ></ngb-pagination>
-      </div>
     </div>
   </div>
+</section>-->
 
-</div>
-</div>

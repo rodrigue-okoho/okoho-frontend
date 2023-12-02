@@ -6,6 +6,7 @@ import {ICandidat} from "../../core/models/candidat.model";
 import {ASC, DESC, ITEMS_PER_PAGE, SORT} from "../../core/config/pagination.constants";
 import {IEmployer} from "../../core/models/employe.model";
 import {combineLatest} from "rxjs";
+import {NgxSpinnerService} from "ngx-spinner";
 
 @Component({
   selector: 'app-employers',
@@ -25,7 +26,10 @@ export class EmployersComponent implements OnInit {
   ngbPaginationPage = 1;
   bycategory: string="All Categories";
   bycity: string;
-  constructor( protected frontService: FrontService,
+  query: string;
+  compagny_size: string;
+  founded: string;
+  constructor( protected frontService: FrontService,private spinnerService: NgxSpinnerService,
                protected activatedRoute: ActivatedRoute,
                protected router: Router,) {
     this.currentSearch = this.activatedRoute.snapshot.queryParams['search'] ?? '';
@@ -38,8 +42,10 @@ export class EmployersComponent implements OnInit {
       this.frontService
         .employerSearch({
           page: pageToLoad - 1,
-          query: this.currentSearch,
+          query: this.query,
           city: this.bycity,
+          founded: this.founded,
+          compagny_size: this.compagny_size,
           category: this.bycategory,
           size: this.itemsPerPage,
           sort: this.sort(),
@@ -85,7 +91,7 @@ export class EmployersComponent implements OnInit {
     this.handleNavigation();
   }
 
-  trackId(index: number, item: ICandidat): number {
+  trackId(index: number, item: ICandidat): string {
     return item.id!;
   }
   protected sort(): string[] {

@@ -1,3 +1,329 @@
+<section class="page-title margin-top-5">
+  <div class="auto-container">
+    <h4></h4>
+  </div>
+</section>
+<section class="ls-section style-two margin-top-1">
+  <div class="filters-backdrop"></div>
+
+  <div class="row no-gutters">
+    <!-- Filters Column -->
+    <div class="filters-column col-xl-3 col-lg-4 col-md-12 col-sm-12">
+      <div class="inner-column">
+        <div class="filters-outer">
+          <button type="button" class="theme-btn close-filters">X</button>
+
+          <!-- Filter Block -->
+          <div class="filter-block">
+            <h4>Search by Keywords</h4>
+            <div class="form-group">
+            <div class="input-group input-group-merge">
+
+              <input class="custom-group-input" (keyup)="search($event)" type="text" placeholder="Job title, keywords, or company">
+              <!-- <fa-icon icon="search"></fa-icon>-->
+              <span class="icon flaticon-search-3"></span>
+              <div class="input-group-text">
+                <fa-icon icon="search"></fa-icon>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <!-- Filter Block -->
+          <div class="filter-block">
+            <h4>Location</h4>
+            <div class="form-group">
+              <div class="input-group input-group-merge">
+              <input class="custom-group-input" (keyup)="searchByCity($event)" [(ngModel)]="bycity" type="text" name="listing-search" placeholder="City or postcode">
+              <span class="icon flaticon-map-locator"></span>
+              <div class="input-group-text">
+                <fa-icon icon="map-location"></fa-icon>
+              </div>
+              </div>
+            </div>
+<!--            <p>Radius around selected destination</p>
+            <div class="range-slider-one">
+              <div class="area-range-slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 50%;"></div>
+                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+                      style="left: 0%;">
+
+                </span><span tabindex="0"
+                             class="ui-slider-handle ui-corner-all ui-state-default"
+                             style="left: 50%;"></span></div>
+              <div class="input-outer">
+                <div class="amount-outer"><span class="area-amount">50</span>km</div>
+              </div>
+            </div>-->
+          </div>
+
+          <!-- Filter Block -->
+          <div class="filter-block">
+            <h4>Category</h4>
+            <div class="form-group">
+              <div class="input-group input-group-merge">
+              <select [(ngModel)]="bycategory" class="form-select chosen-select custom-group-input" style="">
+                <option>Choose a category</option>
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="industrial">Industrial</option>
+                <option value="apartments">Apartments</option>
+              </select>
+              <span class="icon flaticon-briefcase"></span>
+              <div class="input-group-text">
+                <fa-icon icon="briefcase"></fa-icon>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Switchbox Outer -->
+          <div class="switchbox-outer">
+            <h4>Job type</h4>
+            <ul class="switchbox">
+              <li>
+                <label class="switch">
+                  <input (change)="searchByJobType($event)" type="checkbox" checked="">
+                  <span class="slider round"></span>
+                  <span class="title">Freelance</span>
+                </label>
+              </li>
+              <li>
+                <label class="switch">
+                  <input (change)="searchByJobType($event)" value="fulltime" type="checkbox">
+                  <span class="slider round"></span>
+                  <span class="title">Full Time</span>
+                </label>
+              </li>
+              <li>
+                <label class="switch">
+                  <input (change)="searchByJobType($event)" value="internship" type="checkbox">
+                  <span class="slider round"></span>
+                  <span class="title">Internship</span>
+                </label>
+              </li>
+              <li>
+                <label class="switch">
+                  <input (change)="searchByJobType($event)" value="parttime" type="checkbox">
+                  <span class="slider round"></span>
+                  <span class="title">Part Time</span>
+                </label>
+              </li>
+              <li>
+                <label class="switch">
+                  <input (change)="searchByJobType($event)" value="temporary" type="checkbox">
+                  <span class="slider round"></span>
+                  <span class="title">Temporary</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Checkboxes Ouer -->
+          <div class="checkbox-outer">
+            <h4>Date Posted</h4>
+            <ul class="checkboxes">
+              <li>
+                <input (change)="searchByDatePosted($event)" value="all" id="check-f" type="checkbox" name="check">
+                <label for="check-f">All</label>
+              </li>
+              <li>
+                <input (change)="searchByDatePosted($event)" value="last_hour" id="check-a" type="checkbox"
+                       name="check">
+                <label for="check-a">Last Hour</label>
+              </li>
+              <li>
+                <input (change)="searchByDatePosted($event)" value="last24_hour" id="check-b" type="checkbox"
+                       name="check">
+                <label for="check-b">Last 24 Hours</label>
+              </li>
+              <li>
+                <input (change)="searchByDatePosted($event)" value="last7_day" id="check-c" type="checkbox"
+                       name="check">
+                <label for="check-c">Last 7 Days</label>
+              </li>
+              <li>
+                <input (change)="searchByDatePosted($event)" value="last14_day" id="check-d" type="checkbox"
+                       name="check">
+                <label for="check-d">Last 14 Days</label>
+              </li>
+              <li>
+                <input (change)="searchByDatePosted($event)" value="last30_day" id="check-e" type="checkbox"
+                       name="check">
+                <label for="check-e">Last 30 Days</label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Checkboxes Ouer -->
+          <div class="checkbox-outer">
+            <h4>Experience Level</h4>
+            <ul class="checkboxes square">
+              <li>
+                <input (change)="searchByExperience($event)" id="check-ba" type="checkbox" name="check">
+                <label for="check-ba">All</label>
+              </li>
+              <li>
+                <input (change)="searchByExperience($event)" id="check-bb" type="checkbox" name="check">
+                <label for="check-bb">Internship</label>
+              </li>
+              <li>
+                <input (change)="searchByExperience($event)" id="check-bc" type="checkbox" name="check">
+                <label for="check-bc">Entry level</label>
+              </li>
+              <li>
+                <input (change)="searchByExperience($event)" id="check-bd" type="checkbox" name="check">
+                <label for="check-bd">Associate</label>
+              </li>
+              <li>
+                <input (change)="searchByExperience($event)" id="check-be" type="checkbox" name="check">
+                <label for="check-be">Mid-Senior level4</label>
+              </li>
+              <li>
+                <button class="view-more"><span class="icon flaticon-plus"></span> View More</button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Filter Block -->
+          <div class="filter-block">
+            <h4>Salary</h4>
+            <input (change)="searchBySalary($event)" class="form-range" id="example-range" type="range" name="range"
+                   min="500" max="10000">
+          </div>
+
+          <!-- Filter Block -->
+          <div class="filter-block">
+            <h4>Tags</h4>
+            <ul class="tags-style-one">
+              <li><a href="#">app</a></li>
+              <li><a href="#">administrative</a></li>
+              <li><a href="#">android</a></li>
+              <li><a href="#">wordpress</a></li>
+              <li><a href="#">design</a></li>
+              <li><a href="#">react</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Column -->
+    <div class="content-column col-xl-9 col-lg-8 col-md-12 col-sm-12">
+
+      <div class="ls-outer" *ngIf="jobs && jobs.length > 0">
+        <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
+
+        <!-- ls Switcher -->
+        <div class="ls-switcher">
+          <div class="showing-result">
+            <p>
+              <okoho-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage}">
+              </okoho-item-count>
+              <span jhiTranslate="global.item-job">Jobs</span></p>
+            <!--   <div class="text">Showing <strong>41-60</strong> of <strong>944</strong> jobs</div>-->
+          </div>
+          <div class="sort-by">
+            <select class="form-select chosen-select" style="" (change)="sorted()">
+              <option>New Jobs</option>
+              <option>Freelance</option>
+              <option>Full Time</option>
+              <option>Internship</option>
+              <option>Part Time</option>
+              <option>Temporary</option>
+            </select>
+
+
+            <select class="form-select chosen-select" style="">
+              <option>Show 10</option>
+              <option>Show 20</option>
+              <option>Show 30</option>
+              <option>Show 40</option>
+              <option>Show 50</option>
+              <option>Show 60</option>
+            </select>
+          </div>
+        </div>
+        <div *ngIf="jobs && jobs.length > 0">
+          <div class="row">
+
+            <!-- Job Block -->
+            <div class="job-block col-lg-6 col-md-12 col-sm-12" *ngFor="let job of jobs; trackBy: trackId">
+              <div class="inner-box">
+                <div class="content">
+                  <span class="company-logo">
+                    <img *ngIf="job?.recruteur.userAccount.imageUrl" src="{{job?.recruteur.userAccount.imageUrl}}" alt="Image">
+                     <img *ngIf="job?.recruteur.userAccount.imageUrl == null" src="assets/images/avatar/image-place-holder.png" alt="Image">
+                  </span>
+                  <h4><a [routerLink]="['/find-job', 'detail', job?.id]">{{job?.title}}</a></h4>
+                  <ul class="job-info">
+                    <li>
+                      <fa-icon icon="briefcase"></fa-icon>
+                      Segment
+                    </li>
+                    <li>
+                      <fa-icon icon="map-location"></fa-icon>
+                      {{job?.recruteur.location}}</li>
+                    <li>
+                      <fa-icon icon="clock-four"></fa-icon>
+                      11 hours ago
+                    </li>
+                    <li>
+                      <fa-icon icon="money-bill"></fa-icon>
+                      ${{job?.minSalary}}k - ${{job?.max_salary}}k
+                    </li>
+
+                  </ul>
+                  <ul class="job-other-info">
+                    <li class="time">{{job?.jobType}}</li>
+                    <li class="privacy">Private</li>
+                    <li class="required">Urgent</li>
+                  </ul>
+                  <button class="bookmark-btn">
+                    <fa-icon icon="bookmark"></fa-icon>
+                    <span class="flaticon-bookmark"></span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Listing Show More -->
+        <div class="ls-show-more">
+          <div class="row justify-content-center">
+            <ngb-pagination
+              [collectionSize]="totalItems"
+              [(page)]="ngbPaginationPage"
+              [pageSize]="itemsPerPage"
+              [maxSize]="5"
+              [rotate]="true"
+              [boundaryLinks]="true"
+              (pageChange)="loadPage($event)"
+            ></ngb-pagination>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!jobs || jobs?.length == 0">
+        <div class="not-found">No job alert found.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+<section class="page-title">
+  <div class="auto-container">
+    <div class="title-outer">
+      <h1>Find Jobs</h1>
+      <ul class="page-breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li>Jobs</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <div class="container-fluid content">
   <div class="container search">
     <div class="row">
@@ -152,6 +478,7 @@
       </div>
     </div>
     <div class="col-md-9">
+      <div *ngIf="jobs && jobs.length > 0">
       <div class="row">
         <div class="col-6 showing-employer">
           <p> <okoho-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage}">
@@ -178,8 +505,41 @@
         </div>
       </div>
       <div *ngIf="jobs && jobs.length > 0">
-      <div class="row">
-        <div class="col-6 job-card" *ngFor="let job of jobs; trackBy: trackId">
+       <div class="row">
+         <article class="col-6 margin-right-3 map-item job-grid post-4540 job_listing type-job_listing status-publish hentry job_listing_type-full-time job_listing_category-design
+          job_listing_category-development job_listing_location-new-york
+           job_listing_tag-app job_listing_tag-jobs job_listing_tag-superio
+            job_listing_tag-support is-featured is-urgent"
+                  data-latitude="40.69865478041131"
+                  data-longitude="-73.99426069264436"
+                  data-img="https://apusthemes.com/wp-demo/superio/wp-content/uploads/2021/05/y2.jpg"
+                  *ngFor="let job of jobs; trackBy: trackId">
+           <div class="top-left">
+             <span class="featured-text">Featured</span>
+             <span class="urgent">Urgent</span>
+           </div>
+           <div class="job-type with-title">
+             <a class="type-job" href="https://apusthemes.com/wp-demo/superio/job-type/full-time/" style="">Full Time</a>
+           </div>    <div class="employer-logo">
+           <a [routerLink]="['/find-job', 'detail', job.id]">
+             <img width="100" height="100" src="https://apusthemes.com/wp-demo/superio/wp-content/uploads/2021/05/y2.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" decoding="async">            	                	</a>
+         </div>    <div class="job-information">
+
+           <h3 class="employer-title">
+             <a [routerLink]="['/find-job', 'detail', job.id]">
+               {{job.title}}
+             </a>
+           </h3>
+           <h2 class="job-title"><a [routerLink]="['/find-job', 'detail', job.id]" rel="bookmark">
+             {{job.title}}</a></h2>
+           <div class="job-location">
+             <fa-icon icon="location-pin"></fa-icon>
+             <i class="flaticon-location"></i>
+             <a href="https://apusthemes.com/wp-demo/superio/job-location/new-york/">New York</a>                    </div>
+         </div>
+         </article>
+
+         &lt;!&ndash;<div class="col-6 job-card" *ngFor="let job of jobs; trackBy: trackId">
           <div>
             <span class="private">Private</span>
             <span class="fulltime">Fulltime</span>
@@ -194,10 +554,12 @@
             {{job.title}}
           </div>
           <div class="location"><fa-icon icon="location"></fa-icon> <span>London, UK</span></div>
-        </div>
+        </div>&ndash;&gt;
       </div>
       </div>
+    </div>
     </div>
   </div>
 
 </div>
+-->

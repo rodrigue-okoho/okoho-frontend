@@ -1,0 +1,353 @@
+<div class="layout">
+  <div class="vertical-layout row">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <app-siderbar-candidate></app-siderbar-candidate>
+    </div>
+    <div class="col-md-9 col-sm-12 col-xs-12">
+      <section class="user-dashboard">
+        <div class="dashboard-outer">
+          <div class="upper-title-box">
+            <h3>My Profile</h3>
+            <div class="text">Ready to jump back in?</div>
+          </div>
+          <form #f="ngForm">
+
+          </form>
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- Ls widget -->
+              <div class="ls-widget">
+                <div class="tabs-box">
+                  <div class="widget-title">
+                    <h4>My Profile</h4>
+                  </div>
+
+                  <div class="widget-content">
+
+                    <div class="uploading-outer">
+                      <div class="uploadButton">
+                        <input class="uploadButton-input" type="file" (change)="uploadCv($event)" name="attachments[]"
+                               accept="image/*, application/pdf" id="upload" multiple="">
+                        <label class="uploadButton-button ripple-effect" for="upload">Browse Logo</label>
+                        <span class="uploadButton-file-name"></span>
+                      </div>
+                      <div class="uploadButton">
+                        <img src="{{account?.imageUrl}}"/>
+                      </div>
+                      <div class="text">Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg
+                        &amp; .png
+                      </div>
+                    </div>
+
+                    <form  #f="ngForm" class="default-form"  (submit)="saveProfile()">
+                      <div class="row" [formGroup]="itemForm">
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>First Name *</label>
+                          <input type="text" formControlName="firstName" name="name" placeholder="Jerome">
+                        </div>
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Last Name </label>
+                          <input type="text" formControlName="lastName" name="name" placeholder="Jerome">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Job Title *</label>
+                          <input type="text" formControlName="jobTitle" placeholder="UI Designer">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                           <label class="form-label">Phone</label>
+                         <!-- <input type="text"  placeholder="0 123 456 7890" hidden>-->
+                          <ngx-intl-tel-input [cssClass]="'form-group phone-tel'"
+                                              [enableAutoCountrySelect]="true"
+                                              [enablePlaceholder]="false"
+                                              [searchCountryFlag]="true"
+                                              [selectFirstCountry]="false"
+                                              [maxLength]="15"
+                                              [phoneValidation]="true"
+                                              [separateDialCode]="true"
+                                              [preferredCountries]="[CountryISO.Germany,CountryISO.Cameroon,CountryISO.France,]"
+                                             
+                                              countryChange="countryChange()"
+                                              name="phone" formControlName="phone">
+                          </ngx-intl-tel-input>
+                       <!--   <intl-tel-input
+                              [label]="'Phone'"
+                              [name]="'phone'"
+                              [cssClass]="'form-control int-input'"
+                              [labelCssClass]="'col-md-12 form-label'"
+                              [required]="true"
+                              [options]="{
+                              preferredCountries: ['de', 'fr','cm']
+                              }"
+                              [(E164PhoneNumber)]="E164PhoneNumber"
+                             >
+                            </intl-tel-input>-->
+
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Email address</label>
+                          <input type="text" formControlName="email" placeholder="creativelayers">
+                        </div>
+
+                        <!-- Input -->
+                        <!--  <div class="form-group col-lg-6 col-md-12">
+                            <label>Website</label>
+                            <input type="text" name="name" placeholder="www.jerome.com">
+                          </div>-->
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-3 col-md-12">
+                          <label>Current Salary($)</label>
+                          <select formControlName="currentSalary" class="chosen-select" style="">
+                            <option value="40">40-70 K</option>
+                            <option value="50">50-80 K</option>
+                            <option value="60">60-90 K</option>
+                            <option value="70">70-100 K</option>
+                            <option value="100">100-150 K</option>
+                          </select>
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-3 col-md-12">
+                          <label>Expected Salary($)</label>
+                          <select formControlName="expectedSalary" class="chosen-select" style="">
+                            <option value="40">40-70 K</option>
+                            <option value="50">50-80 K</option>
+                            <option value="60">60-90 K</option>
+                            <option value="70">70-100 K</option>
+                            <option value="100">100-150 K</option>
+                          </select>
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Experience</label>
+                          <select formControlName="experienceTime" class="chosen-select">
+                            <option>Select</option>
+                            <option value="0">Fresh</option>
+                            <option value="1">1 Year</option>
+                            <option value="2">2 Year</option>
+                            <option value="3">3 Year</option>
+                            <option value="4">4 Year</option>
+                            <option value="5">5 Year</option>
+
+                          </select>
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-3 col-md-12">
+                          <label>Date of born *</label>
+                          <input type="date" formControlName="dob" name="name" placeholder="2000-03-12">
+                        </div>
+                        <div class="form-group col-lg-3 col-md-12">
+                          <label>Place of born</label>
+                          <input type="text" formControlName="placeofborn" name="name" placeholder="Douala,cameroon">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Education Levels</label>
+                          <select formControlName="educationLevel" class="chosen-select">
+                            <option>Select</option>
+                            <option value="Certificate">Certificate</option>
+                            <option value="Associate Degree">Associate Degree</option>
+                            <option value="Bachelor Degree">Bachelor Degree</option>
+                            <option value="Master’s Degree">Master’s Degree</option>
+                            <option value="Doctorate Degree">Doctorate Degree</option>
+
+                          </select>
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Languages</label>
+                          <select data-placeholder="Languages" class="chosen-select multiple"
+                                  multiple="" tabindex="-1" style="">
+                            <option value="English">English</option>
+                            <option value="French">French</option>
+                            <option value="Deutch">Deutch</option>
+                          </select>
+                        </div>
+
+                        <!-- Search Select -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Categories *</label>
+                          <ngx-select [placeholder]="placehoder" [items]="categories" [multiple]="true"
+                                      formControlName="categoryJobs" class="chosen-select multiple"
+                                      optionValueField="id" optionTextField="title"></ngx-select>
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Allow In Search &amp; Listing</label>
+                          <select class="chosen-select" style="">
+                            <option>Yes</option>
+                            <option>No</option>
+                          </select>
+                        </div>
+
+                        <!-- About Company -->
+                        <div class="form-group col-lg-12 col-md-12">
+                          <label>Description</label>
+                          <textarea formControlName="description"
+                                    placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <button *ngIf="!btn_status" class="theme-btn btn-style-one">Save</button>
+                          <button *ngIf="btn_status" class="theme-btn btn-style-four">Update</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ls widget -->
+              <div class="ls-widget">
+                <div class="tabs-box">
+                  <div class="widget-title">
+                    <h4>Social Network</h4>
+                  </div>
+
+                  <div class="widget-content">
+                    <form class="default-form" [formGroup]="itemSocialForm" (submit)="saveSociale()">
+                      <div class="row">
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Facebook</label>
+                          <input type="text" formControlName="facebook" placeholder="www.facebook.com/Invision">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Twitter</label>
+                          <input type="text" formControlName="twitter" placeholder="">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Linkedin</label>
+                          <input type="text" formControlName="linkedin" placeholder="">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Google Plus</label>
+                          <input type="text" formControlName="googleplus" placeholder="">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <button *ngIf="!btn_status" class="theme-btn btn-style-one">Save</button>
+                          <button *ngIf="btn_status" class="theme-btn btn-style-four">Update</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ls widget -->
+              <div class="ls-widget">
+                <div class="tabs-box">
+                  <div class="widget-title">
+                    <h4>Contact Information</h4>
+                  </div>
+
+                  <div class="widget-content">
+                    <form class="default-form" [formGroup]="itemContactForm" (submit)="saveContact()">
+                      <div class="row">
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Country</label>
+                          <ng-select class="chosen-select" [items]="countries"
+                                     bindLabel="name"
+                                     bindValue="name"
+                                     formControlName="country"
+                          >
+                          </ng-select>
+                          <!-- <select formControlName="country" class="form-select chosen-select" style="">
+                             <option>Australia</option>
+                             <option>Pakistan</option>
+                             <option>Chaina</option>
+                             <option>Japan</option>
+                             <option>India</option>
+                           </select>-->
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>City</label>
+                          <input type="text" formControlName="town" placeholder="Berlin">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-12 col-md-12">
+                          <label>Complete Address</label>
+                          <input type="text" formControlName="address"
+                                 placeholder="329 Queensberry Street, North Melbourne VIC 3051, Australia.">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Find On Map</label>
+                          <input formControlName="address" type="text"
+                                 placeholder="329 Queensberry Street, North Melbourne VIC 3051, Australia.">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-3 col-md-12">
+                          <label>Latitude</label>
+                          <input formControlName="latitude" type="text" placeholder="Melbourne">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-3 col-md-12">
+                          <label>Longitude</label>
+                          <input formControlName="longitude" type="text" placeholder="Melbourne">
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-12 col-md-12">
+                          <button class="theme-btn btn-style-three">Search Location</button>
+                        </div>
+
+
+                        <div class="form-group col-lg-12 col-md-12">
+                          <div class="map-outer">
+                            <div class="map-canvas map-height" data-zoom="12" data-lat="-37.817085"
+                                 data-lng="144.955631" data-type="roadmap" data-hue="#ffc400" data-title="Envato"
+                                 data-icon-path="images/resource/map-marker.png"
+                                 data-content="Melbourne VIC 3000, Australia<br><a href='mailto:info@youremail.com'>info@youremail.com</a>">
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Input -->
+                        <div class="form-group col-lg-12 col-md-12">
+                          <button *ngIf="!btn_status" class="theme-btn btn-style-one">Save</button>
+                          <button *ngIf="btn_status" class="theme-btn btn-style-four">Update</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

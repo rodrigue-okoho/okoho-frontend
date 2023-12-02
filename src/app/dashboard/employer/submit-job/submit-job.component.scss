@@ -1,0 +1,35 @@
+.error{
+  color: #cb2027;
+}
+.post-job-steps .step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 80px !important;
+    margin-bottom: 50px;
+  }
+  .post-job-steps .step .icon {
+    height: 60px !important;
+    width: 60px !important;
+    font-size: 20px !important;
+    line-height: 60px !important;
+
+  }
+  h5{
+    font-size: 16px;
+  }
+.default-form .form-group input[type="date"] {
+  position: relative;
+  width: 100%;
+  display: block;
+  height: 60px;
+  line-height: 30px;
+  padding: 15px 20px;
+  font-size: 15px;
+  color: #696969;
+  background: #F0F5F7;
+  border: 1px solid #F0F5F7;
+  box-sizing: border-box;
+  border-radius: 8px;
+  transition: all 300ms ease;
+}

@@ -1,0 +1,141 @@
+<div class="side-nav nav-menu-light scrollable">
+
+  <ul class="navbar-nav nav-menu navigation">
+    <li class="nav-menu-item router-link-active">
+
+      <a routerLink="/dash/dash-candidate"
+         routerLinkActive="active"
+         class="nav-link {{setActivate('dash-candidate')}}"
+         (click)="collapseNavbar()">
+        <fa-icon icon="dashboard"></fa-icon>
+        <span class="nav-menu-item-title"> Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-menu-item router-link-active">
+      <a routerLink="/dash/dash-my-profile"
+         routerLinkActive="active" class="{{setActivate('dash-my-profile')}}"
+         (click)="collapseNavbar()">
+        <fa-icon icon="user"></fa-icon>
+        <span jhiTranslate="global.menu.account.profil" class="nav-menu-item-title"> profiles</span>
+      </a>
+    </li>
+    <!--     <li class="nav-menu-item">
+          <a href="">
+            <fa-icon icon="paper-plane"></fa-icon>
+            <span class="nav-menu-item-title"> Post new job</span>
+
+        </li>
+     <li class="nav-menu-item">
+          <a href="">
+            <fa-icon icon="cube"></fa-icon>
+            <span class="nav-menu-item-title"> Manage job</span>
+          </a>
+        </li>
+        <li class="nav-menu-item">
+          <a href="">
+            <fa-icon icon="file-edit"></fa-icon>
+            <span class="nav-menu-item-title"> All applications</span>
+          </a>
+        </li>-->
+
+<!--    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-my-resume"
+         routerLinkActive="active" class="{{setActivate('dash-my-resume')}}">
+        <fa-icon icon="briefcase"></fa-icon>
+        <span class="nav-menu-item-title">My Resume</span>
+      </a>
+    </li>-->
+
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-cv-manager"
+         routerLinkActive="active" class="{{setActivate('dash-cv-manager')}}">
+        <fa-icon icon="file"></fa-icon>
+        <span class="nav-menu-item-title" jhiTranslate="global.menu.account.cv_manager"> CV Manager</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-my-apply"
+         routerLinkActive="active" class="{{setActivate('dash-my-apply')}}">
+        <fa-icon icon="bullhorn"></fa-icon>
+        <span class="nav-menu-item-title" jhiTranslate="global.menu.account.my_apply">my apply</span>
+
+      </a>
+    </li>
+
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-short-list"
+         routerLinkActive="active" class="{{setActivate('dash-short-list')}}">
+        <fa-icon icon="bookmark"></fa-icon>
+        <span jhiTranslate="global.menu.account.shortlist_job" class="nav-menu-item-title"> Shortlist jobs</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-message"
+         routerLinkActive="active" class="{{setActivate('dash-message')}}">
+        <fa-icon icon="message"></fa-icon>
+        <span class="nav-menu-item-title"> Messages</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-alert-job"
+         routerLinkActive="active" class="{{setActivate('dash-alert-job')}}">
+        <fa-icon icon="bell"></fa-icon>
+        <span jhiTranslate="global.menu.account.alert_job" class="nav-menu-item-title"> alert job</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a routerLink="/dash/dash-change-password"
+         routerLinkActive="active" class="{{setActivate('dash-change-password')}}">
+        <fa-icon icon="lock"></fa-icon>
+        <span class="nav-menu-item-title"  jhiTranslate="global.menu.account.password"> Change password</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a (click)="deleteProfil(delete)" >
+        <fa-icon icon="trash"></fa-icon>
+        <span class="nav-menu-item-title"  jhiTranslate="global.menu.account.delete_profil"> delete profile</span>
+      </a>
+    </li>
+    <li class="nav-menu-item">
+      <a class="{{setActivate('dash-candidate')}}" (click)="logout()">
+        <fa-icon icon="power-off"></fa-icon>
+        <span class="nav-menu-item-title"  jhiTranslate="global.menu.account.logout"> logout</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<ng-template #delete let-modal>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="assets/images/5225083%201.png">
+      </div>
+      <div class="col-md-6 ">
+        <h6 class="pt-5">Do you realy want to delete your profiles?</h6>
+        <form class="pt-5" [formGroup]="form" >
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <input type="radio" class="btn-check" value="yes" formControlName="type"  id="success-outlined" autocomplete="off">
+              <label class="text-center btn theme-btn btn-outline-success d-flex p-2 bd-highlight justify-content-center" for="success-outlined">Yes</label>
+            </div>
+            <div class="col-md-6 text-center">
+              <input type="radio" class="btn-check" (click)="cancelDelete()" value="no" formControlName="type"  id="danger-outlined" autocomplete="off">
+              <label class="theme-btn btn btn-outline-danger d-flex p-2 bd-highlight justify-content-center" for="danger-outlined">No</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" formControlName="message">
+
+          </textarea>
+
+          </div>
+          <div class="col-md-8 mb-3">
+            <button [class.auth-spinner]="loading" [disabled]="loading" (click)="confimDelete()" class="theme-btn btn-style-one" type="submit" name="log-in">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</ng-template>

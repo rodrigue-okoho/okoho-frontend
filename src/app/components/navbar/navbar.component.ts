@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SessionStorageService } from 'ngx-webstorage';
 import {VERSION} from "../../core/app.constants";
@@ -21,21 +21,33 @@ export class NavbarComponent implements OnInit {
   version = '';
   account: Account | null = null;
   languages = LANGUAGES;
+  isNavbarFixed: boolean = false;
   // @ts-ignore
   @ViewChild("signin")signin: SigninComponent;
+  @HostListener('window:scroll', ['$event']) onScroll() {
+    if (window.scrollY > 100) {
+      this.isNavbarFixed = true;
+    } else {
+      this.isNavbarFixed = false;
+    }
+  }
+  _path: string | undefined;
   constructor(
     private translateService: TranslateService,
     private sessionStorageService: SessionStorageService,
     private accountService: AccountService,
     private loginService: AuthService,
-    private router: Router
+    private router: Router,private activatedRoute:ActivatedRoute
   ) {
+    console.log(activatedRoute.snapshot.routeConfig?.path)
+    this._path=this.activatedRoute.snapshot.routeConfig?.path;
     if (VERSION) {
       this.version = VERSION.toLowerCase().startsWith('v') ? VERSION : 'v' + VERSION;
     }
   }
 
   ngOnInit(): void {
+
     this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
   }
 
@@ -43,7 +55,12 @@ export class NavbarComponent implements OnInit {
     this.sessionStorageService.store('locale', languageKey);
     this.translateService.use(languageKey);
   }
-
+  setActivate(path:string){
+    if (path==this._path){
+      return "current"
+    }
+    return "";
+  }
   collapseNavbar(): void {
     this.isNavbarCollapsed = true;
   }

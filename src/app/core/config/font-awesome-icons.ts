@@ -48,9 +48,43 @@ import {
   faMarker,
   faLocationPin,
   faArrowRight,
-  faMessage, faPhoneAlt
+  faMessage,
+  faPhoneAlt,
+  faDashboard,
+  faParking,
+  faPlane,
+  faPaperPlane,
+  faCube,
+  faCubes,
+  faBriefcase,
+  faFileEdit,
+  faUserAlt,
+  faBookmark,
+  faPowerOff,
+  faTrash,
+  faStreetView,
+  faGlasses,
+  faPhoneVolume,
+  faUserSecret,
+  faUserTie,
+  faGripHorizontal,
+  faGauge,
+  faBullhorn,
+  faHeadset,
+  faAngleUp,
+  faDownload,
+  faUndo,
+  faEnvelope,
+  faFile,
+  faMapLocation,
+  faMoneyBill,
+  faClockFour,
+  faVectorSquare,
+  faCalendar,
+  faEdit, faArrowDown, faAngleDown, faEyeSlash, faBox, faVideoCamera
   // jhipster-needle-add-icon-import
 } from '@fortawesome/free-solid-svg-icons';
+import {faAngleRight} from "@fortawesome/free-solid-svg-icons/faAngleRight";
 
 export const fontAwesomeIcons = [
   faArrowLeft,
@@ -94,9 +128,13 @@ export const fontAwesomeIcons = [
   faCarBattery,
   faShoppingBag,
   faSchoolFlag,faGripVertical,faFolder,faCity,
-  faLocation,
-  faMapMarked,
-  faMarker,faLocationPin,faArrowLeft,faArrowRight,
-  faMessage,faPhoneAlt
+  faLocation,faEnvelope,faFile,faMapLocation,faMoneyBill,faClockFour,faVectorSquare,
+  faMapMarked,faAngleUp,faDownload,faUndo,faAngleDown,
+  faMarker,faLocationPin,faArrowLeft,faArrowRight,faArrowDown,
+  faMessage,faPhoneAlt,faDashboard,faParking,faPaperPlane,
+  faCube,faCubes,faBriefcase,faFileEdit,faUserAlt,faPowerOff,faTrash,
+  faPhoneVolume,faUserSecret,faUserTie,faGauge,faBullhorn,faHeadset,
+  faBookmark,faStreetView,faGlasses,faCalendar,faEdit,
+  faEyeSlash,faBox,faVideoCamera,faAngleRight
   // jhipster-needle-add-icon-import
 ];

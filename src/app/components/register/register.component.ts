@@ -6,6 +6,7 @@ import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {isPlatformBrowser} from "@angular/common";
 import {AuthService} from "../../core/services/auth.service";
 import {AuthServerProvider} from "../../core/auth/auth-jwt.service";
+import {FacebookLoginProvider, SocialAuthService} from "@abacritt/angularx-social-login";
 
 @Component({
   selector: 'app-register',
@@ -16,16 +17,30 @@ export class RegisterComponent {
   public closeResult: string="";
   public modalOpen: boolean = false;
   public loginform: FormGroup;
+  loading = false;
+  showPassword = false;
+  strongPassword = false;
+  submitted = false;
+  working = false;
+  complete = false;
+  public passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,16}$/;
   // @ts-ignore
   @ViewChild("register", { static: false }) register: TemplateRef<any>;
-  constructor(@Inject(PLATFORM_ID) private platformId: Object
-    ,private translateService: TranslateService,private authService: AuthServerProvider,
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private authService: SocialAuthService
+    ,private translateService: TranslateService,private loginService: AuthServerProvider,
               private router: Router,private modalService: NgbModal,private fb: FormBuilder) {
     this.loginform = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      account_type:['', Validators.required],
+      password: [null, [Validators.required, Validators.min(8)],],
+      account_type:['', [Validators.required]],
     });
+  }
+  get f() {
+    return this.loginform.controls;
+  }
+
+  onPasswordStrengthChanged(event: boolean) {
+    this.strongPassword = event;
   }
   openModal() {
     if (isPlatformBrowser(this.platformId)) { // For SSR
@@ -43,6 +58,9 @@ export class RegisterComponent {
       });
     }
   }
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -52,8 +70,11 @@ export class RegisterComponent {
       return `with: ${reason}`;
     }
   }
-
+  onShowPasswordClick() {
+    this.showPassword = !this.showPassword;
+  }
   onSubmit() {
+    this.loading = true;
     const values = {
       account_type:this.loginform.value.account_type,
       email: this.loginform.value.email,
@@ -61,7 +82,7 @@ export class RegisterComponent {
 
     };
     console.log(values);
-    this.authService
+    this.loginService
       .register({
         email: this.loginform.value.email,
         password: this.loginform.value.password,
@@ -77,9 +98,7 @@ export class RegisterComponent {
             this.router.navigate(['activate-wait']);
           }
         },
-        () => {
-
-        }
+        () => (this.loading = false)
       );
   }
 }

@@ -11,6 +11,7 @@ import {Login} from "../models/login.model";
 type JwtToken = {
   accessToken: string;
   email: string;
+  user_type: string;
   id: string;
   roles: [string];
 };
@@ -50,6 +51,8 @@ export class AuthServerProvider {
 
   private authenticateSuccess(response: JwtToken, rememberMe: boolean): void {
     const jwt = response.accessToken;
+    this.localStorageService.store('user_type', response.user_type);
+    this.localStorageService.store('account_id', response.id);
     if (rememberMe) {
       this.localStorageService.store('authenticationToken', jwt);
       this.sessionStorageService.clear('authenticationToken');

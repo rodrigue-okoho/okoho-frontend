@@ -103,7 +103,7 @@ export class CandidatsComponent  implements OnInit {
     this.handleNavigation();
   }
 
-  trackId(index: number, item: ICandidat): number {
+  trackId(index: number, item: ICandidat): string {
     return item.id!;
   }
   protected sort(): string[] {

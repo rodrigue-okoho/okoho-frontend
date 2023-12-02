@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://194.5.157.254:8080/api'
+  apiUrl: 'https://okoho-app-c843061595ca.herokuapp.com'
 };

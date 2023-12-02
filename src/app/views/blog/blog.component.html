@@ -1,77 +1,65 @@
-<div class="row title-content">
-<h4>
-  Blog
-</h4>
-  <h5>Home / Blog</h5>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-4 card bg-card">
-      <div class="card-header">
-        <img src="favicon.ico" class="card-img">
-      </div>
-      <div class="card-body">
-        <div class="blog-date">
-          <span class="sp-date">August 31, 2021</span><span>12 Comment</span>
-        </div>
-        <h4 class="blog-title">Attract Sales And Profits</h4>
-        <div class="blog-content">
-          A job ravenously while Far much that one rank beheld after outside....
-        </div>
-      </div>
-      <div class="card-footer">
-        <a class="btn read-more ">Read More <fa-icon icon="arrow-right"></fa-icon></a>
-      </div>
+<section class="page-title">
+  <div class="auto-container">
+    <div class="title-outer">
+      <h1>Blog</h1>
+      <ul class="page-breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li>Blog</li>
+      </ul>
     </div>
-    <div class="col-4 card bg-card">
-      <div class="card-header">
-        <img src="favicon.ico" class="card-img">
-      </div>
-      <div class="card-body">
-        <div class="blog-date">
-          <span class="sp-date">August 31, 2021</span><span>12 Comment</span>
+  </div>
+</section>
+<div class="sidebar-page-container">
+  <div class="auto-container">
+    <div class="row">
+      <!--Content Side-->
+      <div class="content-side col-lg-12 col-md-12 col-sm-12">
+        <div class="blog-grid">
+          <div class="row">
+            <!-- News Block -->
+            <div class="news-block col-lg-4 col-md-6 col-sm-12" *ngFor="let blog of blogs">
+              <div class="inner-box">
+                <div class="image-box">
+                  <figure class="image">
+                    <img src="{{blog?.image}}" alt="" *ngIf="blog?.image">
+                    <img src="assets/images/avatar/image-place-holder.png" alt="" *ngIf="!blog?.image">
+                  </figure>
+                </div>
+                <div class="lower-content">
+                  <ul class="post-meta">
+                    <li><a href="#">{{blog?.createdAt|date}}</a></li>
+                    <li><a href="#">12 Comment</a></li>
+                  </ul>
+                  <h3><a [routerLink]="['/blog', 'detail', blog?.id]">{{blog?.title}}</a></h3>
+                  <p class="text">{{blog?.description}}....</p>
+                  <a [routerLink]="['/blog', 'detail', blog?.id]" class="read-more">Read More
+                    <fa-icon icon="angle-right"></fa-icon>
+                    </a>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <!-- Pagination -->
+          <nav class="ls-pagination">
+            <div class="row justify-content-center">
+              <ngb-pagination
+                [collectionSize]="totalItems"
+                [(page)]="ngbPaginationPage"
+                [pageSize]="itemsPerPage"
+                [maxSize]="5"
+                [rotate]="true"
+                [boundaryLinks]="true"
+                (pageChange)="loadPage($event)"
+              ></ngb-pagination>
+            </div>
+          </nav>
         </div>
-        <h4 class="blog-title">Attract Sales And Profits</h4>
-        <div class="blog-content">
-          A job ravenously while Far much that one rank beheld after outside....
+        <div *ngIf="!blogs || blogs?.length == 0">
+          <div class="not-found">No blogs alert found.</div>
         </div>
-      </div>
-      <div class="card-footer">
-        <a class="btn read-more ">Read More <fa-icon icon="arrow-right"></fa-icon></a>
-      </div>
-    </div>
-    <div class="col-4 card bg-card">
-      <div class="card-header">
-        <img src="favicon.ico" class="card-img">
-      </div>
-      <div class="card-body">
-        <div class="blog-date">
-          <span class="sp-date">August 31, 2021</span><span>12 Comment</span>
-        </div>
-        <h4 class="blog-title">Attract Sales And Profits</h4>
-        <div class="blog-content">
-          A job ravenously while Far much that one rank beheld after outside....
-        </div>
-      </div>
-      <div class="card-footer">
-        <a class="btn read-more ">Read More <fa-icon icon="arrow-right"></fa-icon></a>
-      </div>
-    </div>
-    <div class="col-4 card bg-card">
-      <div class="card-header">
-        <img src="favicon.ico" class="card-img">
-      </div>
-      <div class="card-body">
-        <div class="blog-date">
-          <span class="sp-date">August 31, 2021</span><span>12 Comment</span>
-        </div>
-        <h4 class="blog-title">Attract Sales And Profits</h4>
-        <div class="blog-content">
-          A job ravenously while Far much that one rank beheld after outside....
-        </div>
-      </div>
-      <div class="card-footer">
-        <a class="btn read-more ">Read More <fa-icon icon="arrow-right"></fa-icon></a>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@ import { SessionStorageService } from 'ngx-webstorage';
 @Injectable({ providedIn: 'root' })
 export class StateStorageService {
   private previousUrlKey = 'previousUrl';
-
+  private localeKey = 'locale';
   constructor(private sessionStorageService: SessionStorageService) {}
 
   storeUrl(url: string): void {
@@ -17,5 +17,16 @@ export class StateStorageService {
 
   clearUrl(): void {
     this.sessionStorageService.clear(this.previousUrlKey);
+  }
+  storeLocale(locale: string): void {
+    this.sessionStorageService.store(this.localeKey, locale);
+  }
+
+  getLocale(): string | null {
+    return this.sessionStorageService.retrieve(this.localeKey);
+  }
+
+  clearLocale(): void {
+    this.sessionStorageService.clear(this.localeKey);
   }
 }

@@ -1,6 +1,6 @@
 import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule, Title} from '@angular/platform-browser';
-
+import { PathLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import {NgxWebstorageModule, SessionStorageService} from "ngx-webstorage";
 import {httpInterceptorProviders} from "./core/interceptor";
@@ -33,20 +33,35 @@ import * as dayjs from 'dayjs';
 import locale from '@angular/common/locales/fr';
 import './core/config/dayjs';
 import {ViewsModule} from "./views/views.module";
+import {DashboardModule} from "./dashboard/dashboard.module";
+import {RouterModule, TitleStrategy} from "@angular/router";
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppPageTitleStrategy} from "./app-page-title-strategy";
+import { PasswordStrengthComponent } from './components/password-strength/password-strength.component';
+import {NgxSpinnerModule} from "ngx-spinner";
+import {ComponentsModule} from "./components/components.module";
+import { NgxMatomoTrackerModule } from '@ngx-matomo/tracker';
+import { MatomoModule } from 'ngx-matomo';
 @NgModule({
 
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     FormsModule,
+    NgxSpinnerModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     SocialLoginModule,
     GoogleSigninButtonModule,
-    NgxWebstorageModule.forRoot({ prefix: 'okoho', separator: '-', caseSensitive: true }),
+    NgxWebstorageModule.forRoot({prefix: 'okoho', separator: '-', caseSensitive: true}),
+    ToastrModule.forRoot(),
     HomeModule,
     ViewsModule,
+    DashboardModule,
+    ComponentsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -58,10 +73,32 @@ import {ViewsModule} from "./views/views.module";
         useFactory: missingTranslationHandler,
       },
     }),
+    MatomoModule.forRoot({
+      scriptUrl: '//analitics.okoho-consulting.de/matomo.js',
+      trackers: [
+        {
+          trackerUrl: 'https://analitics.okoho-consulting.de/matomo.php',
+          siteId: 1
+        }
+      ],
+      routeTracking: {
+        enable: true
+      }
+    }),
+    // NgxMatomoTrackerModule.forRoot({
+    //   siteId: '1', // your Matomo's site ID (find it in your Matomo's settings)
+    //   trackerUrl: 'https://analitics.okoho-consulting.de/', // your matomo server root url
+    // }),
+    // NgxMatomoTrackerModule,
   ],
   providers: [
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy
+    },
     Title,
-    { provide: LOCALE_ID, useValue: 'fr' },
+    {provide: LOCALE_ID, useValue: 'en'},
+    { provide: TitleStrategy, useClass: AppPageTitleStrategy },
     httpInterceptorProviders,
     {
       provide: 'SocialAuthServiceConfig',
@@ -85,7 +122,10 @@ import {ViewsModule} from "./views/views.module";
       } as SocialAuthServiceConfig,
     }
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, ActiveMenuDirective, FooterComponent, RegisterComponent, SigninComponent],
+  declarations: [],
+    exports: [
+
+    ],
   bootstrap: [MainComponent]
 })
 export class AppModule {
@@ -102,7 +142,7 @@ export class AppModule {
     dpConfig.minDate = { year: dayjs().subtract(100, 'year').year(), month: 1, day: 1 };
     translateService.setDefaultLang('fr');
     // if user have changed language and navigates away from the application and back to the application then use previously choosed language
-    const langKey = sessionStorageService.retrieve('locale') ?? 'fr';
+    const langKey = sessionStorageService.retrieve('locale') ?? 'en';
     translateService.use(langKey);
   }
 }

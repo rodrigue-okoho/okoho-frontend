@@ -26,6 +26,7 @@ export class FindJobComponent  implements OnInit {
   ngbPaginationPage = 1;
   bycategory: string="All Categories";
   bycity: string;
+  keyword: string;
   byexperience: string;
   bysalary: string;
   bydateposted: string;
@@ -43,7 +44,7 @@ export class FindJobComponent  implements OnInit {
       this.frontService
         .jobSearch({
           page: pageToLoad - 1,
-          query: this.currentSearch,
+          query: this.keyword,
           location: this.bycity,
           category: this.bycategory,
           experience: this.byexperience,
@@ -73,7 +74,7 @@ export class FindJobComponent  implements OnInit {
         sort: this.sort(),
       })
       .subscribe(
-        (res: HttpResponse<IEmployer[]>) => {
+        (res: HttpResponse<IJob[]>) => {
           this.isLoading = false;
           console.log(res.headers.get("X-Frame-Options"))
           this.onSuccess(res.body, res.headers, pageToLoad, !dontNavigate);
@@ -85,8 +86,9 @@ export class FindJobComponent  implements OnInit {
       );
   }
 
-  search(): void {
+  search($event: any): void {
     this.currentSearch = "search";
+    this.keyword=$event.target.value
     this.loadPage(1);
   }
 
@@ -94,7 +96,7 @@ export class FindJobComponent  implements OnInit {
     this.handleNavigation();
   }
 
-  trackId(index: number, item: ICandidat): number {
+  trackId(index: number, item: ICandidat): string {
     return item.id!;
   }
   protected sort(): string[] {
@@ -121,7 +123,7 @@ export class FindJobComponent  implements OnInit {
     });
   }
 
-  protected onSuccess(data: ICandidat[] | null, headers: HttpHeaders, page: number, navigate: boolean): void {
+  protected onSuccess(data: IJob[] | null, headers: HttpHeaders, page: number, navigate: boolean): void {
     console.log('###############################')
     console.log(headers.get('content-type'))
     this.totalItems = Number(headers.get('X-Total-Count'));
@@ -150,7 +152,12 @@ export class FindJobComponent  implements OnInit {
   protected onError(): void {
     this.ngbPaginationPage = this.page ?? 1;
   }
-
+  searchByCity($event: any) {
+    console.log($event.target.value)
+    this.currentSearch=$event.target.value
+    this.bycity = $event.target.value;
+    this.loadPage(1);
+  }
   searchByExperience($event: any) {
     console.log($event.target.value)
     this.currentSearch=$event.target.value
@@ -180,5 +187,9 @@ export class FindJobComponent  implements OnInit {
     this.currentSearch=$event.target.value
     this.bytype = $event.target.value;
     this.loadPage(1);
+  }
+
+  sorted() {
+
   }
 }

@@ -1,12 +1,12 @@
 export class Account {
   constructor(
     public activated: boolean,
-    public authorities: string[],
+    public roles: string[],
     public email: string,
     public firstName: string | null,
     public langKey: string,
     public lastName: string | null,
-    public user_type: string,
+    public userType: string,
     public imageUrl: string | null
   ) {}
 }

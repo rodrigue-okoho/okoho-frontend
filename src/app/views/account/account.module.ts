@@ -10,6 +10,8 @@ import {RouterModule} from "@angular/router";
 import {accountState} from "./account.route";
 import { ActivateWaitComponent } from './activate-wait/activate-wait.component';
 import {SharedModule} from "../../shared/shared.module";
+import {AppModule} from "../../app.module";
+import {ComponentsModule} from "../../components/components.module";
 
 
 
@@ -25,7 +27,8 @@ import {SharedModule} from "../../shared/shared.module";
     imports: [
         CommonModule,
         RouterModule.forChild(accountState),
-        SharedModule
+        SharedModule,
+      ComponentsModule
     ]
 })
 export class AccountModule { }

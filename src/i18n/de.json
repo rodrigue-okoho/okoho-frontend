@@ -1,0 +1,265 @@
+{
+  "global": {
+    "title": "OKOHO plateform",
+    "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+    "menu": {
+      "home": "Home",
+      "candidate": "Candidates",
+      "employer": "Employers",
+      "blog": "Blog",
+      "findjob": "Find jobs",
+      "page": "Pages",
+      "about": "About Us",
+      "contact": "Contact us",
+      "faq": "FAQ",
+      "term-condition": "Terms and conditions",
+      "private-center": "Privacy Center",
+      "security-center": "Security Center",
+      "accessibility-center": "Accessibility Center",
+      "data-protection": "Data Protection",
+      "impressum": "Impressum",
+      "Datenschutz": "Datenschutzerklärung",
+      "browse-employer": "Browse Employer",
+      "browse-job": "Browse Job",
+      "browse-category": "Browse Category",
+      "add-job": "Add Job",
+      "entities": {
+      },
+      "account": {
+        "main": "My Account",
+        "settings": "Settings",
+        "password": "Password",
+        "sessions": "Sessions",
+        "login": "Login / Register",
+        "logout": "Sign out",
+        "dashboard": "Dashboard",
+        "profil": "Profile",
+        "my_resume": "My resume",
+        "my_apply": "My apply",
+        "shortlist_job": "Shortlist job",
+        "following_employee": "following employee",
+        "alert_job": "Alert job",
+        "candidat_alert": "condidate Alert",
+        "package": "Packages",
+        "meeting": "Meeting",
+        "my_job": "My job",
+        "add_job": "Add Job",
+        "applicant_job": "Applicant job",
+        "shortlist_candidat": "ShortList candidate",
+        "cv_manager":"CV Manager",
+        "delete_profil":"Delete profil",
+        "register": "Register"
+      },
+      "language": "Language"
+    },
+    "form": {
+      "username.label": "Username",
+      "username.placeholder": "Your username",
+      "currentpassword.label": "Current password",
+      "currentpassword.placeholder": "Current password",
+      "newpassword.label": "New password",
+      "newpassword.placeholder": "New password",
+      "confirmpassword.label": "New password confirmation",
+      "confirmpassword.placeholder": "Confirm the new password",
+      "email.label": "Email",
+      "email.placeholder": "Your email"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "If you want to ",
+          "link": "sign in",
+          "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+        },
+        "register": {
+          "noaccount": "You don't have an account yet?",
+          "link": "Register a new account"
+        }
+      },
+      "error": {
+        "dontmatch": "The password and its confirmation do not match!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "Your password is required.",
+          "minlength": "Your password is required to be at least 4 characters.",
+          "maxlength": "Your password cannot be longer than 50 characters.",
+          "strength": "Password strength:"
+        },
+        "confirmpassword": {
+          "required": "Your confirmation password is required.",
+          "minlength": "Your confirmation password is required to be at least 4 characters.",
+          "maxlength": "Your confirmation password cannot be longer than 50 characters."
+        },
+        "email": {
+          "required": "Your email is required.",
+          "invalid": "Your email is invalid.",
+          "minlength": "Your email is required to be at least 5 characters.",
+          "maxlength": "Your email cannot be longer than 50 characters."
+        }
+      }
+    },
+    "field": {
+      "id": "ID",
+      "your_name": "Votre nom",
+      "your_email": "Votre email",
+      "your_subject": "Sujet",
+      "message": "Message"
+    },
+    "ribbon": {
+      "dev": "Development"
+    },
+    "item-count": "Showing {{first}} - {{second}} of {{total}}.",
+    "item-candidat": "Candidates",
+    "item-employer": "Employers",
+    "item-job": "Jobs"
+  },
+  "entity": {
+    "action": {
+      "addblob": "Add blob",
+      "addimage": "Add image",
+      "back": "Back",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "open": "Open",
+      "save": "Save",
+      "view": "View",
+      "send_message": "Send message"
+    },
+    "detail": {
+      "field": "Field",
+      "value": "Value"
+    },
+    "delete": {
+      "title": "Confirm delete operation"
+    },
+    "validation": {
+      "required": "This field is required.",
+      "minlength": "This field is required to be at least {{ min }} characters.",
+      "maxlength": "This field cannot be longer than {{ max }} characters.",
+      "min": "This field should be at least {{ min }}.",
+      "max": "This field cannot be more than {{ max }}.",
+      "minbytes": "This field should be at least {{ min }} bytes.",
+      "maxbytes": "This field cannot be more than {{ max }} bytes.",
+      "pattern": "This field should follow pattern for {{ pattern }}.",
+      "number": "This field should be a number.",
+      "datetimelocal": "This field should be a date and time.",
+      "patternLogin": "This field can only contain letters, digits and e-mail addresses."
+    }
+  },
+  "success": {
+    "SAVE_SUCCESS": "save successful"
+  },
+  "error": {
+    "title": "Error page!",
+    "http": {
+      "400": "Bad request.",
+      "403": "You are not authorized to access this page.",
+      "404": "The page does not exist.",
+      "405": "The HTTP verb you used is not supported for this URL.",
+      "500": "Internal server error."
+    },
+    "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
+    "validation": "Validation error on the server.",
+    "internalServerError": "Internal server error",
+    "server.not.reachable": "Server not reachable",
+    "url.not.found": "Not found",
+    "NotNull": "Field {{ fieldName }} cannot be empty!",
+    "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
+    "userexists": "Login name already used!",
+    "emailexists": "Email is already in use!",
+    "idexists": "A new {{ entityName }} cannot already have an ID",
+    "idnull": "Invalid ID",
+    "idinvalid": "Invalid ID",
+    "idnotfound": "ID cannot be found",
+    "file": {
+      "could.not.extract": "Could not extract file",
+      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+    }
+  },
+  "footer": {
+    "call-us": "Cantact us"
+  },
+  "password": {
+    "title": "Password for [<strong>{{username}}</strong>]",
+    "form": {
+      "button": "Save"
+    },
+    "messages": {
+      "error": "<strong>An error has occurred!</strong> The password could not be changed.",
+      "success": "<strong>Password changed!</strong>"
+    }
+  },
+  "activate":{
+    "title": "Activation",
+    "messages": {
+      "success": "<strong>Your user account has been activated.</strong> Please ",
+      "error": "<strong>Your user could not be activated.</strong> Please use the registration form to sign up."
+    }
+  },
+  "home": {
+    "title-box": {
+      "h3": "There Are <span class='colored'>{{stastitc }}</span> Postings Here<br> For you!",
+      "div": "Find Jobs, Employment &amp; Career Opportunities"
+    },
+    "btn_title": "Find Jobs",
+    "popular_searches": "Popular Searches :",
+    "features": {
+      "title": "Register an account to start",
+      "title2": "Explore over thousands of resumes",
+      "title3": "Find the most suitable candidate"
+    },
+    "job_category": {
+      "h2": "Jobs by category",
+      "text": "2020 jobs live - 293 added today.",
+      "content_1": "Accounting / Finance",
+      "content_2": "Marketing",
+      "content_3": "Design",
+      "content_4": "Development",
+      "content_5": "Project Management",
+      "content_6": "Human Resource"
+    },
+    "job_section": {
+      "h2": "Professional CV is your ticket to the dream job",
+      "div": "To start searching for jobs, you can attend job fairs online or in person, use job boards and career websites or reach out directly to recruiters in a targeted company to broaden your network.",
+      "a": "Post Resume"
+    },
+    "job_lastest": {
+      "h2": "Latest Jobs",
+      "text": "Know your worth and find the job that qualify your life",
+      "title_1": "Freelance",
+      "title_2": "Full Time",
+      "title_3": "Internship",
+      "not-found": "No job alert found."
+    },
+    "banner1": {
+      "h3": "Employers",
+      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud.",
+      "a": "Register Account"
+    },
+    "banner2": {
+      "h3": "Candidate",
+      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud exercitation.",
+      "a": "Register Account"
+    },
+    "top_company": {
+      "h2": "Top Company Registered",
+      "div": "Some of the companies we've helped recruit excellent applicants over the years."
+    },
+    "plans": {
+      "h2": "Choose a plan that’s right for you.",
+      "div": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
+    },
+    "subscribe": {
+      "h2": "Download the App",
+      "div": "New features. New appearance. No risk and"
+    },
+    "bottom": {
+      "counter-title-1": "4 million daily active users",
+      "counter-title-2": "Over 12k open job positions",
+      "counter-title-3": "Over 20 million stories shared",
+      "counter-title-4": "4 million daily active users"
+    }
+  }
+}
