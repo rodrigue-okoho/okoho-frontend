@@ -122,10 +122,7 @@ import { MatomoModule } from 'ngx-matomo';
       } as SocialAuthServiceConfig,
     }
   ],
-  declarations: [],
-    exports: [
 
-    ],
   bootstrap: [MainComponent]
 })
 export class AppModule {

@@ -29,6 +29,8 @@ import { AccessibilityCenterComponent } from './accessibility-center/accessibili
 import { DataProtectionComponent } from './data-protection/data-protection.component';
 import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { CandidateUntrainedComponent } from './candidate-untrained/candidate-untrained.component';
+import {PdfViewerModule} from "ng2-pdf-viewer";
+
 
 
 
@@ -63,8 +65,10 @@ import { CandidateUntrainedComponent } from './candidate-untrained/candidate-unt
     FontAwesomeModule,
     ReactiveFormsModule,
     ViewsRoutingModule,
-    ComponentsModule
-  ]
+    ComponentsModule,
+    PdfViewerModule,
+  ],
+
 })
 export class ViewsModule {
   constructor(iconLibrary: FaIconLibrary,) {

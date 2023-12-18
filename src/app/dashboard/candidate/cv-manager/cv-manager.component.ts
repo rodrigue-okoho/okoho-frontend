@@ -1,5 +1,5 @@
 import { HttpResponse } from '@angular/common/http';
-import {Component, OnInit, TemplateRef} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, TemplateRef} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
@@ -24,7 +24,7 @@ export class CvManagerComponent implements OnInit{
   status = false;
   candidat: ICandidat | null = null;
   countries=["en","de"]
-  pdfSrc? = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf"
+  pdfSrc? = "http://localhost:8000/cvs/651d3f85b39aab4ffe5507d6.pdf"
   public stepOneForm: FormGroup;
   public educationForm:FormGroup;
   public workForm:FormGroup;
@@ -36,7 +36,7 @@ export class CvManagerComponent implements OnInit{
   constructor(private activateService: ActivateService,private formBuilder: FormBuilder,
               private localStorageService: LocalStorageService,
               private sessionStorageService: SessionStorageService,
-              private modalService: NgbModal,
+              private modalService: NgbModal,private cd: ChangeDetectorRef,
               private toaster: ToastrService,private translateService: TranslateService,
               private route: ActivatedRoute,private backService:BackService,
               private accountService: AccountService,) {
@@ -132,13 +132,14 @@ export class CvManagerComponent implements OnInit{
     this.updateProfile()
   }
   getCv(){
-    this.backService.candidatCv( this.candidat?.id).subscribe(
-      (res: HttpResponse<IFileUrl>) => {
-        console.log(res.body)
-        this.pdfSrc=res.body?.url
-       // this.candidat = res.body
-      })
-      ,
+    this.backService.candidatMakeCv(this.localStorageService.retrieve('account_id')).subscribe(
+      (res: HttpResponse<any>) => {
+      //  console.log(res.body)
+        this.pdfSrc=res.body.url
+        console.log(this.pdfSrc)
+        this.cd.detectChanges()
+        this.cd.markForCheck();
+      }),
       () => {
         // this.isLoading = false;
         this.onError();
@@ -183,6 +184,16 @@ export class CvManagerComponent implements OnInit{
         this.onError();
       }
     )
+    this.backService.candidatMakeCv(this.localStorageService.retrieve('account_id')).subscribe(
+      (res: HttpResponse<any>) => {
+        console.log(res.body)
+        this.pdfSrc=res.body.url
+        console.log("*******************"+this.pdfSrc)
+      },
+      () => {
+        // this.isLoading = false;
+        this.onError();
+      })
   }
   onError() {
     throw new Error('Method not implemented.');
@@ -278,5 +289,9 @@ export class CvManagerComponent implements OnInit{
   openLg(contentAddress: TemplateRef<any>) {
     this.stepOneForm.reset();
     this.modalService.open(contentAddress, { size: 'lg' });
+  }
+
+  afterLoadComplete($event: any) {
+    console.log($event)
   }
 }

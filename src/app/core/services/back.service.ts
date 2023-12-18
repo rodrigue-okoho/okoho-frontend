@@ -11,14 +11,19 @@ import { IFileUrl } from "../models/FileUrl.model";
 import { IcategoryJob } from "../models/categoryJob.model";
 import {IApplicantJob} from "../models/applicantJob.model";
 import { IStatistic } from "../models/Statistic.model";
+import {environment} from "../../../environments/environment";
 export type EntityResponseType = HttpResponse<ICandidat>;
 @Injectable({
   providedIn: 'root'
 })
 export class BackService {
-
+  private endpointCV = `${environment.apiCv}/`;
   protected resourceUrl = this.applicationConfigService.getEndpointFor('v1/');
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) { }
+
+  candidatMakeCv(req: any): Observable<HttpResponse<any>> {
+    return this.http.get<any>(`${this.endpointCV}api/make-cv/${req}`, {observe: 'response'});
+  }
   categoryJobs(): Observable<HttpResponse<IcategoryJob[]>> {
     return this.http.get<IcategoryJob[]>(`${this.resourceUrl}category-jobs`, {observe: 'response'});
   }
