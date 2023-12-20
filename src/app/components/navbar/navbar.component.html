@@ -1,8 +1,6 @@
 <!-- Main Header-->
 <header class="main-header main-shaddow" [ngClass]="isNavbarFixed?'fixed-header':''"
         (scroll)="onScroll()">
-
-  <!-- Main box -->
   <div class="main-box" [ngSwitch]="account !== null">
 
     <!--Nav Outer -->
@@ -53,7 +51,7 @@
               <span jhiTranslate="global.menu.employer">Employers</span></a>
           </li>
           <li class="dropdown">
-            <span>Candidates <fa-icon icon="angle-down"></fa-icon></span>
+            <span>Candidates</span>
             <ul>
           <li class="dropdown">
             <a routerLink="/candidats"
@@ -80,7 +78,7 @@
           </li>
 
           <li class="dropdown">
-            <span>Pages <fa-icon icon="angle-down"></fa-icon></span>
+            <span>Pages</span>
             <ul>
               <li><a routerLink="/about"
                      routerLinkActive="active"
@@ -111,8 +109,6 @@
             </ul>
           </li>
         </ul>
-
-
       </nav>
     </div>
 
@@ -389,6 +385,28 @@
       </div>
     </div>
   </div>
+  <!-- Mobile Header -->
+  <div class="mobile-header">
+    <div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="" title=""></a></div>
+
+    <!--Nav Box-->
+    <div class="nav-outer clearfix">
+
+      <div class="outer-box">
+        <!-- Login/Register -->
+        <div class="login-box">
+          <a href="javascript:void(0);" (click)="signin.openModal();collapseNavbar()"
+             class="call-modal" id="login_" data-cy="login">
+         <span class="icon-user"></span></a>
+        </div>
+
+        <a href="javascript:void(0);" class="mobile-nav-toggler"><span class="flaticon-menu-1"></span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="nav-mobile"></div>
 
 </header>
 <!--End Main Header -->

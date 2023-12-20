@@ -1,14 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/scss/bootstrap-variables.scss";
-@import "./assets/scss/variables";
+//@import "./assets/scss/variables";
 @import 'ngx-toastr/toastr';
 @import "~@ng-select/ng-select/themes/default.theme.css";
 //@import "./assets/scss/global.scss";
-@import "./assets/scss/nav-menu";
+//@import "./assets/scss/nav-menu";
 //@import "./assets/scss/dashboard";
-@import "./assets/scss/front";
-@import "./assets/scss/responsive";
+//@import "./assets/scss/front";
+//@import "./assets/scss/responsive";
+@import "./assets/scss/main";
 @import '../node_modules/intl-tel-input/build/css/intlTelInput.css';
+
 :root
 {
   --okoho-theme-color: #1967D2;
@@ -34,7 +36,7 @@
   background-color: #F5F7FC;
 }
 .custom-group-input{
-  width: 88% !important;
+  width: 85% !important;
 }
 .banner-section-eight .bottom-box {
   position: relative;

@@ -1,5 +1,5 @@
 <ng-template #signin let-modal>
-
+  <button (click)="modal.dismiss('Cross click')" rel="modal:close" class="float-end close-modal ">&times;</button>
     <div class="modal-body">
       <!-- Login modal -->
       <div id="login-modal">
@@ -70,7 +70,7 @@
       </div>
 
       <!-- End Login Module -->
-      <button (click)="modal.dismiss('Cross click')" rel="modal:close" class="close-modal ">&times;</button>
+     <!-- <button (click)="modal.dismiss('Cross click')" rel="modal:close" class="close-modal ">&times;</button>-->
     </div>
 
 <!--    <div class="popup">

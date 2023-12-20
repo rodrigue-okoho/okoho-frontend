@@ -1,14 +1,11 @@
-
-<div>
-  <router-outlet name="navbar"></router-outlet>
-</div>
-
-<div>
   <div class="page-wrapper mm-page mm-slideout" style="">
+    <div>
+      <router-outlet name="navbar"></router-outlet>
+    </div>
     <!-- Preloader -->
     <div class="preloader" style="display: none;"></div>
     <router-outlet></router-outlet>
   </div>
 
   <okoho-footer></okoho-footer>
-</div>
+

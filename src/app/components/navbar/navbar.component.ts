@@ -8,7 +8,7 @@ import {SigninComponent} from "../signin/signin.component";
 import {AccountService} from "../../core/auth/account.service";
 import {LANGUAGES} from "../../core/config/language.constants";
 import {AuthService} from "../../core/services/auth.service";
-
+declare var $: any;
 @Component({
   selector: 'okoho-navbar',
   templateUrl: './navbar.component.html',
@@ -47,7 +47,26 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if($('#nav-mobile').length){
+      (function () {
+        var $navbar = $('#navbar');
+        var $mobileNav = $('#nav-mobile');
 
+        $navbar
+          .clone()
+          .removeClass('navbar')
+          .appendTo($mobileNav);
+
+        $mobileNav.mmenu({
+          "counters": false,
+          extensions 	: [ "position-bottom", "fullscreen", "theme-black", ],
+          offCanvas: {
+            position: 'left',
+            zposition: 'front',
+          }
+        });
+      });
+    }
     this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
   }
 
