@@ -43,7 +43,12 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "node_modules/intl-tel-input/build/js/utils.js"
+              "node_modules/intl-tel-input/build/js/utils.js",
+                "src/assets/js/jquery.js",
+                "src/assets/js/popper.min.js",
+                "src/assets/js/mmenu.polyfills.js",
+                "src/assets/js/mmenu.js",
+                "src/assets/js/script.js"
             ]
           },
           "configurations": {
@@ -121,6 +126,11 @@
               "src/styles.scss"
             ],
             "scripts": [
+              "src/assets/js/jquery.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/mmenu.polyfills.js",
+              "src/assets/js/mmenu.js",
+              "src/assets/js/script.js"
             ]
           }
         }

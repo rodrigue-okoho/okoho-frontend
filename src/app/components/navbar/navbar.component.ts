@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
   account: Account | null = null;
   languages = LANGUAGES;
   isNavbarFixed: boolean = false;
+  is_mobile:boolean=false;
   // @ts-ignore
   @ViewChild("signin")signin: SigninComponent;
   @HostListener('window:scroll', ['$event']) onScroll() {
@@ -39,7 +40,7 @@ export class NavbarComponent implements OnInit {
     private loginService: AuthService,
     private router: Router,private activatedRoute:ActivatedRoute
   ) {
-    console.log(activatedRoute.snapshot.routeConfig?.path)
+   // console.log(activatedRoute.snapshot.routeConfig?.path)
     this._path=this.activatedRoute.snapshot.routeConfig?.path;
     if (VERSION) {
       this.version = VERSION.toLowerCase().startsWith('v') ? VERSION : 'v' + VERSION;
@@ -47,26 +48,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if($('#nav-mobile').length){
-      (function () {
-        var $navbar = $('#navbar');
-        var $mobileNav = $('#nav-mobile');
-
-        $navbar
-          .clone()
-          .removeClass('navbar')
-          .appendTo($mobileNav);
-
-        $mobileNav.mmenu({
-          "counters": false,
-          extensions 	: [ "position-bottom", "fullscreen", "theme-black", ],
-          offCanvas: {
-            position: 'left',
-            zposition: 'front',
-          }
-        });
-      });
-    }
     this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
   }
 
@@ -96,5 +77,10 @@ export class NavbarComponent implements OnInit {
 
   toggleNavbar(): void {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+
+  showMenu() {
+    this.is_mobile=!this.is_mobile;
+    console.log(this.is_mobile)
   }
 }

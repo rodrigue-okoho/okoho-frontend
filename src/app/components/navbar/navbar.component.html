@@ -1,3 +1,4 @@
+
 <!-- Main Header-->
 <header class="main-header main-shaddow" [ngClass]="isNavbarFixed?'fixed-header':''"
         (scroll)="onScroll()">
@@ -24,9 +25,9 @@
       </div>
 
 
-      <nav class="nav main-menu" id="navbarResponsive">
+      <nav class="nav main-menu">
         <ul class="navigation" id="navbar">
-          <li>
+          <li >
           <a routerLink="/" (click)="collapseNavbar()"
              routerLinkActive="active"
              [routerLinkActiveOptions]="{ exact: true }"
@@ -36,7 +37,7 @@
 
             </a>
           </li>
-          <li class="dropdown" (click)="collapseNavbar()">
+          <li class="" (click)="collapseNavbar()">
             <a routerLinkActive="active" class="{{setActivate('find-job')}}"
                [routerLinkActiveOptions]="{ exact: true }"
                routerLink="/find-job" id="Find">
@@ -387,7 +388,7 @@
   </div>
   <!-- Mobile Header -->
   <div class="mobile-header">
-    <div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="" title=""></a></div>
+    <div class="logo"><a routerLink="/"><img src="assets/images/logo.png" alt="" title=""></a></div>
 
     <!--Nav Box-->
     <div class="nav-outer clearfix">
@@ -400,13 +401,13 @@
          <span class="icon-user"></span></a>
         </div>
 
-        <a href="javascript:void(0);" class="mobile-nav-toggler"><span class="flaticon-menu-1"></span></a>
+        <a  href="javascript:void(0);" (click)="showMenu();" class="mobile-nav-toggler"><span class="flaticon-menu-1"></span></a>
       </div>
     </div>
   </div>
 
   <!-- Mobile Nav -->
-  <div id="nav-mobile"></div>
+  <div id="nav-mobile" [ngClass]="{'mm-menu_opened mm-menu mm-menu_offcanvas mm-menu_position-bottom mm-menu_fullscreen mm-menu_theme-black': is_mobile}"></div>
 
 </header>
 <!--End Main Header -->

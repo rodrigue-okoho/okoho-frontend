@@ -1,6 +1,6 @@
 import { Component, OnInit, RendererFactory2, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
+import {Router, ActivatedRouteSnapshot, NavigationEnd, ActivatedRoute} from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 
@@ -10,10 +10,11 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 })
 export class MainComponent implements OnInit {
   private renderer: Renderer2;
-
+  is_dash=false
   constructor(
     private titleService: Title,
     private router: Router,
+    private route: ActivatedRoute,
     private translateService: TranslateService,
     rootRenderer: RendererFactory2
   ) {
@@ -21,8 +22,14 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // try to log in automatically
-
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        console.log( "-------")
+        console.log(event.url.includes("dash"))
+        this.is_dash=event.url.includes("dash")
+        this.updateTitle();
+      }
+    });
   }
 
   private getPageTitle(routeSnapshot: ActivatedRouteSnapshot): string {

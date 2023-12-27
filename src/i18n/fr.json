@@ -206,15 +206,15 @@
   },
   "home": {
     "title-box": {
-      "h3": "There Are <span class='colored'>{{stastitc }}</span> Postings Here<br> For you!",
-      "div": "Find Jobs, Employment &amp; Career Opportunities"
+      "h3": "Il y a <span class='colored'>{{stastitc }}</span> Publications ici<br> Pour toi!",
+      "div": "Trouvez des emplois, des emplois et des services Opportunités de carrière"
     },
-    "btn_title": "Find Jobs",
-    "popular_searches": "Popular Searches :",
+    "btn_title": "Trouver des emplois",
+    "popular_searches": "Recherches populaires :",
     "features": {
-      "title": "Register an account to start",
-      "title2": "Explore over thousands of resumes",
-      "title3": "Find the most suitable candidate"
+      "title": "Créez un compte pour commencer",
+      "title2": "Explorez des milliers de CV",
+      "title3": "Trouvez le candidat le plus approprié"
     },
     "job_category": {
       "h2": "Jobs by category",

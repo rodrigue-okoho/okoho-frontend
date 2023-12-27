@@ -20,7 +20,7 @@ export class CandidateComponent {
   constructor(@Inject(PLATFORM_ID) private platformId: Object,private loginService: AuthService,
     private router: Router,private modalService: NgbModal,private activatedRoute:ActivatedRoute,private fb: FormBuilder
   ) {
-    console.log(activatedRoute.snapshot.routeConfig?.path)
+
     this._path=activatedRoute.snapshot.routeConfig?.path;
     this.form = this.fb.group({
       message: [null, [Validators.required, Validators.min(8)],],

@@ -63,6 +63,7 @@ export class ProfileComponent implements OnInit{
       phoneNumber: ["", [Validators.required]],
       codePhone: ["", [Validators.required]],
       country: ["", Validators.required],
+      country_of_born:["", Validators.required],
       qualification: ["", Validators.required],
       jobTitle: ["", Validators.required],
       educationLevel: ["", Validators.required],

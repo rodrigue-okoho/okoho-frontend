@@ -1,9 +1,6 @@
-<div class="layout">
-  <div class="vertical-layout row">
-    <div class="col-md-3 col-sm-12 col-xs-12">
+
       <app-siderbar-candidate></app-siderbar-candidate>
-    </div>
-    <div class="col-md-9 col-sm-12 col-xs-12">
+
       <section class="user-dashboard">
         <div class="dashboard-outer">
           <div class="upper-title-box">
@@ -41,6 +38,37 @@
 
                     <form  #f="ngForm" class="default-form"  (submit)="saveProfile()">
                       <div class="row" [formGroup]="itemForm">
+                       <div class="form-group col-md-12">
+                         <div class="form-check form-check-inline">
+                           <input class="form-check-input" formControlName="salaryType" type="checkbox" id="inlineCheckbox1" value="professional">
+                           <label class="form-check-label" for="inlineCheckbox1">Search for professional training</label>
+                         </div>
+                         <div class="form-check form-check-inline">
+                           <input class="form-check-input"  formControlName="salaryType" type="checkbox" id="inlineCheckbox2" value="training">
+                           <label class="form-check-label" for="inlineCheckbox2">Finding a job</label>
+                         </div>
+                       </div>
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Branches d´activité</label>
+                          <select formControlName="categoryJobs" class="chosen-select" style="">
+
+                            <option value="40" *ngFor="let cate of categories">{{cate.title}}</option>
+
+                          </select>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-12">
+                          <label>Experience</label>
+                          <select formControlName="experienceTime" class="chosen-select">
+                            <option>Select</option>
+                            <option value="0">Fresh</option>
+                            <option value="1">1 Year</option>
+                            <option value="2">2 Year</option>
+                            <option value="3">3 Year</option>
+                            <option value="4">4 Year</option>
+                            <option value="5">5 Year</option>
+
+                          </select>
+                        </div>
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
                           <label>First Name *</label>
@@ -70,22 +98,10 @@
                                               [phoneValidation]="true"
                                               [separateDialCode]="true"
                                               [preferredCountries]="[CountryISO.Germany,CountryISO.Cameroon,CountryISO.France,]"
-                                             
+
                                               countryChange="countryChange()"
                                               name="phone" formControlName="phone">
                           </ngx-intl-tel-input>
-                       <!--   <intl-tel-input
-                              [label]="'Phone'"
-                              [name]="'phone'"
-                              [cssClass]="'form-control int-input'"
-                              [labelCssClass]="'col-md-12 form-label'"
-                              [required]="true"
-                              [options]="{
-                              preferredCountries: ['de', 'fr','cm']
-                              }"
-                              [(E164PhoneNumber)]="E164PhoneNumber"
-                             >
-                            </intl-tel-input>-->
 
                         </div>
 
@@ -96,51 +112,6 @@
                         </div>
 
                         <!-- Input -->
-                        <!--  <div class="form-group col-lg-6 col-md-12">
-                            <label>Website</label>
-                            <input type="text" name="name" placeholder="www.jerome.com">
-                          </div>-->
-
-                        <!-- Input -->
-                        <div class="form-group col-lg-3 col-md-12">
-                          <label>Current Salary($)</label>
-                          <select formControlName="currentSalary" class="chosen-select" style="">
-                            <option value="40">40-70 K</option>
-                            <option value="50">50-80 K</option>
-                            <option value="60">60-90 K</option>
-                            <option value="70">70-100 K</option>
-                            <option value="100">100-150 K</option>
-                          </select>
-                        </div>
-
-                        <!-- Input -->
-                        <div class="form-group col-lg-3 col-md-12">
-                          <label>Expected Salary($)</label>
-                          <select formControlName="expectedSalary" class="chosen-select" style="">
-                            <option value="40">40-70 K</option>
-                            <option value="50">50-80 K</option>
-                            <option value="60">60-90 K</option>
-                            <option value="70">70-100 K</option>
-                            <option value="100">100-150 K</option>
-                          </select>
-                        </div>
-
-                        <!-- Input -->
-                        <div class="form-group col-lg-6 col-md-12">
-                          <label>Experience</label>
-                          <select formControlName="experienceTime" class="chosen-select">
-                            <option>Select</option>
-                            <option value="0">Fresh</option>
-                            <option value="1">1 Year</option>
-                            <option value="2">2 Year</option>
-                            <option value="3">3 Year</option>
-                            <option value="4">4 Year</option>
-                            <option value="5">5 Year</option>
-
-                          </select>
-                        </div>
-
-                        <!-- Input -->
                         <div class="form-group col-lg-3 col-md-12">
                           <label>Date of born *</label>
                           <input type="date" formControlName="dob" name="name" placeholder="2000-03-12">
@@ -148,6 +119,15 @@
                         <div class="form-group col-lg-3 col-md-12">
                           <label>Place of born</label>
                           <input type="text" formControlName="placeofborn" name="name" placeholder="Douala,cameroon">
+                        </div>
+                        <div class="form-group col-lg-3 col-md-12">
+                          <label>Country of born</label>
+                          <ng-select class="chosen-select" [items]="countries"
+                                     bindLabel="name"
+                                     bindValue="name"
+                                     formControlName="country_of_born"
+                          >
+                          </ng-select>
                         </div>
 
                         <!-- Input -->
@@ -176,12 +156,14 @@
                         </div>
 
                         <!-- Search Select -->
+<!--
                         <div class="form-group col-lg-6 col-md-12">
                           <label>Categories *</label>
                           <ngx-select [placeholder]="placehoder" [items]="categories" [multiple]="true"
-                                      formControlName="categoryJobs" class="chosen-select multiple"
+                                      formControlName="categoryJobs" data-placeholder="Categories" class="chosen-select multiple"
                                       optionValueField="id" optionTextField="title"></ngx-select>
                         </div>
+-->
 
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
@@ -348,6 +330,4 @@
           </div>
         </div>
       </section>
-    </div>
-  </div>
-</div>
+
