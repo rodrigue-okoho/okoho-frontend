@@ -288,28 +288,36 @@
                         <!-- Input -->
                         <div class="form-group col-lg-3 col-md-12">
                           <label>Latitude</label>
-                          <input formControlName="latitude" type="text" placeholder="Melbourne">
+                          <input formControlName="latitude" type="text" placeholder="51.989858047086535">
                         </div>
 
                         <!-- Input -->
                         <div class="form-group col-lg-3 col-md-12">
                           <label>Longitude</label>
-                          <input formControlName="longitude" type="text" placeholder="Melbourne">
+                          <input formControlName="longitude" type="text" placeholder="8.78541302551178">
                         </div>
 
                         <!-- Input -->
                         <div class="form-group col-lg-12 col-md-12">
-                          <button class="theme-btn btn-style-three">Search Location</button>
+                          <button class="theme-btn btn-style-three" (click)="searchPosition()">Search Location</button>
                         </div>
 
 
                         <div class="form-group col-lg-12 col-md-12">
                           <div class="map-outer">
-                            <div class="map-canvas map-height" data-zoom="12" data-lat="-37.817085"
-                                 data-lng="144.955631" data-type="roadmap" data-hue="#ffc400" data-title="Envato"
-                                 data-icon-path="images/resource/map-marker.png"
-                                 data-content="Melbourne VIC 3000, Australia<br><a href='mailto:info@youremail.com'>info@youremail.com</a>">
-                            </div>
+                            <google-map height="400px" width="100%" [center]="center" [zoom]="zoom">
+
+                              <map-directions-renderer  [directions]="directionResults" />
+
+                            </google-map>
+                           <!-- <google-map class="map-canvas map-height" height="400px" width="100%" [center]="center" [zoom]="zoom">
+                              <map-circle [center]="circleCenter" [radius]="radius" />
+                            </google-map>-->
+                            <!--  <div class="map-canvas map-height" data-zoom="12" data-lat="-37.817085"
+                                   data-lng="144.955631" data-type="roadmap" data-hue="#ffc400" data-title="Envato"
+                                   data-icon-path="images/resource/map-marker.png"
+                                   data-content="Melbourne VIC 3000, Australia<br><a href='mailto:info@youremail.com'>info@youremail.com</a>">
+                              </div>-->
                           </div>
                         </div>
 

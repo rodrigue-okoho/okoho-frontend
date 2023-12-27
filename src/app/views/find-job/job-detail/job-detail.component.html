@@ -30,40 +30,40 @@
             <h4>Job Description</h4>
             <ul>
               <li>
-
-                <h5> <fa-icon icon="calendar"></fa-icon> Date Posted:</h5>
+                <i class="icon icon-calendar"></i>
+                <h5>Date Posted:</h5>
                 <span>Posted 1 hours ago</span>
               </li>
               <li>
                 <i class="icon icon-expiry"></i>
 
-                <h5><fa-icon icon="calendar"></fa-icon> Expiration date:</h5>
+                <h5> Expiration date:</h5>
                 <span>April 06, 2021</span>
               </li>
               <li>
                 <i class="icon icon-location"></i>
-                <h5><fa-icon icon="calendar"></fa-icon> Location:</h5>
+                <h5> Location:</h5>
                 <span>{{job?.recruteur.town}},{{job?.recruteur.country}}</span>
               </li>
               <li>
                 <i class="icon icon-user-2"></i>
-                <h5><fa-icon icon="user"></fa-icon> Job Title:</h5>
+                <h5> Job Title:</h5>
                 <span>{{job?.title}}</span>
               </li>
               <li>
                 <i class="icon icon-clock"></i>
 
-                <h5><fa-icon icon="clock-four"></fa-icon>Hours:</h5>
+                <h5>Hours:</h5>
                 <span>50h / week</span>
               </li>
               <li>
                 <i class="icon icon-rate"></i>
-                <h5> <fa-icon icon="clock-four"></fa-icon>Rate:</h5>
+                <h5> Rate:</h5>
                 <span>$15 - $25 / hour</span>
               </li>
               <li>
                 <i class="icon icon-salary"></i>
-                <h5><fa-icon icon="clock-four"></fa-icon>Salary:</h5>
+                <h5>Salary:</h5>
                 <span>${{job?.minSalary}}k - ${{job?.max_salary}}k</span>
               </li>
             </ul>
@@ -101,7 +101,7 @@
         <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
           <aside class="sidebar">
             <div class="btn-box">
-              <a class="theme-btn btn-style-one" (click)="applyJob()">Apply For Job</a>
+              <a [class.auth-spinner]="loading" class="theme-btn btn-style-one" (click)="applyJob()">Apply For Job</a>
               <button class="bookmark-btn">
                 <fa-icon icon="bookmark"></fa-icon>
               </button>

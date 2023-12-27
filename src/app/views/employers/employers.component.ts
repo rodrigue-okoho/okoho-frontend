@@ -14,6 +14,7 @@ import {NgxSpinnerService} from "ngx-spinner";
   styleUrls: ['./employers.component.scss']
 })
 export class EmployersComponent implements OnInit {
+  loading = false;
   employers?: IEmployer[];
   currentSearch: string;
   isLoading = false;

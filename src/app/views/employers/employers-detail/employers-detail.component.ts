@@ -23,13 +23,19 @@ export class EmployersDetailComponent {
   itemsPerPage = ITEMS_PER_PAGE;
   page?: number;
   constructor(protected frontService: FrontService,protected activatedRoute: ActivatedRoute, protected router: Router) {}
-
+  options: google.maps.MapOptions = {
+    center: {lat: 40, lng: -20},
+    zoom: 4
+  };
+  center: google.maps.LatLngLiteral = {lat: 40, lng: -20};
+  zoom = 4;
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(id)
     this.frontService.employerDetail(id as string).subscribe(
       (res: HttpResponse<IEmployer>) => {
         this.employer=res.body
+        this.center= {lat: 40, lng: -20};
       },
       () => {
         // this.isLoading = false;

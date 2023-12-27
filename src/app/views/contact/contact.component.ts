@@ -14,7 +14,10 @@ export class ContactComponent {
               protected activatedRoute: ActivatedRoute,
               protected router: Router,) {
   }
-
+  options: google.maps.MapOptions = {
+    center: {lat: 40, lng: -20},
+    zoom: 4
+  };
   sendMessage() {
 
   }

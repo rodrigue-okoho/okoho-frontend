@@ -40,6 +40,7 @@ import {TabsModule} from "ngx-bootstrap/tabs";
 import {NgxMatIntlTelInputComponent} from "ngx-mat-intl-tel-input";
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import {GoogleMapsModule} from "@angular/google-maps";
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     CdkStepperModule,
     NgStepperModule, NgbModule,
     NgxIntlTelInputModule,
-    PdfViewerModule
+    PdfViewerModule,
+    GoogleMapsModule,
   ],
   exports: []
 })

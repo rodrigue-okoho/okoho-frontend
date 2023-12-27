@@ -31,6 +31,24 @@
   border-radius: 8px;
   transition: all 300ms ease;
 }
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.auth-spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  border-top-color: #000000;
+  animation: spinner 0.8s linear infinite;
+}
 .layout{
   margin-top: 90px;
   background-color: #F5F7FC;

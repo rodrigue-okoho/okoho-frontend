@@ -1,30 +1,33 @@
-import {AfterViewInit, Component, Input, OnInit, Output, ViewChild} from '@angular/core';
-import { ActivateService } from "../../../views/account/activate/activate.service";
-import { LocalStorageService, SessionStorageService } from "ngx-webstorage";
-import { ActivatedRoute } from "@angular/router";
-import { BackService } from "../../../core/services/back.service";
-import { AccountService } from "../../../core/auth/account.service";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ActivateService} from "../../../views/account/activate/activate.service";
+import {LocalStorageService, SessionStorageService} from "ngx-webstorage";
+import {ActivatedRoute} from "@angular/router";
+import {BackService} from "../../../core/services/back.service";
+import {AccountService} from "../../../core/auth/account.service";
 import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
-import { HttpResponse } from "@angular/common/http";
-import { IEmployer } from "../../../core/models/employe.model";
-import { Account } from "../../../core/auth/account.model";
-import { ICandidat } from "../../../core/models/candidat.model";
-import { TranslateService } from '@ngx-translate/core';
-import { ToastrService } from 'ngx-toastr';
+import {HttpResponse} from "@angular/common/http";
+import {Account} from "../../../core/auth/account.model";
+import {ICandidat} from "../../../core/models/candidat.model";
+import {TranslateService} from '@ngx-translate/core';
+import {ToastrService} from 'ngx-toastr';
 import {SafeUrl} from '@angular/platform-browser';
 import {IcategoryJob} from "../../../core/models/categoryJob.model";
 import {countries} from "../../../core/util/country-data-store";
 import {CountryISO} from "ngx-intl-tel-input";
+import {Observable} from "rxjs";
+import {MapDirectionsService} from "@angular/google-maps";
+import {map} from "rxjs/operators";
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit{
-  public countries:any = countries;
+export class ProfileComponent implements OnInit {
+  public countries: any = countries;
   error = false;
   success = false;
-  btn_status=false;
+  btn_status = false;
   account: Account | null = null;
   candidat: ICandidat | null = null;
   nameimage: any;
@@ -36,22 +39,42 @@ export class ProfileComponent implements OnInit{
   itemForm: FormGroup;
   itemSocialForm: FormGroup;
   itemContactForm: FormGroup;
-  categories?: IcategoryJob[]| null;
-  placehoder="categories";
+  categories?: IcategoryJob[] | null;
+  placehoder = "categories";
+  center: google.maps.LatLngLiteral = {lat: 51.989858047086535, lng: 8.78541302551178};
+  zoom = 4;
+  directionResults:any
+
+  circleCenter: google.maps.LatLngLiteral = {lat: 51.989858047086535, lng: 8.78541302551178};
+  radius = 3;
+
   constructor(private activateService: ActivateService, private formBuilder: FormBuilder,
-    private localStorageService: LocalStorageService, private translateService: TranslateService,
-    private sessionStorageService: SessionStorageService, private toaster: ToastrService,
-    private route: ActivatedRoute, private backService: BackService,
-    private accountService: AccountService,) { }
-    E164PhoneNumber = '+237675066919';
-    @ViewChild('f') f: NgForm;
-    data= { mobile: "+237675066919" };
-  CountryISO=CountryISO;
+              private localStorageService: LocalStorageService, private translateService: TranslateService,
+              private sessionStorageService: SessionStorageService, private toaster: ToastrService,
+              private route: ActivatedRoute, private backService: BackService,mapDirectionsService: MapDirectionsService,
+              private accountService: AccountService,) {
+    const request: google.maps.DirectionsRequest = {
+      destination: {lat: 51.989858047086535, lng: 8.78541302551178},
+      origin: {lat: 51.989858047086535, lng: 8.78541302551178},
+      travelMode: google.maps.TravelMode.DRIVING
+    };
+    this.directionsResults$ = mapDirectionsService.route(request).pipe(map(response => response.result));
+      mapDirectionsService.route(request).subscribe((response:any)=>{
+     this.directionResults=response.result
+    })
+  }
+
+  E164PhoneNumber = '+237675066919';
+  @ViewChild('f') f: NgForm;
+  data = {mobile: "+237675066919"};
+  CountryISO = CountryISO;
+  readonly directionsResults$: Observable<google.maps.DirectionsResult|undefined>;
   ngOnInit(): void {
-    this.E164PhoneNumber="+237675066919"
+    this.E164PhoneNumber = "+237675066919"
     this.backService.categoryJobs().subscribe(
       (res: HttpResponse<IcategoryJob[]>) => {
-        this.categories=res.body});
+        this.categories = res.body
+      });
     this.itemForm = this.formBuilder.group({
       firstName: ["", [Validators.required]],
       lastName: ["", [Validators.required]],
@@ -63,7 +86,7 @@ export class ProfileComponent implements OnInit{
       phoneNumber: ["", [Validators.required]],
       codePhone: ["", [Validators.required]],
       country: ["", Validators.required],
-      country_of_born:["", Validators.required],
+      country_of_born: ["", Validators.required],
       qualification: ["", Validators.required],
       jobTitle: ["", Validators.required],
       educationLevel: ["", Validators.required],
@@ -103,29 +126,32 @@ export class ProfileComponent implements OnInit{
       mode: [""],
     });
     this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
-  this.updateProfile();
+    this.updateProfile();
   }
+
   private onError() {
 
   }
+
   onCountrySelected(country: any) {
     console.log(country);
   }
-  private updateProfile(){
+
+  private updateProfile() {
     this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
       (res: HttpResponse<ICandidat>) => {
         this.candidat = res.body
-        this.btn_status= this.candidat?.userAccount?.firstName != null;
+        this.btn_status = this.candidat?.userAccount?.firstName != null;
         this.itemForm = this.formBuilder.group({
           firstName: this.candidat?.userAccount?.firstName,
           lastName: this.candidat?.userAccount?.lastName,
           id: this.candidat?.id,
           email: this.candidat?.userAccount?.email,
-          placeofborn:this.candidat?.placeofborn,
-          gender:this.candidat?.gender,
+          placeofborn: this.candidat?.placeofborn,
+          gender: this.candidat?.gender,
           phoneNumber: this.candidat?.userAccount?.phoneNumber,
           codePhone: this.candidat?.userAccount?.codePhone,
-          phone:this.candidat?.userAccount?.codePhone +this.candidat?.userAccount?.phoneNumber
+          phone: this.candidat?.userAccount?.codePhone + this.candidat?.userAccount?.phoneNumber
           ,
           user_type: this.candidat?.userAccount?.userType,
           country: this.candidat?.country,
@@ -141,7 +167,7 @@ export class ProfileComponent implements OnInit{
           age: this.candidat?.age,
           dob: this.candidat?.dob,
           address: this.candidat?.userAccount?.codePhone,
-          categoryJobs:this.candidat?.categoryJobs,
+          categoryJobs: this.candidat?.categoryJobs,
           mode: "profile",
 
         });
@@ -177,13 +203,15 @@ export class ProfileComponent implements OnInit{
       }
     )
   }
-  countryChange(){
+
+  countryChange() {
     console.log("test")
   }
+
   saveProfile() {
 
-    this.itemForm.value.phoneNumber=this.itemForm.value.phone.number;
-    this.itemForm.value.codePhone=this.itemForm.value.phone.dialCode;
+    this.itemForm.value.phoneNumber = this.itemForm.value.phone.number;
+    this.itemForm.value.codePhone = this.itemForm.value.phone.dialCode;
     this.backService.candidatSaveProfile(this.itemForm.value)
       .subscribe((res: any) => {
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
@@ -217,7 +245,8 @@ export class ProfileComponent implements OnInit{
         this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.message);
       });
   }
-  uploadCv(event:any) {
+
+  uploadCv(event: any) {
     const file = event.target.files[0];
     this.status = event.target.files.length > 0;
     if (this.status === true) {
@@ -237,7 +266,7 @@ export class ProfileComponent implements OnInit{
           type: file.type,
         };
         console.log(values)
-        this.backService.candidatSaveProfile(values).subscribe((result:any) => {
+        this.backService.candidatSaveProfile(values).subscribe((result: any) => {
           this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
           this.imageId = result.data.id;
         });
@@ -251,5 +280,9 @@ export class ProfileComponent implements OnInit{
 
   onchange() {
     console.log("test")
+  }
+
+  searchPosition() {
+    
   }
 }

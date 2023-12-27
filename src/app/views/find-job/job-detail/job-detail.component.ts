@@ -17,6 +17,7 @@ import {SigninComponent} from "../../../components/signin/signin.component";
 })
 export class JobDetailComponent {
   job: IJob | null;
+  loading = false;
   candidat: ICandidat | null = null;
 
   constructor(protected frontService: FrontService, protected backService: BackService,
@@ -49,18 +50,21 @@ export class JobDetailComponent {
   }
 
   applyJob() {
+    this.loading = true;
     const item = {
       "candidat": this.candidat?.id,
       "offerJob": this.job?.id
     }
     if (this.candidat==null){
+      this.loading = false;
       this.toaster.error(this.translateService.instant('internalServerError'), "Vous n'etes pas connecté");
     }else {
       this.frontService.applyJob(item)
         .subscribe((res: any) => {
+          this.loading = false;
           this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
         }, err => {
-          console.log(err);
+          this.loading = false;
           this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.message);
         });
     }

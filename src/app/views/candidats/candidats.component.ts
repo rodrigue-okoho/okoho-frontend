@@ -13,6 +13,7 @@ import {combineLatest} from "rxjs";
 })
 export class CandidatsComponent  implements OnInit {
   zoom = 12;
+  loading = false;
   center: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
     mapTypeId: 'hybrid',
