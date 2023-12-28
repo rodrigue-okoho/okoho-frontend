@@ -45,13 +45,13 @@
                                     <div class="form-group col-lg-6 col-md-6">
                                       <label>First name</label>
                                       <input formControlName="firstName" type="text" name="firstName" placeholder="firstName">
-                                      <span class="error" *ngIf="stepOneForm.controls['firstName'].hasError('required') &&  stepOneForm.get('firstName').touched">Job Title is a required field
+                                      <span class="error" *ngIf="stepOneForm.controls['firstName'].hasError('required') &&  stepOneForm.get('firstName')?.touched">Job Title is a required field
                                   </span>
                                     </div>
                                     <div class="form-group col-lg-6 col-md-6">
                                       <label>Last name</label>
                                       <input formControlName="lastName" type="text" name="lastName" placeholder="lastName">
-                                      <span class="error" *ngIf="stepOneForm.controls['lastName'].hasError('required') &&  stepOneForm.get('lastName').touched">Job Title is a required field
+                                      <span class="error" *ngIf="stepOneForm.controls['lastName'].hasError('required') &&  stepOneForm.get('lastName')?.touched">Job Title is a required field
                                   </span>
                                     </div>
 
@@ -82,7 +82,7 @@
                                     <div class="form-group col-lg-6 col-md-6">
                                       <label>Email</label>
                                       <input formControlName="email" type="text" name="lastName" placeholder="lastName">
-                                      <span class="error" *ngIf="stepOneForm.controls['email'].hasError('required') &&  stepOneForm.get('email').touched">email is a required field
+                                      <span class="error" *ngIf="stepOneForm.controls['email'].hasError('required') &&  stepOneForm.get('email')?.touched">email is a required field
                                   </span>
                                     </div>
                                     <div class="form-group col-lg-6 col-md-6">
@@ -100,7 +100,7 @@
                                       countryChange="countryChange()"
                                       name="phone" formControlName="phone">
                   </ngx-intl-tel-input>
-                                      <span class="error" *ngIf="stepOneForm.controls['phoneNumber'].hasError('required') &&  stepOneForm.get('phoneNumber').touched">Phone is a required field
+                                      <span class="error" *ngIf="stepOneForm.controls['phoneNumber'].hasError('required') &&  stepOneForm.get('phoneNumber')?.touched">Phone is a required field
                                   </span>
                                     </div>
                                    <!-- <div class="form-group col-lg-6 col-md-6">
@@ -144,28 +144,28 @@
                                         <div class="resume-outer theme-yellow">
                                           <div class="upper-title">
                                             <h4>Address</h4>
-                                            <button class="add-info-btn" (click)="openLg(contentAddress)"><fa-icon icon="plus"></fa-icon> Address</button>
+                                            <button type="button" class="add-info-btn" (click)="openLg(contentAddress)"><fa-icon icon="plus"></fa-icon> Address</button>
                                           </div>
                                           <!-- Resume BLock -->
                                           <div class="resume-block"  *ngFor="let award of candidat?.addresses">
                                           <div class="inner">
-                                              <span class="name">{{award.type.charAt(0)}}</span>
+                                              <span class="name">{{award?.type?.charAt(0)}}</span>
                                               <div class="title-box">
                                                 <div class="info-box">
-                                                  <h3>{{award.line1}}</h3>
-                                                  <span>{{award.line2}}</span>
+                                                  <h3>{{award?.line1}}</h3>
+                                                  <span>{{award?.line2}}</span>
                                                 </div>
                                                 <div class="edit-box">
                                                  <!-- <span class="year">{{award.begin|date:'yyyy'}} - {{award.begin|date:'yyyy'}}</span>-->
                                                   <div class="edit-btns">
-                                                    <button><fa-icon icon="edit"></fa-icon></button>
-                                                    <button><fa-icon icon="trash"></fa-icon></button>
+                                                    <button (click)="editAdress(award, contentAddress)"><fa-icon icon="edit"></fa-icon></button>
+                                                    <button (click)="deleteAdress(award)"><fa-icon icon="trash"></fa-icon></button>
                                                   </div>
                                                 </div>
                                               </div>
                                               <div class="text">
-                                                {{award.city}}
-                                                {{award.country}}
+                                                {{award?.city}}
+                                                {{award?.country}}
                                               </div>
                                             </div>
                                           </div>
@@ -204,14 +204,16 @@
                                         <div class="info-box">
                                           <h3>{{work.libelle!}}</h3>
                                           <h4>{{work.employer_name}}</h4>
-                                          <span>{{work.country}} {{work.location}}</span>
-                                          <span>{{work.line1}} - {{work.line1}}</span>
+                                          <div class="d-flex flex-row justify-content-between">
+                                            <span>{{work.country}} - {{work.location}}</span>
+                                            <span>{{work?.line1}} - {{work?.line2}}</span>
+                                          </div>
                                         </div>
                                         <div class="edit-box">
                                           <span class="year">{{work.begin|date:'yyyy'}} - {{work.end|date:'yyyy'}}</span>
                                           <div class="edit-btns">
-                                            <button><fa-icon icon="edit"></fa-icon></button>
-                                            <button><fa-icon icon="trash"></fa-icon></button>
+                                            <button (click)="editExperience(work, contentWork)"><fa-icon icon="edit"></fa-icon></button>
+                                            <button (click)="deleteExperience(work)"><fa-icon icon="trash"></fa-icon></button>
                                           </div>
                                         </div>
                                       </div>
@@ -256,14 +258,16 @@
                                         <div class="info-box">
                                           <h3>{{work.libelle!}}</h3>
                                           <h4>{{work.traning_body}}</h4>
-                                          <span>{{work.country}} {{work.location}}</span>
-                                          <span>{{work.line1}} - {{work.line1}}</span>
+                                          <div class="d-flex flex-row justify-content-between">
+                                            <span>{{work.country}} - {{work.location}}</span>
+                                            <span>  {{work?.line1}} - {{work?.line2}}</span>
+                                          </div>
                                         </div>
                                         <div class="edit-box">
                                           <span class="year">{{work.begin|date:'yyyy'}} - {{work.end|date:'yyyy'}}</span>
                                           <div class="edit-btns">
-                                            <button><fa-icon icon="edit"></fa-icon></button>
-                                            <button><fa-icon icon="trash"></fa-icon></button>
+                                            <button (click)="editEducation(work, contentEducation)"><fa-icon icon="edit"></fa-icon></button>
+                                            <button (click)="deleteEducation(work)"><fa-icon icon="trash"></fa-icon></button>
                                           </div>
                                         </div>
                                       </div>
@@ -273,7 +277,7 @@
                                     </div>
                                   </div>
                                   <div class="mb-3 d-grid text-center">
-                                    <button class="btn-cv" (click)="openLg(contentEducation)"><fa-icon icon="plus"></fa-icon> Add Education</button>
+                                    <button type="button" class="btn-cv" (click)="openLg(contentEducation)"><fa-icon icon="plus"></fa-icon> Add Education</button>
                                   </div>
                                 </div>
                                 <div class="button form-group col-lg-12 col-md-12 text-left">
@@ -310,7 +314,7 @@
                                         <h3>{{work.libelle}}</h3>
                                         <h4>{{work.traning_body}}</h4>
                                         <span>{{work.country}} {{work.location}}</span>
-                                        <span>{{work.line1}} - {{work.line1}}</span>
+                                        <span>{{work?.line1}} - {{work?.line1}}</span>
                                       </div>
                                       <div class="edit-box">
                                         <span class="year">{{work.begin|date:'yyyy'}} - {{work.end|date:'yyyy'}}</span>
@@ -406,7 +410,7 @@
 <ng-template #contentAddress let-modal>
   <div class="modal-header">
     <h6 class="modal-title">Add Address</h6>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <button type="button" class="close" aria-label="Close" (click)="closeAddressModal(modal)">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -461,7 +465,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-light" (click)="closeAddressModal(modal)">Close</button>
     <button class="theme-btn btn-style-one mr-1  pull-right" type="button" (click)="saveAddress()"
 
     >Save</button>
@@ -470,7 +474,7 @@
 <ng-template #contentEducation let-modal>
   <div class="modal-header">
     <h6 class="modal-title">Add Education</h6>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <button type="button" class="close" aria-label="Close" (click)="closeEducationModal(modal)">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -546,7 +550,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-light" (click)="closeEducationModal(modal)">Close</button>
     <button class="theme-btn btn-style-one mr-1  pull-right" type="button" (click)="saveEducation()"
 
     >Save</button>
@@ -555,7 +559,7 @@
 <ng-template #contentWork let-modal>
   <div class="modal-header">
     <h6 class="modal-title">Add Work & Experience</h6>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <button type="button" class="close" aria-label="Close" (click)="closeExperienceModal(modal)">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -633,7 +637,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-light" (click)="closeExperienceModal(modal)">Close</button>
     <button class="theme-btn btn-style-one mr-1  pull-right" type="button" (click)="saveWork()"
 
     >Save</button>

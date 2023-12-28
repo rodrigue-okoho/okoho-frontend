@@ -12,4 +12,5 @@ export interface ItemCandidat {
   begin?: string | null;
   end?: string | null;
   itemType?: string | null;
+  postcode?: string | null;
 }
