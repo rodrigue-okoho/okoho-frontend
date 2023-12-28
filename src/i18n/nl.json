@@ -1,0 +1,270 @@
+{
+  "global": {
+    "title": "OKOHO-platform",
+    "browsehappy": "Je gebruikt een <strong>verouderd</strong> browser.  <a href=\"http://browsehappy.com/?locale=en\">upgrade uw browser</a> om uw ervaring te verbeteren.",
+    "menu": {
+      "candidates": "kandidaten",
+      "home": "Thuis",
+      "candidate": "Gekwalificeerde kandidaten",
+      "candidate_untrained": "Ongetrainde kandidaten",
+      "employer": "Werkgevers",
+      "blog": "Bloggen",
+      "findjob": "Vind banen",
+      "page": "Pagina's",
+      "about": "Over ons",
+      "contact": "Neem contact met ons op",
+      "faq": "FAQ",
+      "term-condition": "Voorwaarden",
+      "private-center": "Privacycentrum",
+      "security-center": "Beveiligings centrum",
+      "accessibility-center": "Toegankelijkheidscentrum",
+      "data-protection": "Gegevensbescherming",
+      "impressum": "Impressum",
+      "Datenschutz": "Gegevensbescherming",
+      "browse-employer": "Blader door werkgever",
+      "browse-job": "Blader door baan",
+      "browse-category": "Blader door categorie",
+      "add-job": "Taak toevoegen",
+      "entities": {},
+      "account": {
+        "main": "Mijn rekening",
+        "settings": "Instellingen",
+        "password": "Wachtwoord",
+        "sessions": "Sessies",
+        "login": "Inloggen / Registreren",
+        "logout": "Afmelden",
+        "dashboard": "Dashboard",
+        "profil": "Profiel",
+        "my_resume": "Mijn CV",
+        "my_apply": "Mijn sollicitatie",
+        "shortlist_job": "Shortlist baan",
+        "following_employee": "volgende medewerker",
+        "alert_job": "Alerte baan",
+        "candidat_alert": "condidate waarschuwing",
+        "package": "Pakketjes",
+        "meeting": "Ontmoeting",
+        "my_job": "Mijn werk",
+        "add_job": "Taak toevoegen",
+        "applicant_job": "Sollicitatie baan",
+        "shortlist_candidat": "Shortlist-kandidaat",
+        "cv_manager": "CV-beheerder",
+        "delete_profil": "Profiel verwijderen",
+        "register": "Register"
+      },
+      "language": "Taal"
+    },
+    "form": {
+      "username.label": "Gebruikersnaam",
+      "username.placeholder": "Je gebruikersnaam",
+      "currentpassword.label": "Huidig ​​wachtwoord",
+      "currentpassword.placeholder": "Huidig ​​wachtwoord",
+      "newpassword.label": "Nieuw paswoord",
+      "newpassword.placeholder": "Nieuw paswoord",
+      "confirmpassword.label": "Bevestiging van nieuwe wachtwoord",
+      "confirmpassword.placeholder": "Bevestig het nieuwe wachtwoord",
+      "email.label": "E-mail",
+      "email.placeholder": "Jouw email"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "Als je wilt ",
+          "link": "Inloggen",
+          "suffix": ", kunt u de standaardaccounts proberen:<br/>- Beheerder (login=admin en wachtwoord=admin) <br/>- Gebruiker (login = \"gebruiker\" en wachtwoord = = \"gebruiker\")."
+        },
+        "register": {
+          "noaccount": "Heeft u nog geen account?",
+          "link": "Maak een nieuw account aan"
+        }
+      },
+      "error": {
+        "dontmatch": "Het wachtwoord en de bevestiging ervan komen niet overeen!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "Uw wachtwoord is vereist.",
+          "minlength": "Uw wachtwoord moet minimaal 4 tekens lang zijn.",
+          "maxlength": "Uw wachtwoord mag niet langer zijn dan 50 tekens.",
+          "strength": "Wachtwoord sterkte:"
+        },
+        "confirmpassword": {
+          "required": "Uw bevestigingswachtwoord is vereist.",
+          "minlength": "Uw bevestigingswachtwoord moet minimaal 4 tekens lang zijn.",
+          "maxlength": "Uw bevestigingswachtwoord mag niet langer zijn dan 50 tekens."
+        },
+        "email": {
+          "required": "Uw e-mailadres is vereist.",
+          "invalid": "Uw e-mailadres is ongeldig.",
+          "minlength": "Uw e-mailadres moet minimaal 5 tekens lang zijn.",
+          "maxlength": "Uw e-mailadres mag niet langer zijn dan 50 tekens."
+        }
+      }
+    },
+    "field": {
+      "id": "ID kaart",
+      "your_name": "Votre nom",
+      "your_email": "Votre e-mail",
+      "your_subject": "Sujet",
+      "message": "Bericht"
+    },
+    "ribbon": {
+      "dev": "Ontwikkeling"
+    },
+    "item-count": "Tonen {{first}} - {{second}} van {{total}}.",
+    "item-candidat": "Kandidaten",
+    "item-employer": "Werkgevers",
+    "item-job": "Banen",
+    "create_cv": "Maak uw CV",
+    "10kcandidat": "10k kandidaten",
+    "onlyseconds": "Het duurt maar een paar seconden"
+  },
+  "entity": {
+    "action": {
+      "addblob": "Voeg klodder toe",
+      "addimage": "Voeg afbeelding toe",
+      "back": "Rug",
+      "cancel": "Annuleren",
+      "delete": "Verwijderen",
+      "edit": "Bewerking",
+      "open": "Open",
+      "save": "Redden",
+      "view": "Weergave",
+      "send_message": "Bericht versturen"
+    },
+    "detail": {
+      "field": "Veld",
+      "value": "Waarde"
+    },
+    "delete": {
+      "title": "Bevestig de verwijderbewerking"
+    },
+    "validation": {
+      "required": "Dit veld is verplicht.",
+      "minlength": "Dit veld moet minimaal zijn {{ min }} karakters.",
+      "maxlength": "Dit veld kan niet langer zijn dan {{ max }} karakters.",
+      "min": "Dit veld moet minimaal zijn {{ min }}.",
+      "max": "Dit veld kan niet groter zijn dan {{ max }}.",
+      "minbytes": "Dit veld moet minimaal zijn {{ min }} bytes.",
+      "maxbytes": "Dit veld kan niet groter zijn dan {{ max }} bytes.",
+      "pattern": "Dit veld moet het patroon volgen voor {{ pattern }}.",
+      "number": "Dit veld moet een getal zijn.",
+      "datetimelocal": "Dit veld moet een datum en tijd bevatten.",
+      "patternLogin": "Dit veld mag alleen letters, cijfers en e-mailadressen bevatten."
+    }
+  },
+  "MESSAGES": {
+    "SAVE_SUCCESS": "opslaan succesvol",
+    "SAVE_ERROR": "fout opslaan"
+  },
+  "error": {
+    "title": "Foutpagina!",
+    "http": {
+      "400": "Foute aanvraag.",
+      "403": "U heeft geen toegang tot deze pagina.",
+      "404": "De pagina bestaat niet.",
+      "405": "Het HTTP-werkwoord dat u heeft gebruikt, wordt niet ondersteund voor deze URL.",
+      "500": "Interne Server Fout."
+    },
+    "concurrencyFailure": "Een andere gebruiker heeft deze gegevens tegelijkertijd met u gewijzigd. ",
+    "validation": "Validatiefout op de server.",
+    "internalServerError": "Interne Server Fout",
+    "server.not.reachable": "Server niet bereikbaar",
+    "url.not.found": "Niet gevonden",
+    "NotNull": "Veld {{ fieldName }} kan niet leeg zijn!",
+    "Size": "Veld {{ fieldName }} voldoet niet aan de min/max maatvereisten!",
+    "userexists": "Loginnaam al gebruikt!",
+    "emailexists": "Email is al in gebruik!",
+    "idexists": "Een nieuwe {{ entityName }} kan niet al een ID hebben",
+    "idnull": "ongeldig identiteitsbewijs",
+    "idinvalid": "ongeldig identiteitsbewijs",
+    "idnotfound": "Identiteitskaart kan niet worden gevonden",
+    "file": {
+      "could.not.extract": "Kan bestand niet uitpakken",
+      "not.image": "Er werd verwacht dat het bestand een afbeelding was, maar het bleek \"{{ fileType }}\""
+    }
+  },
+  "footer": {
+    "call-us": "Neem contact met ons op"
+  },
+  "password": {
+    "title": "Wachtwoord voor [<strong>{{username}}</strong>]",
+    "form": {
+      "button": "Redden"
+    },
+    "messages": {
+      "error": "<strong>Er is een fout opgetreden!</strong> Het wachtwoord kon niet worden gewijzigd.",
+      "success": "<strong>Wachtwoord veranderd!</strong>"
+    }
+  },
+  "activate": {
+    "title": "Activering",
+    "messages": {
+      "success": "<strong>Uw gebruikersaccount is geactiveerd.</strong> Alsjeblieft ",
+      "error": "<strong>Uw gebruiker kan niet worden geactiveerd.</strong> Om u aan te melden kunt u gebruik maken van het inschrijfformulier."
+    }
+  },
+  "home": {
+    "title-box": {
+      "h3": "Er zijn <span class='colored'>{{stastitc }}</span> Berichten hier<br> Voor jou!",
+      "div": "Vind banen, werkgelegenheid"
+    },
+    "btn_title": "Vind banen",
+    "popular_searches": "Populaire zoekopdrachten :",
+    "features": {
+      "title": "Registreer een account om te starten",
+      "title2": "Ontdek meer dan duizenden cv's",
+      "title3": "Vind de meest geschikte kandidaat"
+    },
+    "job_category": {
+      "h2": "Vacatures per categorie",
+      "text": "2020-banen live - 293 vandaag toegevoegd.",
+      "content_1": "Boekhouding / Financiën",
+      "content_2": "Marketing",
+      "content_3": "Ontwerp",
+      "content_4": "Ontwikkeling",
+      "content_5": "Project management",
+      "content_6": "Personeelszaken"
+    },
+    "job_section": {
+      "h2": "Een professioneel CV is jouw ticket naar de droombaan",
+      "div": "Om te beginnen met zoeken naar banen, kunt u online of persoonlijk banenbeurzen bijwonen, vacaturesites en carrièrewebsites gebruiken of rechtstreeks contact opnemen met recruiters in een gericht bedrijf om uw netwerk te verbreden.",
+      "a": "Maak uw CV"
+    },
+    "job_lastest": {
+      "h2": "Laatste vacatures",
+      "text": "Ken uw waarde en vind de baan die bij uw leven past",
+      "title_1": "Freelancer",
+      "title_2": "Full time",
+      "title_3": "Stage",
+      "not-found": "Geen vacature-alert gevonden."
+    },
+    "banner1": {
+      "h3": "Werkgevers",
+      "p": "Ga zitten, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ",
+      "a": "Account Registreren"
+    },
+    "banner2": {
+      "h3": "Kandidaat",
+      "p": "Ga zitten, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ",
+      "a": "Account Registreren"
+    },
+    "top_company": {
+      "h2": "Topbedrijf geregistreerd",
+      "div": "Een aantal van de bedrijven die we door de jaren heen hebben geholpen bij het werven van uitstekende sollicitanten."
+    },
+    "plans": {
+      "h2": "Kies een abonnement dat bij u past.",
+      "div": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
+    },
+    "subscribe": {
+      "h2": "Download de app",
+      "div": "Nieuwe functies. "
+    },
+    "bottom": {
+      "counter-title-1": "4 miljoen dagelijks actieve gebruikers",
+      "counter-title-2": "Meer dan 12.000 openstaande vacatures",
+      "counter-title-3": "Meer dan 20 miljoen verhalen gedeeld",
+      "counter-title-4": "4 miljoen dagelijks actieve gebruikers"
+    }
+  }
+}

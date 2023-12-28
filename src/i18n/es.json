@@ -1,0 +1,270 @@
+{
+  "global": {
+    "title": "Plataforma OKOHO",
+    "browsehappy": "Estas usando un <strong>anticuado</strong> navegador.  <a href=\"http://browsehappy.com/?locale=en\">Actualiza tu navegador</a> para mejorar tu experiencia.",
+    "menu": {
+      "candidates": "candidatos",
+      "home": "Hogar",
+      "candidate": "Candidatos calificados",
+      "candidate_untrained": "Candidatos no capacitados",
+      "employer": "Empleadores",
+      "blog": "Blog",
+      "findjob": "Encontrar trabajos",
+      "page": "paginas",
+      "about": "Sobre nosotros",
+      "contact": "Contáctenos",
+      "faq": "Preguntas más frecuentes",
+      "term-condition": "Términos y condiciones",
+      "private-center": "Centro de privacidad",
+      "security-center": "Centro de Seguridad",
+      "accessibility-center": "Centro de Accesibilidad",
+      "data-protection": "Protección de Datos",
+      "impressum": "Impresión",
+      "Datenschutz": "Protección de Datos",
+      "browse-employer": "Explorar empleador",
+      "browse-job": "Buscar trabajo",
+      "browse-category": "Explorar categoría",
+      "add-job": "Agregar trabajo",
+      "entities": {},
+      "account": {
+        "main": "Mi cuenta",
+        "settings": "Ajustes",
+        "password": "Contraseña",
+        "sessions": "Sesiones",
+        "login": "Iniciar sesión / Registrarse",
+        "logout": "desconectar",
+        "dashboard": "Panel",
+        "profil": "Perfil",
+        "my_resume": "Mi resumen",
+        "my_apply": "mi solicitud",
+        "shortlist_job": "Trabajo preseleccionado",
+        "following_employee": "siguiente empleado",
+        "alert_job": "Trabajo de alerta",
+        "candidat_alert": "Alerta de candidato",
+        "package": "Paquetes",
+        "meeting": "Reunión",
+        "my_job": "Mi trabajo",
+        "add_job": "Agregar trabajo",
+        "applicant_job": "Trabajo del solicitante",
+        "shortlist_candidat": "Candidato de lista corta",
+        "cv_manager": "Responsable de CV",
+        "delete_profil": "Eliminar perfil",
+        "register": "Registro"
+      },
+      "language": "Idioma"
+    },
+    "form": {
+      "username.label": "Nombre de usuario",
+      "username.placeholder": "Su nombre de usuario",
+      "currentpassword.label": "Contraseña actual",
+      "currentpassword.placeholder": "Contraseña actual",
+      "newpassword.label": "Nueva contraseña",
+      "newpassword.placeholder": "Nueva contraseña",
+      "confirmpassword.label": "Nueva confirmación de contraseña",
+      "confirmpassword.placeholder": "Confirma la nueva contraseña",
+      "email.label": "Correo electrónico",
+      "email.placeholder": "Tu correo electrónico"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "Si quieres ",
+          "link": "iniciar sesión",
+          "suffix": ", puedes probar las cuentas predeterminadas:<br/>- Administrador (login=\"admin\" y contraseña=\"admin\") <br/>- Usuario (login=\"usuario\" y contraseña=\"usuario\")."
+        },
+        "register": {
+          "noaccount": "¿Aún no tienes una cuenta?",
+          "link": "Registre una nueva cuenta"
+        }
+      },
+      "error": {
+        "dontmatch": "¡La contraseña y su confirmación no coinciden!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "Tu contraseña es requerida.",
+          "minlength": "Se requiere que su contraseña tenga al menos 4 caracteres.",
+          "maxlength": "Su contraseña no puede tener más de 50 caracteres.",
+          "strength": "Seguridad de la contraseña:"
+        },
+        "confirmpassword": {
+          "required": "Se requiere su contraseña de confirmación.",
+          "minlength": "Su contraseña de confirmación debe tener al menos 4 caracteres.",
+          "maxlength": "Su contraseña de confirmación no puede tener más de 50 caracteres."
+        },
+        "email": {
+          "required": "Su correo electrónico es requerido.",
+          "invalid": "Tu Correo Electrónico es Inválido.",
+          "minlength": "Su correo electrónico debe tener al menos 5 caracteres.",
+          "maxlength": "Su correo electrónico no puede tener más de 50 caracteres."
+        }
+      }
+    },
+    "field": {
+      "id": "IDENTIFICACIÓN",
+      "your_name": "Votre nom",
+      "your_email": "Tu correo electrónico",
+      "your_subject": "sujeto",
+      "message": "Mensaje"
+    },
+    "ribbon": {
+      "dev": "Desarrollo"
+    },
+    "item-count": "Demostración {{first}} - {{second}} de {{total}}.",
+    "item-candidat": "Candidatos",
+    "item-employer": "Empleadores",
+    "item-job": "Trabajos",
+    "create_cv": "Crea tu CV",
+    "10kcandidat": "10k candidatos",
+    "onlyseconds": "Solo toma unos segundos"
+  },
+  "entity": {
+    "action": {
+      "addblob": "Agregar gota",
+      "addimage": "Añadir imagen",
+      "back": "Atrás",
+      "cancel": "Cancelar",
+      "delete": "Borrar",
+      "edit": "Editar",
+      "open": "Abierto",
+      "save": "Ahorrar",
+      "view": "Vista",
+      "send_message": "Enviar mensaje"
+    },
+    "detail": {
+      "field": "Campo",
+      "value": "Valor"
+    },
+    "delete": {
+      "title": "Confirmar operación de eliminación"
+    },
+    "validation": {
+      "required": "Este campo es obligatorio.",
+      "minlength": "Este campo debe ser al menos {{ min }} caracteres.",
+      "maxlength": "Este campo no puede ser más largo que {{ max }} caracteres.",
+      "min": "Este campo debe ser al menos {{ min }}.",
+      "max": "Este campo no puede ser más de {{ max }}.",
+      "minbytes": "Este campo debe ser al menos {{ min }} bytes.",
+      "maxbytes": "Este campo no puede ser más de {{ max }} bytes.",
+      "pattern": "Este campo debe seguir el patrón para {{ pattern }}.",
+      "number": "Este campo debe ser un número.",
+      "datetimelocal": "Este campo debe ser una fecha y hora.",
+      "patternLogin": "Este campo sólo puede contener letras, dígitos y direcciones de correo electrónico."
+    }
+  },
+  "MESSAGES": {
+    "SAVE_SUCCESS": "se guardo correctamente",
+    "SAVE_ERROR": "guardar error"
+  },
+  "error": {
+    "title": "¡Página de errores!",
+    "http": {
+      "400": "Solicitud incorrecta.",
+      "403": "No tiene permisos para acceder a esta página.",
+      "404": "La página no existe.",
+      "405": "El verbo HTTP que utilizó no es compatible con esta URL.",
+      "500": "Error Interno del Servidor."
+    },
+    "concurrencyFailure": "Otro usuario modificó estos datos al mismo tiempo que tú. ",
+    "validation": "Error de validación en el servidor.",
+    "internalServerError": "Error Interno del Servidor",
+    "server.not.reachable": "Servidor no accesible",
+    "url.not.found": "Extraviado",
+    "NotNull": "Campo {{ fieldName }} ¡no puede estar vacío!",
+    "Size": "Campo {{ fieldName }} ¡No cumple con los requisitos de tamaño mínimo/máximo!",
+    "userexists": "¡Nombre de inicio de sesión ya utilizado!",
+    "emailexists": "¡Correo electrónico ya está en uso!",
+    "idexists": "un nuevo {{ entityName }} ya no puede tener una identificación",
+    "idnull": "identificación invalida",
+    "idinvalid": "identificación invalida",
+    "idnotfound": "No se puede encontrar la identificación",
+    "file": {
+      "could.not.extract": "No se pudo extraer el archivo",
+      "not.image": "Se esperaba que el archivo fuera una imagen, pero se descubrió que era \"{{ fileType }}\""
+    }
+  },
+  "footer": {
+    "call-us": "Contáctanos"
+  },
+  "password": {
+    "title": "Contraseña para [<strong>{{username}}</strong>]",
+    "form": {
+      "button": "Ahorrar"
+    },
+    "messages": {
+      "error": "<strong>¡Se ha producido un error!</strong> No se pudo cambiar la contraseña.",
+      "success": "<strong>¡Contraseña cambiada!</strong>"
+    }
+  },
+  "activate": {
+    "title": "Activación",
+    "messages": {
+      "success": "<strong>Su cuenta de usuario ha sido activada.</strong> Por favor ",
+      "error": "<strong>Su usuario no pudo ser activado.</strong> Utilice el formulario de registro para registrarse."
+    }
+  },
+  "home": {
+    "title-box": {
+      "h3": "Hay <span class='colored'>{{stastitc }}</span> Publicaciones aquí<br> ¡Para ti!",
+      "div": "Encontrar empleo, empleo"
+    },
+    "btn_title": "Encontrar trabajos",
+    "popular_searches": "Búsquedas populares :",
+    "features": {
+      "title": "Registre una cuenta para comenzar",
+      "title2": "Explora más de miles de currículums",
+      "title3": "Encuentra el candidato más adecuado"
+    },
+    "job_category": {
+      "h2": "Empleos por categoría",
+      "text": "2020 empleos disponibles: 293 agregados hoy.",
+      "content_1": "Cuentas y finanzas",
+      "content_2": "Marketing",
+      "content_3": "Diseño",
+      "content_4": "Desarrollo",
+      "content_5": "Gestión de proyectos",
+      "content_6": "Recursos humanos"
+    },
+    "job_section": {
+      "h2": "El CV profesional es tu billete al trabajo de tus sueños",
+      "div": "Para comenzar a buscar empleo, puede asistir a ferias de empleo en línea o en persona, utilizar bolsas de trabajo y sitios web de carreras o comunicarse directamente con los reclutadores de una empresa específica para ampliar su red.",
+      "a": "Crea tu currículum"
+    },
+    "job_lastest": {
+      "h2": "Ultimos trabajos",
+      "text": "Conozca su valor y encuentre el trabajo que califique su vida.",
+      "title_1": "Lanza libre",
+      "title_2": "Tiempo completo",
+      "title_3": "Pasantía",
+      "not-found": "No se encontró ninguna alerta de empleo."
+    },
+    "banner1": {
+      "h3": "Empleadores",
+      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ",
+      "a": "Registrar Cuenta"
+    },
+    "banner2": {
+      "h3": "Candidato",
+      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ",
+      "a": "Registrar Cuenta"
+    },
+    "top_company": {
+      "h2": "Principal empresa registrada",
+      "div": "Algunas de las empresas a las que hemos ayudado a reclutar excelentes candidatos a lo largo de los años."
+    },
+    "plans": {
+      "h2": "Elija un plan adecuado para usted.",
+      "div": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
+    },
+    "subscribe": {
+      "h2": "Descarga la aplicación",
+      "div": "Nuevas características. "
+    },
+    "bottom": {
+      "counter-title-1": "4 millones de usuarios activos diarios",
+      "counter-title-2": "Más de 12.000 puestos de trabajo abiertos",
+      "counter-title-3": "Más de 20 millones de historias compartidas",
+      "counter-title-4": "4 millones de usuarios activos diarios"
+    }
+  }
+}

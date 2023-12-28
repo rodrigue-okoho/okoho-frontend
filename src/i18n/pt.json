@@ -1,0 +1,270 @@
+{
+  "global": {
+    "title": "Placa OKOHO",
+    "browsehappy": "Você está usando um <strong>desatualizado</strong> navegador.  <a href=\"http://browsehappy.com/?locale=en\">atualize seu navegador</a> para melhorar sua experiência.",
+    "menu": {
+      "candidates": "candidatos",
+      "home": "Lar",
+      "candidate": "Candidatos qualificados",
+      "candidate_untrained": "Candidatos não treinados",
+      "employer": "Empregadores",
+      "blog": "Blogue",
+      "findjob": "Encontrar empregos",
+      "page": "Páginas",
+      "about": "Sobre nós",
+      "contact": "Contate-nos",
+      "faq": "Perguntas frequentes",
+      "term-condition": "Termos e Condições",
+      "private-center": "Centro de privacidade",
+      "security-center": "Centro de Segurança",
+      "accessibility-center": "Centro de Acessibilidade",
+      "data-protection": "Proteção de dados",
+      "impressum": "Impressão",
+      "Datenschutz": "Proteção de dados",
+      "browse-employer": "Navegar pelo empregador",
+      "browse-job": "Procurar trabalho",
+      "browse-category": "Navegar na categoria",
+      "add-job": "Adicionar trabalho",
+      "entities": {},
+      "account": {
+        "main": "Minha conta",
+        "settings": "Configurações",
+        "password": "Senha",
+        "sessions": "Sessões",
+        "login": "Entrar / Cadastrar",
+        "logout": "sair",
+        "dashboard": "Painel",
+        "profil": "Perfil",
+        "my_resume": "Meu resumo",
+        "my_apply": "Minha aplicação",
+        "shortlist_job": "Trabalho da lista restrita",
+        "following_employee": "seguinte funcionário",
+        "alert_job": "Trabalho de alerta",
+        "candidat_alert": "Alerta de condição",
+        "package": "Pacotes",
+        "meeting": "Reunião",
+        "my_job": "Meu trabalho",
+        "add_job": "Adicionar trabalho",
+        "applicant_job": "Trabalho do candidato",
+        "shortlist_candidat": "Candidato da lista restrita",
+        "cv_manager": "Gerente de currículos",
+        "delete_profil": "Excluir perfil",
+        "register": "Registro"
+      },
+      "language": "Linguagem"
+    },
+    "form": {
+      "username.label": "Nome de usuário",
+      "username.placeholder": "Seu nome de usuário",
+      "currentpassword.label": "Senha atual",
+      "currentpassword.placeholder": "Senha atual",
+      "newpassword.label": "Nova Senha",
+      "newpassword.placeholder": "Nova Senha",
+      "confirmpassword.label": "Nova confirmação de senha",
+      "confirmpassword.placeholder": "Confirme a nova senha",
+      "email.label": "E-mail",
+      "email.placeholder": "Seu email"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "Se você quiser ",
+          "link": "entrar",
+          "suffix": ", você pode tentar as contas padrão:<br/>- Administrador (login=\"admin\" e senha=\"admin\") <br/>- Usuário (login=\"usuário\" e senha=\"usuário\")."
+        },
+        "register": {
+          "noaccount": "Você ainda não tem uma conta?",
+          "link": "Registrar uma nova conta"
+        }
+      },
+      "error": {
+        "dontmatch": "A senha e sua confirmação não coincidem!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "Sua senha é necessária.",
+          "minlength": "Sua senha deve ter pelo menos 4 caracteres.",
+          "maxlength": "Sua senha não pode ter mais de 50 caracteres.",
+          "strength": "Força da senha:"
+        },
+        "confirmpassword": {
+          "required": "Sua senha de confirmação é necessária.",
+          "minlength": "Sua senha de confirmação deve ter pelo menos 4 caracteres.",
+          "maxlength": "Sua senha de confirmação não pode ter mais de 50 caracteres."
+        },
+        "email": {
+          "required": "Seu e-mail é obrigatório.",
+          "invalid": "Seu e-mail é inválido.",
+          "minlength": "Seu e-mail deve ter pelo menos 5 caracteres.",
+          "maxlength": "Seu e-mail não pode ter mais de 50 caracteres."
+        }
+      }
+    },
+    "field": {
+      "id": "EU IA",
+      "your_name": "Seu nome",
+      "your_email": "Seu e-mail",
+      "your_subject": "Sujet",
+      "message": "Mensagem"
+    },
+    "ribbon": {
+      "dev": "Desenvolvimento"
+    },
+    "item-count": "Mostrando {{first}} - {{second}} de {{total}}.",
+    "item-candidat": "Candidatos",
+    "item-employer": "Empregadores",
+    "item-job": "Empregos",
+    "create_cv": "Crie seu currículo",
+    "10kcandidat": "10 mil candidatos",
+    "onlyseconds": "Leva apenas alguns segundos"
+  },
+  "entity": {
+    "action": {
+      "addblob": "Adicionar bolha",
+      "addimage": "Adicionar imagem",
+      "back": "Voltar",
+      "cancel": "Cancelar",
+      "delete": "Excluir",
+      "edit": "Editar",
+      "open": "Abrir",
+      "save": "Salvar",
+      "view": "Visualizar",
+      "send_message": "Enviar mensagem"
+    },
+    "detail": {
+      "field": "Campo",
+      "value": "Valor"
+    },
+    "delete": {
+      "title": "Confirmar operação de exclusão"
+    },
+    "validation": {
+      "required": "Este campo é obrigatório.",
+      "minlength": "Este campo deve ter pelo menos {{ min }} personagens.",
+      "maxlength": "Este campo não pode ser maior que {{ max }} personagens.",
+      "min": "Este campo deve ter pelo menos {{ min }}.",
+      "max": "Este campo não pode ser maior que {{ max }}.",
+      "minbytes": "Este campo deve ter pelo menos {{ min }} bytes.",
+      "maxbytes": "Este campo não pode ser maior que {{ max }} bytes.",
+      "pattern": "Este campo deve seguir o padrão para {{ pattern }}.",
+      "number": "Este campo deve ser um número.",
+      "datetimelocal": "Este campo deve conter data e hora.",
+      "patternLogin": "Este campo só pode conter letras, dígitos e endereços de e-mail."
+    }
+  },
+  "MESSAGES": {
+    "SAVE_SUCCESS": "salvo com sucesso",
+    "SAVE_ERROR": "erro ao salvar"
+  },
+  "error": {
+    "title": "Página de erro!",
+    "http": {
+      "400": "Pedido ruim.",
+      "403": "Você não está autorizado à acessar essa página.",
+      "404": "A página não existe.",
+      "405": "O verbo HTTP usado não é compatível com este URL.",
+      "500": "Erro do Servidor Interno."
+    },
+    "concurrencyFailure": "Outro usuário modificou esses dados ao mesmo tempo que você. ",
+    "validation": "Erro de validação no servidor.",
+    "internalServerError": "Erro do Servidor Interno",
+    "server.not.reachable": "Servidor não acessível",
+    "url.not.found": "Não encontrado",
+    "NotNull": "Campo {{ fieldName }} não pode estar vazio!",
+    "Size": "Campo {{ fieldName }} não atende aos requisitos de tamanho mínimo/máximo!",
+    "userexists": "Nome de login já utilizado!",
+    "emailexists": "O e-mail já está sendo usado!",
+    "idexists": "Um novo {{ entityName }} já não pode ter um ID",
+    "idnull": "ID Inválido",
+    "idinvalid": "ID Inválido",
+    "idnotfound": "Não foi possível encontrar o ID",
+    "file": {
+      "could.not.extract": "Não foi possível extrair o arquivo",
+      "not.image": "Esperava-se que o arquivo fosse uma imagem, mas descobriu-se que era \"{{ fileType }}\""
+    }
+  },
+  "footer": {
+    "call-us": "Entre em contato conosco"
+  },
+  "password": {
+    "title": "Senha para [<strong>{{username}}</strong>]",
+    "form": {
+      "button": "Salvar"
+    },
+    "messages": {
+      "error": "<strong>Ocorreu um erro!</strong> A senha não pôde ser alterada.",
+      "success": "<strong>Senha alterada!</strong>"
+    }
+  },
+  "activate": {
+    "title": "Ativação",
+    "messages": {
+      "success": "<strong>Sua conta de usuário foi ativada.</strong> Por favor ",
+      "error": "<strong>Seu usuário não pôde ser ativado.</strong> Por favor, use o formulário de registro para se inscrever."
+    }
+  },
+  "home": {
+    "title-box": {
+      "h3": "Há <span class='colored'>{{stastitc }}</span> Postagens aqui<br> Para você!",
+      "div": "Encontre empregos, emprego"
+    },
+    "btn_title": "Encontrar empregos",
+    "popular_searches": "Pesquisas populares :",
+    "features": {
+      "title": "Registre uma conta para começar",
+      "title2": "Explore milhares de currículos",
+      "title3": "Encontre o candidato mais adequado"
+    },
+    "job_category": {
+      "h2": "Empregos por categoria",
+      "text": "2020 empregos ativos - 293 adicionados hoje.",
+      "content_1": "Contabilidade / Finanças",
+      "content_2": "Marketing",
+      "content_3": "Projeto",
+      "content_4": "Desenvolvimento",
+      "content_5": "Gerenciamento de projetos",
+      "content_6": "Recursos humanos"
+    },
+    "job_section": {
+      "h2": "CV profissional é o seu bilhete para o emprego dos sonhos",
+      "div": "Para começar a procurar empregos, você pode participar de feiras de empregos on-line ou pessoalmente, usar painéis de empregos e sites de carreiras ou entrar em contato diretamente com recrutadores de uma empresa-alvo para ampliar sua rede.",
+      "a": "Crie seu currículo"
+    },
+    "job_lastest": {
+      "h2": "Últimos empregos",
+      "text": "Conheça o seu valor e encontre o emprego que qualifica sua vida",
+      "title_1": "Freelance",
+      "title_2": "Tempo total",
+      "title_3": "Estágio",
+      "not-found": "Nenhum alerta de emprego encontrado."
+    },
+    "banner1": {
+      "h3": "Empregadores",
+      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidente. ",
+      "a": "Registar Conta"
+    },
+    "banner2": {
+      "h3": "Candidato",
+      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidente. ",
+      "a": "Registar Conta"
+    },
+    "top_company": {
+      "h2": "Principais empresas registradas",
+      "div": "Algumas das empresas que ajudamos a recrutar excelentes candidatos ao longo dos anos."
+    },
+    "plans": {
+      "h2": "Escolha um plano certo para você.",
+      "div": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidente ut labore et dolore magna"
+    },
+    "subscribe": {
+      "h2": "Baixe o aplicativo",
+      "div": "Novas características. "
+    },
+    "bottom": {
+      "counter-title-1": "4 milhões de usuários ativos diariamente",
+      "counter-title-2": "Mais de 12 mil vagas abertas",
+      "counter-title-3": "Mais de 20 milhões de histórias compartilhadas",
+      "counter-title-4": "4 milhões de usuários ativos diariamente"
+    }
+  }
+}

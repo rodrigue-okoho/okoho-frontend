@@ -1,265 +1,270 @@
 {
   "global": {
-    "title": "OKOHO plateform",
-    "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+    "title": "OKOHO-Plattform",
+    "browsehappy": "Sie verwenden ein <strong>veraltet</strong> Browser.  <a href=\"http://browsehappy.com/?locale=en\">Aktualisieren Sie Ihren Browser</a> um Ihre Erfahrung zu verbessern.",
     "menu": {
-      "home": "Home",
-      "candidate": "Candidates",
-      "employer": "Employers",
+      "candidates": "Kandidaten",
+      "home": "Heim",
+      "candidate": "Qualifizierte Kandidaten",
+      "candidate_untrained": "Ungeschulte Kandidaten",
+      "employer": "Arbeitgeber",
       "blog": "Blog",
-      "findjob": "Find jobs",
-      "page": "Pages",
-      "about": "About Us",
-      "contact": "Contact us",
+      "findjob": "Arbeitsplätze finden",
+      "page": "Seiten",
+      "about": "Über uns",
+      "contact": "Kontaktiere uns",
       "faq": "FAQ",
-      "term-condition": "Terms and conditions",
-      "private-center": "Privacy Center",
-      "security-center": "Security Center",
-      "accessibility-center": "Accessibility Center",
-      "data-protection": "Data Protection",
+      "term-condition": "Geschäftsbedingungen",
+      "private-center": "Datenschutzcenter",
+      "security-center": "Sicherheitscenter",
+      "accessibility-center": "Barrierefreiheitszentrum",
+      "data-protection": "Datenschutz",
       "impressum": "Impressum",
-      "Datenschutz": "Datenschutzerklärung",
-      "browse-employer": "Browse Employer",
-      "browse-job": "Browse Job",
-      "browse-category": "Browse Category",
-      "add-job": "Add Job",
-      "entities": {
-      },
+      "Datenschutz": "Datenschutz",
+      "browse-employer": "Arbeitgeber durchsuchen",
+      "browse-job": "Job durchsuchen",
+      "browse-category": "Kategorie durchsuchen",
+      "add-job": "Job hinzufügen",
+      "entities": {},
       "account": {
-        "main": "My Account",
-        "settings": "Settings",
-        "password": "Password",
-        "sessions": "Sessions",
-        "login": "Login / Register",
-        "logout": "Sign out",
-        "dashboard": "Dashboard",
-        "profil": "Profile",
-        "my_resume": "My resume",
-        "my_apply": "My apply",
-        "shortlist_job": "Shortlist job",
-        "following_employee": "following employee",
-        "alert_job": "Alert job",
-        "candidat_alert": "condidate Alert",
-        "package": "Packages",
-        "meeting": "Meeting",
-        "my_job": "My job",
-        "add_job": "Add Job",
-        "applicant_job": "Applicant job",
-        "shortlist_candidat": "ShortList candidate",
-        "cv_manager":"CV Manager",
-        "delete_profil":"Delete profil",
-        "register": "Register"
+        "main": "Mein Konto",
+        "settings": "Einstellungen",
+        "password": "Passwort",
+        "sessions": "Sitzungen",
+        "login": "Anmeldung Registrieren",
+        "logout": "Abmelden",
+        "dashboard": "Armaturenbrett",
+        "profil": "Profil",
+        "my_resume": "Mein Lebenslauf",
+        "my_apply": "Meine Bewerbung",
+        "shortlist_job": "Job in die engere Wahl gezogen",
+        "following_employee": "folgender Mitarbeiter",
+        "alert_job": "Alarmjob",
+        "candidat_alert": "Bedingungsalarm",
+        "package": "Pakete",
+        "meeting": "Treffen",
+        "my_job": "Mein Job",
+        "add_job": "Job hinzufügen",
+        "applicant_job": "Bewerberjob",
+        "shortlist_candidat": "ShortList-Kandidat",
+        "cv_manager": "CV-Manager",
+        "delete_profil": "Profil löschen",
+        "register": "Registrieren"
       },
-      "language": "Language"
+      "language": "Sprache"
     },
     "form": {
-      "username.label": "Username",
-      "username.placeholder": "Your username",
-      "currentpassword.label": "Current password",
-      "currentpassword.placeholder": "Current password",
-      "newpassword.label": "New password",
-      "newpassword.placeholder": "New password",
-      "confirmpassword.label": "New password confirmation",
-      "confirmpassword.placeholder": "Confirm the new password",
+      "username.label": "Nutzername",
+      "username.placeholder": "Dein Benutzername",
+      "currentpassword.label": "Aktuelles Passwort",
+      "currentpassword.placeholder": "Aktuelles Passwort",
+      "newpassword.label": "Neues Kennwort",
+      "newpassword.placeholder": "Neues Kennwort",
+      "confirmpassword.label": "Neues Passwort bestätigen",
+      "confirmpassword.placeholder": "Bestätigen Sie das neue Passwort",
       "email.label": "Email",
-      "email.placeholder": "Your email"
+      "email.placeholder": "Deine E-Mail"
     },
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "If you want to ",
-          "link": "sign in",
-          "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+          "prefix": "Wenn Sie wollen ",
+          "link": "anmelden",
+          "suffix": ", können Sie die Standardkonten ausprobieren:<br/>- Administrator (Login=\"admin\" und Passwort=\"admin\") <br/>- Benutzer (Login=\"Benutzer\" und Passwort=\"Benutzer\")."
         },
         "register": {
-          "noaccount": "You don't have an account yet?",
-          "link": "Register a new account"
+          "noaccount": "Sie haben noch kein Konto?",
+          "link": "Ein neues Konto eröffnen"
         }
       },
       "error": {
-        "dontmatch": "The password and its confirmation do not match!"
+        "dontmatch": "Das Passwort und seine Bestätigung stimmen nicht überein!"
       },
       "validate": {
         "newpassword": {
-          "required": "Your password is required.",
-          "minlength": "Your password is required to be at least 4 characters.",
-          "maxlength": "Your password cannot be longer than 50 characters.",
-          "strength": "Password strength:"
+          "required": "Dein Passwort wird benötigt.",
+          "minlength": "Ihr Passwort muss mindestens 4 Zeichen lang sein.",
+          "maxlength": "Ihr Passwort darf nicht länger als 50 Zeichen sein.",
+          "strength": "Passwortstärke:"
         },
         "confirmpassword": {
-          "required": "Your confirmation password is required.",
-          "minlength": "Your confirmation password is required to be at least 4 characters.",
-          "maxlength": "Your confirmation password cannot be longer than 50 characters."
+          "required": "Ihr Bestätigungspasswort ist erforderlich.",
+          "minlength": "Ihr Bestätigungspasswort muss mindestens 4 Zeichen lang sein.",
+          "maxlength": "Ihr Bestätigungspasswort darf nicht länger als 50 Zeichen sein."
         },
         "email": {
-          "required": "Your email is required.",
-          "invalid": "Your email is invalid.",
-          "minlength": "Your email is required to be at least 5 characters.",
-          "maxlength": "Your email cannot be longer than 50 characters."
+          "required": "Ihre E-Mail-Adresse ist erforderlich.",
+          "invalid": "Deine E-Mail Adresse ist ungültig.",
+          "minlength": "Ihre E-Mail muss mindestens 5 Zeichen lang sein.",
+          "maxlength": "Ihre E-Mail darf nicht länger als 50 Zeichen sein."
         }
       }
     },
     "field": {
-      "id": "ID",
-      "your_name": "Votre nom",
-      "your_email": "Votre email",
-      "your_subject": "Sujet",
-      "message": "Message"
+      "id": "AUSWEIS",
+      "your_name": "Ihr Name",
+      "your_email": "Ihre E-Mail",
+      "your_subject": "Thema",
+      "message": "Nachricht"
     },
     "ribbon": {
-      "dev": "Development"
+      "dev": "Entwicklung"
     },
-    "item-count": "Showing {{first}} - {{second}} of {{total}}.",
-    "item-candidat": "Candidates",
-    "item-employer": "Employers",
-    "item-job": "Jobs"
+    "item-count": "Zeigt {{first}} - {{second}} von {{total}}.",
+    "item-candidat": "Kandidaten",
+    "item-employer": "Arbeitgeber",
+    "item-job": "Arbeitsplätze",
+    "create_cv": "Erstellen Sie Ihren Lebenslauf",
+    "10kcandidat": "10.000 Kandidaten",
+    "onlyseconds": "Es dauert nur ein paar Sekunden"
   },
   "entity": {
     "action": {
-      "addblob": "Add blob",
-      "addimage": "Add image",
-      "back": "Back",
-      "cancel": "Cancel",
-      "delete": "Delete",
-      "edit": "Edit",
-      "open": "Open",
-      "save": "Save",
-      "view": "View",
-      "send_message": "Send message"
+      "addblob": "Klecks hinzufügen",
+      "addimage": "Bild hinzufügen",
+      "back": "Zurück",
+      "cancel": "Stornieren",
+      "delete": "Löschen",
+      "edit": "Bearbeiten",
+      "open": "Offen",
+      "save": "Speichern",
+      "view": "Sicht",
+      "send_message": "Nachricht senden"
     },
     "detail": {
-      "field": "Field",
-      "value": "Value"
+      "field": "Feld",
+      "value": "Wert"
     },
     "delete": {
-      "title": "Confirm delete operation"
+      "title": "Bestätigen Sie den Löschvorgang"
     },
     "validation": {
-      "required": "This field is required.",
-      "minlength": "This field is required to be at least {{ min }} characters.",
-      "maxlength": "This field cannot be longer than {{ max }} characters.",
-      "min": "This field should be at least {{ min }}.",
-      "max": "This field cannot be more than {{ max }}.",
-      "minbytes": "This field should be at least {{ min }} bytes.",
-      "maxbytes": "This field cannot be more than {{ max }} bytes.",
-      "pattern": "This field should follow pattern for {{ pattern }}.",
-      "number": "This field should be a number.",
-      "datetimelocal": "This field should be a date and time.",
-      "patternLogin": "This field can only contain letters, digits and e-mail addresses."
+      "required": "Dieses Feld ist erforderlich.",
+      "minlength": "Dieses Feld muss mindestens sein {{ min }} Figuren.",
+      "maxlength": "Dieses Feld darf nicht länger sein als {{ max }} Figuren.",
+      "min": "Dieses Feld sollte mindestens sein {{ min }}.",
+      "max": "Dieses Feld darf nicht mehr als sein {{ max }}.",
+      "minbytes": "Dieses Feld sollte mindestens sein {{ min }} Bytes.",
+      "maxbytes": "Dieses Feld darf nicht mehr als sein {{ max }} Bytes.",
+      "pattern": "Dieses Feld sollte dem Muster für folgen {{ pattern }}.",
+      "number": "Dieses Feld sollte eine Zahl sein.",
+      "datetimelocal": "Dieses Feld sollte ein Datum und eine Uhrzeit enthalten.",
+      "patternLogin": "Dieses Feld kann nur Buchstaben, Ziffern und E-Mail-Adressen enthalten."
     }
   },
-  "success": {
-    "SAVE_SUCCESS": "save successful"
+  "MESSAGES": {
+    "SAVE_SUCCESS": "Speichern erfolgreich",
+    "SAVE_ERROR": "Speicherfehler"
   },
   "error": {
-    "title": "Error page!",
+    "title": "Fehlerseite!",
     "http": {
-      "400": "Bad request.",
-      "403": "You are not authorized to access this page.",
-      "404": "The page does not exist.",
-      "405": "The HTTP verb you used is not supported for this URL.",
-      "500": "Internal server error."
+      "400": "Ungültige Anforderung.",
+      "403": "Sie sind nicht autorisiert auf diese Seite zuzugreifen.",
+      "404": "Die Seite existiert nicht.",
+      "405": "Das von Ihnen verwendete HTTP-Verb wird für diese URL nicht unterstützt.",
+      "500": "Interner Serverfehler."
     },
-    "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
-    "validation": "Validation error on the server.",
-    "internalServerError": "Internal server error",
-    "server.not.reachable": "Server not reachable",
-    "url.not.found": "Not found",
-    "NotNull": "Field {{ fieldName }} cannot be empty!",
-    "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
-    "userexists": "Login name already used!",
-    "emailexists": "Email is already in use!",
-    "idexists": "A new {{ entityName }} cannot already have an ID",
-    "idnull": "Invalid ID",
-    "idinvalid": "Invalid ID",
-    "idnotfound": "ID cannot be found",
+    "concurrencyFailure": "Ein anderer Benutzer hat diese Daten gleichzeitig mit Ihnen geändert. ",
+    "validation": "Validierungsfehler auf dem Server.",
+    "internalServerError": "Interner Serverfehler",
+    "server.not.reachable": "Server nicht erreichbar",
+    "url.not.found": "Nicht gefunden",
+    "NotNull": "Feld {{ fieldName }} kann nicht leer sein!",
+    "Size": "Feld {{ fieldName }} entspricht nicht den Mindest-/Höchstgrößenanforderungen!",
+    "userexists": "Loginname bereits verwendet!",
+    "emailexists": "E-Mail wird bereits verwendet!",
+    "idexists": "Ein neuer {{ entityName }} kann nicht bereits eine ID haben",
+    "idnull": "Ungültige ID",
+    "idinvalid": "Ungültige ID",
+    "idnotfound": "ID kann nicht gefunden werden",
     "file": {
-      "could.not.extract": "Could not extract file",
-      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+      "could.not.extract": "Die Datei konnte nicht extrahiert werden",
+      "not.image": "Es wurde erwartet, dass es sich bei der Datei um ein Bild handelt, es wurde jedoch festgestellt, dass „{{ fileType }}\""
     }
   },
   "footer": {
-    "call-us": "Cantact us"
+    "call-us": "Kontaktieren Sie uns"
   },
   "password": {
-    "title": "Password for [<strong>{{username}}</strong>]",
+    "title": "Passwort für [<strong>{{username}}</strong>]",
     "form": {
-      "button": "Save"
+      "button": "Speichern"
     },
     "messages": {
-      "error": "<strong>An error has occurred!</strong> The password could not be changed.",
-      "success": "<strong>Password changed!</strong>"
+      "error": "<strong>Ein Fehler ist aufgetreten!</strong> Das Passwort konnte nicht geändert werden.",
+      "success": "<strong>Passwort geändert!</strong>"
     }
   },
-  "activate":{
-    "title": "Activation",
+  "activate": {
+    "title": "Aktivierung",
     "messages": {
-      "success": "<strong>Your user account has been activated.</strong> Please ",
-      "error": "<strong>Your user could not be activated.</strong> Please use the registration form to sign up."
+      "success": "<strong>Ihr Benutzerkonto wurde aktiviert.</strong> Bitte ",
+      "error": "<strong>Ihr Benutzer konnte nicht aktiviert werden.</strong> Bitte nutzen Sie zur Anmeldung das Anmeldeformular."
     }
   },
   "home": {
     "title-box": {
-      "h3": "There Are <span class='colored'>{{stastitc }}</span> Postings Here<br> For you!",
-      "div": "Find Jobs, Employment &amp; Career Opportunities"
+      "h3": "Es gibt <span class='colored'>{{stastitc }}</span> Beiträge hier<br> Für dich!",
+      "div": "Finden Sie Jobs, Beschäftigung"
     },
-    "btn_title": "Find Jobs",
-    "popular_searches": "Popular Searches :",
+    "btn_title": "Arbeitsplätze finden",
+    "popular_searches": "Beliebte Suchanfragen :",
     "features": {
-      "title": "Register an account to start",
-      "title2": "Explore over thousands of resumes",
-      "title3": "Find the most suitable candidate"
+      "title": "Registrieren Sie ein Konto, um zu beginnen",
+      "title2": "Entdecken Sie über Tausende von Lebensläufen",
+      "title3": "Finden Sie den am besten geeigneten Kandidaten"
     },
     "job_category": {
-      "h2": "Jobs by category",
-      "text": "2020 jobs live - 293 added today.",
-      "content_1": "Accounting / Finance",
+      "h2": "Jobs nach Kategorie",
+      "text": "2020 Jobs live – 293 heute hinzugefügt.",
+      "content_1": "Buchhaltung",
       "content_2": "Marketing",
       "content_3": "Design",
-      "content_4": "Development",
-      "content_5": "Project Management",
-      "content_6": "Human Resource"
+      "content_4": "Entwicklung",
+      "content_5": "Projektmanagement",
+      "content_6": "Personal"
     },
     "job_section": {
-      "h2": "Professional CV is your ticket to the dream job",
-      "div": "To start searching for jobs, you can attend job fairs online or in person, use job boards and career websites or reach out directly to recruiters in a targeted company to broaden your network.",
-      "a": "Post Resume"
+      "h2": "Ein professioneller Lebenslauf ist Ihre Eintrittskarte zum Traumjob",
+      "div": "Um mit der Jobsuche zu beginnen, können Sie online oder persönlich Jobmessen besuchen, Jobbörsen und Karrierewebsites nutzen oder sich direkt an Personalvermittler in einem Zielunternehmen wenden, um Ihr Netzwerk zu erweitern.",
+      "a": "Erstellen Sie Ihren Lebenslauf"
     },
     "job_lastest": {
-      "h2": "Latest Jobs",
-      "text": "Know your worth and find the job that qualify your life",
-      "title_1": "Freelance",
-      "title_2": "Full Time",
-      "title_3": "Internship",
-      "not-found": "No job alert found."
+      "h2": "Neueste Jobs",
+      "text": "Kennen Sie Ihren Wert und finden Sie den Job, der Ihr Leben qualifiziert",
+      "title_1": "Freiberuflich",
+      "title_2": "Vollzeit",
+      "title_3": "Praktikum",
+      "not-found": "Keine Jobbenachrichtigung gefunden."
     },
     "banner1": {
-      "h3": "Employers",
-      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud.",
-      "a": "Register Account"
+      "h3": "Arbeitgeber",
+      "p": "Setzen Sie sich zusammen, konsekutieren Sie die Elite, und nehmen Sie sich Zeit für den Zwischenfall. ",
+      "a": "Account registrieren"
     },
     "banner2": {
-      "h3": "Candidate",
-      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud exercitation.",
-      "a": "Register Account"
+      "h3": "Kandidat",
+      "p": "Setzen Sie sich zusammen, konsekutieren Sie die Elite, und nehmen Sie sich Zeit für den Zwischenfall. ",
+      "a": "Account registrieren"
     },
     "top_company": {
-      "h2": "Top Company Registered",
-      "div": "Some of the companies we've helped recruit excellent applicants over the years."
+      "h2": "Top-Unternehmen registriert",
+      "div": "Einige der Unternehmen, denen wir im Laufe der Jahre bei der Rekrutierung hervorragender Bewerber geholfen haben."
     },
     "plans": {
-      "h2": "Choose a plan that’s right for you.",
+      "h2": "Wählen Sie einen Plan, der zu Ihnen passt.",
       "div": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
     },
     "subscribe": {
-      "h2": "Download the App",
-      "div": "New features. New appearance. No risk and"
+      "h2": "Laden Sie die App herunter",
+      "div": "Neue Eigenschaften. "
     },
     "bottom": {
-      "counter-title-1": "4 million daily active users",
-      "counter-title-2": "Over 12k open job positions",
-      "counter-title-3": "Over 20 million stories shared",
-      "counter-title-4": "4 million daily active users"
+      "counter-title-1": "4 Millionen täglich aktive Benutzer",
+      "counter-title-2": "Über 12.000 offene Stellen",
+      "counter-title-3": "Über 20 Millionen Geschichten geteilt",
+      "counter-title-4": "4 Millionen täglich aktive Benutzer"
     }
   }
 }

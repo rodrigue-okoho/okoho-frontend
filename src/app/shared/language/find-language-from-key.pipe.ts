@@ -6,6 +6,11 @@ export class FindLanguageFromKeyPipe implements PipeTransform {
     en: { name: 'English' },
     fr: { name: 'Français' },
     de: { name: 'Deutch' },
+    cn: { name: 'China' },
+    es: { name: 'Spanich' },
+    nl: { name: 'Dutch' },
+    ru: { name: 'Russian' },
+    pt: { name: 'Portuguese' },
   };
 
   transform(lang: string): string {
