@@ -264,7 +264,6 @@ export class CvManagerComponent implements OnInit{
         this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
       });
       this.canEditAddress = false;
-      this.formAddress.reset();
   }
   saveEducation() {
     if(!this.canEditEducation) {
@@ -355,6 +354,8 @@ export class CvManagerComponent implements OnInit{
   }
 
   closeAddressModal(modal: NgbActiveModal) {
+    this.canEditAddress = false;
+    this.formAddress.reset();
     modal.close('Close click')
   }
 
