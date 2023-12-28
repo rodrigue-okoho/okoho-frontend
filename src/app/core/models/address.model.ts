@@ -6,5 +6,6 @@ export interface IAddress {
   postcode?: string | null;
   city?: string | null;
   country?: string | null;
+  owner_id?: string | null;
 }
 

@@ -11,8 +11,10 @@ import { IJob } from 'src/app/core/models/job.model';
 import { BackService } from 'src/app/core/services/back.service';
 import { ActivateService } from 'src/app/views/account/activate/activate.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import { CountryISO } from 'ngx-intl-tel-input';
+import { IAddress } from 'src/app/core/models/address.model';
+import { ItemCandidat } from 'src/app/core/models/ItemCandidat.model';
 
 @Component({
   selector: 'app-cv-manager',
@@ -33,6 +35,9 @@ export class CvManagerComponent implements OnInit{
   public formLingustic: FormGroup;
   E164PhoneNumber = '+237675066919';
   CountryISO=CountryISO;
+  canEditAddress: Boolean = false;
+  canEditExperience: Boolean = false;
+  canEditEducation: Boolean = false;
   constructor(private activateService: ActivateService,private formBuilder: FormBuilder,
               private localStorageService: LocalStorageService,
               private sessionStorageService: SessionStorageService,
@@ -79,6 +84,7 @@ export class CvManagerComponent implements OnInit{
       mode: [""],
     });
     this.formAddress = this.formBuilder.group({
+      id: [""],
       type: ["", Validators.required],
       line1: ["", Validators.required],
       line2: ["", Validators.required],
@@ -87,6 +93,7 @@ export class CvManagerComponent implements OnInit{
       country: ["", Validators.required],
     })
     this.educationForm = this.formBuilder.group({
+      id: [""],
       libelle: ["", Validators.required],
       traning_body: ["", Validators.required],
       website: ["", Validators.required],
@@ -99,6 +106,7 @@ export class CvManagerComponent implements OnInit{
       country: ["", Validators.required],
     })
     this.workForm = this.formBuilder.group({
+      id: [""],
       libelle: ["", Validators.required],
       employer_name: ["", Validators.required],
       website: ["", Validators.required],
@@ -238,7 +246,10 @@ export class CvManagerComponent implements OnInit{
   }
 
   saveAddress() {
-    this.formAddress.value.id=this.candidat?.id;
+    if(!this.canEditAddress) {
+      this.formAddress.value.id = null;
+      this.formAddress.value.owner_id = this.candidat?.id;
+    }
     console.log(this.formAddress.value)
     this.backService.candidateAddAddress(this.formAddress.value)
       .subscribe((res: any) => {
@@ -246,16 +257,21 @@ export class CvManagerComponent implements OnInit{
           (res: HttpResponse<ICandidat>) => {
             this.candidat = res.body})
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+        this.formAddress.reset();
         this.modalService.dismissAll();
       }, err => {
         console.log(err);
         this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
       });
+      this.canEditAddress = false;
+      this.formAddress.reset();
   }
   saveEducation() {
-
-    this.educationForm.value.itemType="education";
-    this.educationForm.value.id=this.candidat?.id;
+    if(!this.canEditEducation) {
+      this.educationForm.value.id = null;
+      this.educationForm.value.itemType="education";
+      this.educationForm.value.owner_id = this.candidat?.id;
+    }
     console.log(this.educationForm.value)
     this.backService.candidateAddItem(this.educationForm.value)
       .subscribe((res: any) => {
@@ -263,16 +279,21 @@ export class CvManagerComponent implements OnInit{
           (res: HttpResponse<ICandidat>) => {
             this.candidat = res.body})
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+        this.educationForm.reset();
         this.modalService.dismissAll();
       }, err => {
         console.log(err);
         this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
       });
+      this.canEditEducation = false;
   }
 
   saveWork() {
-    this.workForm.value.itemType="work";
-    this.workForm.value.id=this.candidat?.id;
+    if(!this.canEditExperience) {
+      this.workForm.value.id = null;
+      this.workForm.value.itemType = "work";
+      this.workForm.value.owner_id = this.candidat?.id;
+    }
     console.log(this.workForm.value)
     this.backService.candidateAddItem(this.workForm.value)
       .subscribe((res: any) => {
@@ -280,11 +301,13 @@ export class CvManagerComponent implements OnInit{
           (res: HttpResponse<ICandidat>) => {
             this.candidat = res.body})
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+        this.workForm.reset();
         this.modalService.dismissAll();
       }, err => {
         console.log(err);
         this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.message);
       });
+      this.canEditExperience = false;
   }
   openLg(contentAddress: TemplateRef<any>) {
     this.stepOneForm.reset();
@@ -293,5 +316,138 @@ export class CvManagerComponent implements OnInit{
 
   afterLoadComplete($event: any) {
     console.log($event)
+  }
+
+  // TODO Address
+
+  loadAdress(adress: IAddress) {
+    this.formAddress.patchValue({
+      id: adress.id,
+      type: adress.type,
+      line1: adress.line1,
+      line2: adress.line2,
+      postcode: adress.postcode,
+      city: adress.city,
+      country: adress.country
+    });
+  }
+
+  editAdress(adress: IAddress, contentAddress: TemplateRef<any>) {
+    this.canEditAddress = true;
+    this.loadAdress(adress);
+    this.openLg(contentAddress);
+  }
+
+  deleteAdress(adress: IAddress) {
+    this.canEditAddress = false;
+    console.log(this.formAddress.value)
+    this.backService.candidateAddress(adress.id)
+      .subscribe((res: any) => {
+        this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
+          (res: HttpResponse<ICandidat>) => {
+            this.candidat = res.body})
+        this.toaster.success(this.translateService.instant('MESSAGES.DELETE_SUCCESS'), 'OK');
+        this.modalService.dismissAll();
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('MESSAGES.DELETE_ERROR'), err.message);
+      });
+  }
+
+  closeAddressModal(modal: NgbActiveModal) {
+    modal.close('Close click')
+  }
+
+  // TODO Experience
+
+  loadWork(work: ItemCandidat) {
+    this.workForm.patchValue({
+      id: work.id,
+      libelle: work.libelle,
+      employer_name: work.employer_name,
+      website: work.website,
+      location: work.location,
+      postcode: work.postcode,
+      line1: work.line1,
+      line2: work.line2,
+      begin: work.begin,
+      end: work.end,
+      country: work.country,
+      description: work.description,
+    });
+  }
+
+  editExperience(work: ItemCandidat, contentWork: TemplateRef<any>) {
+    this.canEditExperience = true;
+    this.loadWork(work);
+    this.openLg(contentWork);
+  }
+
+  deleteExperience(work: ItemCandidat) {
+    console.log(this.workForm.value)
+    this.backService.candidateRemoveItem(work.id)
+      .subscribe((res: any) => {
+        this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
+          (res: HttpResponse<ICandidat>) => {
+            this.candidat = res.body})
+        this.toaster.success(this.translateService.instant('MESSAGES.DELETE_SUCCESS'), 'OK');
+        this.modalService.dismissAll();
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('MESSAGES.DELETE_ERROR'), err.message);
+      });
+      this.canEditExperience = false;
+  }
+
+  closeExperienceModal(modal: NgbActiveModal) {
+    this.canEditExperience = false;
+    this.formAddress.reset();
+    modal.close('Close click');
+  }
+
+  // TODO Education
+
+  loadEducation(education: ItemCandidat) {
+    this.educationForm.patchValue({
+      id: education.id,
+      libelle: education.libelle,
+      traning_body: education.traning_body,
+      website: education.website,
+      location: education.location,
+      postcode: education.postcode,
+      line1: education.line1,
+      line2: education.line2,
+      begin: education.begin,
+      end: education.end,
+      country: education.country,
+    });
+  }
+
+  editEducation(education: ItemCandidat, contentEducation: TemplateRef<any>) {
+    this.canEditEducation = true;
+    this.loadEducation(education);
+    this.openLg(contentEducation);
+  }
+
+  deleteEducation(education: ItemCandidat) {
+    console.log(this.educationForm.value)
+    this.backService.candidateRemoveItem(education.id)
+      .subscribe((res: any) => {
+        this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
+          (res: HttpResponse<ICandidat>) => {
+            this.candidat = res.body})
+        this.toaster.success(this.translateService.instant('MESSAGES.DELETE_SUCCESS'), 'OK');
+        this.modalService.dismissAll();
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('MESSAGES.DELETE_ERROR'), err.message);
+      });
+      this.canEditEducation = false;
+  }
+
+  closeEducationModal(modal: NgbActiveModal) {
+    this.canEditEducation = false;
+    this.educationForm.reset();
+    modal.close('Close click');
   }
 }
