@@ -95,4 +95,10 @@ export class BackService {
   statisticEntreprise(req?: any): Observable<HttpResponse<IStatistic>> {
     return this.http.get<IStatistic>(`${this.resourceUrl}statistics/entreprise/${req}`, {observe: 'response'});
   }
+  candidateAddLanguage(req: any) {
+    return this.http.post<any>(`${this.resourceUrl}candidats/languages`, req);
+  }
+  candidateRemoveLanguage(req: any) {
+    return this.http.delete<any>(`${this.resourceUrl}candidats/remove-language/${req}`, { observe: 'response' });
+  }
 }
