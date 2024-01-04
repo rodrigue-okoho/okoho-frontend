@@ -153,19 +153,20 @@ export class CvManagerComponent implements OnInit{
     });*/
     this.updateProfile()
   }
-  getCv(){
-    this.backService.candidatMakeCv(this.localStorageService.retrieve('account_id')).subscribe(
+  getCv(num:any){
+    this.backService.candidatMakeCv(this.localStorageService.retrieve('account_id'),num).subscribe(
       (res: HttpResponse<any>) => {
       //  console.log(res.body)
         this.pdfSrc=res.body.url
+        window.open(this.pdfSrc,"blank")
         console.log(this.pdfSrc)
         this.cd.detectChanges()
         this.cd.markForCheck();
-      }),
+      },
       () => {
         // this.isLoading = false;
         this.onError();
-      }
+      })
   }
   private updateProfile(){
     this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
@@ -206,7 +207,7 @@ export class CvManagerComponent implements OnInit{
         this.onError();
       }
     )
-    this.backService.candidatMakeCv(this.localStorageService.retrieve('account_id')).subscribe(
+/*    this.backService.candidatMakeCv(this.localStorageService.retrieve('account_id')).subscribe(
       (res: HttpResponse<any>) => {
         console.log(res.body)
         this.pdfSrc=res.body.url
@@ -215,7 +216,7 @@ export class CvManagerComponent implements OnInit{
       () => {
         // this.isLoading = false;
         this.onError();
-      })
+      })*/
   }
   onError() {
     throw new Error('Method not implemented.');

@@ -21,8 +21,8 @@ export class BackService {
   protected resourceUrl = this.applicationConfigService.getEndpointFor('v1/');
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) { }
 
-  candidatMakeCv(req: any): Observable<HttpResponse<any>> {
-    return this.http.get<any>(`${this.endpointCV}api/make-cv/${req}`, {observe: 'response'});
+  candidatMakeCv(req: any,item: any): Observable<HttpResponse<any>> {
+    return this.http.get<any>(`${this.endpointCV}api/make-cv/${req}/${item}`, {observe: 'response'});
   }
   candidatUploadImage(req: any): Observable<HttpResponse<any>> {
     return this.http.post<any>(`${this.endpointCV}api/upload-image`, req);
