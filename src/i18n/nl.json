@@ -25,6 +25,7 @@
       "browse-job": "Blader door baan",
       "browse-category": "Blader door categorie",
       "add-job": "Taak toevoegen",
+  "job-post": "Vacature",
       "entities": {},
       "account": {
         "main": "Mijn rekening",
@@ -116,7 +117,11 @@
     "item-job": "Banen",
     "create_cv": "Maak uw CV",
     "10kcandidat": "10k kandidaten",
-    "onlyseconds": "Het duurt maar een paar seconden"
+    "onlyseconds": "Het duurt maar een paar seconden",
+  "work-inquiry-from": "Werkaanvraag van <br>Ali Tufan",
+  "creativ-agency": "Creatief bureau",
+  "startup": "Opstarten"
+
   },
   "entity": {
     "action": {
@@ -184,7 +189,15 @@
     }
   },
   "footer": {
-    "call-us": "Neem contact met ons op"
+    "call-us": "Cantact ons",
+    "all-right-reserved": "Alle rechten voorbehouden.",
+    "site-map": "Sitemap",
+    "helpful-resources": "Nuttige bronnen",
+    "about-us": "Informatie",
+    "for-employers": "Voor werkgevers",
+    "for-candidates": "Voor kandidaten",
+    "job-pakages": "Vacature Pakketten",
+    "my-bookmarks": "Mijn bladwijzers"
   },
   "password": {
     "title": "Wachtwoord voor [<strong>{{username}}</strong>]",

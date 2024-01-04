@@ -24,6 +24,9 @@ export class BackService {
   candidatMakeCv(req: any): Observable<HttpResponse<any>> {
     return this.http.get<any>(`${this.endpointCV}api/make-cv/${req}`, {observe: 'response'});
   }
+  candidatUploadImage(req: any): Observable<HttpResponse<any>> {
+    return this.http.post<any>(`${this.endpointCV}api/upload-image`, req);
+  }
   categoryJobs(): Observable<HttpResponse<IcategoryJob[]>> {
     return this.http.get<IcategoryJob[]>(`${this.resourceUrl}category-jobs`, {observe: 'response'});
   }

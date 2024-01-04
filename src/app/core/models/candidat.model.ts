@@ -19,6 +19,7 @@ export interface ICandidat {
   town	?: string | null;
   gender	?: string | null;
   placeofborn?: string | null;
+  countryofborn?: string | null;
   description?: string | null;
   age?: string | null;
   dob?: string | null;

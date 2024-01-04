@@ -25,6 +25,7 @@
       "browse-job": "Browse Job",
       "browse-category": "Browse Category",
       "add-job": "Add Job",
+      "job-post": "Job Post",
       "entities": {
       },
       "account": {
@@ -117,7 +118,10 @@
     "item-job": "Jobs",
     "create_cv": "Create your CV",
     "10kcandidat": "10k+ Candidates",
-    "onlyseconds": "It only takes a few seconds"
+    "onlyseconds": "It only takes a few seconds",
+    "work-inquiry-from": "Work Inquiry From <br>Ali Tufan",
+    "creativ-agency": "Creative Agency",
+    "startup": "startup"
   },
   "entity": {
     "action": {
@@ -185,7 +189,15 @@
     }
   },
   "footer": {
-    "call-us": "Cantact us"
+    "call-us": "Cantact us",
+    "all-right-reserved": "All Right Reserved.",
+    "site-map": "Site Map",
+    "helpful-resources": "Helpful Resources",
+    "about-us": "About Us",
+    "for-employers": "For Employers",
+    "for-candidates": "For Candidates",
+    "job-pakages": "Job Packages",
+    "my-bookmarks": "My Bookmarks"
   },
   "password": {
     "title": "Password for [<strong>{{username}}</strong>]",
@@ -344,5 +356,12 @@
     "address":"Address",
     "education":"Education",
     "education":"Education"
+  },
+  "dashboard": {
+    "medical-care": "Medical care",
+    "development-of-web": "Development of web and mobile applications",
+    "metal-construction-and-welding": "Metal construction and welding",
+    "mechatronics-and-mechanics": "Mechatronics and mechanics",
+    "electricity-electronics": "Electricity & electronics",
   }
 }

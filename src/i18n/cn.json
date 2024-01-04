@@ -17,32 +17,33 @@
       "term-condition": "條款及細則",
       "private-center": "隱私中心",
       "security-center": "安全中心",
-      "accessibility-center": "Accessibility Center",
-      "data-protection": "Data Protection",
-      "impressum": "Impressum",
-      "Datenschutz": "Data protection",
-      "browse-employer": "Browse Employer",
-      "browse-job": "Browse Job",
-      "browse-category": "Browse Category",
-      "add-job": "Add Job",
+  "accessibility-center": "無障礙中心",
+  "data-protection": "數據保護",
+  "impressum": "印記",
+  "Datenschutz": "數據保護",
+  "browse-employer": "流覽僱主",
+  "browse-job": "流覽工作",
+  "browse-category": "產品分類",
+  "add-job": "添加作業",
+  "job-post": "招聘崗位",
       "entities": {},
       "account": {
-        "main": "My Account",
-        "settings": "Settings",
-        "password": "Password",
-        "sessions": "Sessions",
-        "login": "Login / Register",
-        "logout": "Sign out",
-        "dashboard": "Dashboard",
-        "profil": "Profile",
-        "my_resume": "My resume",
-        "my_apply": "My apply",
-        "shortlist_job": "Shortlist job",
-        "following_employee": "following employee",
-        "alert_job": "Alert job",
-        "candidat_alert": "condidate Alert",
-        "package": "Packages",
-        "meeting": "Meeting",
+        "main": "我的帳戶",
+        "settings": "設置",
+        "password": "密碼",
+        "sessions": "會話",
+        "login": "登錄 / 註冊",
+        "logout": "登出",
+        "dashboard": "擋泥板",
+        "profil": "輪廓",
+        "my_resume": "我的簡歷",
+        "my_apply": "我的申請",
+        "shortlist_job": "入圍作業",
+        "following_employee": "以下員工",
+        "alert_job": "警報作業",
+        "candidat_alert": "condidate 警報",
+        "package": "包",
+        "meeting": "會議",
         "my_job": "My job",
         "add_job": "Add Job",
         "applicant_job": "Applicant job",
@@ -51,7 +52,7 @@
         "delete_profil": "Delete profil",
         "register": "Register"
       },
-      "language": "Language"
+      "language": "語言"
     },
     "form": {
       "username.label": "Username",
@@ -110,13 +111,20 @@
     "ribbon": {
       "dev": "Development"
     },
-    "item-count": "Showing {{first}} - {{second}} of {{total}}.",
-    "item-candidat": "Candidates",
-    "item-employer": "雇主",
-    "item-job": "Jobs",
-    "create_cv": "Create your CV",
-    "10kcandidat": "10k+ Candidates",
-    "onlyseconds": "It only takes a few seconds"
+  "item-count": "顯示 {{first}} - {{second}} 的 {{total}}。",
+  "item-candidat": "候選人",
+  "item-employer": "雇主",
+  "item-job": "工作",
+  "create_cv": "創建您的簡歷",
+  "10kcandidat": "10k+ 候選人",
+  "onlyseconds": "只需幾秒鐘",
+
+  "browse": "流覽",
+
+  "work-inquiry-from": "<br>阿裡圖凡的工作諮詢",
+  "creativ-agency": "創意機構",
+  "startup": "啟動"
+
   },
   "entity":{
     "action": {
@@ -179,28 +187,36 @@
     "idinvalid": "Invalid ID",
     "idnotfound": "ID cannot be found",
     "file": {
-      "could.not.extract": "Could not extract file",
-      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+      "could.not.extract": "無法解壓檔",
+      "not.image": "檔應為圖像，但發現為“{{ fileType }}”"
     }
   },
   "footer": {
-    "call-us": "Cantact us"
+    "call-us": "聯繫我們",
+    "all-right-reserved": "保留所有權利。",
+    "site-map": "網站地圖",
+    "helpful-resources": "有用的資源",
+    "about-us": "關於我們",
+    "for-employers": "對於雇主",
+    "for-candidates": "對於候選人",
+    "job-pakages": "工作包",
+    "my-bookmarks": "我的書籤"
   },
   "password": {
-    "title": "Password for [<strong>{{username}}</strong>]",
+    "title": "[<strong>{{username}}</strong>] 的密碼",
     "form": {
-      "button": "Save"
+      "button": "救"
     },
     "messages": {
-      "error": "<strong>An error has occurred!</strong> The password could not be changed.",
-      "success": "<strong>Password changed!</strong>"
+      "error": "<strong>發生錯誤！</strong>無法更改密碼。",
+      "success": "<strong>密碼已更改！</strong>"
     }
   },
   "activate": {
-    "title": "Activation",
+    "title": "啟動",
     "messages": {
-      "success": "<strong>Your user account has been activated.</strong> Please ",
-      "error": "<strong>Your user could not be activated.</strong> Please use the registration form to sign up."
+      "success": "<strong>您的用戶帳戶已啟動。</strong>請",
+      "error": "<strong>無法啟動您的使用者。</strong>請使用註冊表進行註冊。"
     }
   },
   "home":
@@ -228,45 +244,47 @@
     },
     "job_section": {
       "h2": "專業簡歷是您通往夢想工作的門票",
-      "div": "To start searching for jobs, you can attend job fairs online or in person, use job boards and career websites or reach out directly to recruiters in a targeted company to broaden your network.",
-      "a": "Create your Cv"
+  "div": "要開始尋找工作，您可以在線或親自參加招聘會，使用招聘網站和職業網站，或直接與目標公司的招聘人員聯繫以擴大您的網路。",
+  "a": "創建您的簡歷"
+
     },
     "job_lastest": {
-      "h2": "Latest Jobs",
-      "text": "Know your worth and find the job that qualify your life",
-      "title_1": "Freelance",
-      "title_2": "Full Time",
-      "title_3": "Internship",
-      "not-found": "No job alert found."
+      "h2": "最新職位",
+      "text": "瞭解自己的價值並找到適合您生活的工作",
+      "title_1": "自由",
+      "title_2": "全職",
+      "title_3": "實習",
+      "not-found": "未找到作業警報。"
     },
-    "banner1": {
-      "h3": "Employers",
-      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud.",
-      "a": "Register Account"
-    },
-    "banner2": {
-      "h3": "Candidate",
-      "p": "Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud exercitation.",
-      "a": "Register Account"
-    },
-    "top_company": {
-      "h2": "Top Company Registered",
-      "div": "Some of the companies we've helped recruit excellent applicants over the years."
-    },
-    "plans": {
-      "h2": "Choose a plan that’s right for you.",
-      "div": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
-    },
-    "subscribe": {
-      "h2": "Download the App",
-      "div": "New features. New appearance. No risk and"
-    },
-    "bottom": {
-      "counter-title-1": "4 million daily active users",
-      "counter-title-2": "Over 12k open job positions",
-      "counter-title-3": "Over 20 million stories shared",
-      "counter-title-4": "4 million daily active users"
-    }
+  "banner1": {
+    "h3": "雇主",
+    "p": "Sit amet， consectetur adipiscing elit， sed do eiusmod tempor incididunt.Labore et dolore nostrud.",
+    "a": "註冊帳戶"
+  },
+  "banner2": {
+    "h3": "候選人",
+    "p": "Sit amet， consectetur adipiscing elit， sed do eiusmod tempor incididunt.Labore et dolore nostrud exercitation.",
+    "a": "註冊帳戶"
+  },
+  "top_company": {
+    "h2": "註冊公司排名前列",
+    "div": "多年來，我們説明的一些公司招募了優秀的申請人。"
+  },
+  "plans": {
+    "h2": "選擇適合您的計劃。",
+    "div": "Lorem ipsum dolor sit amet， consectetur adipisicing elit， sed do eiusmod tempor incididunt ut labore et dolore magna"
+  },
+  "subscribe": {
+    "h2": "下載應用程式",
+    "div": "新功能。新外觀。無風險和"
+  },
+  "bottom": {
+    "counter-title-1": "400萬日活躍使用者",
+    "counter-title-2": "超過 12k 個空缺職位",
+    "counter-title-3": "超過 2000 萬個故事分享",
+    "counter-title-4": "400萬日活躍使用者"
+  }
+
   },
   "page": {
     "no_job_alert": "未找到作業警報。",
@@ -285,62 +303,68 @@
     "job_type": "作業類型",
     "choose_category": "選擇類別",
     "category": "類別",
-    "location": "Location",
-    "search_by_keyword": "Search by Keywords",
-    "find_jobs": "Find Jobs",
-    "home": "Home",
-    "jobs": "Jobs",
-    "job_description": "Job Description",
-    "expiration_date": "Expiration date:",
-    "job_title": "Job Title:",
-    "related_jobs": "Related Jobs",
-    "send_message": "Send Message",
-    "contact_us": "Contact Us",
-    "view_company": "View company profile",
-    "socila_media": "Social media:",
-    "email": "Email:",
-    "phone": "Phone:",
-    "founded_in": "Founded in:",
-    "company_size": "Company size:",
-    "primary_industry": "Primary industry",
-    "apply_for_job": "Apply For Job",
-    "share_this_job": "Share this job",
-    "skill_experience": "Skill &amp; Experience",
-    "rate": "Rate:",
-    "hours": "Hours",
-    "showing_all_candidates": "Showing All Candidates",
-    "candidate": "Candidate",
-    "candidate_gender": "Candidate Gender",
-    "search_by_keywords": "Search by Keywords",
-    "experience": "Experience",
-    "view_more": "View More",
-    "education_levels": "Education Levels",
-    "master_degree": "Master’s Degree",
-    "bachelor_degree": "Bachelor Degree",
-    "associate_degree": "Associate Degree",
-    "diploma": "Diploma",
-    "certificate": "Certificate",
-    "download_cv": "Download CV",
-    "candidate_about": "Candidates About",
-    "social_media": "Social Media",
-    "education_level": "Education Level:",
-    "language": "Language",
-    "gender": "Gender",
-    "years": "Years",
-    "age": "Age",
-    "awards": "Awards",
-    "work_experience": "Work &amp; Experience",
-    "all_categories": "All categories",
-    "featured": "Featued",
-    "no_employer_found": "No employer found.",
-    "education": "Education",
-    "job_location": "Job Location",
-    "your_message": "Your Message",
-    "subject": "Subject",
-    "your_email": "Your Email",
-    "your_name": "Your Name",
-    "leave_a_message": "Leave a Message",
-    "call_us": "Call Us",
-    "address": "Address"
+
+  "location": "位置",
+  "search_by_keyword": "按關鍵字搜索",
+  "find_jobs": "尋找工作",
+  "home": "家",
+  "jobs": "工作",
+  "job_description": "職位描述",
+  "expiration_date": "有效期：",
+  "job_title": "職位名稱：",
+  "related_jobs": "相關工作",
+
+
+  "send_message": "發送短消息",
+  "contact_us": "聯繫我們",
+  "view_company": "查看公司簡介",
+  "socila_media": "社交媒體：",
+  "email": "電子郵件：",
+  "phone": "電話：",
+  "founded_in": "成立時間：",
+  "company_size": "公司規模：",
+  "primary_industry": "第一產業",
+  "apply_for_job": "申請工作",
+  "share_this_job": "分享這份工作",
+  "skill_experience": "技能與經驗"
+,
+  "rate": "率：",
+  "hours": "小時",
+  "showing_all_candidates": "顯示所有候選人",
+  "candidate": "候選人",
+  "candidate_gender": "候選人性別",
+  "search_by_keywords": "按關鍵字搜索",
+  "experience": "經驗",
+  "view_more": "查看更多",
+  "education_levels": "教育水準",
+  "master_degree": "碩士學位",
+  "bachelor_degree": "本科",
+  "associate_degree": "副學士學位",
+  "diploma": "文憑",
+
+  "certificate": "證書",
+  "download_cv": "下載簡歷",
+  "candidate_about": "應聘者 關於",
+  "social_media": "社交媒體",
+  "education_level": "教育程度：",
+  "language": "語言",
+  "gender": "性",
+  "years": "年",
+  "age": "年齡",
+  "awards": "獎",
+  "work_experience": "工作與經驗",
+  "all_categories": "全部分類",
+
+  "featured": "特色",
+  "no_employer_found": "沒有找到僱主。",
+  "education": "教育",
+  "job_location": "工作地點",
+  "your_message": "您的留言",
+  "subject": "主題",
+  "your_email": "您的電子郵件",
+  "your_name": "您的姓名",
+  "leave_a_message": "留言",
+  "call_us": "致電我們",
+  "address": "位址"
   }
 }

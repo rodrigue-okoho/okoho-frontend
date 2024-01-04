@@ -16,6 +16,7 @@ import { CountryISO } from 'ngx-intl-tel-input';
 import { IAddress } from 'src/app/core/models/address.model';
 import { ItemCandidat } from 'src/app/core/models/ItemCandidat.model';
 import { ILanguage } from 'src/app/core/models/language.model';
+import {Account} from "../../../core/auth/account.model";
 
 @Component({
   selector: 'app-cv-manager',
@@ -25,6 +26,7 @@ import { ILanguage } from 'src/app/core/models/language.model';
 export class CvManagerComponent implements OnInit{
   cvs?: IFileUrl[]| null = null;
   status = false;
+  account: Account | null = null;
   candidat: ICandidat | null = null;
   countries=["en","de"]
   pdfSrc? = "http://localhost:8000/cvs/651d3f85b39aab4ffe5507d6.pdf"
@@ -231,10 +233,9 @@ export class CvManagerComponent implements OnInit{
           name: file.name,
           type: file.type,
         };
-        console.log(values)
-        this.backService.candidateAddCv(values).subscribe((result:any) => {
+        this.backService.candidatUploadImage(values).subscribe((result: any) => {
           this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
-
+          this.accountService.fetch().subscribe(account => (this.account = account));
         });
       };
     }

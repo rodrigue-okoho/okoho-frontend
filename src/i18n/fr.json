@@ -25,6 +25,7 @@
       "browse-job": "Parcourir l'emploi",
       "browse-category": "Parcourir la catégorie",
       "add-job": "Ajouter un travail",
+  "job-post": "Offre d’emploi",
       "entities": {},
       "account": {
         "main": "Mon compte",
@@ -116,7 +117,12 @@
     "item-job": "Emplois",
     "create_cv": "Créez votre CV",
     "10kcandidat": "10 000 candidats",
-    "onlyseconds": "Cela ne prend que quelques secondes"
+    "onlyseconds": "Cela ne prend que quelques secondes",
+
+  "work-inquiry-from": "Demande de travail <br>d’Ali Tufan",
+  "creativ-agency": "Agence de création",
+  "startup": "démarrage"
+
   },
   "entity": {
     "action": {
@@ -184,7 +190,15 @@
     }
   },
   "footer": {
-    "call-us": "Contactez-nous"
+    "call-us": "Cantactez-nous",
+    "all-right-reserved": "Tous droits réservés.",
+    "site-map": "Plan du site",
+    "helpful-resources": "Ressources utiles",
+    "about-us": "Qui sommes-nous",
+    "for-employers": "Pour les employeurs",
+    "for-candidates": "Pour les candidats",
+    "job-pakages": "Offres d’emploi",
+    "my-bookmarks": "Mes favoris"
   },
   "password": {
     "title": "Mot de passe pour [<strong>{{username}}</strong>]",

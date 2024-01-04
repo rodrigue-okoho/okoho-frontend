@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {ActivateService} from "../../../views/account/activate/activate.service";
 import {LocalStorageService, SessionStorageService} from "ngx-webstorage";
 import {ActivatedRoute} from "@angular/router";
@@ -17,6 +17,7 @@ import {CountryISO} from "ngx-intl-tel-input";
 import {Observable} from "rxjs";
 import {MapDirectionsService} from "@angular/google-maps";
 import {map} from "rxjs/operators";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-profile',
@@ -36,6 +37,8 @@ export class ProfileComponent implements OnInit {
   status = false;
   imageId: any = null;
   imageUrl: SafeUrl = '/assets/images/placeholder.png';
+  salaryType: any;
+  brancheForm: FormGroup;
   itemForm: FormGroup;
   itemSocialForm: FormGroup;
   itemContactForm: FormGroup;
@@ -47,10 +50,12 @@ export class ProfileComponent implements OnInit {
 
   circleCenter: google.maps.LatLngLiteral = {lat: 51.989858047086535, lng: 8.78541302551178};
   radius = 3;
+  private canEditActivity: Boolean=false;
 
   constructor(private activateService: ActivateService, private formBuilder: FormBuilder,
               private localStorageService: LocalStorageService, private translateService: TranslateService,
               private sessionStorageService: SessionStorageService, private toaster: ToastrService,
+              private modalService: NgbModal,private cd: ChangeDetectorRef,
               private route: ActivatedRoute, private backService: BackService,mapDirectionsService: MapDirectionsService,
               private accountService: AccountService,) {
     const request: google.maps.DirectionsRequest = {
@@ -69,12 +74,17 @@ export class ProfileComponent implements OnInit {
   data = {mobile: "+237675066919"};
   CountryISO = CountryISO;
   readonly directionsResults$: Observable<google.maps.DirectionsResult|undefined>;
+
   ngOnInit(): void {
     this.E164PhoneNumber = "+237675066919"
     this.backService.categoryJobs().subscribe(
       (res: HttpResponse<IcategoryJob[]>) => {
         this.categories = res.body
       });
+    this.brancheForm = this.formBuilder.group({
+      branche: ["", [Validators.required]],
+      experience: ["", [Validators.required]],
+    })
     this.itemForm = this.formBuilder.group({
       firstName: ["", [Validators.required]],
       lastName: ["", [Validators.required]],
@@ -86,7 +96,7 @@ export class ProfileComponent implements OnInit {
       phoneNumber: ["", [Validators.required]],
       codePhone: ["", [Validators.required]],
       country: ["", Validators.required],
-      country_of_born: ["", Validators.required],
+      countryofborn: ["", Validators.required],
       qualification: ["", Validators.required],
       jobTitle: ["", Validators.required],
       educationLevel: ["", Validators.required],
@@ -148,6 +158,7 @@ export class ProfileComponent implements OnInit {
           id: this.candidat?.id,
           email: this.candidat?.userAccount?.email,
           placeofborn: this.candidat?.placeofborn,
+          countryofborn:this.candidat?.countryofborn,
           gender: this.candidat?.gender,
           phoneNumber: this.candidat?.userAccount?.phoneNumber,
           codePhone: this.candidat?.userAccount?.codePhone,
@@ -265,10 +276,10 @@ export class ProfileComponent implements OnInit {
           name: file.name,
           type: file.type,
         };
-        console.log(values)
-        this.backService.candidatSaveProfile(values).subscribe((result: any) => {
+        this.backService.candidatUploadImage(values).subscribe((result: any) => {
           this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
-          this.imageId = result.data.id;
+          this.imageId = result.id;
+          this.accountService.fetch().subscribe(account => (this.account = account));
         });
       };
     }
@@ -283,6 +294,37 @@ export class ProfileComponent implements OnInit {
   }
 
   searchPosition() {
-    
+
+  }
+
+  openLg(contentAddress: any) {
+    this.brancheForm.reset();
+    this.modalService.open(contentAddress, { size: 'lg' });
+  }
+
+  closeModal(modal:NgbActiveModal) {
+    this.brancheForm.reset();
+    modal.close('Close click')
+  }
+
+  saveActivity() {
+    if(!this.canEditActivity) {
+      this.brancheForm.value.id = null;
+      this.brancheForm.value.owner_id = this.candidat?.id;
+    }
+    console.log(this.brancheForm.value)
+    this.backService.candidateAddLanguage(this.brancheForm.value)
+      .subscribe((res: any) => {
+        this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
+          (res: HttpResponse<ICandidat>) => {
+            this.candidat = res.body})
+        this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+        this.brancheForm.reset();
+        this.modalService.dismissAll();
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
+      });
+    this.canEditActivity = false;
   }
 }

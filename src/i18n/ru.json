@@ -25,6 +25,8 @@
       "browse-job": "Просмотреть вакансию",
       "browse-category": "Просмотреть категорию",
       "add-job": "Добавить вакансию",
+  "job-post": "Вакансия",
+
       "entities": {},
       "account": {
         "main": "Мой счет",
@@ -116,7 +118,10 @@
     "item-job": "Вакансии",
     "create_cv": "Создайте свое резюме",
     "10kcandidat": "10 тысяч кандидатов",
-    "onlyseconds": "Это займет всего несколько секунд"
+    "onlyseconds": "Это займет всего несколько секунд",
+  "work-inquiry-from": "Запрос на работу от <br>Али Туфана",
+  "creativ-agency": "Креативное агентство",
+  "startup": "запуск"
   },
   "entity": {
     "action": {
@@ -184,7 +189,15 @@
     }
   },
   "footer": {
-    "call-us": "Свяжитесь с нами"
+    "call-us": "Свяжитесь с нами",
+    "all-right-reserved": "Все права защищены.",
+    "site-map": "Карта сайта",
+    "helpful-resources": "Полезные ресурсы",
+    "about-us": "О нас",
+    "for-employers": "Для работодателей",
+    "for-candidates": "Для кандидатов",
+    "job-pakages": "Пакеты заданий",
+    "my-bookmarks": "Мои закладки"
   },
   "password": {
     "title": "Пароль для [<strong>{{username}}</strong>]",

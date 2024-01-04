@@ -79,7 +79,7 @@
           </li>
 
           <li class="dropdown">
-            <span>Pages</span>
+            <span jhiTranslate="global.menu.page">Pages</span>
             <ul>
               <li><a routerLink="/about"
                      routerLinkActive="active"
@@ -122,7 +122,8 @@
         <a *ngSwitchCase="false" href="javascript:void(0);" (click)="signin.openModal();collapseNavbar()"
            class="theme-btn btn-style-three call-modal" id="login" data-cy="login">
           <span jhiTranslate="global.menu.account.login">Login / Register</span></a>
-        <a *ngSwitchCase="false" href="javascript:void(0);" routerLink="/dash/dash-employer-submit-job" class="theme-btn btn-style-one">Job Post</a>
+        <a *ngSwitchCase="false" href="javascript:void(0);" routerLink="/dash/dash-employer-submit-job"
+           class="theme-btn btn-style-one"  jhiTranslate="global.menu.job-post">Job Post</a>
       </div>
       <div ngbDropdown class="btn-box-drop dropdown pointer" style="margin-left: 5px" *ngIf="languages && languages.length > 1">
         <button class="theme-btn btn-style-three dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">

@@ -29,7 +29,7 @@
                         <span class="uploadButton-file-name"></span>
                       </div>
                       <div class="uploadButton">
-                        <img src="{{account?.imageUrl}}"/>
+                        <img src="{{account?.imageUrl}}" height="150" width="100"/>
                       </div>
                       <div class="text">Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg
                         &amp; .png
@@ -38,37 +38,6 @@
 
                     <form  #f="ngForm" class="default-form"  (submit)="saveProfile()">
                       <div class="row" [formGroup]="itemForm">
-                       <div class="form-group col-md-12">
-                         <div class="form-check form-check-inline">
-                           <input class="form-check-input" formControlName="salaryType" type="checkbox" id="inlineCheckbox1" value="professional">
-                           <label class="form-check-label" for="inlineCheckbox1">Search for professional training</label>
-                         </div>
-                         <div class="form-check form-check-inline">
-                           <input class="form-check-input"  formControlName="salaryType" type="checkbox" id="inlineCheckbox2" value="training">
-                           <label class="form-check-label" for="inlineCheckbox2">Finding a job</label>
-                         </div>
-                       </div>
-                        <div class="form-group col-lg-6 col-md-12">
-                          <label>Branches d´activité</label>
-                          <select formControlName="categoryJobs" class="chosen-select" style="">
-
-                            <option value="40" *ngFor="let cate of categories">{{cate.title}}</option>
-
-                          </select>
-                        </div>
-                        <div class="form-group col-lg-6 col-md-12">
-                          <label>Experience</label>
-                          <select formControlName="experienceTime" class="chosen-select">
-                            <option>Select</option>
-                            <option value="0">Fresh</option>
-                            <option value="1">1 Year</option>
-                            <option value="2">2 Year</option>
-                            <option value="3">3 Year</option>
-                            <option value="4">4 Year</option>
-                            <option value="5">5 Year</option>
-
-                          </select>
-                        </div>
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
                           <label>First Name *</label>
@@ -125,7 +94,7 @@
                           <ng-select class="chosen-select" [items]="countries"
                                      bindLabel="name"
                                      bindValue="name"
-                                     formControlName="country_of_born"
+                                     formControlName="countryofborn"
                           >
                           </ng-select>
                         </div>
@@ -188,6 +157,30 @@
                         </div>
                       </div>
                     </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Ls widget -->
+              <div class="ls-widget">
+                <div class="tabs-box">
+                  <div class="widget-title">
+                    <h4>Looking for professional training or employment</h4>
+                  </div>
+
+                  <div class="widget-content">
+                    <div class="form-group col-md-12">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="salary_type" (ngModel)="salaryType" type="radio" id="salary_type_p" value="professional">
+                        <label class="form-check-label" for="salary_type_p">Search for professional training</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="salary_type" (ngModel)="salaryType" type="radio" id="salary_type_f" value="training">
+                        <label class="form-check-label" for="salary_type_f">Finding a job</label>
+                      </div>
+                    </div>
+                    <div class="mb-3 mt-3 d-grid text-center">
+                    <button type="button" class="btn-cv" (click)="openLg(contentBranche)"><fa-icon icon="plus"></fa-icon> Add Branche activity</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -334,8 +327,50 @@
 
             </div>
 
-
           </div>
         </div>
       </section>
 
+      <ng-template #contentBranche let-modal>
+        <div class="modal-header">
+          <h6 class="modal-title">Add branches of activity</h6>
+          <button type="button" class="close" aria-label="Close" (click)="closeModal(modal)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="default-form" [formGroup]="brancheForm" id="bookmark-form">
+
+            <div class="row d-flex justify-content-center">
+              <div class="form-group col-sm-10">
+                <label for="con-intitule">Branch Activity</label>
+                <select formControlName="branche" class="chosen-select" style="">
+                  <option jhiTranslate="dashboard.medical-care">Medical care</option>
+                  <option jhiTranslate="dashboard.development-of-web">Development of web and mobile applications</option>
+                  <option jhiTranslate="dashboard.metal-construction-and-welding">Metal construction and welding</option>
+                  <option jhiTranslate="dashboard.mechatronics-and-mechanics">Mechatronics and mechanics</option>
+                  <option jhiTranslate="dashboard.electricity-electronics">Electricity & electronics</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-10">
+                <label for="con-intitule">Experience</label>
+                <select formControlName="experience" class="chosen-select" style="">
+                  <option>Stage</option>
+                  <option>Pakistan</option>
+                  <option>Entry level</option>
+                  <option>0-2 Years</option>
+                  <option>2-4 Years</option>
+                  <option>12-16 Years</option>
+                </select>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="closeModal(modal)">Close</button>
+          <button class="theme-btn btn-style-one mr-1  pull-right" type="button" (click)="saveActivity()"
+
+          >Save</button>
+        </div>
+      </ng-template>

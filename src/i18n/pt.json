@@ -25,6 +25,8 @@
       "browse-job": "Procurar trabalho",
       "browse-category": "Navegar na categoria",
       "add-job": "Adicionar trabalho",
+  "job-post": "Anúncio de Emprego"
+,
       "entities": {},
       "account": {
         "main": "Minha conta",
@@ -116,7 +118,10 @@
     "item-job": "Empregos",
     "create_cv": "Crie seu currículo",
     "10kcandidat": "10 mil candidatos",
-    "onlyseconds": "Leva apenas alguns segundos"
+    "onlyseconds": "Leva apenas alguns segundos",
+  "work-inquiry-from": "Inquérito de trabalho de <br>Ali Tufan",
+  "creativ-agency": "Agência Criativa",
+  "startup": "Arranque"
   },
   "entity": {
     "action": {
@@ -184,7 +189,15 @@
     }
   },
   "footer": {
-    "call-us": "Entre em contato conosco"
+    "call-us": "Canta-nos",
+    "all-right-reserved": "Todos os direitos reservados.",
+    "site-map": "Mapa do Site",
+    "helpful-resources": "Recursos úteis",
+    "about-us": "Quem somos",
+    "for-employers": "Para Empregadores",
+    "for-candidates": "Para os candidatos",
+    "job-pakages": "Pacotes de Empregos",
+    "my-bookmarks": "Meus Favoritos"
   },
   "password": {
     "title": "Senha para [<strong>{{username}}</strong>]",

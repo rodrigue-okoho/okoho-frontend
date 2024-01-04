@@ -25,6 +25,7 @@
       "browse-job": "Buscar trabajo",
       "browse-category": "Explorar categoría",
       "add-job": "Agregar trabajo",
+  "job-post": "Puesto de trabajo",
       "entities": {},
       "account": {
         "main": "Mi cuenta",
@@ -116,7 +117,10 @@
     "item-job": "Trabajos",
     "create_cv": "Crea tu CV",
     "10kcandidat": "10k candidatos",
-    "onlyseconds": "Solo toma unos segundos"
+    "onlyseconds": "Solo toma unos segundos",
+  "work-inquiry-from": "Consulta de trabajo de <br>Ali Tufan",
+  "creativ-agency": "Agencia Creativa",
+  "startup": "arranque"
   },
   "entity": {
     "action": {
@@ -184,8 +188,16 @@
     }
   },
   "footer": {
-    "call-us": "Contáctanos"
-  },
+    "call-us": "Canta con nosotros",
+    "all-right-reserved": "Todos los derechos reservados.",
+    "site-map": "Mapa del sitio",
+    "helpful-resources": "Recursos útiles",
+    "about-us": "Sobre nosotros",
+    "for-employers": "Para Empleadores",
+    "for-candidates": "Para los candidatos",
+    "job-pakages": "Paquetes de trabajo",
+    "my-bookmarks": "Mis Marcadores"
+  } ,
   "password": {
     "title": "Contraseña para [<strong>{{username}}</strong>]",
     "form": {
