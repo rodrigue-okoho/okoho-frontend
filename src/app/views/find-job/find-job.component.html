@@ -2,10 +2,10 @@
 <section class="page-title">
   <div class="auto-container">
     <div class="title-outer">
-      <h1>Find Jobs</h1>
+      <h1 jhiTranslate="page.find_jobs">Find Jobs</h1>
       <ul class="page-breadcrumb">
-        <li><a>Home</a></li>
-        <li>Jobs</li>
+        <li><a jhiTranslate="page.home">Home</a></li>
+        <li jhiTranslate="page.jobs">Jobs</li>
       </ul>
     </div>
   </div>
@@ -24,7 +24,7 @@
 
           <!-- Filter Block -->
           <div class="filter-block">
-            <h4>Search by Keywords</h4>
+            <h4 jhiTranslate="page.search_by_keyword">Search by Keywords</h4>
             <div class="form-group">
             <div class="input-group input-group-merge">
 
@@ -40,7 +40,7 @@
 
           <!-- Filter Block -->
           <div class="filter-block">
-            <h4>Location</h4>
+            <h4 jhiTranslate="page.location">Location</h4>
             <div class="form-group">
               <div class="input-group input-group-merge">
               <input class="custom-group-input" (keyup)="searchByCity($event)" [(ngModel)]="bycity" type="text" name="listing-search" placeholder="City or postcode">
@@ -68,11 +68,11 @@
 
           <!-- Filter Block -->
           <div class="filter-block">
-            <h4>Category</h4>
+            <h4 jhiTranslate="page.category">Category</h4>
             <div class="form-group">
               <div class="input-group input-group-merge">
               <select [(ngModel)]="bycategory" class="form-select chosen-select custom-group-input" style="">
-                <option>Choose a category</option>
+                <option jhiTranslate="page.choose_category">Choose a category</option>
                 <option value="residential">Residential</option>
                 <option value="commercial">Commercial</option>
                 <option value="industrial">Industrial</option>
@@ -88,41 +88,41 @@
 
           <!-- Switchbox Outer -->
           <div class="switchbox-outer">
-            <h4>Job type</h4>
+            <h4 jhiTranslate="page.job_type">Job type</h4>
             <ul class="switchbox">
               <li>
                 <label class="switch">
                   <input (change)="searchByJobType($event)" type="checkbox" checked="">
                   <span class="slider round"></span>
-                  <span class="title">Freelance</span>
+                  <span class="title" jhiTranslate="page.freelance">Freelance</span>
                 </label>
               </li>
               <li>
                 <label class="switch">
                   <input (change)="searchByJobType($event)" value="fulltime" type="checkbox">
                   <span class="slider round"></span>
-                  <span class="title">Full Time</span>
+                  <span class="title" jhiTranslate="page.fulltime">Full Time</span>
                 </label>
               </li>
               <li>
                 <label class="switch">
                   <input (change)="searchByJobType($event)" value="internship" type="checkbox">
                   <span class="slider round"></span>
-                  <span class="title">Internship</span>
+                  <span class="title" jhiTranslate="page.internship">Internship</span>
                 </label>
               </li>
               <li>
                 <label class="switch">
                   <input (change)="searchByJobType($event)" value="parttime" type="checkbox">
                   <span class="slider round"></span>
-                  <span class="title">Part Time</span>
+                  <span class="title" jhiTranslate="page.partime">Part Time</span>
                 </label>
               </li>
               <li>
                 <label class="switch">
                   <input (change)="searchByJobType($event)" value="temporary" type="checkbox">
                   <span class="slider round"></span>
-                  <span class="title">Temporary</span>
+                  <span class="title" jhiTranslate="page.temporary">Temporary</span>
                 </label>
               </li>
             </ul>
@@ -130,21 +130,21 @@
 
           <!-- Checkboxes Ouer -->
           <div class="checkbox-outer">
-            <h4>Date Posted</h4>
+            <h4 jhiTranslate="page.date_posted">Date Posted</h4>
             <ul class="checkboxes">
               <li>
                 <input (change)="searchByDatePosted($event)" value="all" id="check-f" type="checkbox" name="check">
-                <label for="check-f">All</label>
+                <label for="check-f" jhiTranslate="page.all">All</label>
               </li>
               <li>
                 <input (change)="searchByDatePosted($event)" value="last_hour" id="check-a" type="checkbox"
                        name="check">
-                <label for="check-a">Last Hour</label>
+                <label for="check-a" jhiTranslate="page.last_hour">Last Hour</label>
               </li>
               <li>
                 <input (change)="searchByDatePosted($event)" value="last24_hour" id="check-b" type="checkbox"
                        name="check">
-                <label for="check-b">Last 24 Hours</label>
+                <label for="check-b" jhiTranslate="page.last_24_hour">Last 24 Hours</label>
               </li>
               <li>
                 <input (change)="searchByDatePosted($event)" value="last7_day" id="check-c" type="checkbox"
@@ -166,15 +166,15 @@
 
           <!-- Checkboxes Ouer -->
           <div class="checkbox-outer">
-            <h4>Experience Level</h4>
+            <h4 jhiTranslate="page.experience_level">Experience Level</h4>
             <ul class="checkboxes square">
               <li>
                 <input (change)="searchByExperience($event)" id="check-ba" type="checkbox" name="check">
-                <label for="check-ba">All</label>
+                <label for="check-ba" jhiTranslate="page.all">All</label>
               </li>
               <li>
                 <input (change)="searchByExperience($event)" id="check-bb" type="checkbox" name="check">
-                <label for="check-bb">Internship</label>
+                <label for="check-bb"  jhiTranslate="page.internship">Internship</label>
               </li>
               <li>
                 <input (change)="searchByExperience($event)" id="check-bc" type="checkbox" name="check">
@@ -196,14 +196,14 @@
 
           <!-- Filter Block -->
           <div class="filter-block">
-            <h4>Salary</h4>
+            <h4 jhiTranslate="page.salary">Salary</h4>
             <input (change)="searchBySalary($event)" class="form-range" id="example-range" type="range" name="range"
                    min="500" max="10000">
           </div>
 
           <!-- Filter Block -->
           <div class="filter-block">
-            <h4>Tags</h4>
+            <h4  jhiTranslate="page.tag">Tags</h4>
             <ul class="tags-style-one">
               <li><a href="#">app</a></li>
               <li><a href="#">administrative</a></li>
@@ -221,7 +221,7 @@
     <div class="content-column col-lg-8 col-md-12 col-sm-12">
 
       <div class="ls-outer" *ngIf="jobs && jobs.length > 0">
-        <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
+        <button type="button" class="theme-btn btn-style-two toggle-filters" jhiTranslate="page.show_filters">Show Filters</button>
 
         <!-- ls Switcher -->
         <div class="ls-switcher">
@@ -314,7 +314,7 @@
         </div>
       </div>
       <div *ngIf="!jobs || jobs?.length == 0">
-        <div class="not-found">No job alert found.</div>
+        <div class="not-found" jhiTranslate="page.no_job_alert">No job alert found.</div>
       </div>
     </div>
   </div>

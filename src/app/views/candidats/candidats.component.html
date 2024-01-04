@@ -1,10 +1,10 @@
 <section class="page-title">
   <div class="auto-container">
     <div class="title-outer">
-      <h1>Showing All Candidates</h1>
+      <h1 jhiTranslate="page.showing_all_candidates">Showing All Candidates</h1>
       <ul class="page-breadcrumb">
-        <li><a href="index.html">Home</a></li>
-        <li>Candidate</li>
+        <li><a href="index.html" jhiTranslate="page.home">Home</a></li>
+        <li jhiTranslate="page.candidate">Candidate</li>
       </ul>
     </div>
   </div>
@@ -23,7 +23,7 @@
 
             <!-- Filter Block -->
             <div class="filter-block">
-              <h4>Search by Keywords</h4>
+              <h4 jhiTranslate="page.search_by_keywords">Search by Keywords</h4>
               <div class="form-group">
                 <div class="input-group input-group-merge">
                 <input class="custom-group-input" type="text" (keyup)="searchByResume($event)"  placeholder="By Resumes">
@@ -37,7 +37,7 @@
 
             <!-- Filter Block -->
             <div class="filter-block">
-              <h4>Location</h4>
+              <h4 jhiTranslate="page.location">Location</h4>
               <div class="form-group">
                 <div class="input-group input-group-merge">
                 <input class="custom-group-input"  (change)="searchByLocation($event)" type="text" name="listing-search" placeholder="City or postcode">
@@ -63,11 +63,11 @@
 
             <!-- Filter Block -->
             <div class="filter-block">
-              <h4>Category</h4>
+              <h4 jhiTranslate="page.category">Category</h4>
               <div class="form-group">
                 <div class="input-group input-group-merge">
                 <select (change)="searchByCategory($event)" class="form-select chosen-select custom-group-input" style="">
-                  <option selected>Choose a category</option>
+                  <option selected  jhiTranslate="page.choose_category">Choose a category</option>
                   <option value="residential">Residential</option>
                   <option value="commercial">Commercial</option>
                   <option value="industrial">Industrial</option>
@@ -82,13 +82,13 @@
 
             <!-- Filter Block -->
             <div class="filter-block">
-              <h4>Candidate Gender</h4>
+              <h4 jhiTranslate="page.candidate_gender">Candidate Gender</h4>
               <div class="form-group">
                 <div class="input-group input-group-merge">
                 <select (change)="searchByGender($event)" class="form-select chosen-select custom-group-input">
-                  <option selected value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">other</option>
+                  <option selected value="male"  jhiTranslate="page.candidate">Male</option>
+                  <option value="female"  jhiTranslate="page.candidate">Female</option>
+                  <option value="other"  jhiTranslate="page.candidate">other</option>
                 </select>
                <div class="input-group-text">
                 <fa-icon icon="heart"></fa-icon>
@@ -99,11 +99,11 @@
 
             <!-- Checkboxes Ouer -->
             <div class="checkbox-outer">
-              <h4>Date Posted</h4>
+              <h4  jhiTranslate="page.date_posted">Date Posted</h4>
               <ul class="checkboxes">
                 <li>
                   <input value="all" (change)="searchByDatePosted($event)" id="check-1" type="checkbox" name="check">
-                  <label for="check-1">All</label>
+                  <label for="check-1"  jhiTranslate="page.all">All</label>
                 </li>
                 <li>
                   <input value="last_hour" (change)="searchByDatePosted($event)" id="check-a" type="checkbox" name="check">
@@ -130,7 +130,7 @@
 
             <!-- Checkboxes Ouer -->
             <div class="checkbox-outer">
-              <h4>Experience</h4>
+              <h4 jhiTranslate="page.experience">Experience</h4>
               <ul class="checkboxes">
                 <li>
                   <input value="0_2_year" (change)="searchByExperience($event)" id="check-f" type="checkbox" name="check">
@@ -153,34 +153,34 @@
                   <label for="check-j">20-25 Years</label>
                 </li>
                 <li>
-                  <button class="view-more"><span class="icon flaticon-plus"></span> View More</button>
+                  <button class="view-more"><span class="icon flaticon-plus"></span> jhiTranslate="page.view_more"> View More</button>
                 </li>
               </ul>
             </div>
 
             <!-- Checkboxes Ouer -->
             <div class="checkbox-outer">
-              <h4>Education Levels</h4>
+              <h4 jhiTranslate="page.education_levels">Education Levels</h4>
               <ul class="checkboxes">
                 <li>
                   <input value="certificate" (change)="searchByEducation($event)" id="check-2" type="checkbox" name="check">
-                  <label for="check-2">Certificate</label>
+                  <label for="check-2" jhiTranslate="page.certificate">Certificate</label>
                 </li>
                 <li>
                   <input value="diploma" (change)="searchByEducation($event)" id="check-3" type="checkbox" name="check">
-                  <label for="check-3">Diploma</label>
+                  <label for="check-3" jhiTranslate="page.diploma">Diploma</label>
                 </li>
                 <li>
                   <input value="associate degree" (change)="searchByEducation($event)" id="check-4" type="checkbox" name="check">
-                  <label for="check-4">Associate Degree</label>
+                  <label for="check-4" jhiTranslate="page.associate_degree">Associate Degree</label>
                 </li>
                 <li>
                   <input value="bachelor degree" (change)="searchByEducation($event)" id="check-5" type="checkbox" name="check">
-                  <label for="check-5">Bachelor Degree</label>
+                  <label for="check-5" jhiTranslate="page.bachelor_degree">Bachelor Degree</label>
                 </li>
                 <li>
                   <input value="master’s degree" (change)="searchByEducation($event)" id="check-6" type="checkbox" name="check">
-                  <label for="check-6">Master’s Degree</label>
+                  <label for="check-6" jhiTranslate="page.master_degree">Master’s Degree</label>
                 </li>
               </ul>
             </div>
@@ -192,7 +192,7 @@
       <!-- Content Column -->
       <div class="content-column col-lg-8 col-md-12 col-sm-12">
         <div class="ls-outer"  *ngIf="candidats && candidats.length > 0">
-          <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
+          <button type="button" class="theme-btn btn-style-two toggle-filters" jhiTranslate="page.show_filters">Show Filters</button>
 
           <!-- ls Switcher -->
           <div class="ls-switcher">

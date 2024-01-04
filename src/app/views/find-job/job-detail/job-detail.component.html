@@ -27,43 +27,43 @@
           </div>
 
           <div class="job-overview-two">
-            <h4>Job Description</h4>
+            <h4 jhiTranslate="page.job_description">Job Description</h4>
             <ul>
               <li>
                 <i class="icon icon-calendar"></i>
-                <h5>Date Posted:</h5>
+                <h5 jhiTranslate="page.date_posted">Date Posted:</h5>
                 <span>Posted 1 hours ago</span>
               </li>
               <li>
                 <i class="icon icon-expiry"></i>
 
-                <h5> Expiration date:</h5>
+                <h5 jhiTranslate="page.expiration_date"> Expiration date:</h5>
                 <span>April 06, 2021</span>
               </li>
               <li>
                 <i class="icon icon-location"></i>
-                <h5> Location:</h5>
+                <h5 jhiTranslate="page.location"> Location:</h5>
                 <span>{{job?.recruteur.town}},{{job?.recruteur.country}}</span>
               </li>
               <li>
                 <i class="icon icon-user-2"></i>
-                <h5> Job Title:</h5>
+                <h5 jhiTranslate="page.job_title"> Job Title:</h5>
                 <span>{{job?.title}}</span>
               </li>
               <li>
                 <i class="icon icon-clock"></i>
 
-                <h5>Hours:</h5>
+                <h5 jhiTranslate="page.hours">Hours:</h5>
                 <span>50h / week</span>
               </li>
               <li>
                 <i class="icon icon-rate"></i>
-                <h5> Rate:</h5>
+                <h5 jhiTranslate="page.rate"> Rate:</h5>
                 <span>$15 - $25 / hour</span>
               </li>
               <li>
                 <i class="icon icon-salary"></i>
-                <h5>Salary:</h5>
+                <h5 jhiTranslate="page.salary">Salary:</h5>
                 <span>${{job?.minSalary}}k - ${{job?.max_salary}}k</span>
               </li>
             </ul>
@@ -71,14 +71,14 @@
 
           <div class="job-detail">
 
-            <h4>Job Description</h4>
+            <h4 jhiTranslate="page.job_description">Job Description</h4>
           <p>{{job?.description}}</p>
             <h4>Key Responsibilities</h4>
             <ul class="list-style-three">
               <li *ngFor="let competence of job?.comptences ">Be involved in every step of the product design cycle from discovery to developer handoff and user acceptance testing.</li>
 
             </ul>
-            <h4>Skill &amp; Experience</h4>
+            <h4 jhiTranslate="page.skill_experience">Skill &amp; Experience</h4>
             <ul class="list-style-three">
               <li>You have at least 3 years’ experience working as a Product Designer.</li>
               <li>You have experience using Sketch and InVision or Framer X</li>
@@ -90,7 +90,7 @@
           <!-- Other Options -->
           <div class="other-options">
             <div class="social-share">
-              <h5>Share this job</h5>
+              <h5 jhiTranslate="page.share_this_job">Share this job</h5>
               <a href="#" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
               <a href="#" class="twitter"><i class="fab fa-twitter"></i> Twitter</a>
               <a href="#" class="google"><i class="fab fa-google"></i> Google+</a>
@@ -101,7 +101,7 @@
         <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
           <aside class="sidebar">
             <div class="btn-box">
-              <a [class.auth-spinner]="loading" class="theme-btn btn-style-one" (click)="applyJob()">Apply For Job</a>
+              <a [class.auth-spinner]="loading" class="theme-btn btn-style-one" (click)="applyJob()" jhiTranslate="page.apply_for_job">Apply For Job</a>
               <button class="bookmark-btn">
                 <fa-icon icon="bookmark"></fa-icon>
               </button>
@@ -112,17 +112,17 @@
                 <div class="company-title">
                   <div class="company-logo"><img src="{{job?.recruteur.userAccount.imageUrl}}" alt=""></div>
                   <h5 class="company-name">{{job?.recruteur.entreprise}}</h5>
-                  <a class="profile-link">View company profile</a>
+                  <a class="profile-link" jhiTranslate="page.view_company">View company profile</a>
                 </div>
 
                 <ul class="company-info">
-                  <li>Primary industry: <span>{{job?.industry}}</span></li>
-                  <li>Company size: <span>{{job?.recruteur.companySize}}</span></li>
-                  <li>Founded in: <span>{{job?.recruteur.foundedDate}}</span></li>
-                  <li>Phone: <span>{{job?.recruteur.userAccount.phoneNumber}}</span></li>
-                  <li>Email: <span>{{job?.recruteur.userAccount.email}}</span></li>
-                  <li>Location: <span>{{job?.recruteur.location}}</span></li>
-                  <li>Social media:
+                  <li><span  jhiTranslate="page.primary_industry">Primary industry:</span> <span>{{job?.industry}}</span></li>
+                  <li><span  jhiTranslate="page.company_size">Company size: </span><span>{{job?.recruteur.companySize}}</span></li>
+                  <li><span  jhiTranslate="page.founded_in">Founded in:</span> <span>{{job?.recruteur.foundedDate}}</span></li>
+                  <li><span  jhiTranslate="page.phone">Phone: </span><span>{{job?.recruteur.userAccount.phoneNumber}}</span></li>
+                  <li><span  jhiTranslate="page.email">Email: </span><span>{{job?.recruteur.userAccount.email}}</span></li>
+                  <li><span jhiTranslate="page.location">Location:</span> <span>{{job?.recruteur.location}}</span></li>
+                  <li><span jhiTranslate="page.socila_media">Social media:</span>
                     <div class="social-links">
                       <a href="#"><i class="fab fa-facebook-f"></i></a>
                       <a href="#"><i class="fab fa-twitter"></i></a>
@@ -137,7 +137,7 @@
             </div>
 
             <div class="sidebar-widget contact-widget">
-              <h4 class="widget-title">Contact Us</h4>
+              <h4 class="widget-title" jhiTranslate="page.contact_us">Contact Us</h4>
               <div class="widget-content">
                 <!-- Comment Form -->
                 <div class="default-form">
@@ -154,7 +154,7 @@
                         <textarea class="darma" name="message" placeholder="Message"></textarea>
                       </div>
                       <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                        <button class="theme-btn btn-style-one" type="submit" name="submit-form">Send Message</button>
+                        <button class="theme-btn btn-style-one" type="submit" name="submit-form"  jhiTranslate="page.send_message">Send Message</button>
                       </div>
                     </div>
                   </form>
@@ -168,7 +168,7 @@
       <!-- Related Jobs -->
       <div class="related-jobs">
         <div class="title-box">
-          <h3>Related Jobs</h3>
+          <h3 jhiTranslate="page.related_jobs">Related Jobs</h3>
           <div class="text">2020 jobs live - 293 added today.</div>
         </div>
         <div class="row">

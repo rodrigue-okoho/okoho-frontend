@@ -13,7 +13,7 @@
             </span>
             <h4>{{employer?.userAccount.firstName}}</h4>
             <ul class="job-other-info">
-              <li class="time">Open Job</li>
+              <li class="time" jhiTranslate="page.open_jobs">Open Job</li>
             </ul>
           </div>
         </div>
@@ -26,7 +26,7 @@
       <div class="row">
         <div class="content-column col-lg-8 col-md-12 col-sm-12 order-2">
           <div class="job-detail">
-            <h4>About Company</h4>
+            <h4 jhiTranslate="page.about_company">About Company</h4>
            {{employer?.description}}
             </div>
 
@@ -73,13 +73,13 @@
             <div class="sidebar-widget company-widget">
               <div class="widget-content">
                 <ul class="company-info mt-0">
-                  <li>Primary industry: <span>{{employer?.entreprise}}</span></li>
-                  <li>Company size: <span>{{employer?.companySize}}</span></li>
-                  <li>Founded in: <span>{{employer?.foundedDate}}</span></li>
-                  <li>Phone: <span>{{employer?.userAccount.phoneNumber}}</span></li>
-                  <li>Email: <span>{{employer?.userAccount.email}}</span></li>
-                  <li>Location: <span>{{employer?.location}}</span></li>
-                  <li>Social media:
+                  <li><span jhiTranslate="page.industry">industry:</span>  <span>{{employer?.entreprise}}</span></li>
+                  <li><span jhiTranslate="page.company_size">Company size: </span><span>{{employer?.companySize}}</span></li>
+                  <li><span jhiTranslate="page.founded_on">Founded in: </span><span>{{employer?.foundedDate}}</span></li>
+                  <li><span jhiTranslate="page.phone">Phone: </span><span>{{employer?.userAccount.phoneNumber}}</span></li>
+                  <li><span jhiTranslate="page.email">Email:</span> <span>{{employer?.userAccount.email}}</span></li>
+                  <li><span jhiTranslate="page.location">Location: </span><span>{{employer?.location}}</span></li>
+                  <li><span jhiTranslate="page.social_media">Social media:</span>
                     <div class="social-links">
                       <a href="#"><i class="fab fa-facebook-f"></i></a>
                       <a href="#"><i class="fab fa-twitter"></i></a>
@@ -95,7 +95,7 @@
 
             <div class="sidebar-widget">
               <!-- Map Widget -->
-              <h4 class="widget-title">Job Location</h4>
+              <h4 class="widget-title" jhiTranslate="page.job_location">Job Location</h4>
               <div class="widget-content">
                 <div class="map-outer mb-0">
                   <google-map class="map-canvas" [center]="center" [zoom]="zoom"
@@ -112,7 +112,7 @@
             </div>
 
             <div class="sidebar-widget contact-widget">
-              <h4 class="widget-title">Contact Us</h4>
+              <h4 class="widget-title" jhiTranslate="page.contact_us">Contact Us</h4>
               <div class="widget-content">
                 <!-- Comment Form -->
                 <div class="default-form">

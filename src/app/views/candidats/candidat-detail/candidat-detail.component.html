@@ -22,7 +22,7 @@
             </ul>
 
             <div class="btn-box">
-              <a href="#" class="theme-btn btn-style-one">Download CV</a>
+              <a href="#" class="theme-btn btn-style-one" jhiTranslate="page.download_cv">Download CV</a>
               <button class="bookmark-btn">
                 <fa-icon icon="bookmark"></fa-icon></button>
             </div>
@@ -37,12 +37,12 @@
       <div class="row">
         <div class="content-column col-lg-8 col-md-12 col-sm-12 order-2">
           <div class="job-detail">
-            <h4>Candidates About</h4>
+            <h4 jhiTranslate="page.candidate_about">Candidates About</h4>
             {{candiadat?.description}}
             <!-- Resume / Education -->
             <div class="resume-outer">
               <div class="upper-title">
-                <h4>Education</h4>
+                <h4 jhiTranslate="page.education">Education</h4>
               </div>
               <div class="resume-block"  *ngFor="let award of candiadat?.educations">
                 <div class="inner">
@@ -70,7 +70,7 @@
             <!-- Resume / Work & Experience -->
             <div class="resume-outer theme-blue">
               <div class="upper-title">
-                <h4>Work &amp; Experience</h4>
+                <h4 jhiTranslate="page.work_experience">Work &amp; Experience</h4>
               </div>
               <div class="resume-block"  *ngFor="let award of candiadat?.works">
                 <div class="inner">
@@ -110,7 +110,7 @@
             <!-- Resume / Awards -->
             <div class="resume-outer theme-yellow">
               <div class="upper-title">
-                <h4>Awards</h4>
+                <h4 jhiTranslate="page.awards">Awards</h4>
               </div>
               <div class="resume-block"  *ngFor="let award of candiadat?.awards">
                 <div class="inner">
@@ -157,18 +157,18 @@
                 <ul class="job-overview">
                   <li>
 
-                    <h5> <fa-icon icon="calendar"></fa-icon>Experience:</h5>
-                    <span>{{candiadat?.experienceTime}} Years</span>
+                    <h5> <fa-icon icon="calendar"></fa-icon><span jhiTranslate="page.experience">Experience:</span></h5>
+                    <span>{{candiadat?.experienceTime}} <span jhiTranslate="page.years">Years</span></span>
                   </li>
 
                   <li>
 
-                    <h5><fa-icon icon="calendar-alt"></fa-icon>Age:</h5>
-                    <span>{{candiadat?.dob}} Years</span>
+                    <h5><fa-icon icon="calendar-alt"></fa-icon><span jhiTranslate="page.age">Age:</span></h5>
+                    <span>{{candiadat?.dob}}</span> <span jhiTranslate="page.years">Years</span>
                   </li>
                   <li>
 
-                    <h5> <fa-icon icon="envelope"></fa-icon>Email:</h5>
+                    <h5> <fa-icon icon="envelope"></fa-icon><span jhiTranslate="page.email"></span>Email:</h5>
                     <span>{{candiadat?.userAccount.email}}</span>
                   </li>
                   <li>
@@ -185,18 +185,18 @@
 
                   <li>
 
-                    <h5> <fa-icon icon="user"></fa-icon>Gender:</h5>
+                    <h5> <fa-icon icon="user"></fa-icon><span jhiTranslate="page.gender">Gender:</span></h5>
                     <span>{{candiadat?.age}}</span>
                   </li>
 
                   <li>
-                    <h5> <fa-icon icon="flag"></fa-icon>Language:</h5>
+                    <h5> <fa-icon icon="flag"></fa-icon><span jhiTranslate="page.language">Language:</span></h5>
                     <span>English, German, Spanish</span>
                   </li>
 
                   <li>
 
-                    <h5><fa-icon icon="school-flag"></fa-icon>Education Level:</h5>
+                    <h5><fa-icon icon="school-flag"></fa-icon><span jhiTranslate="page.education_level">Education Level:</span></h5>
                     <span>{{candiadat?.educationLevel}}</span>
                   </li>
 
@@ -206,7 +206,7 @@
             </div>
 
             <div class="sidebar-widget social-media-widget">
-              <h4 class="widget-title">Social media</h4>
+              <h4 class="widget-title" jhiTranslate="page.social_media">Social media</h4>
               <div class="widget-content">
                 <div class="social-links">
                   <a href="{{candiadat?.facebook}}"><i class="fab fa-facebook-f"></i></a>

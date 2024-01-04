@@ -21,7 +21,7 @@
            <!-- <fa-icon icon="briefcase"></fa-icon>-->
             <span class="icon flaticon-briefcase"></span>
             <select class="chosen-select" [(ngModel)]="bycategory">
-              <option value="">All Categories</option>
+              <option value="" jhiTranslate="page.all_categories">All Categories</option>
               <option value="44">Accounting / Finance</option>
               <option value="106">Automotive Jobs</option>
               <option value="46">Customer</option>
@@ -35,7 +35,7 @@
 
           <!-- Form Group -->
           <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
-            <button type="submit" class="theme-btn btn-style-one" (click)="search()">Find Jobs</button>
+            <button type="submit" class="theme-btn btn-style-one" (click)="search()" jhiTranslate="page.find_jobs">Find Jobs</button>
           </div>
         </div>
 
@@ -78,7 +78,7 @@
       <!-- Content Column -->
       <div class="content-column col-lg-12 col-md-12 col-sm-12">
         <div class="ls-outer"  *ngIf="employers && employers.length > 0">
-          <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
+          <button type="button" class="theme-btn btn-style-two toggle-filters" jhiTranslate="page.show_filters">Show Filters</button>
 
           <!-- ls Switcher -->
           <div class="ls-switcher">
@@ -115,7 +115,7 @@
             <div class="company-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12" *ngFor="let employer of employers; trackBy: trackId">
               <div class="inner-box">
                 <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                <span class="featured">Featured</span>
+                <span class="featured" jhiTranslate="page.featured">Featured</span>
                 <span class="company-logo">
                   <img src="{{employer.userAccount.imageUrl}}" alt="">
                   <img *ngIf="employer?.userAccount.imageUrl == null"
@@ -128,7 +128,7 @@
                   <li><fa-icon icon="briefcase"></fa-icon>
                     {{employer.entreprise}}</li>
                 </ul>
-                <div class="job-type"><a [routerLink]="['/employers', 'detail', employer.id]">Open Job</a></div>
+                <div class="job-type"><a [routerLink]="['/employers', 'detail', employer.id]" jhiTranslate="page.open_job">Open Job</a></div>
               </div>
             </div>
 
@@ -151,7 +151,7 @@
 
         </div>
         <div  *ngIf="!employers || employers.length == 0">
-          <div class="not-found">No employer found.</div>
+          <div class="not-found" jhiTranslate="page.no_employer_found">No employer found.</div>
         </div>
       </div>
     </div>
