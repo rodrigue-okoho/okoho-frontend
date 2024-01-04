@@ -15,6 +15,7 @@ import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import { CountryISO } from 'ngx-intl-tel-input';
 import { IAddress } from 'src/app/core/models/address.model';
 import { ItemCandidat } from 'src/app/core/models/ItemCandidat.model';
+import { ILanguage } from 'src/app/core/models/language.model';
 
 @Component({
   selector: 'app-cv-manager',
@@ -38,6 +39,7 @@ export class CvManagerComponent implements OnInit{
   canEditAddress: Boolean = false;
   canEditExperience: Boolean = false;
   canEditEducation: Boolean = false;
+  canEditLanguage: Boolean = false;
   constructor(private activateService: ActivateService,private formBuilder: FormBuilder,
               private localStorageService: LocalStorageService,
               private sessionStorageService: SessionStorageService,
@@ -119,6 +121,16 @@ export class CvManagerComponent implements OnInit{
       country: ["", Validators.required],
       description:["", Validators.required],
     })
+    this.formLingustic =this.formBuilder.group({
+      id: [""],
+      montherLanguage: ["", Validators.required],
+      ortherLanguage: ["", Validators.required],
+      readingComprehension1: ["", Validators.required],
+      readingComprehension2: ["", Validators.required],
+      oralIntegration: ["", Validators.required],
+      continuousSpeaking: ["", Validators.required],
+      written: ["", Validators.required]
+    });
     /*this.stepOneForm = this.formBuilder.group({
       firstName: [],
       lastName: [],
@@ -308,6 +320,29 @@ export class CvManagerComponent implements OnInit{
       });
       this.canEditExperience = false;
   }
+
+
+  saveLanguage() {
+    if(!this.canEditLanguage) {
+      this.formLingustic.value.id = null;
+      this.formLingustic.value.owner_id = this.candidat?.id;
+    }
+    console.log(this.formLingustic.value)
+    this.backService.candidateAddLanguage(this.formLingustic.value)
+      .subscribe((res: any) => {
+        this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
+          (res: HttpResponse<ICandidat>) => {
+            this.candidat = res.body})
+        this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+        this.formLingustic.reset();
+        this.modalService.dismissAll();
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
+      });
+      this.canEditLanguage = false;
+  }
+
   openLg(contentAddress: TemplateRef<any>) {
     this.stepOneForm.reset();
     this.modalService.open(contentAddress, { size: 'lg' });
@@ -449,6 +484,49 @@ export class CvManagerComponent implements OnInit{
   closeEducationModal(modal: NgbActiveModal) {
     this.canEditEducation = false;
     this.educationForm.reset();
+    modal.close('Close click');
+  }
+
+  // TODO LANGUAGE
+
+  loadLanguage(language: ILanguage) {
+    this.formLingustic.patchValue({
+      id: language.id,
+      montherLanguage: language.montherLanguage,
+      ortherLanguage: language.ortherLanguage,
+      readingComprehension1: language.readingComprehension1,
+      readingComprehension2: language.readingComprehension2,
+      oralIntegration: language.oralIntegration,
+      continuousSpeaking: language.continuousSpeaking,
+      written: language.written
+    });
+  }
+
+  editLanguage(language: ILanguage, contentLanguage: TemplateRef<any>) {
+    this.canEditLanguage = true;
+    this.loadLanguage(language);
+    this.openLg(contentLanguage);
+  }
+
+  deleteLanguage(language: ILanguage) {
+    console.log(this.formLingustic.value)
+    this.backService.candidateRemoveLanguage(language.id)
+      .subscribe((res: any) => {
+        this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
+          (res: HttpResponse<ICandidat>) => {
+            this.candidat = res.body})
+        this.toaster.success(this.translateService.instant('MESSAGES.DELETE_SUCCESS'), 'OK');
+        this.modalService.dismissAll();
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('MESSAGES.DELETE_ERROR'), err.message);
+      });
+      this.canEditLanguage = false;
+  }
+
+  closeLanguageModal(modal: NgbActiveModal) {
+    this.canEditLanguage = false;
+    this.formLingustic.reset();
     modal.close('Close click');
   }
 }

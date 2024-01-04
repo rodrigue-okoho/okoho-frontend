@@ -3,6 +3,7 @@ import { IFileUrl } from "./FileUrl.model";
 import {ItemCandidat} from "./ItemCandidat.model";
 import {IcategoryJob} from "./categoryJob.model";
 import {IAddress} from "./address.model";
+import { ILanguage } from "./language.model";
 
 export interface ICandidat {
   id?: string;
@@ -32,6 +33,7 @@ export interface ICandidat {
   works?:ItemCandidat[]|null;
   awards?:ItemCandidat[]|null;
   addresses?:IAddress[]|null;
+  languages?: ILanguage[] | null;
   userAccount?:Account |null;
 }
 
