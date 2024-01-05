@@ -183,8 +183,14 @@
 
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
-                          <button *ngIf="!btn_status" class="theme-btn btn-style-one">Save</button>
-                          <button *ngIf="btn_status" class="theme-btn btn-style-four">Update</button>
+                          <button *ngIf="!btn_status" class="theme-btn btn-style-one">
+                            <img *ngIf="isLoading0" style="width: 24px;" src="assets/images/spinner.gif" />
+                            Save
+                          </button>
+                          <button *ngIf="btn_status" class="theme-btn btn-style-four">
+                            <img *ngIf="isLoading0" style="width: 24px;" src="assets/images/spinner.gif" />
+                            Update
+                          </button>
                         </div>
                       </div>
                     </form>
@@ -228,8 +234,12 @@
 
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
-                          <button *ngIf="!btn_status" class="theme-btn btn-style-one">Save</button>
-                          <button *ngIf="btn_status" class="theme-btn btn-style-four">Update</button>
+                          <button *ngIf="!btn_status" class="theme-btn btn-style-one">
+                            <img *ngIf="isLoading1" style="width: 24px;" src="assets/images/spinner.gif" />
+                            Save</button>
+                          <button *ngIf="btn_status" class="theme-btn btn-style-four">
+                            <img *ngIf="isLoading1" style="width: 24px;" src="assets/images/spinner.gif" />
+                            Update</button>
                         </div>
                       </div>
                     </form>
@@ -323,8 +333,12 @@
 
                         <!-- Input -->
                         <div class="form-group col-lg-12 col-md-12">
-                          <button *ngIf="!btn_status" class="theme-btn btn-style-one">Save</button>
-                          <button *ngIf="btn_status" class="theme-btn btn-style-four">Update</button>
+                          <button *ngIf="!btn_status" class="theme-btn btn-style-one">
+                            <img *ngIf="isLoading2" style="width: 24px;" src="assets/images/spinner.gif" />
+                            Save</button>
+                          <button *ngIf="btn_status" class="theme-btn btn-style-four">
+                            <img *ngIf="isLoading2" style="width: 24px;" src="assets/images/spinner.gif" />
+                            Update</button>
                         </div>
                       </div>
                     </form>
