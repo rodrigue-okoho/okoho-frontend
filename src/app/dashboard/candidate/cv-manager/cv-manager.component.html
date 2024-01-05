@@ -456,9 +456,11 @@
     </div>
     <div class="form-group col-sm-4">
       <label for="con-phone">Country</label>
-      <input formControlName="country"  class="form-control" id="con-phone" type="text"
-             placeholder="Address Line1"
-             required="" autocomplete="off">
+             <ng-select class="chosen-select" [items]="countriess"
+                                     bindLabel="name"
+                                     bindValue="name"
+                                     formControlName="country">
+             </ng-select>
     </div>
   </div>
 
@@ -509,9 +511,11 @@
         </div>
         <div class="form-group col-sm-6">
           <label for="con-country">Country</label>
-          <input formControlName="country"  class="" id="con-country" type="text"
-                 placeholder="Country"
-                 required="" autocomplete="off">
+                 <ng-select class="chosen-select" id="con-country" [items]="countriess"
+                                     bindLabel="name"
+                                     bindValue="name"
+                                     formControlName="country">
+             </ng-select>
         </div>
         <div class="form-group col-sm-6">
           <label for="con-phone">Address Line1</label>
@@ -588,9 +592,11 @@
         </div>
         <div class="form-group col-sm-6">
           <label for="con-country">Country</label>
-          <input formControlName="country"  class="" id="con-country" type="text"
-                 placeholder="Country"
-                 required="" autocomplete="off">
+             <ng-select class="chosen-select" id="con-country" [items]="countriess"
+                                     bindLabel="name"
+                                     bindValue="name"
+                                     formControlName="country">
+             </ng-select>
         </div>
         <div class="form-group col-sm-6">
           <label for="con-phone">Address Line1</label>
