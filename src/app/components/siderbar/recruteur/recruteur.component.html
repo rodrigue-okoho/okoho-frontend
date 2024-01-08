@@ -4,7 +4,7 @@
 
   <div class="sidebar-inner">
   <ul class="navigation">
-    <li class="nav-menu-item router-link-active">
+    <li class="nav-menu-item router-link-active {{setActivate('dash-employer')}}">
       <a routerLink="/dash/dash-employer"
          routerLinkActive="active"
          class="nav-link {{setActivate('dash-employer')}}"
@@ -13,7 +13,7 @@
         <span class="nav-menu-item-title"> Dashboard</span>
       </a>
     </li>
-    <li class="nav-menu-item router-link-active">
+    <li class="nav-menu-item router-link-active {{setActivate('dash-employer-profile')}}">
       <a routerLink="/dash/dash-employer-profile"
          routerLinkActive="active" class="{{setActivate('dash-employer-profile')}}"
          (click)="collapseNavbar()">
@@ -21,35 +21,35 @@
         <span class="nav-menu-item-title"> profiles</span>
       </a>
     </li>
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-employer-my-job')}}">
       <a routerLink="/dash/dash-employer-my-job"
          routerLinkActive="active" class="{{setActivate('dash-employer-my-job')}}">
         <fa-icon icon="briefcase"></fa-icon>
         <span class="nav-menu-item-title">My Job</span>
       </a>
     </li>
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-employer-submit-job')}}">
       <a routerLink="/dash/dash-employer-submit-job"
          routerLinkActive="active" class="{{setActivate('dash-employer-submit-job')}}">
         <fa-icon icon="user-alt"></fa-icon>
         <span class="nav-menu-item-title"> Submit job</span>
       </a>
     </li>
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-employer-applicant-job')}}">
       <a routerLink="/dash/dash-employer-applicant-job"
          routerLinkActive="active" class="{{setActivate('dash-employer-applicant-job')}}">
         <fa-icon icon="file"></fa-icon>
         <span class="nav-menu-item-title"> Applicant jobs</span>
       </a>
     </li>
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-employer-shortlist')}}">
       <a routerLink="/dash/dash-employer-shortlist"
          routerLinkActive="active" class="{{setActivate('dash-employer-shortlist')}}">
         <fa-icon icon="bookmark"></fa-icon>
         <span class="nav-menu-item-title"> Shortlist candidates</span>
       </a>
     </li>
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-employer-candidat-alert')}}">
       <a routerLink="/dash/dash-employer-candidat-alert"
          routerLinkActive="active" class="{{setActivate('dash-employer-candidat-alert')}}">
         <fa-icon icon="bell"></fa-icon>
@@ -70,7 +70,7 @@
         <span class="nav-menu-item-title"> Meetings</span>
       </a>
     </li>-->
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-employer-message')}}">
       <a routerLink="/dash/dash-employer-message"
          routerLinkActive="active" class="{{setActivate('dash-employer-message')}}">
         <fa-icon icon="message"></fa-icon>
@@ -78,7 +78,7 @@
       </a>
     </li>
 
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-change-password')}}">
       <a routerLink="/dash/dash-change-password"
          routerLinkActive="active" class="{{setActivate('dash-change-password')}}">
         <fa-icon icon="lock"></fa-icon>

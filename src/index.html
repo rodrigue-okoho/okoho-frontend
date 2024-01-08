@@ -12,8 +12,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/mmenu.polyfills.js"></script>
+  <script src="assets/js/mmenu.js"></script>
+  <script src="assets/js/script.js"></script>
 </head>
-<body data-anm=".anm">
+<body data-anm=".anm" class="">
   <okoho-main>
 
 <!--    <div class="app-loading">
@@ -106,11 +111,17 @@
         errorElm.style.display = 'block';
       }
     }
+   //if($('#toggle-user-sidebar').length) {
+     $('#toggle-user-sidebar, .dashboard-option a').on("click", function() {
+       console.log("test ici")
+       $('body').toggleClass('user-sidebar-active');
+     });
+
+     $('.sidebar-backdrop').on("click", function() {
+       $('body').removeClass('user-sidebar-active');
+     });
+   //}
   </script>
-  <script src="assets/js/jquery.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/mmenu.polyfills.js"></script>
-<script src="assets/js/mmenu.js"></script>
-  <script src="assets/js/script.js"></script>
+
 </body>
 </html>

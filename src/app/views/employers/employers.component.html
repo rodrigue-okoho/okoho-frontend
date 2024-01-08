@@ -7,13 +7,13 @@
           <!-- Form Group -->
           <div class="form-group col-lg-4 col-md-12 col-sm-12">
             <span class="icon flaticon-search-1"></span>
-            <input [(ngModel)]="query" type="text" name="field_name" placeholder="Job title, keywords, or company">
+            <input [(ngModel)]="query" type="text" name="field_name" placeholder="{{ 'home.placeholder.job_kewords' | translate }}">
           </div>
 
           <!-- Form Group -->
           <div class="form-group col-lg-3 col-md-12 col-sm-12 location">
             <span class="icon flaticon-map-locator"></span>
-            <input [(ngModel)]="bycity" type="text" name="field_name" placeholder="City or postcode">
+            <input [(ngModel)]="bycity" type="text" name="field_name" placeholder="{{ 'home.placeholder.city_postcode' | translate }}">
           </div>
 
           <!-- Form Group -->

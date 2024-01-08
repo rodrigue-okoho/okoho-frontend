@@ -17,6 +17,7 @@ declare var $: any;
 export class NavbarComponent implements OnInit {
   inProduction?: boolean;
   isNavbarCollapsed = true;
+  showDashboard = false;
   openAPIEnabled?: boolean;
   version = '';
   account: Account | null = null;
@@ -82,5 +83,9 @@ export class NavbarComponent implements OnInit {
   showMenu() {
     this.is_mobile=!this.is_mobile;
     console.log(this.is_mobile)
+  }
+
+  showSiderBar() {
+    this.showDashboard=!this.showDashboard
   }
 }

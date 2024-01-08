@@ -278,10 +278,15 @@
       "counter-title-2": "Over 12k open job positions",
       "counter-title-3": "Over 20 million stories shared",
       "counter-title-4": "4 million daily active users"
+    },
+    "placeholder": {
+      "city_postcode": "City or PostCode",
+      "job_kewords": "Job title, keywords, or company",
+      "by_resume": "By resume"
     }
   },
   "page": {
-"no_job_alert": "No job alert found.",
+    "no_job_alert": "No job alert found.",
     "show_filters": "Show Filters",
     "salary": "Salary",
     "internship": "Internship",
@@ -340,28 +345,33 @@
     "gender": "Gender",
     "years": "Years",
     "age": "Age",
-    "awards":"Awards",
-    "work_experience":"Work &amp; Experience",
-    "all_categories":"All categories",
-    "featured":"Featued",
-    "no_employer_found":"No employer found.",
-    "education":"Education",
-    "job_location":"Job Location",
-    "your_message":"Your Message",
-    "subject":"Subject",
-    "your_email":"Your Email",
-    "your_name":"Your Name",
-    "leave_a_message":"Leave a Message",
-    "call_us":"Call Us",
-    "address":"Address",
-    "education":"Education",
-    "education":"Education"
+    "awards": "Awards",
+    "work_experience": "Work &amp; Experience",
+    "all_categories": "All categories",
+    "featured": "Featued",
+    "no_employer_found": "No employer found.",
+    "education": "Education",
+    "job_location": "Job Location",
+    "your_message": "Your Message",
+    "subject": "Subject",
+    "your_email": "Your Email",
+    "your_name": "Your Name",
+    "leave_a_message": "Leave a Message",
+    "call_us": "Call Us",
+    "address": "Address",
+    "education": "Education",
+    "education": "Education"
   },
   "dashboard": {
     "medical-care": "Medical care",
     "development-of-web": "Development of web and mobile applications",
     "metal-construction-and-welding": "Metal construction and welding",
     "mechatronics-and-mechanics": "Mechatronics and mechanics",
-    "electricity-electronics": "Electricity & electronics"
+    "electricity-electronics": "Electricity & electronics",
+    "language": {
+      "french": "French",
+      "english": "English",
+      "germain": "Germain"
+    }
   }
 }

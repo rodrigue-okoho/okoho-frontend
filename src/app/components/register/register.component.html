@@ -1,4 +1,9 @@
 <ng-template #register let-modal>
+  <div class="modal-header justify-content-end">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <div class="modal-body">
     <!-- Login modal -->
     <div id="login-modal">
@@ -66,70 +71,8 @@
       <!--End Login Form -->
     </div>
     <!-- End Login Module -->
-    <button (click)="modal.dismiss('Cross click')" rel="modal:close" class="close-modal"><fa-icon icon="remove"></fa-icon></button></div>
-
-<!--  <div class="popup">
-   <div class="modal-body">
-      <div class="Close" style="width: 40px; height: 40px; left: 450px; top: 10px; position: absolute">
-       &lt;!&ndash; <div class="Rectangle11"
-             style="width: 40px; height: 40px; left: 0px; top: 0px; position: absolute; background: #F0F5F7; border-radius: 8px"></div>
-        <a class="Vector"  (click)="modal.dismiss('Cross click')"
-           style="width: 12px; height: 12px; left: 14px; top: 15px; position: absolute; background: #202124"></a>&ndash;&gt;
-        <button type="button" class="btn btn-lg close" data-dismiss="modal" aria-hidden="true" (click)="modal.dismiss('Cross click')">&times;</button>
-
-      </div>
-      <h4 class="login_title">Create a FreeOKOHO Account</h4>
-
-
-      <form class="form-bookmark needs-validation" [formGroup]="loginform" id="bookmark-form">
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <input type="radio" class="btn-check" value="candidat_account" formControlName="account_type"  id="success-outlined" autocomplete="off" checked>
-            <label class="text-center btn btn-outline-success d-flex p-2 bd-highlight justify-content-center" for="success-outlined">Candidate</label>
-          </div>
-          <div class="col-md-6 text-center">
-            <input type="radio" class="btn-check" value="entreprise_account" formControlName="account_type"  id="danger-outlined" autocomplete="off">
-            <label class="btn btn-outline-danger d-flex p-2 bd-highlight justify-content-center" for="danger-outlined">Employer</label>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group mb-3 col-md-12">
-            <label class="login_label" for="con-mail">Email Address</label>
-            <input class="login_input form-control" id="con-mail" placeholder="test@okoho.de" formControlName="email" type="text" required=""
-                   autocomplete="off">
-          </div>
-          <div class="form-group mt-3 mb-3 col-md-12">
-            <label class="login_label" for="con-mail">Password</label>
-            <input class="login_password form-control" placeholder="*******" id="con-pass" formControlName="password" type="text" required=""
-                   autocomplete="off">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <button class="logIn btn btn-primary mr-1 col-md-6 pull-right" type="button"
-                  (click)="onSubmit()" >Register</button>
-        </div>
-
-        <div class="Or" style="height: 40px; left: 40px;">
-          <div class="Rectangle7"
-               style="height: 1px;background: #ECEDF2; border-radius: 8px"></div>
-          <div class="Ellipse11"
-               style="width: 40px; height: 40px; left: 190px; background: white; border-radius: 9999px"></div>
-
-        </div>
-        <h4 class="or">
-          or
-        </h4>
-        <div class="row">
-          <div class="col-md-6 logInViaFacebook">
-            <button class="btn btn_facebook" style=""><span class="icon-facebook"></span> Log In via Facebook</button>
-          </div>
-          <div class="col-md-6 logInViaGoogle">
-            <button class="btn btn_google" style=""><span class="icon-google"></span> Log In via Google+</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>-->
+ <!--   <button (click)="modal.dismiss('Cross click')" rel="modal:close" class="close-modal"><fa-icon icon="remove"></fa-icon></button>
+  -->
+  </div>
 
 </ng-template>

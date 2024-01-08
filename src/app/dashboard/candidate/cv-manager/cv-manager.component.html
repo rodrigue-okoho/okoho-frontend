@@ -294,10 +294,8 @@
                                 <div class="step-bullet">4</div>
                                 <div class="step-title">Personnal skills <span class="required">*</span>
                                 </div>
-
                                 <div>
                                 </div>
-
                               </ng-template>
 
                               <div class="container mt-5" #stepFour>
@@ -308,16 +306,13 @@
                                 </div>
                                 <div class="resume-block" *ngFor="let langue of candidat?.languages">
                                   <div class="inner">
-                                    <span class="name" *ngIf="langue.montherLanguage">{{langue.montherLanguage!.charAt(0)}}</span>
+                                    <span class="name" *ngIf="langue?.montherLanguage">{{langue?.montherLanguage!.charAt(0)}}</span>
                                     <div class="title-box">
                                       <div class="info-box">
                                         <h3>{{langue?.montherLanguage}}</h3>
-                                        <h4>{{langue?.ortherLanguage}}</h4>
-                                        <span>{{langue?.readingComprehension1}} {{langue?.readingComprehension2}}</span>
-                                        <!-- <span>{{langue.oral_interaction}} - {{langue.continuous_speaking}}</span> -->
-                                      </div>
+                                  </div>
                                       <div class="edit-box">
-                                        <span class="year">{{langue?.oralIntegration}} - {{langue?.continuousSpeaking}}</span>
+                                        <!--<span class="year">{{langue?.oralIntegration}} - {{langue?.continuousSpeaking}}</span>-->
                                         <div class="edit-btns">
                                           <button (click)="editLanguage(langue, contentLanguage)"><fa-icon icon="edit"></fa-icon></button>
                                           <button (click)="deleteLanguage(langue)"><fa-icon icon="trash"></fa-icon></button>
@@ -325,13 +320,39 @@
                                       </div>
                                     </div>
                                     <div class="text">
-                                      {{langue?.written}}
+                                      <span class="break">
+                                        <span class="text-dark-3">Reading comprehension: </span> <span class="text-red">{{langue?.readingComprehension1}}</span>
+                                      </span>
+                                      <span class="break">
+                                          <span class="text-dark-3">Listening comprehension: </span> <span class="text-red">{{langue?.readingComprehension2}}</span>
+                                        </span>
+                                      <span class="break">
+                                          <span class="text-dark-3">Oral expression: </span> <span class="text-red">{{langue?.oralIntegration}}</span>
+                                        </span>
+                                      <span class="break">
+                                          <span class="text-dark-3">Writting: </span> <span class="text-red">{{langue?.written}}</span>
+                                        </span>
                                     </div>
                                   </div>
                                 </div>
                                 <div class="mb-3 d-grid text-center">
                                   <button class="btn-cv" (click)="openLg(contentLanguage)"><fa-icon icon="plus"></fa-icon> Linguistic skills</button>
                                 </div>
+                                <hr>
+                                <div class="resume-outer">
+                                  <div class="upper-title">
+                                    <h4>Digital skills</h4>
+                                  </div>
+                                </div>
+                                <div class="resume-block mb-3">
+                                <select multiple class="form-select chosen-select">
+                                  <option>Design : Adobe Illustrator, Photoshop </option>
+                                  <option>Good knowledge of the office package (Word, Excel, Powerpoint)</option>
+                                  <option>SolidWorks (CAD and simulation) </option>
+                                  <option>Adobe Acrobat Pro </option>
+                                </select>
+                                </div>
+
                                 <div class="button form-group col-lg-12 col-md-12 text-left">
                                   <button class="button theme-btn btn-style-one float-start" cdkStepperPrevious><fa-icon icon="arrow-left"></fa-icon> Previous</button>
                                 </div>
@@ -444,9 +465,11 @@
     </div>
     <div class="form-group col-sm-4">
       <label for="con-phone">Country</label>
-      <input formControlName="country"  class="form-control" id="con-phone" type="text"
-             placeholder="Address Line1"
-             required="" autocomplete="off">
+             <ng-select class="chosen-select" [items]="countriess"
+                                     bindLabel="name"
+                                     bindValue="name"
+                                     formControlName="country">
+             </ng-select>
     </div>
   </div>
 
@@ -497,9 +520,11 @@
         </div>
         <div class="form-group col-sm-6">
           <label for="con-country">Country</label>
-          <input formControlName="country"  class="" id="con-country" type="text"
-                 placeholder="Country"
-                 required="" autocomplete="off">
+                 <ng-select class="chosen-select" id="con-country" [items]="countriess"
+                                     bindLabel="name"
+                                     bindValue="name"
+                                     formControlName="country">
+             </ng-select>
         </div>
         <div class="form-group col-sm-6">
           <label for="con-phone">Address Line1</label>
@@ -576,9 +601,11 @@
         </div>
         <div class="form-group col-sm-6">
           <label for="con-country">Country</label>
-          <input formControlName="country"  class="" id="con-country" type="text"
-                 placeholder="Country"
-                 required="" autocomplete="off">
+             <ng-select class="chosen-select" id="con-country" [items]="countriess"
+                                     bindLabel="name"
+                                     bindValue="name"
+                                     formControlName="country">
+             </ng-select>
         </div>
         <div class="form-group col-sm-6">
           <label for="con-phone">Address Line1</label>
@@ -641,16 +668,16 @@
   <div class="modal-body">
     <form class="default-form" [formGroup]="formLingustic" id="bookmark-form">
       <div class="form-group col-sm-12">
-        <label for="con-phone">Mother tongue</label>
+        <label for="con-phone">Language</label>
         <select formControlName="montherLanguage" class="form-control" id="con-phone"
                 placeholder="" required="" autocomplete="off">
                 <option></option>
-                <option value="francais">Francais</option>
-                <option value="English">Anglais</option>
-                <option value="Allemand">Allemand</option>
+                <option value="{{ 'dashboard.language.french' | translate }}">{{ 'dashboard.language.french' | translate }}</option>
+                <option value="{{ 'dashboard.language.english' | translate }}">{{ 'dashboard.language.english' | translate }}</option>
+                <option value="{{ 'dashboard.language.germain' | translate }}">{{ 'dashboard.language.germain' | translate }}</option>
         </select>
       </div>
-      <div class="form-group col-sm-12">
+<!--      <div class="form-group col-sm-6">
         <label for="con-phone">Other language</label>
         <select formControlName="ortherLanguage" class="form-control" id="con-phone"
                 placeholder=""
@@ -659,65 +686,58 @@
                 <option value="french">Francais</option>
                 <option value="english">Anglais</option>
         </select>
-      </div>
-      <h4 class="mt-3">Understanding</h4>
+      </div>-->
       <div class="row mt-3">
         <div class="form-group col-sm-6">
           <label for="con-phone">Reading comprehension</label>
           <select formControlName="readingComprehension1" class="form-control" id="con-phone"
                   placeholder="" required="" autocomplete="off">
-                  <option></option>
-                  <option value="moyen">Moyen</option>
-                  <option value="intermediaire">Intemediaire</option>
-                  <option value="fort">Fort</option>
+                  <option value="A1">A1</option>
+                  <option value="A2">A2</option>
+                  <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
           </select>
         </div>
         <div class="form-group col-sm-6">
-          <label for="con-phone">Reading comprehension</label>
+          <label for="con-phone">Listening comprehension</label>
           <select formControlName="readingComprehension2" class="form-control" id="con-phone"
                   placeholder="" required="" autocomplete="off">
-                  <option></option>
-                  <option value="moyen">Moyen</option>
-                  <option value="intermediaire">Intemediaire</option>
-                  <option value="fort">Fort</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
           </select>
         </div>
       </div>
-
-      <h4 class="mt-3">Oral expression</h4>
       <div class="row mt-3">
         <div class="form-group col-sm-6">
-          <label for="con-phone">Oral interaction</label>
+          <label for="con-phone">Oral expression</label>
           <select formControlName="oralIntegration" class="form-control" id="con-phone"
                   placeholder="" required="" autocomplete="off">
-                  <option></option>
-                  <option value="moyen">Moyen</option>
-                  <option value="intermediaire">Intemediaire</option>
-                  <option value="fort">Fort</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
           </select>
         </div>
-
         <div class="form-group col-sm-6">
-          <label for="con-phone">Continuous speaking</label>
-          <select formControlName="continuousSpeaking" class="form-control" id="con-phone"
+          <label for="con-phone">Written</label>
+          <select formControlName="written" class="form-control" id="con-phone"
                   placeholder="" required="" autocomplete="off">
-                  <option></option>
-                  <option value="moyen">Moyen</option>
-                  <option value="intermediaire">Intemediaire</option>
-                  <option value="fort">Fort</option>
+            <option value="A1" selected>A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
           </select>
         </div>
-      </div>
-
-      <div class="form-group col-sm-6 mt-3">
-        <label for="con-phone">Written</label>
-        <select formControlName="written" class="form-control" id="con-phone"
-                placeholder="" required="" autocomplete="off">
-                <option></option>
-                  <option value="moyen">Moyen</option>
-                  <option value="intermediaire">Intemediaire</option>
-                  <option value="fort">Fort</option>
-        </select>
       </div>
     </form>
   </div>

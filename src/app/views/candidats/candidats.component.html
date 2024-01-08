@@ -26,7 +26,7 @@
               <h4 jhiTranslate="page.search_by_keywords">Search by Keywords</h4>
               <div class="form-group">
                 <div class="input-group input-group-merge">
-                <input class="custom-group-input" type="text" (keyup)="searchByResume($event)"  placeholder="By Resumes">
+                <input class="custom-group-input" type="text" (keyup)="searchByResume($event)"  placeholder="{{ 'home.placeholder.by_resume' | translate }}">
                 <span class="icon flaticon-search-3"></span>
                 <div class="input-group-text">
                   <fa-icon icon="search"></fa-icon>
@@ -40,7 +40,7 @@
               <h4 jhiTranslate="page.location">Location</h4>
               <div class="form-group">
                 <div class="input-group input-group-merge">
-                <input class="custom-group-input"  (change)="searchByLocation($event)" type="text" name="listing-search" placeholder="City or postcode">
+                <input class="custom-group-input"  (change)="searchByLocation($event)" type="text" name="listing-search" placeholder="{{ 'home.placeholder.city_postcode' | translate }}">
                 <span class="icon flaticon-map-locator"></span>
                 <div class="input-group-text">
                   <fa-icon icon="map-location"></fa-icon>

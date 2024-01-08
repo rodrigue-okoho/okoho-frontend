@@ -277,6 +277,11 @@
       "counter-title-2": "Más de 12.000 puestos de trabajo abiertos",
       "counter-title-3": "Más de 20 millones de historias compartidas",
       "counter-title-4": "4 millones de usuarios activos diarios"
+    },
+    "placeholder": {
+      "city_postcode": "Ciudad o código postal",
+      "job_kewords": "Puesto de trabajo, palabras clave o empresa",
+      "by_resume": "Por hoja de vida"
     }
   },
   "page":
@@ -354,5 +359,17 @@
     "leave_a_message": "Dejar un mensaje",
     "call_us": "Llámanos",
     "address": "DIRECCIÓN"
+  },
+  "dashboard": {
+    "medical-care": "Cuidados médicos",
+    "development-of-web": "Desenvolvimento de aplicações web e mobile",
+    "metal-construction-and-welding": "Construção e soldadura metálica",
+    "mechatronics-and-mechanics": "Mecatrónica e mecânica",
+    "electricity-electronics": "Eletricidade e electrónica",
+    "language": {
+      "french": "Francês",
+      "english": "Inglês",
+      "germain": "Alemão"
+    }
   }
 }

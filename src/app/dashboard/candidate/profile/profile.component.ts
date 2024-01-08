@@ -50,7 +50,12 @@ export class ProfileComponent implements OnInit {
 
   circleCenter: google.maps.LatLngLiteral = {lat: 51.989858047086535, lng: 8.78541302551178};
   radius = 3;
+
   private canEditActivity: Boolean=false;
+
+  isLoading0: Boolean = false;
+  isLoading1: Boolean = false;
+  isLoading2: Boolean = false;
 
   constructor(private activateService: ActivateService, private formBuilder: FormBuilder,
               private localStorageService: LocalStorageService, private translateService: TranslateService,
@@ -220,41 +225,49 @@ export class ProfileComponent implements OnInit {
   }
 
   saveProfile() {
-
+    this.isLoading0 = true;
     this.itemForm.value.phoneNumber = this.itemForm.value.phone.number;
     this.itemForm.value.codePhone = this.itemForm.value.phone.dialCode;
     this.backService.candidatSaveProfile(this.itemForm.value)
       .subscribe((res: any) => {
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
         this.updateProfile();
+        this.isLoading0 = false;
       }, err => {
         console.log(err);
         this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.error.detail);
       });
+      this.isLoading0 = false;
   }
 
   saveSociale() {
+    this.isLoading1 = true;
     console.log(this.itemSocialForm.value)
     this.backService.candidatSaveProfile(this.itemSocialForm.value)
       .subscribe((res: any) => {
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
         this.updateProfile();
+        this.isLoading1 = false;
       }, err => {
         console.log(err);
         this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.message);
       });
+      this.isLoading1 = false;
   }
 
   saveContact() {
+    this.isLoading2 = true;
     console.log(this.itemContactForm.value)
     this.backService.candidatSaveProfile(this.itemContactForm.value)
       .subscribe((res: any) => {
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
         this.updateProfile();
+        this.isLoading2 = false;
       }, err => {
         console.log(err);
         this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.message);
       });
+      this.isLoading2 =false;
   }
 
   uploadCv(event: any) {

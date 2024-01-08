@@ -283,7 +283,13 @@
     "counter-title-2": "超過 12k 個空缺職位",
     "counter-title-3": "超過 2000 萬個故事分享",
     "counter-title-4": "400萬日活躍使用者"
-  }
+  },
+    "placeholder":
+{
+  "city_postcode": "城市或郵政編碼",
+  "job_kewords": "職位、關鍵字或公司",
+  "by_resume": "通過簡歷"
+}
 
   },
   "page": {
@@ -366,5 +372,17 @@
   "leave_a_message": "留言",
   "call_us": "致電我們",
   "address": "位址"
+  },
+  "dashboard": {
+    "medical-care": "醫療",
+    "development-of-web": "開發網路和行動應用程式",
+    "metal-construction-and-welding": "金屬結構和焊接",
+    "mechatronics-and-mechanics": "機電一體化和機械",
+    "electricity-electronics": "電氣和電子",
+    "language": {
+      "french": "法語",
+      "english": "英語",
+      "germain": "德語"
+    }
   }
 }

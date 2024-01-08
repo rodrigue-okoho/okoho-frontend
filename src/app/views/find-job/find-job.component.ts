@@ -16,6 +16,7 @@ import {IJob} from "../../core/models/job.model";
 export class FindJobComponent  implements OnInit {
   jobs?: IJob[];
   currentSearch: string;
+  location:string;
   isLoading = false;
   totalItems = 0;
   item="Jobs"
@@ -24,17 +25,18 @@ export class FindJobComponent  implements OnInit {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
-  bycategory: string="All Categories";
-  bycity: string;
-  keyword: string;
-  byexperience: string;
-  bysalary: string;
-  bydateposted: string;
-  bytype: string;
+  bycategory: string="";
+  bycity: string="";
+  keyword: string="";
+  byexperience: string="";
+  bysalary: string="";
+  bydateposted: string="";
+  bytype: string="";
   constructor( protected frontService: FrontService,
                protected activatedRoute: ActivatedRoute,
                protected router: Router,) {
     this.currentSearch = this.activatedRoute.snapshot.queryParams['search'] ?? '';
+    this.location = this.activatedRoute.snapshot.queryParams['location'] ?? '';
   }
   loadPage(page?: number, dontNavigate?: boolean): void {
     this.isLoading = true;
@@ -44,8 +46,8 @@ export class FindJobComponent  implements OnInit {
       this.frontService
         .jobSearch({
           page: pageToLoad - 1,
-          query: this.keyword,
-          location: this.bycity,
+          query: this.currentSearch,
+          location: this.location,
           category: this.bycategory,
           experience: this.byexperience,
           dateposted: this.bydateposted,
@@ -88,7 +90,7 @@ export class FindJobComponent  implements OnInit {
 
   search($event: any): void {
     this.currentSearch = "search";
-    this.keyword=$event.target.value
+    this.currentSearch=$event.target.value
     this.loadPage(1);
   }
 

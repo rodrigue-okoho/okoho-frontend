@@ -278,6 +278,11 @@
       "counter-title-2": "Meer dan 12.000 openstaande vacatures",
       "counter-title-3": "Meer dan 20 miljoen verhalen gedeeld",
       "counter-title-4": "4 miljoen dagelijks actieve gebruikers"
+    },
+    "placeholder": {
+      "city_postcode": "Plaats of postcode",
+      "job_kewords": "Functietitel, trefwoorden of bedrijf",
+      "by_resume": "Door te hervatten"
     }
   },
   "page":
@@ -355,5 +360,17 @@
     "leave_a_message": "Laat een bericht achter",
     "call_us": "Bel ons",
     "address": "Adres"
+  },
+  "dashboard": {
+    "medical-care": "Medische zorg",
+    "development-of-web": "Ontwikkeling van web- en mobiele applicaties",
+    "metal-construction-and-welding": "Metaalconstructie en lassen",
+    "mechatronics-and-mechanics": "Mechatronica en mechanica",
+    "electricity-electronics": "Elektriciteit en elektronica",
+    "language": {
+      "french": "Frans",
+      "english": "Engels",
+      "germain": "Duits"
+    }
   }
 }

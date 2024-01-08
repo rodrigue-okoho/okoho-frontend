@@ -16,16 +16,16 @@
               <div class="row">
                 <div class="form-group col-lg-5 col-md-12 col-sm-12">
                   <span class="icon flaticon-search-1"></span>
-                  <input type="text" name="field_name" placeholder="Job title, keywords, or company">
+                  <input [(ngModel)]="job_title" type="text" name="field_name" placeholder="{{ 'home.placeholder.job_kewords' | translate }}">
                 </div>
                 <!-- Form Group -->
                 <div class="form-group col-lg-4 col-md-12 col-sm-12 location">
                   <span class="icon flaticon-map-locator"></span>
-                  <input type="text" name="field_name" placeholder="City or postcode">
+                  <input [(ngModel)]="city" type="text" name="field_name" placeholder="{{ 'home.placeholder.city_postcode' | translate }}">
                 </div>
                 <!-- Form Group -->
                 <div class="form-group col-lg-3 col-md-12 col-sm-12 btn-box">
-                  <button type="submit" class="theme-btn btn-style-one">
+                  <button type="button" class="theme-btn btn-style-one" (click)="findJobs()">
                     <span jhiTranslate="home.btn_title" class="btn-title">Find Jobs</span>
                   </button>
                 </div>

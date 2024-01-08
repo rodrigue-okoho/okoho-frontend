@@ -77,6 +77,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject<void>();
 
   candidat: ICandidat | null = null;
+  job_title: any;
+  city: any;
 
   constructor(protected frontService: FrontService, protected backService: BackService,
               protected activatedRoute: ActivatedRoute,public el: ElementRef,
@@ -210,5 +212,13 @@ this.handleNavigation()
 
   sorted() {
 
+  }
+
+  findJobs() {
+    this.router.navigate(['/find-job'], {
+      queryParams: {
+        search: this.job_title,
+        query: this.job_title,
+        location: this.city}});
   }
 }

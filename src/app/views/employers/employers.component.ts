@@ -25,11 +25,11 @@ export class EmployersComponent implements OnInit {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
-  bycategory: string="All Categories";
-  bycity: string;
-  query: string;
-  compagny_size: string;
-  founded: string;
+  bycategory: string="";
+  bycity: string="";
+  query: string="";
+  compagny_size: string="";
+  founded: string="";
   constructor( protected frontService: FrontService,private spinnerService: NgxSpinnerService,
                protected activatedRoute: ActivatedRoute,
                protected router: Router,) {

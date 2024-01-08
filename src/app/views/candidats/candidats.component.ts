@@ -33,13 +33,13 @@ export class CandidatsComponent  implements OnInit {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
-  byresume: string;
-  bycategory: string="All Categories";
-  bylocation: string;
-  bygender: string;
-  bydateposted: string;
-  byexperience: string;
-  byeducation: string;
+  byresume: string="";
+  bycategory: string="";
+  bylocation: string="";
+  bygender: string="";
+  bydateposted: string="";
+  byexperience: string="";
+  byeducation: string="";
   constructor( protected frontService: FrontService,
                protected activatedRoute: ActivatedRoute,
                protected router: Router,) {

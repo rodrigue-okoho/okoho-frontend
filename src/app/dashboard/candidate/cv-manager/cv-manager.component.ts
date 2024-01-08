@@ -17,6 +17,7 @@ import { IAddress } from 'src/app/core/models/address.model';
 import { ItemCandidat } from 'src/app/core/models/ItemCandidat.model';
 import { ILanguage } from 'src/app/core/models/language.model';
 import {Account} from "../../../core/auth/account.model";
+import { countries } from 'src/app/core/util/country-data-store';
 
 @Component({
   selector: 'app-cv-manager',
@@ -42,6 +43,7 @@ export class CvManagerComponent implements OnInit{
   canEditExperience: Boolean = false;
   canEditEducation: Boolean = false;
   canEditLanguage: Boolean = false;
+  countriess: any = countries;
   constructor(private activateService: ActivateService,private formBuilder: FormBuilder,
               private localStorageService: LocalStorageService,
               private sessionStorageService: SessionStorageService,

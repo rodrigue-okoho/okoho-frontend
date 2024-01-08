@@ -281,6 +281,11 @@
       "counter-title-2": "Über 12.000 offene Stellen",
       "counter-title-3": "Über 20 Millionen Geschichten geteilt",
       "counter-title-4": "4 Millionen täglich aktive Benutzer"
+    },
+    "placeholder": {
+      "city_postcode": "Ort oder Postleitzahl",
+      "job_kewords": "Berufsbezeichnung, Schlüsselwörter oder Unternehmen",
+      "by_resume": "Per Lebenslauf"
     }
   },
   "page":{
@@ -357,5 +362,17 @@
     "leave_a_message": "Eine Nachricht hinterlassen",
     "call_us": "Rufen Sie uns an",
     "address": "Adresse"
+  },
+  "dashboard": {
+    "medical-care": "Medizinische Versorgung",
+    "development-of-web": "Entwicklung von Web- und Mobile-Anwendungen",
+    "metal-construction-and-welding": "Metallbau und Schweißen",
+    "mechatronics-and-mechanics": "Mechatronik und Mechanik",
+    "electricity-electronics": "Elektrizität & Elektronik",
+    "language": {
+      "french": "Französisch",
+      "english": "Englisch",
+      "germain": "Deutsch"
+    }
   }
 }

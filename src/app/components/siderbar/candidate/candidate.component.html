@@ -5,7 +5,7 @@
   <div class="sidebar-inner">
 
   <ul class="navigation">
-    <li class="nav-menu-item router-link-active">
+    <li class="nav-menu-item router-link-active {{setActivate('dash-candidate')}}">
 
       <a routerLink="/dash/dash-candidate"
          routerLinkActive="active"
@@ -15,7 +15,7 @@
         <span class="nav-menu-item-title"> Dashboard</span>
       </a>
     </li>
-    <li class="nav-menu-item router-link-active">
+    <li class="nav-menu-item router-link-active {{setActivate('dash-my-profile')}}">
       <a routerLink="/dash/dash-my-profile"
          routerLinkActive="active" class="{{setActivate('dash-my-profile')}}"
          (click)="collapseNavbar()">
@@ -50,14 +50,14 @@
       </a>
     </li>-->
 
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-cv-manager')}}">
       <a routerLink="/dash/dash-cv-manager"
          routerLinkActive="active" class="{{setActivate('dash-cv-manager')}}">
         <fa-icon icon="file"></fa-icon>
         <span class="nav-menu-item-title" jhiTranslate="global.menu.account.cv_manager"> CV Manager</span>
       </a>
     </li>
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-my-apply')}}">
       <a routerLink="/dash/dash-my-apply"
          routerLinkActive="active" class="{{setActivate('dash-my-apply')}}">
         <fa-icon icon="bullhorn"></fa-icon>
@@ -66,28 +66,28 @@
       </a>
     </li>
 
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-short-list')}}">
       <a routerLink="/dash/dash-short-list"
          routerLinkActive="active" class="{{setActivate('dash-short-list')}}">
         <fa-icon icon="bookmark"></fa-icon>
         <span jhiTranslate="global.menu.account.shortlist_job" class="nav-menu-item-title"> Shortlist jobs</span>
       </a>
     </li>
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-message')}}">
       <a routerLink="/dash/dash-message"
          routerLinkActive="active" class="{{setActivate('dash-message')}}">
         <fa-icon icon="message"></fa-icon>
         <span class="nav-menu-item-title"> Messages</span>
       </a>
     </li>
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-alert-job')}}">
       <a routerLink="/dash/dash-alert-job"
          routerLinkActive="active" class="{{setActivate('dash-alert-job')}}">
         <fa-icon icon="bell"></fa-icon>
         <span jhiTranslate="global.menu.account.alert_job" class="nav-menu-item-title"> alert job</span>
       </a>
     </li>
-    <li class="nav-menu-item">
+    <li class="nav-menu-item {{setActivate('dash-change-password')}}">
       <a routerLink="/dash/dash-change-password"
          routerLinkActive="active" class="{{setActivate('dash-change-password')}}">
         <fa-icon icon="lock"></fa-icon>
