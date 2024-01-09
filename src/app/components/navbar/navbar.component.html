@@ -411,7 +411,7 @@
         </div>
         <!-- Login/Register -->
         <div class="login-box" *ngSwitchCase="false">
-          <a href="javascript:void(0);" (click)="signin.openModal();collapseNavbar()"
+          <a href="javascript:void(0);" (click)="signin.openModal()"
              class="call-modal" id="login_" data-cy="login">
             <span class="icon-user"></span></a>
         </div>
@@ -442,229 +442,239 @@
                   <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
                 </span>
               </a>-->
-            <ul ngbDropdownMenu class="dropdown-menu" *ngIf="account?.userType=='candidat_account'"
-                aria-labelledby="account">
-              <li *ngSwitchCase="true">
-                <a class="dropdown-item" routerLink="/dash/dash-candidate" routerLinkActive="active"
-                   (click)="collapseNavbar()" data-cy="settings">
-                  <fa-icon icon="gauge" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.dashboard">dashboard</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-my-profile"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="user-tie" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.profil">profil</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-my-resume"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="briefcase" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.my_resume">my_resume</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-my-apply"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="bullhorn" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.my_apply">my_apply</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-short-list"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="bookmark" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.shortlist_job">shortlist_job</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-cv-manager"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="file" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.cv_manager">cv_manager</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-alert-job"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="bell" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.alert_job">alert_job</span>
-                </a>
-              </li>
-              <!-- <li *ngSwitchCase="true">
-                  <a
-                    class="dropdown-item"
-                    routerLink="/dash/dash-profil"
-                    routerLinkActive="active"
-                    (click)="collapseNavbar()"
-                    data-cy="profilItem"
-                  >
-                    <fa-icon icon="headset" [fixedWidth]="true"></fa-icon>
-                    <span jhiTranslate="global.menu.account.meeting">meeting</span>
-                  </a>
-                </li> -->
-              <li *ngSwitchCase="true">
-                <a class="dropdown-item" (click)="logout()" id="logout" data-cy="logout">
-                  <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.logout">Sign out</span>
-                </a>
-              </li>
-            </ul>
-            <ul ngbDropdownMenu class="navigation" aria-labelledby="account-menu_entreprise"
-                *ngIf="account?.userType=='entreprise_account'">
-              <li *ngSwitchCase="true">
-                <a class="dropdown-item" routerLink="/dash/dash-employer" routerLinkActive="active"
-                   (click)="collapseNavbar()" data-cy="settings">
-                  <fa-icon icon="gauge" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.dashboard">dashboard</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-employer-profile"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="user-tie" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.profil">profil</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-employer-my-job"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="briefcase" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.my_job">my_job</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-employer-submit-job"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="bullhorn" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.add_job">add_job</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-employer-applicant-job"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="bookmark" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.applicant_job">applicant_job</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-employer-shortlist"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.shortlist_candidat">shortlist_candidat</span>
-                </a>
-              </li>
-              <li *ngSwitchCase="true">
-                <a
-                  class="dropdown-item"
-                  routerLink="/dash/dash-employer-candidat-alert"
-                  routerLinkActive="active"
-                  (click)="collapseNavbar()"
-                  data-cy="profilItem"
-                >
-                  <fa-icon icon="bell" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.candidat_alert">candidat_alert</span>
-                </a>
-              </li>
-              <!--       <li *ngSwitchCase="true">
-                       <a
-                         class="dropdown-item"
-                         routerLink="/dash/dash-employer-package"
-                         routerLinkActive="active"
-                         (click)="collapseNavbar()"
-                         data-cy="profilItem"
-                       >
-                         <fa-icon icon="headset" [fixedWidth]="true"></fa-icon>
-                         <span jhiTranslate="global.menu.account.package">package</span>
-                       </a>
-                     </li>
-                     <li *ngSwitchCase="true">
-                       <a
-                         class="dropdown-item"
-                         routerLink="/dash/dash-employer-meeting"
-                         routerLinkActive="active"
-                         (click)="collapseNavbar()"
-                         data-cy="profilItem"
-                       >
-                         <fa-icon icon="headset" [fixedWidth]="true"></fa-icon>
-                         <span jhiTranslate="global.menu.account.meeting">meeting</span>
-                       </a>
-                     </li>-->
-              <li *ngSwitchCase="true">
-                <a class="dropdown-item" (click)="logout()" id="logout" data-cy="logout">
-                  <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.account.logout">Sign out</span>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
-        <a  href="javascript:void(0);" (click)="showMenu();" class="mobile-nav-toggler"><span class="flaticon-menu-1"></span></a>
+        <a  href="javascript:void(0);" (click)="showMenu(onmenu)"  class="mobile-nav-toggler"><span class="flaticon-menu-1"></span></a>
       </div>
     </div>
   </div>
 
   <!-- Mobile Nav -->
-  <div id="nav-mobile" [ngClass]="{'mm-menu_opened mm-menu mm-menu_offcanvas mm-menu_position-bottom mm-menu_fullscreen mm-menu_theme-black': is_mobile}"></div>
+  <div id="nav-mobile">
+
+  </div>
 
 </header>
 <!--End Main Header -->
 
 <app-signin #signin></app-signin>
+<ng-template #onmenu let-modal>
+<div class="panels">
+  <div id="navbar" class="mm-panel mm-panel_opened"><div class="mm-navbar mm-navbar_sticky">
+    <a class="mm-navbar__title" (click)="closeMenu()"><span>Menu</span></a>
+    <div class="">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+    <ul class="navigation mm-listview">
+      <li class="mm-listitem">
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" routerLink="/"
+           (click)="collapseNavbar()"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <span jhiTranslate="global.menu.home">Home</span>
+
+        </a>
+      </li>
+      <li class="mm-listitem">
+        <a (click)="collapseNavbar()" class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           routerLink="/find-job" id="Find">
+          <span jhiTranslate="global.menu.findjob">Find Jobs </span></a>
+      </li>
+
+      <li class="mm-listitem">
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" routerLink="/employers"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           id="Employers" (click)="collapseNavbar()">
+          <span jhiTranslate="global.menu.employer">Employers</span></a>
+      </li>
+      <li class="dropdown has-mega-menu mm-listitem">
+            <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" routerLink="/candidats"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: true }"
+               id="Candidates" (click)="collapseNavbar()">
+              <span jhiTranslate="global.menu.candidate">Candidates</span></a>
+      </li>
+      <li class="dropdown has-mega-menu mm-listitem">
+            <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" routerLink="/candidat-untrained"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: true }"
+               id="Candidates" (click)="collapseNavbar()">
+              <span jhiTranslate="global.menu.candidate_untrained">Candidates non formé</span></a>
+      </li>
+      <li class="dropdown has-mega-menu mm-listitem">
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" routerLink="/blog"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="collapseNavbar()" id="blog" data-cy="logout">
+          <span jhiTranslate="global.menu.blog">Blog </span></a>
+      </li>
+      <li class="dropdown has-mega-menu mm-listitem"><a  class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" routerLink="/about"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              href="javascript:void(0);"
+              (click)="collapseNavbar()" jhiTranslate="global.menu.about">About</a></li>
+      <li class="dropdown has-mega-menu mm-listitem">
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" routerLink="/contact"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }"
+             href="javascript:void(0);"
+             (click)="collapseNavbar()" jhiTranslate="global.menu.contact">Contact</a></li>
+      <li class="dropdown has-mega-menu mm-listitem">
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" routerLink="/faq"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          href="javascript:void(0);"
+          (click)="collapseNavbar()" jhiTranslate="global.menu.faq">Faq</a>
+      </li>
+      <li class="dropdown has-mega-menu mm-listitem">
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text"
+          routerLink="/term-condition"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          href="javascript:void(0);"
+          (click)="collapseNavbar()" jhiTranslate="global.menu.term-condition">term-condition</a>
+      </li>
+    </ul>
+</div>
+
+ <!--         <ul class="navigation mm-listview">
+        <li class="dropdown mm-listitem">
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" href="#mm-1">Home</a>
+        </li>
+
+      <li class="dropdown has-mega-menu mm-listitem" id="has-mega-menu">
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" href="#mm-2">Find Jobs</a></li>
+
+      <li class="dropdown mm-listitem">
+
+
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" href="#mm-3">Employers<span class="mm-sronly">Open submenu</span></a></li>
+      <li class="dropdown mm-listitem">
+
+
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" href="#mm-6">Candidates<span class="mm-sronly">Open submenu</span></a></li>
+      <li class="dropdown mm-listitem">
+
+
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" href="#mm-9">Blog<span class="mm-sronly">Open submenu</span></a></li>
+
+      <li class="current dropdown mm-listitem">
+
+
+        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" href="#mm-10">Pages
+          <span class="mm-sronly">
+          Open submenu</span></a></li>
+
+      &lt;!&ndash; Only for Mobile View &ndash;&gt;
+      <li class="mm-add-listing mm-listitem">
+        <a href="add-listing.html" class="theme-btn btn-style-one mm-listitem__text">Job Post</a>
+        <span class="mm-listitem__text">
+                    <span class="contact-info">
+                      <span class="phone-num"><span>Call us</span><a href="tel:1234567890">123 456 7890</a></span>
+                      <span class="address">329 Queensberry Street, North Melbourne VIC <br>3051, Australia.</span>
+                      <a href="mailto:support@superio.com" class="email">support@superio.com</a>
+                    </span>
+                    <span class="social-links">
+                      <a href="#"><span class="fab fa-facebook-f"></span></a>
+                      <a href="#"><span class="fab fa-twitter"></span></a>
+                      <a href="#"><span class="fab fa-instagram"></span></a>
+                      <a href="#"><span class="fab fa-linkedin-in"></span></a>
+                    </span>
+                  </span>
+      </li>
+    </ul>-->
+
+    </div>
+     <!-- <nav class="nav animated bounceInDown bg-dark">
+          <ul>
+            <li>
+              <a routerLink="/" (click)="collapseNavbar()"
+                 routerLinkActive="active"
+                 [routerLinkActiveOptions]="{ exact: true }"
+              >
+
+                <span jhiTranslate="global.menu.home">Home</span>
+
+              </a>
+            </li>
+            <li (click)="collapseNavbar()">
+              <a routerLinkActive="active" class="{{setActivate('find-job')}}"
+                 [routerLinkActiveOptions]="{ exact: true }"
+                 routerLink="/find-job" id="Find">
+                <span jhiTranslate="global.menu.findjob">Find Jobs </span></a>
+            </li>
+
+            <li>
+              <a routerLink="/employers"
+                 routerLinkActive="active"
+                 [routerLinkActiveOptions]="{ exact: true }"
+                 id="Employers" (click)="collapseNavbar()">
+                <span jhiTranslate="global.menu.employer">Employers</span></a>
+            </li>
+            <li>
+              <span jhiTranslate="global.menu.candidates">Candidates</span>
+              <ul>
+                <li class="dropdown">
+                  <a routerLink="/candidats"
+                     routerLinkActive="active"
+                     [routerLinkActiveOptions]="{ exact: true }"
+                     id="Candidates" (click)="collapseNavbar()">
+                    <span jhiTranslate="global.menu.candidate">Candidates</span></a>
+                </li>
+                <li class="dropdown">
+                  <a routerLink="/candidat-untrained"
+                     routerLinkActive="active"
+                     [routerLinkActiveOptions]="{ exact: true }"
+                     id="Candidates" (click)="collapseNavbar()">
+                    <span jhiTranslate="global.menu.candidate_untrained">Candidates non formé</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a routerLink="/blog"
+                 routerLinkActive="active"
+                 [routerLinkActiveOptions]="{ exact: true }"
+                 (click)="collapseNavbar()" id="blog" data-cy="logout">
+                <span jhiTranslate="global.menu.blog">Blog </span></a>
+            </li>
+
+            <li>
+              <span jhiTranslate="global.menu.page">Pages</span>
+              <ul>
+                <li><a routerLink="/about"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions]="{ exact: true }"
+                       href="javascript:void(0);"
+                       (click)="collapseNavbar()" jhiTranslate="global.menu.about">About</a></li>
+                <li><a routerLink="/contact"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions]="{ exact: true }"
+                       href="javascript:void(0);"
+                       (click)="collapseNavbar()" jhiTranslate="global.menu.contact">Contact</a></li>
+                <li>
+                  <a
+                    class="dropdown-item" routerLink="/faq"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    href="javascript:void(0);"
+                    (click)="collapseNavbar()" jhiTranslate="global.menu.faq">Faq</a>
+                </li>
+                <li>
+                  <a
+                    routerLink="/term-condition"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    href="javascript:void(0);"
+                    (click)="collapseNavbar()" jhiTranslate="global.menu.term-condition">term-condition</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>-->
+</ng-template>

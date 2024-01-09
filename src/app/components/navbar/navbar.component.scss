@@ -1,5 +1,16 @@
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
+.panels{
+  --mm-color-background: #202124;
+  --mm-color-text-dimmed: #979797;
+  --mm-color-border: rgba(255, 255, 255, 0.1);
+  background: var(--mm-color-background);
+  border-color: var(--mm-color-border);
+  color: var(--mm-color-text);
+}
+.mm-listitem{
+  color: #979797 !important;
+}
 .main-menu .navigation > a.active, .main-menu .navigation > li.current > span {
   color: #1967D2 !important;
 }

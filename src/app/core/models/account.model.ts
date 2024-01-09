@@ -6,6 +6,7 @@ export interface IAccount {
     lastName?: string | null;
     email?: string | null;
     phoneNumber?:string | null;
+  gender?:string | null;
     codePhone?:string | null;
     isVerify?:string | null;
     langKey	?:string | null;
@@ -30,6 +31,7 @@ export interface IAccount {
          public activated?:string | null,
          public  resetDate?:string | null,
          public address?:string|null,
+                public gender?:string|null,
          public latitude?:string|null,
          public longitude?:string|null,
          public fileUrl?:IFileUrl|null,

@@ -54,7 +54,6 @@ export class ShortlistJobComponent implements OnInit{
       .subscribe(
         (res: HttpResponse<IJob[]>) => {
           this.isLoading = false;
-          console.log(res.headers.get("X-Frame-Options"))
           this.onSuccess(res.body, res.headers, pageToLoad, !dontNavigate);
         },
         () => {
@@ -75,7 +74,6 @@ export class ShortlistJobComponent implements OnInit{
   }
 
   protected handleNavigation(): void {
-    //combineLatest([this.activatedRoute.data, this.activatedRoute.queryParamMap])
     combineLatest([this.activatedRoute.data, this.activatedRoute.queryParamMap]).subscribe(([data, params]) => {
       const page = params.get('page');
       const pageNumber = page !== null ? +page : 1;
@@ -91,8 +89,6 @@ export class ShortlistJobComponent implements OnInit{
   }
 
   protected onSuccess(data: IJob[] | null, headers: HttpHeaders, page: number, navigate: boolean): void {
-    console.log('###############################')
-    console.log(headers.get('content-type'))
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     this.ngbPaginationPage = this.page;

@@ -104,4 +104,11 @@ export class BackService {
   candidateRemoveLanguage(req: any) {
     return this.http.delete<any>(`${this.resourceUrl}candidats/remove-language/${req}`, { observe: 'response' });
   }
+
+  candidateAddBranche(req: any) {
+    return this.http.post<any>(`${this.resourceUrl}candidats/branches`, req);
+  }
+  candidateRemoveBranche(req: any) {
+    return this.http.delete<any>(`${this.resourceUrl}candidats/remove-branch/${req}`, { observe: 'response' });
+  }
 }

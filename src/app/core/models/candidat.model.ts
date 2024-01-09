@@ -4,6 +4,7 @@ import {ItemCandidat} from "./ItemCandidat.model";
 import {IcategoryJob} from "./categoryJob.model";
 import {IAddress} from "./address.model";
 import { ILanguage } from "./language.model";
+import {IBanche} from "./branche.model";
 
 export interface ICandidat {
   id?: string;
@@ -35,6 +36,7 @@ export interface ICandidat {
   awards?:ItemCandidat[]|null;
   addresses?:IAddress[]|null;
   languages?: ILanguage[] | null;
+  branches?: IBanche[] | null;
   userAccount?:Account |null;
 }
 

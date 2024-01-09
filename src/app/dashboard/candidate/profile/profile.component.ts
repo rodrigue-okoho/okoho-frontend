@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ActivateService} from "../../../views/account/activate/activate.service";
 import {LocalStorageService, SessionStorageService} from "ngx-webstorage";
 import {ActivatedRoute} from "@angular/router";
@@ -18,6 +18,8 @@ import {Observable} from "rxjs";
 import {MapDirectionsService} from "@angular/google-maps";
 import {map} from "rxjs/operators";
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ItemCandidat} from "../../../core/models/ItemCandidat.model";
+import {IBanche} from "../../../core/models/branche.model";
 
 @Component({
   selector: 'app-profile',
@@ -53,9 +55,9 @@ export class ProfileComponent implements OnInit {
 
   private canEditActivity: Boolean=false;
 
-  isLoading0: Boolean = false;
-  isLoading1: Boolean = false;
-  isLoading2: Boolean = false;
+  loading = false;
+  isLoading1 = false;
+  isLoading2 = false;
 
   constructor(private activateService: ActivateService, private formBuilder: FormBuilder,
               private localStorageService: LocalStorageService, private translateService: TranslateService,
@@ -87,8 +89,10 @@ export class ProfileComponent implements OnInit {
         this.categories = res.body
       });
     this.brancheForm = this.formBuilder.group({
-      branche: ["", [Validators.required]],
+      branch: ["", [Validators.required]],
       experience: ["", [Validators.required]],
+      id: ["", [Validators.required]],
+      owner_id: ["", [Validators.required]],
     })
     this.itemForm = this.formBuilder.group({
       firstName: ["", [Validators.required]],
@@ -156,6 +160,7 @@ export class ProfileComponent implements OnInit {
     this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
       (res: HttpResponse<ICandidat>) => {
         this.candidat = res.body
+        this.salaryType=this.candidat?.salaryType;
         this.btn_status = this.candidat?.userAccount?.firstName != null;
         this.itemForm = this.formBuilder.group({
           firstName: this.candidat?.userAccount?.firstName,
@@ -167,8 +172,7 @@ export class ProfileComponent implements OnInit {
           gender: this.candidat?.gender,
           phoneNumber: this.candidat?.userAccount?.phoneNumber,
           codePhone: this.candidat?.userAccount?.codePhone,
-          phone: this.candidat?.userAccount?.codePhone + this.candidat?.userAccount?.phoneNumber
-          ,
+          phone: this.candidat?.userAccount?.codePhone + this.candidat?.userAccount?.phoneNumber,
           user_type: this.candidat?.userAccount?.userType,
           country: this.candidat?.country,
           qualification: this.candidat?.qualification,
@@ -210,7 +214,6 @@ export class ProfileComponent implements OnInit {
           mode: "contact",
 
         });
-        //this.itemForm.value.phone.dialCode=this.candidat?.userAccount?.codePhone
         console.log(this.itemForm.value.phone);
       },
       () => {
@@ -225,19 +228,22 @@ export class ProfileComponent implements OnInit {
   }
 
   saveProfile() {
-    this.isLoading0 = true;
+    console.log(this.salaryType)
+    this.loading = true;
     this.itemForm.value.phoneNumber = this.itemForm.value.phone.number;
     this.itemForm.value.codePhone = this.itemForm.value.phone.dialCode;
+    this.itemForm.value.salaryType = this.salaryType;
     this.backService.candidatSaveProfile(this.itemForm.value)
       .subscribe((res: any) => {
+        console.log(this.loading)
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
         this.updateProfile();
-        this.isLoading0 = false;
+        this.loading = false;
       }, err => {
         console.log(err);
         this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.error.detail);
       });
-      this.isLoading0 = false;
+      this.loading = false;
   }
 
   saveSociale() {
@@ -325,18 +331,43 @@ export class ProfileComponent implements OnInit {
       this.brancheForm.value.id = null;
       this.brancheForm.value.owner_id = this.candidat?.id;
     }
-    console.log(this.brancheForm.value)
-    this.backService.candidateAddLanguage(this.brancheForm.value)
+    console.log(this.canEditActivity)
+    this.backService.candidateAddBranche(this.brancheForm.value)
       .subscribe((res: any) => {
-        this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
-          (res: HttpResponse<ICandidat>) => {
-            this.candidat = res.body})
+        this.updateProfile()
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
         this.brancheForm.reset();
         this.modalService.dismissAll();
       }, err => {
         console.log(err);
         this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
+      });
+    this.canEditActivity = false;
+  }
+
+  editBranch(b: IBanche, contentBranche: TemplateRef<any>) {
+    this.canEditActivity = true;
+    this.loadBranch(b);
+    this.openLg(contentBranche);
+  }
+  loadBranch(work: IBanche) {
+    console.log(work)
+    this.brancheForm.patchValue({
+      id: work.id,
+      branch: work.branch,
+      experience: work.experience
+    });
+    console.log(this.brancheForm.value)
+  }
+  deleteBranch(b: any) {
+    this.backService.candidateRemoveBranche(b.id)
+      .subscribe((res: any) => {
+        this.updateProfile()
+        this.toaster.success(this.translateService.instant('MESSAGES.DELETE_SUCCESS'), 'OK');
+        this.modalService.dismissAll();
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('MESSAGES.DELETE_ERROR'), err.message);
       });
     this.canEditActivity = false;
   }

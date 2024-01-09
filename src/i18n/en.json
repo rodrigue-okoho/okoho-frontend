@@ -216,6 +216,14 @@
       "error": "<strong>Your user could not be activated.</strong> Please use the registration form to sign up."
     }
   },
+  "activate-wait": {
+    "title": "Activation",
+    "congratulations": "Congratulations ! Your account has been created. Please check your email address to confirm your registration.",
+    "messages": {
+      "success": "<strong>Your user account has been activated.</strong> Please ",
+      "error": "<strong>Your user could not be activated.</strong> Please use the registration form to sign up."
+    }
+  },
   "home": {
     "title-box": {
       "h3": "There Are <span class='colored'>{{stastitc }}</span> Postings Here<br> For you!",
@@ -359,9 +367,10 @@
     "leave_a_message": "Leave a Message",
     "call_us": "Call Us",
     "address": "Address",
-    "education": "Education",
+    "open_job": "Open job",
     "education": "Education"
   },
+
   "dashboard": {
     "medical-care": "Medical care",
     "development-of-web": "Development of web and mobile applications",
@@ -373,5 +382,8 @@
       "english": "English",
       "germain": "Germain"
     }
+  },
+  "title": {
+    "recruteur-list": "Employers"
   }
 }

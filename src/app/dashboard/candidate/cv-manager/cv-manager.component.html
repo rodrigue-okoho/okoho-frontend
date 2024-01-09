@@ -16,6 +16,10 @@
                           <h4>Cv Manager</h4>
                         </div>
                         <div class="widget-content">
+                          <ngx-spinner bdColor ="rgba(0, 0, 0, 0.8)" size ="medium" color ="#fff"
+                                       template="<img src='https://media.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif' />"
+                                       type ="square-jelly-box" [fullScreen] = "true">
+                            <p style="color: white" > Loading... </p></ngx-spinner>
                           <ng-stepper #cdkStepper [linear]="true">
                             <cdk-step [stepControl]="stepOneForm" [optional]="false">
                               <ng-template cdkStepLabel>
@@ -103,14 +107,6 @@
                                       <span class="error" *ngIf="stepOneForm.controls['phoneNumber'].hasError('required') &&  stepOneForm.get('phoneNumber')?.touched">Phone is a required field
                                   </span>
                                     </div>
-                                   <!-- <div class="form-group col-lg-6 col-md-6">
-                                      <label>Nationality</label>
-                                      <select class="mb-2" formControlName="gender" type="text" name="gender" *ngFor="let country of countries">
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                      </select>
-                                      <button class="add-info-btn" (click)="addCountry()"><fa-icon icon="plus"></fa-icon> Nationality</button>
-                                    </div>-->
                                     <div class="row">
                                       <!-- Input -->
                                       <div class="form-group col-lg-6 col-md-12">
@@ -156,16 +152,17 @@
                                                   <span>{{award?.line2}}</span>
                                                 </div>
                                                 <div class="edit-box">
-                                                 <!-- <span class="year">{{award.begin|date:'yyyy'}} - {{award.begin|date:'yyyy'}}</span>-->
-                                                  <div class="edit-btns">
+                                                 <div class="edit-btns">
                                                     <button (click)="editAdress(award, contentAddress)"><fa-icon icon="edit"></fa-icon></button>
                                                     <button (click)="deleteAdress(award)"><fa-icon icon="trash"></fa-icon></button>
                                                   </div>
                                                 </div>
                                               </div>
                                               <div class="text">
-                                                {{award?.city}}
-                                                {{award?.country}}
+                                                <span class="break"><span>Adresse Line1</span>: <span>{{award?.line1}}</span></span>
+                                                <span class="break"><span>Adresse Line2</span>: <span>{{award?.line2}}</span></span>
+                                                <span class="break"><span>Town</span>: <span>{{award?.city}}</span></span>
+                                                <span class="break"><span>Country</span>: <span>{{award?.country}}</span></span>
                                               </div>
                                             </div>
                                           </div>
@@ -203,7 +200,7 @@
                                       <div class="title-box">
                                         <div class="info-box">
                                           <h3>{{work.libelle!}}</h3>
-                                          <h4>{{work.employer_name}}</h4>
+                                          <h3>{{work.employer_name}}</h3>
                                           <div class="d-flex flex-row justify-content-between">
                                             <span>{{work.country}} - {{work.location}}</span>
                                             <span>{{work?.line1}} - {{work?.line2}}</span>
@@ -257,7 +254,7 @@
                                       <div class="title-box">
                                         <div class="info-box">
                                           <h3>{{work.libelle!}}</h3>
-                                          <h4>{{work.traning_body}}</h4>
+                                          <h3>{{work.traning_body}}</h3>
                                           <div class="d-flex flex-row justify-content-between">
                                             <span>{{work.country}} - {{work.location}}</span>
                                             <span>  {{work?.line1}} - {{work?.line2}}</span>

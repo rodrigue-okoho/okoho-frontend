@@ -48,13 +48,11 @@
                           <input type="text" formControlName="lastName" name="name" placeholder="Jerome">
                         </div>
 
-                        <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
                           <label>Job Title *</label>
                           <input type="text" formControlName="jobTitle" placeholder="UI Designer">
                         </div>
 
-                        <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
                            <label class="form-label">Phone</label>
                          <!-- <input type="text"  placeholder="0 123 456 7890" hidden>-->
@@ -74,7 +72,6 @@
 
                         </div>
 
-                        <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
                           <label>Email address</label>
                           <input type="text" formControlName="email" placeholder="creativelayers">
@@ -152,12 +149,10 @@
 
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
-                          <button [class.auth-spinner]="isLoading0" [disabled]="isLoading0" *ngIf="!btn_status" class="theme-btn btn-style-one">
-                            <img *ngIf="isLoading0" style="width: 24px;" src="assets/images/spinner.gif" />
+                          <button [class.spinner]="loading" [disabled]="loading" *ngIf="!btn_status" class="theme-btn btn-style-one">
                             Save
                           </button>
-                          <button [class.auth-spinner]="isLoading0" [disabled]="isLoading0" *ngIf="btn_status" class="theme-btn btn-style-four">
-                            <img *ngIf="isLoading0" style="width: 24px;" src="assets/images/spinner.gif" />
+                          <button class="theme-btn btn-style-four" [ngClass]="loading?'spinner':''" [disabled]="loading" *ngIf="btn_status">
                             Update
                           </button>
                         </div>
@@ -166,7 +161,7 @@
                   </div>
                 </div>
               </div>
-              <!-- Ls widget -->
+              <!-- Ls Branch experience -->
               <div class="ls-widget">
                 <div class="tabs-box">
                   <div class="widget-title">
@@ -176,12 +171,31 @@
                   <div class="widget-content">
                     <div class="form-group col-md-12">
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="salary_type" (ngModel)="salaryType" type="radio" id="salary_type_p" value="professional">
+                        <input class="form-check-input" name="salary_type" [(ngModel)]="salaryType" type="radio" id="salary_type_p" value="professional">
                         <label class="form-check-label" for="salary_type_p">Search for professional training</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="salary_type" (ngModel)="salaryType" type="radio" id="salary_type_f" value="training">
+                        <input class="form-check-input" name="salary_type" [(ngModel)]="salaryType" type="radio" id="salary_type_f" value="training">
                         <label class="form-check-label" for="salary_type_f">Finding a job</label>
+                      </div>
+                    </div>
+                    <div class="resume-block" *ngFor="let b of candidat?.branches">
+                      <div class="inner">
+                        <span class="name">{{b?.branch!.charAt(0)}}</span>
+                        <div class="title-box">
+                          <div class="info-box">
+                            <h3>{{b?.branch!}}</h3>
+                            <h3>{{b?.experience!}}</h3>
+                          </div>
+                          <div class="edit-box">
+                            <div class="edit-btns">
+                              <button (click)="editBranch(b, contentBranche)"><fa-icon icon="edit"></fa-icon></button>
+                              <button (click)="deleteBranch(b)"><fa-icon icon="trash"></fa-icon></button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text">
+                        </div>
                       </div>
                     </div>
                     <div class="mb-3 mt-3 d-grid text-center">
@@ -191,7 +205,7 @@
                 </div>
               </div>
 
-              <!-- Ls widget -->
+              <!-- Ls widget social -->
               <div class="ls-widget">
                 <div class="tabs-box">
                   <div class="widget-title">
@@ -240,7 +254,7 @@
                 </div>
               </div>
 
-              <!-- Ls widget -->
+              <!-- Ls widget contact -->
               <div class="ls-widget">
                 <div class="tabs-box">
                   <div class="widget-title">
@@ -327,10 +341,8 @@
                         <!-- Input -->
                         <div class="form-group col-lg-12 col-md-12">
                           <button [class.auth-spinner]="isLoading2" [disabled]="isLoading2" *ngIf="!btn_status" class="theme-btn btn-style-one">
-                            <img *ngIf="isLoading2" style="width: 24px;" src="assets/images/spinner.gif" />
                             Save</button>
                           <button [class.auth-spinner]="isLoading2" [disabled]="isLoading2" *ngIf="btn_status" class="theme-btn btn-style-four">
-                            <img *ngIf="isLoading2" style="width: 24px;" src="assets/images/spinner.gif" />
                             Update</button>
                         </div>
                       </div>
@@ -358,23 +370,22 @@
             <div class="row d-flex justify-content-center">
               <div class="form-group col-sm-10">
                 <label for="con-intitule">Branch Activity</label>
-                <select formControlName="branche" class="chosen-select" style="">
-                  <option jhiTranslate="dashboard.medical-care">Medical care</option>
-                  <option jhiTranslate="dashboard.development-of-web">Development of web and mobile applications</option>
-                  <option jhiTranslate="dashboard.metal-construction-and-welding">Metal construction and welding</option>
-                  <option jhiTranslate="dashboard.mechatronics-and-mechanics">Mechatronics and mechanics</option>
-                  <option jhiTranslate="dashboard.electricity-electronics">Electricity & electronics</option>
+                <select formControlName="branch" class="form-control" style="">
+                  <option value="Medical care" jhiTranslate="dashboard.medical-care">Medical care</option>
+                  <option value="Development of web and mobile applications" jhiTranslate="dashboard.development-of-web">Development of web and mobile applications</option>
+                  <option value="Metal construction and welding" jhiTranslate="dashboard.metal-construction-and-welding">Metal construction and welding</option>
+                  <option value="Mechatronics and mechanics" jhiTranslate="dashboard.mechatronics-and-mechanics">Mechatronics and mechanics</option>
+                  <option value="Electricity & electronics" jhiTranslate="dashboard.electricity-electronics">Electricity & electronics</option>
                 </select>
               </div>
               <div class="form-group col-sm-10">
                 <label for="con-intitule">Experience</label>
-                <select formControlName="experience" class="chosen-select" style="">
-                  <option>Stage</option>
-                  <option>Pakistan</option>
-                  <option>Entry level</option>
-                  <option>0-2 Years</option>
-                  <option>2-4 Years</option>
-                  <option>12-16 Years</option>
+                <select formControlName="experience" class="form-control" style="">
+                  <option value="Stage">Stage</option>
+                  <option value="Entry level">Entry level</option>
+                  <option value="0-2 Years">0-2 Years</option>
+                  <option value="2-4 Years">2-4 Years</option>
+                  <option value="12-16 Years">12-16 Years</option>
                 </select>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild,inject, TemplateRef} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SessionStorageService } from 'ngx-webstorage';
@@ -8,6 +8,7 @@ import {SigninComponent} from "../signin/signin.component";
 import {AccountService} from "../../core/auth/account.service";
 import {LANGUAGES} from "../../core/config/language.constants";
 import {AuthService} from "../../core/services/auth.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 declare var $: any;
 @Component({
   selector: 'okoho-navbar',
@@ -24,6 +25,7 @@ export class NavbarComponent implements OnInit {
   languages = LANGUAGES;
   isNavbarFixed: boolean = false;
   is_mobile:boolean=false;
+  private modalService = inject(NgbModal);
   // @ts-ignore
   @ViewChild("signin")signin: SigninComponent;
   @HostListener('window:scroll', ['$event']) onScroll() {
@@ -64,6 +66,7 @@ export class NavbarComponent implements OnInit {
   }
   collapseNavbar(): void {
     this.isNavbarCollapsed = true;
+    this.modalService.dismissAll()
   }
 
   login(): void {
@@ -80,12 +83,23 @@ export class NavbarComponent implements OnInit {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
   }
 
-  showMenu() {
+  showMenu(content: TemplateRef<any>) {
     this.is_mobile=!this.is_mobile;
-    console.log(this.is_mobile)
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+      (result) => {
+       // this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+      //  this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      },
+    );
   }
 
   showSiderBar() {
     this.showDashboard=!this.showDashboard
+  }
+
+  closeMenu() {
+    this.modalService.dismissAll()
   }
 }

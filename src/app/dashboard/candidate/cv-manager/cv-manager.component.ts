@@ -18,6 +18,7 @@ import { ItemCandidat } from 'src/app/core/models/ItemCandidat.model';
 import { ILanguage } from 'src/app/core/models/language.model';
 import {Account} from "../../../core/auth/account.model";
 import { countries } from 'src/app/core/util/country-data-store';
+import {NgxSpinnerService} from "ngx-spinner";
 
 @Component({
   selector: 'app-cv-manager',
@@ -50,6 +51,7 @@ export class CvManagerComponent implements OnInit{
               private modalService: NgbModal,private cd: ChangeDetectorRef,
               private toaster: ToastrService,private translateService: TranslateService,
               private route: ActivatedRoute,private backService:BackService,
+              private spinner: NgxSpinnerService,
               private accountService: AccountService,) {
     this.E164PhoneNumber="+237675066919"
 
@@ -156,17 +158,19 @@ export class CvManagerComponent implements OnInit{
     this.updateProfile()
   }
   getCv(num:any){
+    this.spinner.show();
     this.backService.candidatMakeCv(this.localStorageService.retrieve('account_id'),num).subscribe(
       (res: HttpResponse<any>) => {
       //  console.log(res.body)
         this.pdfSrc=res.body.url
+        this.spinner.hide();
         window.open(this.pdfSrc,"blank")
         console.log(this.pdfSrc)
         this.cd.detectChanges()
         this.cd.markForCheck();
       },
       () => {
-        // this.isLoading = false;
+        this.spinner.hide();
         this.onError();
       })
   }
@@ -195,7 +199,7 @@ export class CvManagerComponent implements OnInit{
           town: this.candidat?.town,
           description: this.candidat?.description,
           age: this.candidat?.age,
-          gender: this.candidat?.gender,
+          gender: this.candidat?.userAccount?.gender,
           website: this.candidat?.website,
           dob: this.candidat?.dob,
           address: this.candidat?.userAccount?.codePhone,

@@ -91,8 +91,6 @@ export class MyApplyComponent implements OnInit{
   }
 
   protected onSuccess(data: IApplicantJob[] | null, headers: HttpHeaders, page: number, navigate: boolean): void {
-    console.log('###############################')
-    console.log(headers.get('content-type'))
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     this.ngbPaginationPage = this.page;

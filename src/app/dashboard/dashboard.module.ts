@@ -41,6 +41,7 @@ import {NgxMatIntlTelInputComponent} from "ngx-mat-intl-tel-input";
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {GoogleMapsModule} from "@angular/google-maps";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import {GoogleMapsModule} from "@angular/google-maps";
     NgxIntlTelInputModule,
     PdfViewerModule,
     GoogleMapsModule,
+    NgxSpinnerModule
   ],
   exports: []
 })
