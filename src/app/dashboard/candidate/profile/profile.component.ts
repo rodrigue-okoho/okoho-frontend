@@ -47,9 +47,11 @@ export class ProfileComponent implements OnInit {
 
   circleCenter: google.maps.LatLngLiteral = {lat: 51.989858047086535, lng: 8.78541302551178};
   radius = 3;
-  isLoading0: Boolean = false;
-  isLoading1: Boolean = false;
-  isLoading2: Boolean = false;
+
+  isLoading0: boolean = false;
+  isLoading1: boolean = false;
+  isLoading2: boolean = false;
+
   constructor(private activateService: ActivateService, private formBuilder: FormBuilder,
               private localStorageService: LocalStorageService, private translateService: TranslateService,
               private sessionStorageService: SessionStorageService, private toaster: ToastrService,
@@ -212,8 +214,10 @@ export class ProfileComponent implements OnInit {
 
   saveProfile() {
     this.isLoading0 = true;
-    this.itemForm.value.phoneNumber = this.itemForm.value.phone.number;
-    this.itemForm.value.codePhone = this.itemForm.value.phone.dialCode;
+    if( this.itemForm.value.phone !== null && this.itemForm.value.phone.number !== null && this.itemForm.value.phone.dialCode !== null) {
+      this.itemForm.value.phoneNumber = this.itemForm.value.phone.number;
+      this.itemForm.value.codePhone = this.itemForm.value.phone.dialCode;
+    }
     this.backService.candidatSaveProfile(this.itemForm.value)
       .subscribe((res: any) => {
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
@@ -221,9 +225,9 @@ export class ProfileComponent implements OnInit {
         this.isLoading0 = false;
       }, err => {
         console.log(err);
+        this.isLoading0 = false;
         this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.error.detail);
       });
-      this.isLoading0 = false;
   }
 
   saveSociale() {
@@ -236,9 +240,9 @@ export class ProfileComponent implements OnInit {
         this.isLoading1 = false;
       }, err => {
         console.log(err);
-        this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.message);
+        this.isLoading1 = false;
+        this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.message);        
       });
-      this.isLoading1 = false;
   }
 
   saveContact() {
@@ -251,9 +255,9 @@ export class ProfileComponent implements OnInit {
         this.isLoading2 = false;
       }, err => {
         console.log(err);
+        this.isLoading2 = false;
         this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.message);
       });
-      this.isLoading2 =false;
   }
 
   uploadCv(event: any) {
