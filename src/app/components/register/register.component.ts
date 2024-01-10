@@ -7,6 +7,7 @@ import {isPlatformBrowser} from "@angular/common";
 import {AuthService} from "../../core/services/auth.service";
 import {AuthServerProvider} from "../../core/auth/auth-jwt.service";
 import {FacebookLoginProvider, SocialAuthService} from "@abacritt/angularx-social-login";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-register',
@@ -28,6 +29,7 @@ export class RegisterComponent {
   @ViewChild("register", { static: false }) register: TemplateRef<any>;
   constructor(@Inject(PLATFORM_ID) private platformId: Object,private authService: SocialAuthService
     ,private translateService: TranslateService,private loginService: AuthServerProvider,
+              private toaster: ToastrService,
               private router: Router,private modalService: NgbModal,private fb: FormBuilder) {
     this.loginform = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -94,11 +96,14 @@ export class RegisterComponent {
           this.modalService.dismissAll()
           this.router.navigate(['account/activate-wait']);
           if (!this.router.getCurrentNavigation()) {
-            // There were no routing during login (eg from navigationToStoredUrl)
             this.router.navigate(['activate-wait']);
           }
         },
-        () => (this.loading = false)
+        (error) => {
+          console.log(error)
+          this.toaster.error(this.translateService.instant('error.http.400'), "An error has occurred");
+          this.loading = false
+        }
       );
   }
 }
