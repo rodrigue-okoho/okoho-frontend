@@ -119,14 +119,6 @@ const routes: Routes = [
     component: ShortListCandidatComponent
   },
   {
-    path: 'dash-employer-submit-job',
-    component: SubmitJobComponent
-  },
-  {
-    path: 'dash-employer-submit-job/:id',
-    component: SubmitJobComponent
-  },
-  {
     path: 'dash-employer-applicant-job',
     data: {
       defaultSort: 'id,asc',
@@ -139,6 +131,14 @@ const routes: Routes = [
       defaultSort: 'id,asc',
     },
     component: MyJobComponent
+  },
+  {
+    path: 'dash-employer-submit-job',
+    component: SubmitJobComponent
+  },
+  {
+    path: 'dash-employer-submit-job/:id',
+    component: SubmitJobComponent
   },
 ];
 
