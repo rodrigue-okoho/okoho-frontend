@@ -89,6 +89,12 @@ export class BackService {
   jobSave(req: any): Observable<HttpResponse<IEmployer>> {
     return this.http.post<any>(`${this.resourceUrl}offer-jobs`, req);
   }
+  getJob(req?: any): Observable<HttpResponse<IJob>> {
+    return this.http.get<IJob>(`${this.resourceUrl}offer-jobs/${req}`, {observe: 'response'});
+  }
+  deleteJob(req: any) {
+    return this.http.delete<any>(`${this.resourceUrl}offer-jobs/${req}`, { observe: 'response' });
+  }
   employerJoblist(req?: any): Observable<HttpResponse<IJob[]>> {
     return this.http.get<IJob[]>(`${this.resourceUrl}offer-jobs/my-job/${req}`, {observe: 'response'});
   }

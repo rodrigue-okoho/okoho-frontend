@@ -123,6 +123,10 @@ const routes: Routes = [
     component: SubmitJobComponent
   },
   {
+    path: 'dash-employer-submit-job/:id',
+    component: SubmitJobComponent
+  },
+  {
     path: 'dash-employer-applicant-job',
     data: {
       defaultSort: 'id,asc',

@@ -45,7 +45,7 @@
                         </thead>
 
                         <tbody>
-                          <tr *ngFor="let job of jobs">
+                          <tr *ngFor="let job of jobs; trackBy: trackByFn">
                             <td>
                               <h6>{{job.title}}</h6>
                               <span class="info"><fa-icon icon="map-location"></fa-icon>
@@ -57,11 +57,11 @@
                             <td>
                               <div class="option-box">
                                 <ul class="option-list">
-                                  <li><button data-text="View Aplication">
+                                  <li><button data-text="View Aplication" (click)="viewJob(job)">
                                   <fa-icon icon="eye"></fa-icon>
                                   </button></li>
-                                  <li><button data-text="Reject Aplication"> <fa-icon icon="edit"></fa-icon></button></li>
-                                  <li><button data-text="Delete Aplication"> <fa-icon icon="trash"></fa-icon></button></li>
+                                  <li><button data-text="Reject Aplication" (click)="edit(job)"> <fa-icon icon="edit"></fa-icon></button></li>
+                                  <li><button data-text="Delete Aplication" (click)="deleteJob(job)"> <fa-icon icon="trash"></fa-icon></button></li>
                                 </ul>
                               </div>
                             </td>
@@ -75,8 +75,20 @@
               </div>
             </div>
 
-
+              <!-- Listing Show More -->
+              <div class="ls-show-more">
+                <div class="row justify-content-center">
+                  <ngb-pagination
+                    [collectionSize]="totalItems"
+                    [(page)]="ngbPaginationPage"
+                    [pageSize]="itemsPerPage"
+                    [maxSize]="5"
+                    [rotate]="true"
+                    [boundaryLinks]="true"
+                    (pageChange)="loadPage($event)"
+                  ></ngb-pagination>
+                </div>
+              </div>
           </div>
         </div>
       </section>
-

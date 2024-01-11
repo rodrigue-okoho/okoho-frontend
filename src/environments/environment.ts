@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://okoho-app-c843061595ca.herokuapp.com',
+  apiUrl: 'https://olocalhost:8080',
   apiCv: 'https://cvs.okoho-consulting.de'
 };

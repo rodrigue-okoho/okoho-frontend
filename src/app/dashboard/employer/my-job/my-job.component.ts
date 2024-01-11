@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {ActivateService} from "../../../views/account/activate/activate.service";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LocalStorageService, SessionStorageService} from "ngx-webstorage";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Route, Router} from "@angular/router";
 import {BackService} from "../../../core/services/back.service";
 import {AccountService} from "../../../core/auth/account.service";
 import {Account} from "../../../core/auth/account.model";
@@ -12,6 +12,11 @@ import {ASC, DESC, ITEMS_PER_PAGE, SORT} from "../../../core/config/pagination.c
 import {HttpHeaders, HttpResponse} from "@angular/common/http";
 import {ICandidat} from "../../../core/models/candidat.model";
 import {combineLatest} from "rxjs";
+import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { IcategoryJob } from 'src/app/core/models/categoryJob.model';
+import { countries } from 'src/app/core/util/country-data-store';
 
 @Component({
   selector: 'app-my-job',
@@ -19,6 +24,7 @@ import {combineLatest} from "rxjs";
   styleUrls: ['./my-job.component.scss']
 })
 export class MyJobComponent implements OnInit{
+[x: string]: any;
   error = false;
   success = false;
   account: Account | null = null;
@@ -32,12 +38,18 @@ export class MyJobComponent implements OnInit{
   ascending!: boolean;
   ngbPaginationPage = 1;
   entreprise: IEmployer|null = null;
-  constructor(private activateService: ActivateService,
+
+  jobForm!: FormGroup;
+  job_apply_type:any;
+  categories?: IcategoryJob[]| null;
+  public countries:any = countries;
+
+  constructor(
               private localStorageService: LocalStorageService,
-              private sessionStorageService: SessionStorageService,
-              protected activatedRoute: ActivatedRoute,
-              private backService:BackService,
-              private accountService: AccountService,) {}
+              protected activatedRoute: ActivatedRoute, private route: Router,
+              private backService:BackService, private fb: FormBuilder,
+              private toaster: ToastrService,private translateService: TranslateService,
+              ) {}
 
   ngOnInit(): void {
     this.backService.employerProfile(this.localStorageService.retrieve('account_id')).subscribe(
@@ -45,9 +57,8 @@ export class MyJobComponent implements OnInit{
         this.entreprise=res.body;
         this.handleNavigation();
       }); 
-         
-  
   }
+
   loadPage(page?: number, dontNavigate?: boolean): void {
     this.isLoading = true;
     const pageToLoad: number = page ?? this.page ?? 1;
@@ -69,6 +80,7 @@ export class MyJobComponent implements OnInit{
         }
       );
   }
+
   trackId(index: number, item: ICandidat): string {
     return item.id!;
   }
@@ -108,4 +120,36 @@ export class MyJobComponent implements OnInit{
   protected onError(): void {
     this.ngbPaginationPage = this.page ?? 1;
   }
+
+  // TODO 
+
+  deleteJob(job: IJob) {
+    if(job !== null && (job.id !== null && job.id !== undefined)) {
+      this.backService.deleteJob(job.id)
+      .subscribe((res: any) => {
+        this.toaster.success(this.translateService.instant('MESSAGES.DELETE_SUCCESS'), 'OK');
+        this.loadPage();
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('MESSAGES.DELETE_ERROR'), err.message);
+      });
+    }
+  }
+
+  viewJob(job: IJob) {
+    if(job !== null && job.id !== null && job.id !== undefined) {
+      this.route.navigateByUrl("/find-job/detail/" + job.id);
+    }
+  }
+
+  edit(job : IJob) {
+    if(job !== null && job.id !== null && job.id !== undefined) {
+      this.route.navigateByUrl("/dash-employer-submit-job/" + job.id);
+    }
+  }
+
+  trackByFn(index: number, item: IJob): number {
+    return index;
+  }
+
 }
