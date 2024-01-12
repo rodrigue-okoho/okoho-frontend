@@ -11,6 +11,7 @@
          routerLinkActive="active"
          class="nav-link {{setActivate('dash-candidate')}}"
          (click)="collapseNavbar()">
+        <i class="la la-home"></i>
         <fa-icon icon="dashboard"></fa-icon>
         <span class="nav-menu-item-title"> Dashboard</span>
       </a>
@@ -19,7 +20,7 @@
       <a routerLink="/dash/dash-my-profile"
          routerLinkActive="active" class="{{setActivate('dash-my-profile')}}"
          (click)="collapseNavbar()">
-        <fa-icon icon="user"></fa-icon>
+        <i class="la la-user-tie"></i>
         <span jhiTranslate="global.menu.account.profil" class="nav-menu-item-title"> profiles</span>
       </a>
     </li>

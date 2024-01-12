@@ -37,6 +37,7 @@ export class ApplicantJobComponent implements OnInit{
   entreprise: IEmployer|null = null;
   status?: string | null;
   placehoder: "select Job";
+  loading=false;
   constructor(private activateService: ActivateService,
               private localStorageService: LocalStorageService,
               private sessionStorageService: SessionStorageService,

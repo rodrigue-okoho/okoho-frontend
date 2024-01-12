@@ -322,11 +322,17 @@
 
                         <div class="form-group col-lg-12 col-md-12">
                           <div class="map-outer">
-                            <google-map height="400px" width="100%" [center]="center" [zoom]="zoom">
+                            <div style="height: 400px;"
+                                 leaflet
+                                 [leafletOptions]="options"
+                                 [leafletLayers]="layers"
+                            >
+                            </div>
+                           <!-- <google-map height="400px" width="100%" [center]="center" [zoom]="zoom">
 
                               <map-directions-renderer  [directions]="directionResults" />
 
-                            </google-map>
+                            </google-map>-->
                            <!-- <google-map class="map-canvas map-height" height="400px" width="100%" [center]="center" [zoom]="zoom">
                               <map-circle [center]="circleCenter" [radius]="radius" />
                             </google-map>-->

@@ -137,3 +137,20 @@ fa-icon{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@keyframes spinner2 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner2:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  border-top-color: #000000;
+  animation: spinner 0.8s linear infinite;
+}

@@ -56,11 +56,11 @@ export class MyJobComponent implements OnInit{
       (res: HttpResponse<IEmployer>) => {
         this.entreprise=res.body;
         this.handleNavigation();
-      }); 
+      });
   }
 
   loadPage(page?: number, dontNavigate?: boolean): void {
-    this.isLoading = true;
+    this.loading = true;
     const pageToLoad: number = page ?? this.page ?? 1;
     this.backService
       .employerJob(this.entreprise?.id,{
@@ -71,7 +71,6 @@ export class MyJobComponent implements OnInit{
       .subscribe(
         (res: HttpResponse<IJob[]>) => {
           this.isLoading = false;
-          console.log(res.headers.get("X-Frame-Options"))
           this.onSuccess(res.body, res.headers, pageToLoad, !dontNavigate);
         },
         () => {
@@ -108,8 +107,7 @@ export class MyJobComponent implements OnInit{
   }
 
   protected onSuccess(data: ICandidat[] | null, headers: HttpHeaders, page: number, navigate: boolean): void {
-    console.log('###############################')
-    console.log(headers.get('content-type'))
+   this.loading=false
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     this.ngbPaginationPage = this.page;
@@ -119,9 +117,11 @@ export class MyJobComponent implements OnInit{
 
   protected onError(): void {
     this.ngbPaginationPage = this.page ?? 1;
+    this.loading=false
   }
 
-  // TODO 
+  // TODO
+  loading=false;
 
   deleteJob(job: IJob) {
     if(job !== null && (job.id !== null && job.id !== undefined)) {

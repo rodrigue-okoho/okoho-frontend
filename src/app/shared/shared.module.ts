@@ -13,6 +13,7 @@ import { SortByDirective } from './sort/sort-by.directive';
 import { SortDirective } from './sort/sort.directive';
 import { ItemCountComponent } from './pagination/item-count.component';
 import {SafePipe} from "./safe-pipe/safe-pipe";
+import {TimeAgoPipe} from "./timeago/time-ago.pipe";
 
 @NgModule({
   imports: [SharedLibsModule],
@@ -29,6 +30,7 @@ import {SafePipe} from "./safe-pipe/safe-pipe";
     SortByDirective,
     SortDirective,
     ItemCountComponent,
+    TimeAgoPipe
   ],
   exports: [
     SharedLibsModule,
@@ -44,6 +46,7 @@ import {SafePipe} from "./safe-pipe/safe-pipe";
     SortDirective,
     ItemCountComponent,
     SafePipe,
+    TimeAgoPipe,
   ],
 })
 export class SharedModule {}

@@ -30,6 +30,7 @@ import { DataProtectionComponent } from './data-protection/data-protection.compo
 import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { CandidateUntrainedComponent } from './candidate-untrained/candidate-untrained.component';
 import {PdfViewerModule} from "ng2-pdf-viewer";
+import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 
 
 
@@ -67,6 +68,7 @@ import {PdfViewerModule} from "ng2-pdf-viewer";
     ViewsRoutingModule,
     ComponentsModule,
     PdfViewerModule,
+    LeafletModule
   ],
 
 })

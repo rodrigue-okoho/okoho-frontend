@@ -50,7 +50,11 @@
                         </ul>
                       </div>
                       <div class="tabs-content">
-
+                        <tr>
+                          <td class="d-flex justify-content-center" colspan="2">
+                            <span class="text-center"  [class.spinner2]="isLoading"></span>
+                          </td>
+                        </tr>
                           <div class="row">
                             <!-- Candidate block three -->
                             <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12"  *ngFor="let appy of applies">

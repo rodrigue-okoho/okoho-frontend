@@ -359,7 +359,11 @@
     "your_name": "Uw naam",
     "leave_a_message": "Laat een bericht achter",
     "call_us": "Bel ons",
-    "address": "Adres"
+    "address": "Adres",
+    "alert_job": "Alert job",
+    "alert_candidate": "Alert candidates",
+    "choose_frequency": "Choose a frequence",
+    "tag": "Tag"
   },
   "dashboard": {
     "medical-care": "Medische zorg",
@@ -372,5 +376,13 @@
       "english": "Engels",
       "germain": "Duits"
     }
+  },
+  "title": {
+    "recruteur-list": "Employers",
+    "candidat-list": "Candidats",
+    "find-job": "Find jobs",
+    "contact": "Contact",
+    "about": "About",
+    "faq": "Faq"
   }
 }

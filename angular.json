@@ -39,6 +39,7 @@
               "node_modules/bootstrap/scss/bootstrap.scss",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/intl-tel-input/build/css/intlTelInput.css",
+              "node_modules/leaflet/dist/leaflet.css",
               "src/styles.scss"
             ],
             "scripts": [

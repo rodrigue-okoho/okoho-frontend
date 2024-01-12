@@ -45,7 +45,11 @@ export class BackService {
   }
   candidatAlertJob(id?:string,req?: any): Observable<HttpResponse<IJob[]>> {
     const options = createRequestOption(req);
-    return this.http.get<IJob[]>(`${this.resourceUrl}offer-jobs/candidat/${id}`, { params: options, observe: 'response' });
+    return this.http.get<IJob[]>(`${this.resourceUrl}alerts/candidat/${id}`, { params: options, observe: 'response' });
+  }
+  employerAlertJob(id?:string,req?: any): Observable<HttpResponse<IJob[]>> {
+    const options = createRequestOption(req);
+    return this.http.get<IJob[]>(`${this.resourceUrl}alerts/entreprise/${id}`, { params: options, observe: 'response' });
   }
   candidateAddCv(req: any) {
     return this.http.post<any>(`${this.resourceUrl}candidats/addcv`, req);

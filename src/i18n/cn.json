@@ -371,7 +371,11 @@
   "your_name": "您的姓名",
   "leave_a_message": "留言",
   "call_us": "致電我們",
-  "address": "位址"
+  "address": "位址",
+    "alert_job": "Alert job",
+    "alert_candidate": "Alert candidates",
+    "choose_frequency": "Choose a frequence",
+    "tag": "Tag"
   },
   "dashboard": {
     "medical-care": "醫療",
@@ -384,5 +388,13 @@
       "english": "英語",
       "germain": "德語"
     }
+  },
+  "title": {
+    "recruteur-list": "Employers",
+    "candidat-list": "Candidats",
+    "find-job": "Find jobs",
+    "contact": "Contact",
+    "about": "About",
+    "faq": "Faq"
   }
 }

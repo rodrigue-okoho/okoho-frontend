@@ -5,6 +5,12 @@ import {ICandidat} from "../../core/models/candidat.model";
 import {ASC, DESC, ITEMS_PER_PAGE, SORT} from "../../core/config/pagination.constants";
 import {HttpHeaders, HttpResponse} from "@angular/common/http";
 import {combineLatest} from "rxjs";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Account} from "../../core/auth/account.model";
+import {LocalStorageService, SessionStorageService} from "ngx-webstorage";
+import {TranslateService} from "@ngx-translate/core";
+import {ToastrService} from "ngx-toastr";
+import {AccountService} from "../../core/auth/account.service";
 
 @Component({
   selector: 'app-candidats',
@@ -12,6 +18,7 @@ import {combineLatest} from "rxjs";
   styleUrls: ['./candidats.component.scss']
 })
 export class CandidatsComponent  implements OnInit {
+  account: Account | null = null;
   zoom = 12;
   loading = false;
   center: google.maps.LatLngLiteral;
@@ -40,8 +47,12 @@ export class CandidatsComponent  implements OnInit {
   bydateposted: string="";
   byexperience: string="";
   byeducation: string="";
+  public form: FormGroup;
   constructor( protected frontService: FrontService,
-               protected activatedRoute: ActivatedRoute,
+               private formBuilder: FormBuilder,
+               private localStorageService: LocalStorageService, private translateService: TranslateService,
+               private sessionStorageService: SessionStorageService, private toaster: ToastrService,
+               protected activatedRoute: ActivatedRoute,private accountService: AccountService,
                protected router: Router,) {
     this.currentSearch = this.activatedRoute.snapshot.queryParams['search'] ?? '';
   }
@@ -102,6 +113,19 @@ export class CandidatsComponent  implements OnInit {
 
   ngOnInit(): void {
     this.handleNavigation();
+    this.form = this.formBuilder.group({
+      title: ["", [Validators.required]],
+      category: ["", [Validators.required]],
+      location: ["", [Validators.required]],
+      intitule: ["", [Validators.required]],
+      education: ["", [Validators.required]],
+      date_posted: ["", [Validators.required]],
+      experience: ["", [Validators.required]],
+      frequency: ["", [Validators.required]],
+      type: ["job", [Validators.required]],
+      owner_id: ["", [Validators.required]],
+    })
+    this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
   }
 
   trackId(index: number, item: ICandidat): string {
@@ -222,5 +246,28 @@ export class CandidatsComponent  implements OnInit {
 
   showing($event: any) {
     console.log($event.target.value)
+  }
+  saveAlert() {
+    if (this.account !=null){
+      if (this.account.userType=="entreprise_account"){
+        this.form.value.owner_id = this.account.id;
+        this.form.value.education = this.byeducation;
+        this.form.value.location = this.bylocation;
+        this.form.value.experience = this.byexperience;
+        this.form.value.date_posted = this.bydateposted;
+        this.form.value.category = this.bycategory;
+        this.form.value.intitule = this.currentSearch;
+        console.log(this.form.value)
+        this.frontService.alertSave(this.form.value)
+          .subscribe((res: any) => {
+            this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+            // this.loading = false;
+          }, err => {
+            this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.error.detail);
+          });
+      }
+
+    }
+
   }
 }

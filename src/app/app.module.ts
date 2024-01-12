@@ -43,6 +43,7 @@ import {NgxSpinnerModule} from "ngx-spinner";
 import {ComponentsModule} from "./components/components.module";
 import { NgxMatomoTrackerModule } from '@ngx-matomo/tracker';
 import { MatomoModule } from 'ngx-matomo';
+import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 @NgModule({
 
   imports: [
@@ -73,6 +74,7 @@ import { MatomoModule } from 'ngx-matomo';
         useFactory: missingTranslationHandler,
       },
     }),
+    LeafletModule,
     MatomoModule.forRoot({
       scriptUrl: '//analitics.okoho-consulting.de/matomo.js',
       trackers: [

@@ -1,7 +1,7 @@
 import { IFileUrl } from "./FileUrl.model";
 
 export interface IAccount {
-    id?: number;
+    id?: string|null;
     firstName?: string | null;
     lastName?: string | null;
     email?: string | null;
@@ -19,7 +19,9 @@ export interface IAccount {
 }
 
   export class Account implements IAccount {
-    constructor(public id?: number, public firstName?: string | null,
+    constructor(
+      public id?: string|null,
+      public firstName?: string | null,
          public lastName?: string | null,
          public phoneNumber?:string | null,
                 public email?:string | null,
@@ -38,6 +40,6 @@ export interface IAccount {
          public roles?:[] | null,
          ) {}
   }
-  export function getAccountIdentifier(account: IAccount): number | undefined {
+  export function getAccountIdentifier(account: IAccount): string | undefined {
     return account.id;
   }

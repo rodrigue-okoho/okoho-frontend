@@ -45,6 +45,13 @@
                         </thead>
 
                         <tbody>
+                        <tr>
+                          <td class="d-flex justify-content-center" colspan="2">
+                            <span class="text-center"  [class.spinner2]="loading"></span>
+                          </td>
+                        </tr>
+
+
                           <tr *ngFor="let job of jobs; trackBy: trackByFn">
                             <td>
                               <h6>{{job.title}}</h6>

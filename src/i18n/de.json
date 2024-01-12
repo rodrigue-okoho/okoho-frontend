@@ -361,7 +361,11 @@
     "your_name": "Ihr Name",
     "leave_a_message": "Eine Nachricht hinterlassen",
     "call_us": "Rufen Sie uns an",
-    "address": "Adresse"
+    "address": "Adresse",
+    "alert_job": "Alert job",
+    "alert_candidate": "Alert candidates",
+    "choose_frequency": "Choose a frequence",
+    "faq": "Faq"
   },
   "dashboard": {
     "medical-care": "Medizinische Versorgung",
@@ -374,5 +378,13 @@
       "english": "Englisch",
       "germain": "Deutsch"
     }
+  },
+  "title": {
+    "recruteur-list": "Employers",
+    "candidat-list": "Candidats",
+    "find-job": "Find jobs",
+    "contact": "Contact",
+    "about": "About",
+    "faq": "Faq"
   }
 }

@@ -1,5 +1,6 @@
 export class Account {
   constructor(
+    public id: string,
     public activated: boolean,
     public roles: string[],
     public email: string,

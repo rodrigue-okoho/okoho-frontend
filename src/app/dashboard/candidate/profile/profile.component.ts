@@ -20,6 +20,8 @@ import {map} from "rxjs/operators";
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ItemCandidat} from "../../../core/models/ItemCandidat.model";
 import {IBanche} from "../../../core/models/branche.model";
+import * as L from "leaflet";
+import {circle, latLng, marker, polygon, tileLayer} from "leaflet";
 
 @Component({
   selector: 'app-profile',
@@ -81,7 +83,27 @@ export class ProfileComponent implements OnInit {
   data = {mobile: "+237675066919"};
   CountryISO = CountryISO;
   readonly directionsResults$: Observable<google.maps.DirectionsResult|undefined>;
-
+  options = {
+    layers: [
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { maxZoom: 22, attribution: 'okoho.de' })
+    ],
+    zoom: 15,
+    center: latLng(51.505, -0.09)
+  };
+  layersControl = {
+    baseLayers: {
+      'Open Street Map': tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' }),
+      'Open Cycle Map': tileLayer('https://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
+    },
+    overlays: {
+      'Big Circle': circle([ 46.95, -122 ], { radius: 5000 }),
+      'Big Square': polygon([[ 46.8, -121.55 ], [ 46.9, -121.55 ], [ 46.9, -121.7 ], [ 46.8, -121.7 ]])
+    }
+  }
+  layers = [
+    marker([ 51.505, -0.09 ])
+  ];
   ngOnInit(): void {
     this.E164PhoneNumber = "+237675066919"
     this.backService.categoryJobs().subscribe(

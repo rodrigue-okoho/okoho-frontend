@@ -213,6 +213,30 @@
               <li><a href="#">react</a></li>
             </ul>
           </div>
+          <div class="filter-block">
+            <h4  jhiTranslate="page.alert_job">Alert jobs</h4>
+            <form class="" [formGroup]="form" (submit)="saveAlert()">
+              <div class="form-group">
+                <label>Title</label>
+                <input formControlName="title" class="form-control" type="text"/>
+              </div>
+              <div class="form-group">
+                  <label class="form-label">Email Frequency</label>
+                  <select formControlName="frequency" class="chosen-select" style="">
+                    <option jhiTranslate="page.choose_frequency">Choose a frequence</option>
+                    <option value="daily">Daily</option>
+                    <option value="fortnightly">Fortnightly</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="biannually">Biannually</option>
+                  </select>
+              </div>
+              <div class="btn-box">
+                <button class="theme-btn btn-style-one mt-2">Save Alert</button>
+              </div>
+            </form>
+          </div>
+
         </div>
       </div>
     </div>
@@ -275,7 +299,7 @@
                       {{job?.recruteur.location}}</li>
                     <li>
                       <fa-icon icon="clock-four"></fa-icon>
-                      11 hours ago
+                      {{job?.createdAt|timeAgo}}
                     </li>
                     <li>
                       <fa-icon icon="money-bill"></fa-icon>

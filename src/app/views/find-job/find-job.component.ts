@@ -7,6 +7,12 @@ import {HttpHeaders, HttpResponse} from "@angular/common/http";
 import {ICandidat} from "../../core/models/candidat.model";
 import {combineLatest} from "rxjs";
 import {IJob} from "../../core/models/job.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {LocalStorageService, SessionStorageService} from "ngx-webstorage";
+import {TranslateService} from "@ngx-translate/core";
+import {ToastrService} from "ngx-toastr";
+import {AccountService} from "../../core/auth/account.service";
+import {Account} from "../../core/auth/account.model";
 
 @Component({
   selector: 'app-find-job',
@@ -14,6 +20,7 @@ import {IJob} from "../../core/models/job.model";
   styleUrls: ['./find-job.component.scss']
 })
 export class FindJobComponent  implements OnInit {
+  account: Account | null = null;
   jobs?: IJob[];
   currentSearch: string;
   location:string;
@@ -32,8 +39,11 @@ export class FindJobComponent  implements OnInit {
   bysalary: string="";
   bydateposted: string="";
   bytype: string="";
-  constructor( protected frontService: FrontService,
-               protected activatedRoute: ActivatedRoute,
+  public form: FormGroup;
+  constructor( protected frontService: FrontService,private formBuilder: FormBuilder,
+               private localStorageService: LocalStorageService, private translateService: TranslateService,
+               private sessionStorageService: SessionStorageService, private toaster: ToastrService,
+               protected activatedRoute: ActivatedRoute,private accountService: AccountService,
                protected router: Router,) {
     this.currentSearch = this.activatedRoute.snapshot.queryParams['search'] ?? '';
     this.location = this.activatedRoute.snapshot.queryParams['location'] ?? '';
@@ -95,6 +105,18 @@ export class FindJobComponent  implements OnInit {
   }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      title: ["", [Validators.required]],
+      category: ["", [Validators.required]],
+      location: ["", [Validators.required]],
+      intitule: ["", [Validators.required]],
+      date_posted: ["", [Validators.required]],
+      experience: ["", [Validators.required]],
+      frequency: ["", [Validators.required]],
+      type: ["job", [Validators.required]],
+      owner_id: ["", [Validators.required]],
+    })
+    this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
     this.handleNavigation();
   }
 
@@ -192,6 +214,29 @@ export class FindJobComponent  implements OnInit {
   }
 
   sorted() {
+
+  }
+
+  saveAlert() {
+    if (this.account !=null){
+      if (this.account.userType=="candidat_account"){
+        this.form.value.owner_id = this.account.id;
+        this.form.value.location = this.bycity;
+        this.form.value.experience = this.byexperience;
+        this.form.value.date_posted = this.bydateposted;
+        this.form.value.category = this.bycategory;
+        this.form.value.intitule = this.currentSearch;
+        console.log(this.form.value)
+        this.frontService.alertSaveJob(this.form.value)
+          .subscribe((res: any) => {
+            this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+           // this.loading = false;
+          }, err => {
+            this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.error.detail);
+          });
+      }
+
+    }
 
   }
 }

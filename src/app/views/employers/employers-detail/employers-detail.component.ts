@@ -6,7 +6,8 @@ import {IEmployer} from "../../../core/models/employe.model";
 import {IJob} from "../../../core/models/job.model";
 import {ASC, ITEMS_PER_PAGE, SORT} from "../../../core/config/pagination.constants";
 import {combineLatest} from "rxjs";
-
+import * as L from 'leaflet';
+import {circle, latLng, marker, polygon, tileLayer} from "leaflet";
 @Component({
   selector: 'app-employers-detail',
   templateUrl: './employers-detail.component.html',
@@ -23,10 +24,22 @@ export class EmployersDetailComponent {
   itemsPerPage = ITEMS_PER_PAGE;
   page?: number;
   constructor(protected frontService: FrontService,protected activatedRoute: ActivatedRoute, protected router: Router) {}
-  options: google.maps.MapOptions = {
+/*  options: google.maps.MapOptions = {
     center: {lat: 40, lng: -20},
     zoom: 4
+  };*/
+  options = {
+    layers: [
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { maxZoom: 18, attribution: 'okoho.de' })
+    ],
+    zoom: 13,
+    center: latLng(51.505, -0.09)
   };
+  layers = [
+    circle([ 51.505, -0.09 ], { radius: 5000 }),
+    marker([ 51.505, -0.09 ])
+  ];
   center: google.maps.LatLngLiteral = {lat: 40, lng: -20};
   zoom = 4;
   ngOnInit(): void {

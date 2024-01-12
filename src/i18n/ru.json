@@ -358,7 +358,11 @@
     "your_name": "Ваше имя",
     "leave_a_message": "Оставить сообщение",
     "call_us": "Позвоните нам",
-    "address": "Адрес"
+    "address": "Адрес",
+    "alert_job": "Alert job",
+    "alert_candidate": "Alert candidates",
+    "choose_frequency": "Choose a frequence",
+    "tag": "Tag"
   },
   "dashboard": {
     "medical-care": "Медицинское обслуживание",
@@ -371,5 +375,13 @@
       "english": "Английский",
       "germain": "Немецкий"
     }
+  },
+  "title": {
+    "recruteur-list": "Employers",
+    "candidat-list": "Candidats",
+    "find-job": "Find jobs",
+    "contact": "Contact",
+    "about": "About",
+    "faq": "Faq"
   }
 }

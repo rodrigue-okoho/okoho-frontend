@@ -50,7 +50,7 @@
                   <ul class="job-info">
                     <li><fa-icon icon="briefcase"></fa-icon> Segment</li>
                     <li><fa-icon icon="map-location"></fa-icon> {{job?.recruteur.location}}</li>
-                    <li><fa-icon icon="clock-four"></fa-icon> 11 hours ago</li>
+                    <li><fa-icon icon="clock-four"></fa-icon> {{job?.createdAt|timeAgo}}</li>
                     <li><fa-icon icon="money-bill"></fa-icon> ${{job?.minSalary}} - ${{job?.max_salary}}</li>
                   </ul>
                   <ul class="job-other-info">
@@ -98,9 +98,16 @@
               <h4 class="widget-title" jhiTranslate="page.job_location">Job Location</h4>
               <div class="widget-content">
                 <div class="map-outer mb-0">
-                  <google-map class="map-canvas" [center]="center" [zoom]="zoom"
+                  <div style="height: 400px;"
+                       leaflet
+                       [leafletOptions]="options"
+                       [leafletLayers]="layers"
+                      >
+                  </div>
+                 <!-- <google-map class="map-canvas" [center]="center" [zoom]="zoom"
                               height="400px"
-                              width="100%"></google-map>
+                              width="100%"></google-map>-->
+
                 <!--  <div class="map-canvas" data-zoom="12" data-lat="-37.817085"
                        data-lng="144.955631" data-type="roadmap" data-hue="#ffc400" data-title="Envato"
                        data-icon-path="images/resource/map-marker.png"

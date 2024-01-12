@@ -12,6 +12,7 @@ import {IJob} from "../models/job.model";
 import {SearchJobWithPagination} from "../util/requestJob.model";
 import {IStatistic} from "../models/Statistic.model";
 import {IBlog, ICommentBlog} from "../models/blog.model";
+import {environment} from "../../../environments/environment";
 export type EntityResponseType = HttpResponse<ICandidat>;
 export type EntityArrayResponseType = HttpResponse<ICandidat[]>;
 @Injectable({
@@ -23,7 +24,14 @@ export class FrontService {
   protected resourceUrlEmployer = this.applicationConfigService.getEndpointFor('v1/recruteurs');
   protected resourceUrlJob = this.applicationConfigService.getEndpointFor('v1/offer-jobs');
   protected resourceUrlAll = this.applicationConfigService.getEndpointFor('v1/');
+  private endpointLara = `${environment.apiCv}/`;
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) { }
+  alertSave(req: any): Observable<HttpResponse<any>> {
+    return this.http.post<any>(`${this.resourceUrlAll}alerts/save_candidat`, req);
+  }
+  alertSaveJob(req: any): Observable<HttpResponse<any>> {
+    return this.http.post<any>(`${this.resourceUrlAll}alerts/save_job`, req);
+  }
   candidatSearch(req: SearchCandidatWithPagination): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http.get<ICandidat[]>(`${this.resourceUrl}/search/live`, { params: options, observe: 'response' });

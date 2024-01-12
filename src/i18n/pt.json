@@ -358,7 +358,11 @@
     "your_name": "Seu nome",
     "leave_a_message": "Deixe um recado",
     "call_us": "Ligue para nós",
-    "address": "Endereço"
+    "address": "Endereço",
+    "alert_job": "Alert job",
+    "alert_candidate": "Alert candidates",
+    "choose_frequency": "Choose a frequence",
+    "tag": "Tag"
   },
   "dashboard": {
     "medical-care": "Cuidados médicos",
@@ -371,5 +375,13 @@
       "english": "Inglês",
       "germain": "Alemão"
     }
+  },
+  "title": {
+    "recruteur-list": "Employers",
+    "candidat-list": "Candidats",
+    "find-job": "Find jobs",
+    "contact": "Contact",
+    "about": "About",
+    "faq": "Faq"
   }
 }

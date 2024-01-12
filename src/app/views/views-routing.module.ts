@@ -27,7 +27,7 @@ const routes: Routes = [
     path: 'find-job',
     data: {
       defaultSort: 'id,asc',
-      pageTitle: 'title.home',
+      pageTitle: 'title.find-job',
     },
     title: 'title.find-job',
     component: FindJobComponent
@@ -88,7 +88,7 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    title: 'title.home',
+    title: 'title.about',
     component: AboutComponent
   },
   {
@@ -128,7 +128,7 @@ const routes: Routes = [
   },
   {
     path: 'faq',
-    title: 'title.home',
+    title: 'title.faq',
     component: FaqComponent
   },
   {

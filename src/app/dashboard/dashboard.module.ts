@@ -42,6 +42,7 @@ import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {GoogleMapsModule} from "@angular/google-maps";
 import {NgxSpinnerModule} from "ngx-spinner";
+import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import {NgxSpinnerModule} from "ngx-spinner";
     NgxIntlTelInputModule,
     PdfViewerModule,
     GoogleMapsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    LeafletModule
   ],
   exports: []
 })
