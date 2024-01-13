@@ -32,46 +32,12 @@
                         </thead>
 
                         <tbody>
-                          <tr>
-                            <td>Education</td>
-                            <td>Category: Education Training, Posted Date: All, Salary: $1000 – $3000</td>
+                          <tr  *ngFor="let job of alerts">
+                            <td>{{job?.title}}</td>
+                            <td>Category: {{job?.category}}, Posted Date: {{job?.date_posted}},
+                              Location: {{job?.location}},Experience: {{job?.experience}}</td>
                             <td>Jobs found 5</td>
-                            <td>Weekly</td>
-                            <td><button><i class="la la-trash colored"></i></button></td>
-                          </tr>
-                          <tr>
-                            <td>Accounting and Finance</td>
-                            <td>Category: Education Training, Posted Date: All, Salary: $1000 – $3000</td>
-                            <td>Jobs found 5</td>
-                            <td>Weekly</td>
-                            <td><button><i class="la la-trash colored"></i></button></td>
-                          </tr>
-                          <tr>
-                            <td>Education</td>
-                            <td>Category: Education Training, Posted Date: All, Salary: $1000 – $3000</td>
-                            <td>Jobs found 5</td>
-                            <td>Weekly</td>
-                            <td><button><i class="la la-trash colored"></i></button></td>
-                          </tr>
-                          <tr>
-                            <td>Accounting and Finance</td>
-                            <td>Category: Education Training, Posted Date: All, Salary: $1000 – $3000</td>
-                            <td>Jobs found 5</td>
-                            <td>Weekly</td>
-                            <td><button><i class="la la-trash colored"></i></button></td>
-                          </tr>
-                          <tr>
-                            <td>Education</td>
-                            <td>Category: Education Training, Posted Date: All, Salary: $1000 – $3000</td>
-                            <td>Jobs found 5</td>
-                            <td>Weekly</td>
-                            <td><button><i class="la la-trash colored"></i></button></td>
-                          </tr>
-                          <tr>
-                            <td>Accounting and Finance</td>
-                            <td>Category: Education Training, Posted Date: All, Salary: $1000 – $3000</td>
-                            <td>Jobs found 5</td>
-                            <td>Weekly</td>
+                            <td>{{job?.frequency}}</td>
                             <td><button><i class="la la-trash colored"></i></button></td>
                           </tr>
                         </tbody>

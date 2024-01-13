@@ -35,27 +35,20 @@
                         <tr>
                           <th>Title</th>
                           <th>Criteria</th>
-                          <th>Created</th>
+                          <th>Number Jobs</th>
+                          <th>Times</th>
                           <th>Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        <tr *ngFor="let job of jobs">
-                          <td>
-                            <h6>{{job?.title}}</h6>
-                            <span class="info"><fa-icon icon="map-location"></fa-icon> {{job?.country}}, {{job?.town}}</span>
-                          </td>
-                          <td>Human Resources, Junior</td>
-                          <td>{{job?.createdAt | date }}</td>
-                          <td>
-                            <div class="option-box">
-                              <ul class="option-list">
-                                <li><button data-text="View Aplication"><fa-icon icon="eye"></fa-icon></button></li>
-                                <li><button data-text="Delete Aplication"><fa-icon icon="trash"></fa-icon></button></li>
-                              </ul>
-                            </div>
-                          </td>
+                        <tr  *ngFor="let job of alerts">
+                          <td>{{job?.title}}</td>
+                          <td>Category: {{job?.category}}, Posted Date: {{job?.date_posted}},
+                            Location: {{job?.location}},Experience: {{job?.experience}}</td>
+                          <td>Jobs found 5</td>
+                          <td>{{job?.frequency}}</td>
+                          <td><button><i class="la la-trash colored"></i></button></td>
                         </tr>
 
                         </tbody>

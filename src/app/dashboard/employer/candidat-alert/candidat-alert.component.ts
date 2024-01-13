@@ -11,6 +11,7 @@ import { HttpHeaders, HttpResponse } from "@angular/common/http";
 import { combineLatest } from "rxjs";
 import { IEmployer } from "../../../core/models/employe.model";
 import { ICandidat } from "../../../core/models/candidat.model";
+import {IAlert} from "../../../core/models/alert.model";
 
 @Component({
   selector: 'app-candidat-alert',
@@ -21,7 +22,7 @@ export class CandidatAlertComponent implements OnInit {
   error = false;
   success = false;
   account: Account | null = null;
-  jobs?: IJob[];
+  alerts?: IAlert[];
   isLoading = false;
   totalItems = 0;
   item = "Jobs"
@@ -44,7 +45,7 @@ export class CandidatAlertComponent implements OnInit {
     this.isLoading = true;
     const pageToLoad: number = page ?? this.page ?? 1;
     this.backService
-      .employerJob(this.localStorageService.retrieve('account_id'), {
+      .employerAlertJob(this.localStorageService.retrieve('account_id'), {
         page: pageToLoad - 1,
         size: this.itemsPerPage,
         sort: this.sort(),
@@ -93,7 +94,7 @@ export class CandidatAlertComponent implements OnInit {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     this.ngbPaginationPage = this.page;
-    this.jobs = data ?? [];
+    this.alerts = data ?? [];
     this.ngbPaginationPage = this.page;
   }
 

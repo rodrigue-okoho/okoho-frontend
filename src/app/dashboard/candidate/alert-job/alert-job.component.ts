@@ -10,6 +10,7 @@ import {HttpHeaders, HttpResponse} from "@angular/common/http";
 import {IEmployer} from "../../../core/models/employe.model";
 import {ICandidat} from "../../../core/models/candidat.model";
 import {combineLatest} from "rxjs";
+import {IAlert} from "../../../core/models/alert.model";
 
 @Component({
   selector: 'app-alert-job',
@@ -17,7 +18,7 @@ import {combineLatest} from "rxjs";
   styleUrls: ['./alert-job.component.scss']
 })
 export class AlertJobComponent   implements OnInit{
-  jobs?: IJob[];
+  alerts?: IAlert[];
   isLoading = false;
   totalItems = 0;
   item="Jobs"
@@ -47,7 +48,7 @@ export class AlertJobComponent   implements OnInit{
     const pageToLoad: number = page ?? this.page ?? 1;
 
     this.backService
-      .candidatAlertJob(this.candidat?.id,{
+      .candidatAlertJob(this.localStorageService.retrieve('account_id'),{
         page: pageToLoad - 1,
         size: this.itemsPerPage,
         sort: this.sort(),
@@ -55,7 +56,6 @@ export class AlertJobComponent   implements OnInit{
       .subscribe(
         (res: HttpResponse<IJob[]>) => {
           this.isLoading = false;
-          console.log(res.headers.get("X-Frame-Options"))
           this.onSuccess(res.body, res.headers, pageToLoad, !dontNavigate);
         },
         () => {
@@ -106,7 +106,7 @@ export class AlertJobComponent   implements OnInit{
         },
       });
     }
-    this.jobs = data ?? [];
+    this.alerts = data ?? [];
     this.ngbPaginationPage = this.page;
   }
 

@@ -46,7 +46,7 @@ export class ShortlistJobComponent implements OnInit{
     const pageToLoad: number = page ?? this.page ?? 1;
 
     this.backService
-      .candidatAlertJob(this.candidat?.id,{
+      .candidatFavoriteJob(this.candidat?.id,{
         page: pageToLoad - 1,
         size: this.itemsPerPage,
         sort: this.sort(),
