@@ -22,8 +22,8 @@ export class EditJobComponent implements OnInit{
     job_apply_type: any;
     Job: IJob | null = null;   
     jobForm: FormGroup | null = null;
-    entreprise: IEmployer | null = null;
     countries: Countries[] = countries
+    entreprise: IEmployer | null = null;
     categories: IcategoryJob[] | null = []; 
 
     private fb = inject(FormBuilder);
@@ -33,8 +33,8 @@ export class EditJobComponent implements OnInit{
     private translate = inject(TranslateService);
 
     ngOnInit(): void {
-        this.initJobFrom();
         this.getCategoryJob();
+        this.initJobFrom();
         this.getJob();
     }
 
