@@ -20,6 +20,7 @@ import {MyJobComponent} from "./employer/my-job/my-job.component";
 import {MessageComponent} from "./employer/message/message.component";
 import {MessageCandidatComponent} from "./candidate/message-candidat/message-candidat.component";
 import { CvManagerComponent } from './candidate/cv-manager/cv-manager.component';
+import { EditJobComponent } from './employer/edit-job/edit-job.component';
 
 const routes: Routes = [
   {
@@ -137,8 +138,8 @@ const routes: Routes = [
     component: SubmitJobComponent
   },
   {
-    path: 'dash-employer-submit-job/:id',
-    component: SubmitJobComponent
+    path: 'dash-employer-edit-job/:id',
+    component: EditJobComponent
   },
 ];
 

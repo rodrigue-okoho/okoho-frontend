@@ -43,12 +43,13 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {GoogleMapsModule} from "@angular/google-maps";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {LeafletModule} from "@asymmetrik/ngx-leaflet";
+import { EditJobComponent } from './employer/edit-job/edit-job.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent, CandidateComponent,
-    RecruteurComponent, ProfileComponent, MyResumeComponent,
+    RecruteurComponent, ProfileComponent, MyResumeComponent, EditJobComponent,
     MyApplyComponent, ShortlistJobComponent, AlertJobComponent, CpChangePasswordComponent,
     FollowingEmployeeComponent, ChangePasswordComponent, SubmitJobComponent,
     ApplicantJobComponent, ShortListCandidatComponent, DashboardEmployerComponent,

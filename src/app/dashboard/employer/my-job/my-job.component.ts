@@ -83,6 +83,7 @@ export class MyJobComponent implements OnInit{
   trackId(index: number, item: ICandidat): string {
     return item.id!;
   }
+
   protected sort(): string[] {
     const result = [this.predicate + ',' + (this.ascending ? ASC : DESC)];
     if (this.predicate !== 'id') {
@@ -90,6 +91,7 @@ export class MyJobComponent implements OnInit{
     }
     return result;
   }
+
   protected handleNavigation(): void {
     //combineLatest([this.activatedRoute.data, this.activatedRoute.queryParamMap])
     combineLatest([this.activatedRoute.data, this.activatedRoute.queryParamMap]).subscribe(([data, params]) => {
@@ -144,8 +146,19 @@ export class MyJobComponent implements OnInit{
 
   edit(job : IJob) {
     if(job !== null && job.id !== null && job.id !== undefined) {
-      this.route.navigateByUrl("/dash-employer-submit-job/" + job.id);
+      this.route.navigateByUrl("/dash-employer-edit-job/" + job.id);
     }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   }
 
   trackByFn(index: number, item: IJob): number {

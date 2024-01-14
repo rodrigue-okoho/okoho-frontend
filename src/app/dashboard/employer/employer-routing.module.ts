@@ -10,6 +10,7 @@ import {ShortListCandidatComponent} from "./short-list-candidat/short-list-candi
 import {SubmitJobComponent} from "./submit-job/submit-job.component";
 import {ApplicantJobComponent} from "./applicant-job/applicant-job.component";
 import {MyJobComponent} from "./my-job/my-job.component";
+import { EditJobComponent } from './edit-job/edit-job.component';
 
 const routes: Routes = [
   {
@@ -74,8 +75,8 @@ const routes: Routes = [
     component: SubmitJobComponent
   },
   {
-    path: 'dash-employer-submit-job/:id',
-    component: SubmitJobComponent
+    path: 'dash-employer-edit-job/:id',
+    component: EditJobComponent
   },
 ];
 
