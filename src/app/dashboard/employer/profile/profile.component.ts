@@ -149,15 +149,16 @@ export class ProfileEmployerComponent implements OnInit {
 
   saveLanguage() {
     this.languageForm?.markAllAsTouched();
-
-    console.log(this.languageForm?.value)
-    this.backService.candidateAddLanguage(this.languageForm?.value)
+    console.log(this.languageForm?.value);
+    if(this.languageForm?.valid){
+      this.backService.candidateAddLanguage(this.languageForm?.value)
       .subscribe((res: any) => {
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
       }, err => {
         console.log(err);
         this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
       });
+    }
   }
 
   saveProfile() {
