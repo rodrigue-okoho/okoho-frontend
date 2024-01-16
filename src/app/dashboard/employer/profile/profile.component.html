@@ -17,7 +17,7 @@
                     <h4>My Profile</h4>
                   </div>
 
-                  <div class="widget-content">
+                  <div class="widget-content" *ngIf="itemForm">
 
                     <div class="uploading-outer">
                       <div class="uploadButton">
@@ -124,7 +124,7 @@
                     <h4>Social Network</h4>
                   </div>
 
-                  <div class="widget-content">
+                  <div class="widget-content" *ngIf="itemSocialForm">
                     <form class="default-form" [formGroup]="itemSocialForm" (submit)="saveSociale()">
                       <div class="row">
                         <!-- Input -->
@@ -163,13 +163,103 @@
               </div>
 
               <!-- Ls widget -->
+              <div class="ls-widget" >
+                <div class="tabs-box">
+                  <div class="widget-title">
+                    <h4>Language</h4>
+                  </div>
+
+                  <div class="widget-content" *ngIf="languageForm">
+                    <form class="default-form" [formGroup]="languageForm" id="bookmark-form" (ngSubmit)="saveLanguage()">
+                      <div class="form-group col-sm-12">
+                        <label for="con-phone">Language</label>
+                        <select formControlName="montherLanguage" class="form-control" id="con-phone"
+                                placeholder="" required="" autocomplete="off">
+                                <option></option>
+                                <option value="{{ 'dashboard.language.french' | translate }}">{{ 'dashboard.language.french' | translate }}</option>
+                                <option value="{{ 'dashboard.language.english' | translate }}">{{ 'dashboard.language.english' | translate }}</option>
+                                <option value="{{ 'dashboard.language.germain' | translate }}">{{ 'dashboard.language.germain' | translate }}</option>
+                        </select>
+                      </div>
+                <!--      <div class="form-group col-sm-6">
+                        <label for="con-phone">Other language</label>
+                        <select formControlName="ortherLanguage" class="form-control" id="con-phone"
+                                placeholder=""
+                                required="" autocomplete="off">
+                                <option></option>
+                                <option value="french">Francais</option>
+                                <option value="english">Anglais</option>
+                        </select>
+                      </div>-->
+                      <div class="row mt-3">
+                        <div class="form-group col-sm-6">
+                          <label for="con-phone">Reading comprehension</label>
+                          <select formControlName="readingComprehension1" class="form-control" id="con-phone"
+                                  placeholder="" required="" autocomplete="off">
+                                  <option value="A1">A1</option>
+                                  <option value="A2">A2</option>
+                                  <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                          <label for="con-phone">Listening comprehension</label>
+                          <select formControlName="readingComprehension2" class="form-control" id="con-phone"
+                                  placeholder="" required="" autocomplete="off">
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="form-group col-sm-6">
+                          <label for="con-phone">Oral expression</label>
+                          <select formControlName="oralIntegration" class="form-control" id="con-phone"
+                                  placeholder="" required="" autocomplete="off">
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                          <label for="con-phone">Written</label>
+                          <select formControlName="written" class="form-control" id="con-phone"
+                                  placeholder="" required="" autocomplete="off">
+                            <option value="A1" selected>A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group col-lg-12 col-md-12">
+                        <button *ngIf="!btn_status" class="theme-btn btn-style-one">Save</button>
+                        <button *ngIf="btn_status" class="theme-btn btn-style-four">Update</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ls widget -->
               <div class="ls-widget">
                 <div class="tabs-box">
                   <div class="widget-title">
                     <h4>Contact Information</h4>
                   </div>
 
-                  <div class="widget-content">
+                  <div class="widget-content" *ngIf="itemContactForm">
                     <form class="default-form" [formGroup]="itemContactForm" (submit)="saveContact()">
                       <div class="row">
                         <!-- Input -->

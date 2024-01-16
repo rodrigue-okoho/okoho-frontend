@@ -29,11 +29,12 @@ export class ProfileEmployerComponent implements OnInit {
   place: any;
   private fileType: any;
   imageUrl: SafeUrl = '/assets/images/placeholder.png';
-  itemForm: FormGroup;
-  itemSocialForm: FormGroup;
-  itemContactForm: FormGroup;
+  itemForm: FormGroup | null = null;
+  itemSocialForm: FormGroup | null = null;
+  itemContactForm: FormGroup | null = null;
+  languageForm: FormGroup | null = null;
   btn_status=false;
-  categories?: IcategoryJob[]| null;
+  categories?: IcategoryJob[] | any | null;
   placehoder="categories";
   public countries:any = countries;
   constructor(private activateService: ActivateService,private formBuilder: FormBuilder,
@@ -74,6 +75,18 @@ export class ProfileEmployerComponent implements OnInit {
       longitude: ["", Validators.required],
       mode: [""],
     });
+
+    this.languageForm =this.formBuilder.group({
+      id: [""],
+      montherLanguage: ["", Validators.required],
+      ortherLanguage: ["", Validators.required],
+      readingComprehension1: ["", Validators.required],
+      readingComprehension2: ["", Validators.required],
+      oralIntegration: ["", Validators.required],
+      continuousSpeaking: ["", Validators.required],
+      written: ["", Validators.required]
+    });
+
     this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
     this.updateProfile();
   }
@@ -134,8 +147,21 @@ export class ProfileEmployerComponent implements OnInit {
     )
   }
 
+  saveLanguage() {
+    this.languageForm?.markAllAsTouched();
+
+    console.log(this.languageForm?.value)
+    this.backService.candidateAddLanguage(this.languageForm?.value)
+      .subscribe((res: any) => {
+        this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
+      });
+  }
+
   saveProfile() {
-    this.backService.employerSaveProfile(this.itemForm.value)
+    this.backService.employerSaveProfile(this.itemForm?.value)
     .subscribe((res: any) => {
       this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
       this.updateProfile();
@@ -145,8 +171,8 @@ export class ProfileEmployerComponent implements OnInit {
     });
   }
   saveSociale() {
-    console.log(this.itemSocialForm.value)
-    this.backService.employerSaveProfile(this.itemSocialForm.value)
+    console.log(this.itemSocialForm?.value)
+    this.backService.employerSaveProfile(this.itemSocialForm?.value)
       .subscribe((res: any) => {
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
         this.updateProfile();
@@ -157,8 +183,8 @@ export class ProfileEmployerComponent implements OnInit {
   }
 
   saveContact() {
-    console.log(this.itemContactForm.value)
-    this.backService.employerSaveProfile(this.itemContactForm.value)
+    console.log(this.itemContactForm?.value)
+    this.backService.employerSaveProfile(this.itemContactForm?.value)
       .subscribe((res: any) => {
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
         this.updateProfile();
