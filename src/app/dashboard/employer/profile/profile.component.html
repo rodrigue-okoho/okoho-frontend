@@ -172,7 +172,7 @@
                   <div class="widget-content" *ngIf="languageForm">
                     <form class="default-form" [formGroup]="languageForm" id="bookmark-form" (ngSubmit)="saveLanguage()">
                       <div class="form-group col-sm-12">
-                        <label for="con-phone">Language</label>
+                        <label for="con-phone">Language<span style="color: red;">*</span></label>
                         <select formControlName="montherLanguage" class="form-control" id="con-phone"
                                 placeholder="" required="" autocomplete="off">
                                 <option></option>
@@ -180,6 +180,8 @@
                                 <option value="{{ 'dashboard.language.english' | translate }}">{{ 'dashboard.language.english' | translate }}</option>
                                 <option value="{{ 'dashboard.language.germain' | translate }}">{{ 'dashboard.language.germain' | translate }}</option>
                         </select>
+                        <span class="error" style="color: red;" *ngIf="languageForm.controls['montherLanguage'].hasError('required') &&  this.languageForm.get('montherLanguage')?.touched">Language is a required field
+                        </span>
                       </div>
                 <!--      <div class="form-group col-sm-6">
                         <label for="con-phone">Other language</label>
