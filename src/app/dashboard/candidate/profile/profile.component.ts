@@ -47,6 +47,7 @@ export class ProfileComponent implements OnInit {
   itemSocialForm: FormGroup;
   itemContactForm: FormGroup;
   categories?: IcategoryJob[] | null;
+  languageForm: FormGroup | null = null;
   placehoder = "categories";
   center: google.maps.LatLngLiteral = {lat: 51.989858047086535, lng: 8.78541302551178};
   zoom = 4;
@@ -166,6 +167,16 @@ export class ProfileComponent implements OnInit {
       longitude: ["", Validators.required],
       mode: [""],
     });
+    this.languageForm =this.formBuilder.group({
+      id: [""],
+      montherLanguage: ["", Validators.required],
+      //ortherLanguage: ["", Validators.required],
+      readingComprehension1: ["", Validators.required],
+      readingComprehension2: ["", Validators.required],
+      oralIntegration: ["", Validators.required],
+      //continuousSpeaking: ["", Validators.required],
+      written: ["", Validators.required]
+    });
     this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
     this.updateProfile();
   }
@@ -176,6 +187,21 @@ export class ProfileComponent implements OnInit {
 
   onCountrySelected(country: any) {
     console.log(country);
+  }
+
+  saveLanguage() {
+    this.languageForm?.markAllAsTouched();
+    console.log(this.languageForm?.value);
+    console.log(this.languageForm?.valid);
+    if(this.languageForm?.valid){
+      this.backService.candidateAddLanguage(this.languageForm?.value)
+      .subscribe((res: any) => {
+        this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
+      });
+    }
   }
 
   private updateProfile() {
