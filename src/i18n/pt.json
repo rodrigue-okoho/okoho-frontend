@@ -360,9 +360,11 @@
     "call_us": "Ligue para nós",
     "address": "Endereço",
     "alert_job": "Alert job",
+    "open_job": "Open job",
     "alert_candidate": "Alert candidates",
     "choose_frequency": "Choose a frequence",
-    "tag": "Tag"
+    "tag": "Tag",
+    "about_company": "About company"
   },
   "dashboard": {
     "medical-care": "Cuidados médicos",

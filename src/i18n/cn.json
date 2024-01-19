@@ -372,10 +372,12 @@
   "leave_a_message": "留言",
   "call_us": "致電我們",
   "address": "位址",
+    "open_job": "Open job",
     "alert_job": "Alert job",
     "alert_candidate": "Alert candidates",
     "choose_frequency": "Choose a frequence",
-    "tag": "Tag"
+    "tag": "Tag",
+    "about_company": "About company"
   },
   "dashboard": {
     "medical-care": "醫療",

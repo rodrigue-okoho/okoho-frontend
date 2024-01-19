@@ -47,6 +47,9 @@ export class BackService {
     const options = createRequestOption(req);
     return this.http.get<IJob[]>(`${this.resourceUrl}alerts/candidat/${id}`, { params: options, observe: 'response' });
   }
+  candidateRemoveAlertJob(req: any) {
+    return this.http.delete<any>(`${this.resourceUrl}alerts/candidat/${req}`, { observe: 'response' });
+  }
   employerAlertJob(id?:string,req?: any): Observable<HttpResponse<IJob[]>> {
     const options = createRequestOption(req);
     return this.http.get<IJob[]>(`${this.resourceUrl}alerts/employer/${id}`, { params: options, observe: 'response' });

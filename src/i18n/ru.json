@@ -359,10 +359,12 @@
     "leave_a_message": "Оставить сообщение",
     "call_us": "Позвоните нам",
     "address": "Адрес",
+    "open_job": "Open job",
     "alert_job": "Alert job",
     "alert_candidate": "Alert candidates",
     "choose_frequency": "Choose a frequence",
-    "tag": "Tag"
+    "tag": "Tag",
+    "about_company": "About company"
   },
   "dashboard": {
     "medical-care": "Медицинское обслуживание",

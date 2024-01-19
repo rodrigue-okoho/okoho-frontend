@@ -11,6 +11,8 @@ import {IEmployer} from "../../../core/models/employe.model";
 import {ICandidat} from "../../../core/models/candidat.model";
 import {combineLatest} from "rxjs";
 import {IAlert} from "../../../core/models/alert.model";
+import {TranslateService} from "@ngx-translate/core";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-alert-job',
@@ -30,8 +32,9 @@ export class AlertJobComponent   implements OnInit{
   candidat: ICandidat | null = null;
   constructor(private activateService: ActivateService,
               private localStorageService: LocalStorageService,
-              private sessionStorageService: SessionStorageService,
               protected activatedRoute: ActivatedRoute,
+              private translateService: TranslateService,
+              private sessionStorageService: SessionStorageService, private toaster: ToastrService,
               protected router: Router,private backService:BackService,
               private accountService: AccountService,) {}
 
@@ -112,5 +115,15 @@ export class AlertJobComponent   implements OnInit{
 
   protected onError(): void {
     this.ngbPaginationPage = this.page ?? 1;
+  }
+
+  delete(id:any) {
+    this.backService.candidateRemoveAlertJob(id)
+      .subscribe((res: any) => {
+        this.toaster.success(this.translateService.instant('MESSAGES.DELETE_SUCCESS'), 'OK');
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('MESSAGES.DELETE_ERROR'), err.message);
+      });
   }
 }

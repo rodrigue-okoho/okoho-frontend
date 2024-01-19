@@ -361,9 +361,11 @@
     "call_us": "Bel ons",
     "address": "Adres",
     "alert_job": "Alert job",
+    "open_job": "Open job",
     "alert_candidate": "Alert candidates",
     "choose_frequency": "Choose a frequence",
-    "tag": "Tag"
+    "tag": "Tag",
+    "about_company": "About company"
   },
   "dashboard": {
     "medical-care": "Medische zorg",

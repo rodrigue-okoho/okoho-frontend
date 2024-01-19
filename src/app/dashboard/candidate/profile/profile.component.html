@@ -111,7 +111,7 @@
                         </div>
 
                         <!-- Input -->
-                        <div class="form-group col-lg-6 col-md-12">
+                     <!--   <div class="form-group col-lg-6 col-md-12">
                           <label>Languages</label>
                           <select data-placeholder="Languages" class="chosen-select multiple"
                                   multiple="" tabindex="-1" style="">
@@ -119,7 +119,7 @@
                             <option value="French">French</option>
                             <option value="Deutch">Deutch</option>
                           </select>
-                        </div>
+                        </div>-->
 
                         <!-- Search Select -->
 <!--
@@ -132,7 +132,7 @@
 -->
 
                         <!-- Input -->
-                        <div class="form-group col-lg-6 col-md-12">
+                        <div class="form-group col-lg-3 col-md-12">
                           <label>Allow In Search &amp; Listing</label>
                           <select class="chosen-select" style="">
                             <option>Yes</option>
@@ -212,87 +212,41 @@
                     <h4>Language</h4>
                   </div>
 
-                  <div class="widget-content" *ngIf="languageForm">
-                    <form class="default-form" [formGroup]="languageForm" id="bookmark-form" (ngSubmit)="saveLanguage()">
-                      <div class="form-group col-sm-12">
-                        <label for="con-phone">Language<span style="color: red;">*</span></label>
-                        <select formControlName="montherLanguage" class="form-control" id="con-phone"
-                                placeholder="" required="" autocomplete="off">
-                                <option></option>
-                                <option value="{{ 'dashboard.language.french' | translate }}">{{ 'dashboard.language.french' | translate }}</option>
-                                <option value="{{ 'dashboard.language.english' | translate }}">{{ 'dashboard.language.english' | translate }}</option>
-                                <option value="{{ 'dashboard.language.germain' | translate }}">{{ 'dashboard.language.germain' | translate }}</option>
-                        </select>
-                        <span class="error" style="color: red;" *ngIf="languageForm.controls['montherLanguage'].hasError('required') &&  this.languageForm.get('montherLanguage')?.touched">Language is a required field
-                        </span>
-                      </div>
-                <!--      <div class="form-group col-sm-6">
-                        <label for="con-phone">Other language</label>
-                        <select formControlName="ortherLanguage" class="form-control" id="con-phone"
-                                placeholder=""
-                                required="" autocomplete="off">
-                                <option></option>
-                                <option value="french">Francais</option>
-                                <option value="english">Anglais</option>
-                        </select>
-                      </div>-->
-                      <div class="row mt-3">
-                        <div class="form-group col-sm-6">
-                          <label for="con-phone">Reading comprehension</label>
-                          <select formControlName="readingComprehension1" class="form-control" id="con-phone"
-                                  placeholder="" required="" autocomplete="off">
-                                  <option value="A1">A1</option>
-                                  <option value="A2">A2</option>
-                                  <option value="B1">B1</option>
-                            <option value="B2">B2</option>
-                            <option value="C1">C1</option>
-                            <option value="C2">C2</option>
-                          </select>
+                  <div class="widget-content">
+                    <div class="resume-block" *ngFor="let langue of candidat?.languages">
+                      <div class="inner">
+                        <span class="name" *ngIf="langue?.montherLanguage">{{langue?.montherLanguage!.charAt(0)}}</span>
+                        <div class="title-box">
+                          <div class="info-box">
+                            <h3>{{langue?.montherLanguage}}</h3>
+                          </div>
+                          <div class="edit-box">
+                            <!--<span class="year">{{langue?.oralIntegration}} - {{langue?.continuousSpeaking}}</span>-->
+                            <div class="edit-btns">
+                              <button (click)="editLanguage(langue, contentLanguage)"><fa-icon icon="edit"></fa-icon></button>
+                              <button (click)="deleteLanguage(langue)"><fa-icon icon="trash"></fa-icon></button>
+                            </div>
+                          </div>
                         </div>
-                        <div class="form-group col-sm-6">
-                          <label for="con-phone">Listening comprehension</label>
-                          <select formControlName="readingComprehension2" class="form-control" id="con-phone"
-                                  placeholder="" required="" autocomplete="off">
-                            <option value="A1">A1</option>
-                            <option value="A2">A2</option>
-                            <option value="B1">B1</option>
-                            <option value="B2">B2</option>
-                            <option value="C1">C1</option>
-                            <option value="C2">C2</option>
-                          </select>
+                        <div class="text">
+                                      <span class="break">
+                                        <span class="text-dark-3">Reading comprehension: </span> <span class="text-red">{{langue?.readingComprehension1}}</span>
+                                      </span>
+                          <span class="break">
+                                          <span class="text-dark-3">Listening comprehension: </span> <span class="text-red">{{langue?.readingComprehension2}}</span>
+                                        </span>
+                          <span class="break">
+                                          <span class="text-dark-3">Oral expression: </span> <span class="text-red">{{langue?.oralIntegration}}</span>
+                                        </span>
+                          <span class="break">
+                                          <span class="text-dark-3">Writting: </span> <span class="text-red">{{langue?.written}}</span>
+                                        </span>
                         </div>
                       </div>
-                      <div class="row mt-3">
-                        <div class="form-group col-sm-6">
-                          <label for="con-phone">Oral expression</label>
-                          <select formControlName="oralIntegration" class="form-control" id="con-phone"
-                                  placeholder="" required="" autocomplete="off">
-                            <option value="A1">A1</option>
-                            <option value="A2">A2</option>
-                            <option value="B1">B1</option>
-                            <option value="B2">B2</option>
-                            <option value="C1">C1</option>
-                            <option value="C2">C2</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-sm-6">
-                          <label for="con-phone">Written</label>
-                          <select formControlName="written" class="form-control" id="con-phone"
-                                  placeholder="" required="" autocomplete="off">
-                            <option value="A1" selected>A1</option>
-                            <option value="A2">A2</option>
-                            <option value="B1">B1</option>
-                            <option value="B2">B2</option>
-                            <option value="C1">C1</option>
-                            <option value="C2">C2</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group col-lg-12 col-md-12">
-                        <button *ngIf="!btn_status" class="theme-btn btn-style-one">Save</button>
-                        <button *ngIf="btn_status" class="theme-btn btn-style-four">Update</button>
-                      </div>
-                    </form>
+                    </div>
+                    <div class="mb-3 d-grid text-center">
+                      <button class="btn-cv" (click)="openLg(contentLanguage)"><fa-icon icon="plus"></fa-icon> Add Language</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -493,6 +447,87 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-light" (click)="closeModal(modal)">Close</button>
           <button class="theme-btn btn-style-one mr-1  pull-right" type="button" (click)="saveActivity()"
+
+          >Save</button>
+        </div>
+      </ng-template>
+      <ng-template #contentLanguage let-modal>
+        <div class="modal-header">
+          <h6 class="modal-title">Linguistic skills</h6>
+          <button type="button" class="close" aria-label="Close" (click)="closeLanguageModal(modal)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="default-form" [formGroup]="languageForm" id="bookmark-form">
+            <div class="form-group col-sm-12">
+              <label for="con-phone">Language</label>
+              <select formControlName="montherLanguage" class="form-control" id="con-phone"
+                      placeholder="" required="" autocomplete="off">
+                <option></option>
+                <option value="French">{{ 'dashboard.language.french' | translate }}</option>
+                <option value="English">{{ 'dashboard.language.english' | translate }}</option>
+                <option value="German">{{ 'dashboard.language.germain' | translate }}</option>
+                <option value="Italian">{{ 'dashboard.language.italian' | translate }}</option>
+              </select>
+            </div>
+            <div class="row mt-3">
+              <div class="form-group col-sm-6">
+                <label for="con-phone">Reading comprehension</label>
+                <select formControlName="readingComprehension1" class="form-control" id="con-phone"
+                        placeholder="" required="" autocomplete="off">
+                  <option value="A1">A1</option>
+                  <option value="A2">A2</option>
+                  <option value="B1">B1</option>
+                  <option value="B2">B2</option>
+                  <option value="C1">C1</option>
+                  <option value="C2">C2</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="con-phone">Listening comprehension</label>
+                <select formControlName="readingComprehension2" class="form-control" id="con-phone"
+                        placeholder="" required="" autocomplete="off">
+                  <option value="A1">A1</option>
+                  <option value="A2">A2</option>
+                  <option value="B1">B1</option>
+                  <option value="B2">B2</option>
+                  <option value="C1">C1</option>
+                  <option value="C2">C2</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="form-group col-sm-6">
+                <label for="con-phone">Oral expression</label>
+                <select formControlName="oralIntegration" class="form-control" id="con-phone"
+                        placeholder="" required="" autocomplete="off">
+                  <option value="A1">A1</option>
+                  <option value="A2">A2</option>
+                  <option value="B1">B1</option>
+                  <option value="B2">B2</option>
+                  <option value="C1">C1</option>
+                  <option value="C2">C2</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="con-phone">Written</label>
+                <select formControlName="written" class="form-control" id="con-phone"
+                        placeholder="" required="" autocomplete="off">
+                  <option value="A1" selected>A1</option>
+                  <option value="A2">A2</option>
+                  <option value="B1">B1</option>
+                  <option value="B2">B2</option>
+                  <option value="C1">C1</option>
+                  <option value="C2">C2</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="closeLanguageModal(modal)">Close</button>
+          <button class="theme-btn btn-style-one mr-1  pull-right" type="button" (click)="saveLanguage()"
 
           >Save</button>
         </div>

@@ -81,10 +81,8 @@
           <li class="dropdown">
             <span jhiTranslate="global.menu.page">Pages</span>
             <ul>
-              <li><a routerLink="/about"
-                     routerLinkActive="active"
-                     [routerLinkActiveOptions]="{ exact: true }"
-                     href="javascript:void(0);"
+              <li><a target="_blank"
+                     href="https://okoho.de/uber-uns/"
                      (click)="collapseNavbar()" jhiTranslate="global.menu.about">About</a></li>
               <li><a routerLink="/contact"
                      routerLinkActive="active"
@@ -432,16 +430,6 @@
 
               <span jhiTranslate="global.menu.account.main">account</span>
             </a>
-            <!--  <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);"
-                 id="account-menu_entreprise" data-cy="accountMenu_entreprise">
-                <span *ngIf="!account?.imageUrl">
-                  <fa-icon icon="user-secret"></fa-icon>
-                  <span jhiTranslate="global.menu.account.main"> Account</span>
-                </span>
-                <span *ngIf="account?.imageUrl">
-                  <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
-                </span>
-              </a>-->
             <ul ngbDropdownMenu class="dropdown-menu" *ngIf="account?.userType=='candidat_account'"
                 aria-labelledby="account">
               <li *ngSwitchCase="true">
@@ -657,35 +645,6 @@
           </div>
         </div>
 
-        <!-- <div *ngSwitchCase="true" [ngClass]="{'': showDashboard}">
-
-           &lt;!&ndash; Dashboard Option &ndash;&gt;
-           <div ngbDropdown class="dropdown account-option">
-             <a class="dropdown-toggle"
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: true }"
-                ngbDropdownToggle href="javascript:void(0);" id="account">
-            <span *ngIf="!account?.imageUrl">
-             <span class="icon-user"></span>
-           </span>
-               <span *ngIf="account?.imageUrl">
-             <img [src]="account!.imageUrl" class="thumb" alt="Avatar" />
-           </span>
-
-               <span jhiTranslate="global.menu.account.main">account</span>
-             </a>
-             &lt;!&ndash;  <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);"
-                  id="account-menu_entreprise" data-cy="accountMenu_entreprise">
-                 <span *ngIf="!account?.imageUrl">
-                   <fa-icon icon="user-secret"></fa-icon>
-                   <span jhiTranslate="global.menu.account.main"> Account</span>
-                 </span>
-                 <span *ngIf="account?.imageUrl">
-                   <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
-                 </span>
-               </a>&ndash;&gt;
-           </div>
-         </div>-->
         <a  href="javascript:void(0);" (click)="showMenu(onmenu)"  class="mobile-nav-toggler"><span class="flaticon-menu-1"></span></a>
       </div>
     </div>

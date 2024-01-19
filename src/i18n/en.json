@@ -371,7 +371,8 @@
     "alert_job": "Alert job",
     "alert_candidate": "Alert candidates",
     "choose_frequency": "Choose a frequence",
-    "tag": "Tag"
+    "tag": "Tag",
+    "about_company": "About company"
   },
 
   "dashboard": {

@@ -48,7 +48,7 @@
                             Location: {{job?.location}},Experience: {{job?.experience}}</td>
                           <td>Jobs found 5</td>
                           <td>{{job?.frequency}}</td>
-                          <td><button><i class="la la-trash colored"></i></button></td>
+                          <td><button (click)="delete(job.id)"><i class="la la-trash colored"></i></button></td>
                         </tr>
 
                         </tbody>

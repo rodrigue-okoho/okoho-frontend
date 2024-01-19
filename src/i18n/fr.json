@@ -360,10 +360,12 @@
     "leave_a_message": "Laisser un message",
     "call_us": "Appelez-nous",
     "address": "Adresse",
+    "open_job": "Open job",
     "alert_job": "Alert job",
     "alert_candidate": "Alert candidates",
     "choose_frequency": "Choose a frequence",
-    "tag": "Tag"
+    "tag": "Tag",
+    "about_company": "About company"
   },
   "dashboard": {
     "medical-care": "Soins médicaux",

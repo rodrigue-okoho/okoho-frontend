@@ -363,9 +363,11 @@
     "call_us": "Rufen Sie uns an",
     "address": "Adresse",
     "alert_job": "Alert job",
+    "open_job": "Open job",
     "alert_candidate": "Alert candidates",
     "choose_frequency": "Choose a frequence",
-    "faq": "Faq"
+    "faq": "Faq",
+    "about_company": "About company"
   },
   "dashboard": {
     "medical-care": "Medizinische Versorgung",

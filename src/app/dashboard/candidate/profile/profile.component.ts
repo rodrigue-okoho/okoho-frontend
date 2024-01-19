@@ -22,6 +22,7 @@ import {ItemCandidat} from "../../../core/models/ItemCandidat.model";
 import {IBanche} from "../../../core/models/branche.model";
 import * as L from "leaflet";
 import {circle, latLng, marker, polygon, tileLayer} from "leaflet";
+import {ILanguage} from "../../../core/models/language.model";
 
 @Component({
   selector: 'app-profile',
@@ -47,8 +48,9 @@ export class ProfileComponent implements OnInit {
   itemSocialForm: FormGroup;
   itemContactForm: FormGroup;
   categories?: IcategoryJob[] | null;
-  languageForm: FormGroup | null = null;
+  languageForm: FormGroup;
   placehoder = "categories";
+  canEditLanguage: Boolean = false;
   center: google.maps.LatLngLiteral = {lat: 51.989858047086535, lng: 8.78541302551178};
   zoom = 4;
   directionResults:any
@@ -63,7 +65,8 @@ export class ProfileComponent implements OnInit {
   isLoading2 = false;
 
   constructor(private activateService: ActivateService, private formBuilder: FormBuilder,
-              private localStorageService: LocalStorageService, private translateService: TranslateService,
+              private localStorageService: LocalStorageService,
+              private translateService: TranslateService,
               private sessionStorageService: SessionStorageService, private toaster: ToastrService,
               private modalService: NgbModal,private cd: ChangeDetectorRef,
               private route: ActivatedRoute, private backService: BackService,mapDirectionsService: MapDirectionsService,
@@ -188,7 +191,7 @@ export class ProfileComponent implements OnInit {
   onCountrySelected(country: any) {
     console.log(country);
   }
-
+/*
   saveLanguage() {
     this.languageForm?.markAllAsTouched();
     console.log(this.languageForm?.value);
@@ -202,7 +205,7 @@ export class ProfileComponent implements OnInit {
         this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
       });
     }
-  }
+  }*/
 
   private updateProfile() {
     this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
@@ -418,5 +421,66 @@ export class ProfileComponent implements OnInit {
         this.toaster.error(this.translateService.instant('MESSAGES.DELETE_ERROR'), err.message);
       });
     this.canEditActivity = false;
+  }
+
+  loadLanguage(language: ILanguage) {
+    this.languageForm.patchValue({
+      id: language.id,
+      montherLanguage: language.montherLanguage,
+      ortherLanguage: language.ortherLanguage,
+      readingComprehension1: language.readingComprehension1,
+      readingComprehension2: language.readingComprehension2,
+      oralIntegration: language.oralIntegration,
+      continuousSpeaking: language.continuousSpeaking,
+      written: language.written
+    });
+  }
+
+  editLanguage(language: ILanguage, contentLanguage: TemplateRef<any>) {
+    this.canEditLanguage = true;
+    this.loadLanguage(language);
+    this.openLg(contentLanguage);
+  }
+
+  deleteLanguage(language: ILanguage) {
+    console.log(this.languageForm.value)
+    this.backService.candidateRemoveLanguage(language.id)
+      .subscribe((res: any) => {
+        this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
+          (res: HttpResponse<ICandidat>) => {
+            this.candidat = res.body})
+        this.toaster.success(this.translateService.instant('MESSAGES.DELETE_SUCCESS'), 'OK');
+        this.modalService.dismissAll();
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('MESSAGES.DELETE_ERROR'), err.message);
+      });
+    this.canEditLanguage = false;
+  }
+
+  closeLanguageModal(modal: NgbActiveModal) {
+    this.canEditLanguage = false;
+    this.languageForm.reset();
+    modal.close('Close click');
+  }
+  saveLanguage() {
+    if(!this.canEditLanguage) {
+      this.languageForm.value.id = null;
+      this.languageForm.value.owner_id = this.candidat?.id;
+    }
+    console.log(this.languageForm.value)
+    this.backService.candidateAddLanguage(this.languageForm.value)
+      .subscribe((res: any) => {
+        this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
+          (res: HttpResponse<ICandidat>) => {
+            this.candidat = res.body})
+        this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+        this.languageForm.reset();
+        this.modalService.dismissAll();
+      }, err => {
+        console.log(err);
+        this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
+      });
+    this.canEditLanguage = false;
   }
 }
