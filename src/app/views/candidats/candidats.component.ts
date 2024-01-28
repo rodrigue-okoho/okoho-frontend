@@ -21,7 +21,7 @@ export class CandidatsComponent  implements OnInit {
   account: Account | null = null;
   zoom = 12;
   loading = false;
-  center: google.maps.LatLngLiteral;
+  center: google.maps.LatLngLiteral | null = null;
   options: google.maps.MapOptions = {
     mapTypeId: 'hybrid',
     zoomControl: false,
@@ -47,7 +47,9 @@ export class CandidatsComponent  implements OnInit {
   bydateposted: string="";
   byexperience: string="";
   byeducation: string="";
-  public form: FormGroup;
+  public form: FormGroup | null = null;
+
+
   constructor( protected frontService: FrontService,
                private formBuilder: FormBuilder,
                private localStorageService: LocalStorageService, private translateService: TranslateService,
@@ -56,6 +58,17 @@ export class CandidatsComponent  implements OnInit {
                protected router: Router,) {
     this.currentSearch = this.activatedRoute.snapshot.queryParams['search'] ?? '';
   }
+
+  changeSizeForm = this.formBuilder.nonNullable.group({
+    size: [20]
+  });
+
+  setSizePage() {
+    this.currentSearch = this.changeSizeForm.controls.size.value.toString();
+    this.itemsPerPage = this.changeSizeForm.controls.size.value;
+    this.loadPage(1);
+  }
+
   loadPage(page?: number, dontNavigate?: boolean): void {
     this.isLoading = true;
     const pageToLoad: number = page ?? this.page ?? 1;
@@ -248,7 +261,7 @@ export class CandidatsComponent  implements OnInit {
     console.log($event.target.value)
   }
   saveAlert() {
-    if (this.account !=null){
+    if (this.account !=null && this.form !== null){
       if (this.account.userType=="entreprise_account"){
         this.form.value.owner_id = this.account.id;
         this.form.value.education = this.byeducation;
