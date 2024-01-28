@@ -39,7 +39,7 @@ export class FindJobComponent  implements OnInit {
   bysalary: string="";
   bydateposted: string="";
   bytype: string="";
-  public form: FormGroup;
+  public form: FormGroup | null = null;
   constructor( protected frontService: FrontService,private formBuilder: FormBuilder,
                private localStorageService: LocalStorageService, private translateService: TranslateService,
                private sessionStorageService: SessionStorageService, private toaster: ToastrService,
@@ -218,7 +218,7 @@ export class FindJobComponent  implements OnInit {
   }
 
   saveAlert() {
-    if (this.account !=null){
+    if (this.account !=null && this.form !== null){
       if (this.account.userType=="candidat_account"){
         this.form.value.owner_id = this.account.id;
         this.form.value.location = this.bycity;

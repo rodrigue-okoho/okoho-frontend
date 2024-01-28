@@ -71,7 +71,7 @@
             <h4 jhiTranslate="page.category">Category</h4>
             <div class="form-group">
               <div class="input-group input-group-merge">
-              <select [(ngModel)]="bycategory" class="form-select chosen-select custom-group-input" style="">
+              <select [(ngModel)]="bycategory" class="form-select chosen-select custom-group-input">
                 <option jhiTranslate="page.choose_category">Choose a category</option>
                 <option value="residential">Residential</option>
                 <option value="commercial">Commercial</option>
@@ -213,7 +213,7 @@
               <li><a href="#">react</a></li>
             </ul>
           </div>
-          <div class="filter-block">
+          <div class="filter-block" *ngIf="form">
             <h4  jhiTranslate="page.alert_job">Alert jobs</h4>
             <form class="" [formGroup]="form" (submit)="saveAlert()">
               <div class="form-group">
@@ -222,7 +222,7 @@
               </div>
               <div class="form-group">
                   <label class="form-label">Email Frequency</label>
-                  <select formControlName="frequency" class="chosen-select" style="">
+                  <select formControlName="frequency" class="chosen-select">
                     <option jhiTranslate="page.choose_frequency">Choose a frequence</option>
                     <option value="daily">Daily</option>
                     <option value="fortnightly">Fortnightly</option>
@@ -257,7 +257,7 @@
             <!--   <div class="text">Showing <strong>41-60</strong> of <strong>944</strong> jobs</div>-->
           </div>
           <div class="sort-by">
-            <select class="form-select chosen-select" style="" (change)="sorted()">
+            <select class="form-select chosen-select"(change)="sorted()">
               <option>New Jobs</option>
               <option>Freelance</option>
               <option>Full Time</option>
@@ -267,7 +267,7 @@
             </select>
 
 
-            <select class="form-select chosen-select" style="">
+            <select class="form-select chosen-select">
               <option>Show 10</option>
               <option>Show 20</option>
               <option>Show 30</option>
@@ -285,8 +285,8 @@
               <div class="inner-box">
                 <div class="content">
                   <span class="company-logo">
-                    <img *ngIf="job?.recruteur.userAccount.imageUrl" src="{{job?.recruteur.userAccount.imageUrl}}" alt="Image">
-                     <img *ngIf="job?.recruteur.userAccount.imageUrl == null" src="assets/images/avatar/image-place-holder.png" alt="Image">
+                    <img *ngIf="job?.recruteur?.userAccount?.imageUrl" src="{{job?.recruteur?.userAccount?.imageUrl}}" alt="Image">
+                     <img *ngIf="job?.recruteur?.userAccount?.imageUrl == null" src="assets/images/avatar/image-place-holder.png" alt="Image">
                   </span>
                   <h4><a [routerLink]="['/find-job', 'detail', job?.id]">{{job?.title}}</a></h4>
                   <ul class="job-info">
@@ -296,10 +296,10 @@
                     </li>
                     <li>
                       <fa-icon icon="map-location"></fa-icon>
-                      {{job?.recruteur.location}}</li>
+                      {{job?.recruteur?.location}}</li>
                     <li>
                       <fa-icon icon="clock-four"></fa-icon>
-                      {{job?.createdAt|timeAgo}}
+                      {{job?.createdAt! | timeAgo}}
                     </li>
                     <li>
                       <fa-icon icon="money-bill"></fa-icon>
