@@ -244,7 +244,7 @@
     <!-- Content Column -->
     <div class="content-column col-lg-8 col-md-12 col-sm-12">
 
-      <div class="ls-outer" *ngIf="jobs && jobs.length > 0">
+      <div class="ls-outer">
         <button type="button" class="theme-btn btn-style-two toggle-filters" jhiTranslate="page.show_filters">Show Filters</button>
 
         <!-- ls Switcher -->
@@ -256,26 +256,27 @@
               <span jhiTranslate="global.item-job">Jobs</span></p>
             <!--   <div class="text">Showing <strong>41-60</strong> of <strong>944</strong> jobs</div>-->
           </div>
-          <div class="sort-by">
-            <select class="form-select chosen-select"(change)="sorted()">
-              <option>New Jobs</option>
-              <option>Freelance</option>
-              <option>Full Time</option>
-              <option>Internship</option>
-              <option>Part Time</option>
-              <option>Temporary</option>
-            </select>
-
-
-            <select class="form-select chosen-select">
-              <option>Show 10</option>
-              <option>Show 20</option>
-              <option>Show 30</option>
-              <option>Show 40</option>
-              <option>Show 50</option>
-              <option>Show 60</option>
-            </select>
-          </div>
+          <form [formGroup]="changeShowAndSize">
+            <div class="sort-by">
+              <select class="form-select chosen-select" aria-placeholder="Select job type" formControlName="jobType" (change)="sorted()">
+                <option value="Freelance">Freelance</option>
+                <option value="Full time">Full time</option>
+                <option value="Internship">Internship</option>
+                <option value="Part Time">Part time</option>
+                <option value="Temporary">Temporary</option>
+              </select>
+  
+  
+              <select class="form-select chosen-select" formControlName="size" (change)="setSizePage()">
+                <option value="20">Show 20</option>
+                <option value="50">Show 50</option>
+                <option value="100">Show 100</option>
+                <option value="500">Show 500</option>
+                <option value="1000">Show 1000</option>
+              </select>
+            </div>
+          </form>
+          
         </div>
         <div *ngIf="jobs && jobs.length > 0">
           <div class="row">
@@ -323,7 +324,7 @@
 
 
         <!-- Listing Show More -->
-        <div class="ls-show-more">
+        <div class="ls-show-more" *ngIf="jobs && jobs.length > 0">
           <div class="row justify-content-center">
             <ngb-pagination
               [collectionSize]="totalItems"

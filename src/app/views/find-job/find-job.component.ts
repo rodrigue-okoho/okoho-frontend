@@ -40,6 +40,12 @@ export class FindJobComponent  implements OnInit {
   bydateposted: string="";
   bytype: string="";
   public form: FormGroup | null = null;
+
+  changeShowAndSize = this.formBuilder.nonNullable.group({
+    jobType: [''],
+    size: [20]
+  });
+
   constructor( protected frontService: FrontService,private formBuilder: FormBuilder,
                private localStorageService: LocalStorageService, private translateService: TranslateService,
                private sessionStorageService: SessionStorageService, private toaster: ToastrService,
@@ -222,7 +228,15 @@ export class FindJobComponent  implements OnInit {
   }
 
   sorted() {
+    this.currentSearch = this.changeShowAndSize.controls.jobType.value;
+    this.bytype = this.changeShowAndSize.controls.jobType.value;
+    this.loadPage(1);
+  }
 
+  setSizePage() {
+    this.currentSearch = this.changeShowAndSize.controls.size.value.toString();
+    this.itemsPerPage = this.changeShowAndSize.controls.size.value;
+    this.loadPage(1);
   }
 
   saveAlert() {
