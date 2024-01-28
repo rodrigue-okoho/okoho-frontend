@@ -135,7 +135,7 @@ export class FindJobComponent  implements OnInit {
     //combineLatest([this.activatedRoute.data, this.activatedRoute.queryParamMap])
     combineLatest([this.activatedRoute.data, this.activatedRoute.queryParamMap]).subscribe(([data, params]) => {
       const page = params.get('page');
-      const pageNumber = page !== null ? +page : 1;
+      const pageNumber = page !== null ? + page : 1;
       const sort = (params.get(SORT) ?? data['defaultSort']).split(',');
       const predicate = sort[0];
       const ascending = sort[1] === ASC;
@@ -182,6 +182,14 @@ export class FindJobComponent  implements OnInit {
     this.bycity = $event.target.value;
     this.loadPage(1);
   }
+
+  searchByCategory($event: any) {
+    console.log($event.target.value)
+    this.currentSearch=$event.target.value
+    this.bycategory = $event.target.value;
+    this.loadPage(1);
+  }
+
   searchByExperience($event: any) {
     console.log($event.target.value)
     this.currentSearch=$event.target.value
