@@ -399,5 +399,11 @@
         "level-7": "Doctorat ou niveau d'enseignement supérieur équivalent"
       }
     }
+  },
+  "actions": {
+    "save": "Sauvegarder",
+    "update": "Modifier",
+    "close": "Fermer",
+    "search-location": "Lieu de recherche"
   }
 }

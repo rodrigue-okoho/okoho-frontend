@@ -401,5 +401,11 @@
         "level-7": "Doktorat oder gleichwertiges tertiäres Bildungsniveau"
       }
     }
+  },
+  "actions": {
+    "save": "Speichern",
+    "update": "Aktualisieren",
+    "close": "Schließen",
+    "search-location": "Suche nach Ort"
   }
 }

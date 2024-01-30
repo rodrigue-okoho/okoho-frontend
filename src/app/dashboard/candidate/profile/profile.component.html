@@ -150,10 +150,10 @@
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
                           <button [class.spinner]="loading" [disabled]="loading" *ngIf="!btn_status" class="theme-btn btn-style-one">
-                            Save
+                            {{ 'actions.save' | translate }}
                           </button>
                           <button class="theme-btn btn-style-four" [ngClass]="loading?'spinner':''" [disabled]="loading" *ngIf="btn_status">
-                            Update
+                            {{ 'actions.update' | translate }}
                           </button>
                         </div>
                       </div>
@@ -289,10 +289,12 @@
                         <div class="form-group col-lg-6 col-md-12">
                           <button [class.auth-spinner]="isLoading1" [disabled]="isLoading1" *ngIf="!btn_status" class="theme-btn btn-style-one">
                             <img *ngIf="isLoading1" style="width: 24px;" src="assets/images/spinner.gif" />
-                            Save</button>
+                            {{ 'actions.save' | translate }}
+                          </button>
                           <button [class.auth-spinner]="isLoading1" [disabled]="isLoading1" *ngIf="btn_status" class="theme-btn btn-style-four">
                             <img *ngIf="isLoading1" style="width: 24px;" src="assets/images/spinner.gif" />
-                            Update</button>
+                            {{ 'actions.update' | translate }}
+                          </button>
                         </div>
                       </div>
                     </form>
@@ -362,7 +364,7 @@
 
                         <!-- Input -->
                         <div class="form-group col-lg-12 col-md-12">
-                          <button class="theme-btn btn-style-three" (click)="searchPosition()">Search Location</button>
+                          <button class="theme-btn btn-style-three" (click)="searchPosition()">{{ 'actions.search-location' | translate }}</button>
                         </div>
 
 
@@ -393,9 +395,11 @@
                         <!-- Input -->
                         <div class="form-group col-lg-12 col-md-12">
                           <button [class.auth-spinner]="isLoading2" [disabled]="isLoading2" *ngIf="!btn_status" class="theme-btn btn-style-one">
-                            Save</button>
+                            {{ 'actions.save' | translate }}
+                          </button>
                           <button [class.auth-spinner]="isLoading2" [disabled]="isLoading2" *ngIf="btn_status" class="theme-btn btn-style-four">
-                            Update</button>
+                            {{ 'actions.update' | translate }}
+                          </button>
                         </div>
                       </div>
                     </form>
@@ -422,7 +426,7 @@
             <div class="row d-flex justify-content-center">
               <div class="form-group col-sm-10">
                 <label for="con-intitule">Branch Activity</label>
-                <select formControlName="branch" class="form-control" style="">
+                <select formControlName="branch" class="form-control">
                   <option value="Medical care" jhiTranslate="dashboard.medical-care">Medical care</option>
                   <option value="Development of web and mobile applications" jhiTranslate="dashboard.development-of-web">Development of web and mobile applications</option>
                   <option value="Metal construction and welding" jhiTranslate="dashboard.metal-construction-and-welding">Metal construction and welding</option>
@@ -432,7 +436,7 @@
               </div>
               <div class="form-group col-sm-10">
                 <label for="con-intitule">Experience</label>
-                <select formControlName="experience" class="form-control" style="">
+                <select formControlName="experience" class="form-control">
                   <option value="Stage">Stage</option>
                   <option value="Entry level">Entry level</option>
                   <option value="0-2 Years">0-2 Years</option>
@@ -445,10 +449,10 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-light" (click)="closeModal(modal)">Close</button>
+          <button type="button" class="btn btn-light" (click)="closeModal(modal)">{{ 'actions.close' | translate }}</button>
           <button class="theme-btn btn-style-one mr-1  pull-right" type="button" (click)="saveActivity()"
 
-          >Save</button>
+          > {{ 'actions.save' | translate }}</button>
         </div>
       </ng-template>
       <ng-template #contentLanguage let-modal>
@@ -526,9 +530,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-light" (click)="closeLanguageModal(modal)">Close</button>
-          <button class="theme-btn btn-style-one mr-1  pull-right" type="button" (click)="saveLanguage()"
-
-          >Save</button>
+          <button type="button" class="btn btn-light" (click)="closeLanguageModal(modal)">{{ 'actions.close' | translate }}</button>
+          <button class="theme-btn btn-style-one mr-1  pull-right" type="button" (click)="saveLanguage()">{{ 'actions.save' | translate }}</button>
         </div>
       </ng-template>
