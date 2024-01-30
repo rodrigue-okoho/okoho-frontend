@@ -121,7 +121,8 @@
     "onlyseconds": "It only takes a few seconds",
     "work-inquiry-from": "Work Inquiry From <br>Ali Tufan",
     "creativ-agency": "Creative Agency",
-    "startup": "startup"
+    "startup": "startup",
+    "language": "Language"
   },
   "entity": {
     "action": {
@@ -406,6 +407,22 @@
       "level-6": "Masters degree or equivalent tertiary education level",
       "level-7": "Doctoral degree or equivalent tertiary education level"
     }
+  },
+  "items": {
+    "title": "My profile",
+    "firstname": "First name",
+    "lastname": "Last name",
+    "job-title": "Job title",
+    "phone": "Phone",
+    "email-Adress": "Email address",
+    "date-of-born": "Date of born",
+    "place-of-born": "Place of born",
+    "country-of-born": "Country of born",
+    "education-level": "Education level",
+    "allow-in-search": "Allow in search & listing",
+    "description": "Description",
+    "browser-logo": "Browser logo",
+    "looking-for-prof": "Looking for professional training or employment",
   }
 },
 "actions": {
