@@ -386,5 +386,18 @@
     "contact": "Contact",
     "about": "About",
     "faq": "Faq"
+  },
+  "profile": {
+    "candidat": {
+      "level-education": {
+        "level-1": "Enseignement secondaire inférieur",
+        "level-2": "Enseignement secondaire supérieur",
+        "level-3": "Enseignement post-secondaire non tertiaire",
+        "level-4": "Enseignement tertiaire de cycle court",
+        "level-5": "Licence ou niveau d'enseignement tertiaire équivalent",
+        "level-6": "Maîtrise ou niveau d'enseignement tertiaire équivalent",
+        "level-7": "Doctorat ou niveau d'enseignement supérieur équivalent"
+      }
+    }
   }
 }

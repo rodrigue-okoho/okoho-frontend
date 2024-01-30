@@ -394,5 +394,19 @@
     "contact": "Contact",
     "about": "About",
     "faq": "Faq"
+  },
+"profile": {
+  "candidat": {
+    "level-education": {
+      "level-1": "Lower Secondary Education",
+      "level-2": "Upper Secondary Education",
+      "level-3": "Post-secondary non-Tertiary Education",
+      "level-4": "Short-cycle tertiary education",
+      "level-5": "Bachelors degree or equivalent tertiary education level",
+      "level-6": "Masters degree or equivalent tertiary education level",
+      "level-7": "Doctoral degree or equivalent tertiary education level"
+    }
   }
+}
+
 }

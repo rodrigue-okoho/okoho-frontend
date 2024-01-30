@@ -388,5 +388,18 @@
     "contact": "Contact",
     "about": "About",
     "faq": "Faq"
+  },
+  "profile": {
+    "candidat": {
+      "level-education": {
+        "level-1": "Bildung der Sekundarstufe I",
+        "level-2": "Sekundarstufe II",
+        "level-3": "Postsekundäre, nicht-tertiäre Bildung",
+        "level-4": "Tertiäre Bildung des kurzen Zyklus",
+        "level-5": "Bachelor oder gleichwertiges tertiäres Bildungsniveau",
+        "level-6": "Master oder gleichwertiges tertiäres Bildungsniveau",
+        "level-7": "Doktorat oder gleichwertiges tertiäres Bildungsniveau"
+      }
+    }
   }
 }
