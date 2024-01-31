@@ -1,5 +1,6 @@
 {
   "global": {
+    "dashboard": "Armaturenbrett",
     "title": "OKOHO-Plattform",
     "browsehappy": "Sie verwenden ein <strong>veraltet</strong> Browser.  <a href=\"http://browsehappy.com/?locale=en\">Aktualisieren Sie Ihren Browser</a> um Ihre Erfahrung zu verbessern.",
     "menu": {
@@ -25,9 +26,7 @@
       "browse-job": "Job durchsuchen",
       "browse-category": "Kategorie durchsuchen",
       "add-job": "Job hinzufügen",
-
-  "job-post": "Stellenausschreibung",
-
+      "job-post": "Stellenausschreibung",
       "entities": {},
       "account": {
         "main": "Mein Konto",
@@ -50,7 +49,7 @@
         "add_job": "Job hinzufügen",
         "applicant_job": "Bewerberjob",
         "shortlist_candidat": "ShortList-Kandidat",
-        "cv_manager": "CV-Manager",
+        "cv_manager": "Lebenslaufmanager",
         "delete_profil": "Profil löschen",
         "register": "Registrieren"
       },

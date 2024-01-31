@@ -1,5 +1,6 @@
 {
   "global": {
+    "dashboard": "Tableau de bord",
     "title": "Plateforme OKOHO",
     "browsehappy": "Vous utilisez un <strong>dépassé</strong> navigateur.  <a href=\"http://browsehappy.com/?locale=en\">mettez à jour votre navigateur</a> pour améliorer votre expérience.",
     "menu": {
