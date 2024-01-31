@@ -1,7 +1,5 @@
-import {ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {ActivateService} from "../../../views/account/activate/activate.service";
-import {LocalStorageService, SessionStorageService} from "ngx-webstorage";
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {LocalStorageService} from "ngx-webstorage";
 import {BackService} from "../../../core/services/back.service";
 import {AccountService} from "../../../core/auth/account.service";
 import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
@@ -18,7 +16,6 @@ import {Observable} from "rxjs";
 import {MapDirectionsService} from "@angular/google-maps";
 import {map} from "rxjs/operators";
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ItemCandidat} from "../../../core/models/ItemCandidat.model";
 import {IBanche} from "../../../core/models/branche.model";
 import * as L from "leaflet";
 import {circle, latLng, marker, polygon, tileLayer} from "leaflet";
@@ -43,12 +40,12 @@ export class ProfileComponent implements OnInit {
   imageId: any = null;
   imageUrl: SafeUrl = '/assets/images/placeholder.png';
   salaryType: any;
-  brancheForm: FormGroup;
-  itemForm: FormGroup;
-  itemSocialForm: FormGroup;
-  itemContactForm: FormGroup;
+  brancheForm: FormGroup | null = null;
+  itemForm: FormGroup | null = null;
+  itemSocialForm: FormGroup | null = null;
+  itemContactForm: FormGroup | null = null;
   categories?: IcategoryJob[] | null;
-  languageForm: FormGroup;
+  languageForm: FormGroup | null = null;
   placehoder = "categories";
   canEditLanguage: Boolean = false;
   center: google.maps.LatLngLiteral = {lat: 51.989858047086535, lng: 8.78541302551178};
@@ -64,12 +61,13 @@ export class ProfileComponent implements OnInit {
   isLoading1 = false;
   isLoading2 = false;
 
-  constructor(private activateService: ActivateService, private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
               private localStorageService: LocalStorageService,
-              private translateService: TranslateService,
-              private sessionStorageService: SessionStorageService, private toaster: ToastrService,
-              private modalService: NgbModal,private cd: ChangeDetectorRef,
-              private route: ActivatedRoute, private backService: BackService,mapDirectionsService: MapDirectionsService,
+              private translateService: TranslateService, 
+              private toaster: ToastrService,
+              private modalService: NgbModal, 
+              private backService: BackService,
+              mapDirectionsService: MapDirectionsService,
               private accountService: AccountService,) {
     const request: google.maps.DirectionsRequest = {
       destination: {lat: 51.989858047086535, lng: 8.78541302551178},
@@ -83,7 +81,7 @@ export class ProfileComponent implements OnInit {
   }
 
   E164PhoneNumber = '+237675066919';
-  @ViewChild('f') f: NgForm;
+  @ViewChild('f') f!: NgForm;
   data = {mobile: "+237675066919"};
   CountryISO = CountryISO;
   readonly directionsResults$: Observable<google.maps.DirectionsResult|undefined>;
@@ -173,11 +171,9 @@ export class ProfileComponent implements OnInit {
     this.languageForm =this.formBuilder.group({
       id: [""],
       montherLanguage: ["", Validators.required],
-      //ortherLanguage: ["", Validators.required],
       readingComprehension1: ["", Validators.required],
       readingComprehension2: ["", Validators.required],
       oralIntegration: ["", Validators.required],
-      //continuousSpeaking: ["", Validators.required],
       written: ["", Validators.required]
     });
     this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
@@ -191,21 +187,6 @@ export class ProfileComponent implements OnInit {
   onCountrySelected(country: any) {
     console.log(country);
   }
-/*
-  saveLanguage() {
-    this.languageForm?.markAllAsTouched();
-    console.log(this.languageForm?.value);
-    console.log(this.languageForm?.valid);
-    if(this.languageForm?.valid){
-      this.backService.candidateAddLanguage(this.languageForm?.value)
-      .subscribe((res: any) => {
-        this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
-      }, err => {
-        console.log(err);
-        this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
-      });
-    }
-  }*/
 
   private updateProfile() {
     this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
@@ -223,7 +204,7 @@ export class ProfileComponent implements OnInit {
           gender: this.candidat?.gender,
           phoneNumber: this.candidat?.userAccount?.phoneNumber,
           codePhone: this.candidat?.userAccount?.codePhone,
-          phone: this.candidat?.userAccount?.codePhone + this.candidat?.userAccount?.phoneNumber,
+          phone: this.candidat?.userAccount?.codePhone + this.candidat?.userAccount?.phoneNumber!,
           user_type: this.candidat?.userAccount?.userType,
           country: this.candidat?.country,
           qualification: this.candidat?.qualification,
@@ -268,7 +249,6 @@ export class ProfileComponent implements OnInit {
         console.log(this.itemForm.value.phone);
       },
       () => {
-        // this.isLoading = false;
         this.onError();
       }
     )
@@ -279,28 +259,28 @@ export class ProfileComponent implements OnInit {
   }
 
   saveProfile() {
-    console.log(this.salaryType)
-    this.loading = true;
-    this.itemForm.value.phoneNumber = this.itemForm.value.phone.number;
-    this.itemForm.value.codePhone = this.itemForm.value.phone.dialCode;
-    this.itemForm.value.salaryType = this.salaryType;
-    this.backService.candidatSaveProfile(this.itemForm.value)
-      .subscribe((res: any) => {
-        console.log(this.loading)
-        this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
-        this.updateProfile();
+    if(this.itemForm !== null) {
+      this.loading = true;
+      this.itemForm.value.phoneNumber = this.itemForm.value.phone.number;
+      this.itemForm.value.codePhone = this.itemForm.value.phone.dialCode;
+      this.itemForm.value.salaryType = this.salaryType;
+      this.backService.candidatSaveProfile(this.itemForm?.value)
+        .subscribe((res: any) => {
+          console.log(this.loading)
+          this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+          this.updateProfile();
+          this.loading = false;
+        }, err => {
+          console.log(err);
+          this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.error.detail);
+        });
         this.loading = false;
-      }, err => {
-        console.log(err);
-        this.toaster.error(this.translateService.instant('MESSAGES.SAVE_ERROR'), err.error.detail);
-      });
-      this.loading = false;
+      }    
   }
 
   saveSociale() {
     this.isLoading1 = true;
-    console.log(this.itemSocialForm.value)
-    this.backService.candidatSaveProfile(this.itemSocialForm.value)
+    this.backService.candidatSaveProfile(this.itemSocialForm?.value)
       .subscribe((res: any) => {
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
         this.updateProfile();
@@ -314,8 +294,7 @@ export class ProfileComponent implements OnInit {
 
   saveContact() {
     this.isLoading2 = true;
-    console.log(this.itemContactForm.value)
-    this.backService.candidatSaveProfile(this.itemContactForm.value)
+    this.backService.candidatSaveProfile(this.itemContactForm?.value)
       .subscribe((res: any) => {
         this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
         this.updateProfile();
@@ -334,7 +313,7 @@ export class ProfileComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.imageUrl = reader?.result;
+        this.imageUrl = reader?.result!;
         this.fileType = file.type;
         this.nameimage = file.name;
         const values = {
@@ -368,32 +347,34 @@ export class ProfileComponent implements OnInit {
   }
 
   openLg(contentAddress: any) {
-    this.brancheForm.reset();
+    this.brancheForm?.reset();
     this.modalService.open(contentAddress, { size: 'lg' });
   }
 
   closeModal(modal:NgbActiveModal) {
-    this.brancheForm.reset();
+    this.brancheForm?.reset();
     modal.close('Close click')
   }
 
   saveActivity() {
-    if(!this.canEditActivity) {
-      this.brancheForm.value.id = null;
-      this.brancheForm.value.owner_id = this.candidat?.id;
+    if(this.brancheForm !== null) {
+      if(!this.canEditActivity ) {
+        this.brancheForm.value.id = null;
+        this.brancheForm.value.owner_id = this.candidat?.id;
+      }
+      console.log(this.canEditActivity)
+      this.backService.candidateAddBranche(this.brancheForm.value)
+        .subscribe((res: any) => {
+          this.updateProfile()
+          this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+          this.brancheForm?.reset();
+          this.modalService.dismissAll();
+        }, err => {
+          console.log(err);
+          this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
+        });
+      this.canEditActivity = false;
     }
-    console.log(this.canEditActivity)
-    this.backService.candidateAddBranche(this.brancheForm.value)
-      .subscribe((res: any) => {
-        this.updateProfile()
-        this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
-        this.brancheForm.reset();
-        this.modalService.dismissAll();
-      }, err => {
-        console.log(err);
-        this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
-      });
-    this.canEditActivity = false;
   }
 
   editBranch(b: IBanche, contentBranche: TemplateRef<any>) {
@@ -401,15 +382,15 @@ export class ProfileComponent implements OnInit {
     this.loadBranch(b);
     this.openLg(contentBranche);
   }
+
   loadBranch(work: IBanche) {
-    console.log(work)
-    this.brancheForm.patchValue({
+    this.brancheForm?.patchValue({
       id: work.id,
       branch: work.branch,
       experience: work.experience
     });
-    console.log(this.brancheForm.value)
   }
+
   deleteBranch(b: any) {
     this.backService.candidateRemoveBranche(b.id)
       .subscribe((res: any) => {
@@ -424,7 +405,7 @@ export class ProfileComponent implements OnInit {
   }
 
   loadLanguage(language: ILanguage) {
-    this.languageForm.patchValue({
+    this.languageForm?.patchValue({
       id: language.id,
       montherLanguage: language.montherLanguage,
       ortherLanguage: language.ortherLanguage,
@@ -443,7 +424,6 @@ export class ProfileComponent implements OnInit {
   }
 
   deleteLanguage(language: ILanguage) {
-    console.log(this.languageForm.value)
     this.backService.candidateRemoveLanguage(language.id)
       .subscribe((res: any) => {
         this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
@@ -460,27 +440,29 @@ export class ProfileComponent implements OnInit {
 
   closeLanguageModal(modal: NgbActiveModal) {
     this.canEditLanguage = false;
-    this.languageForm.reset();
+    this.languageForm?.reset();
     modal.close('Close click');
   }
   saveLanguage() {
-    if(!this.canEditLanguage) {
-      this.languageForm.value.id = null;
-      this.languageForm.value.owner_id = this.candidat?.id;
+    if(this.languageForm !== null) {
+      if(!this.canEditLanguage) {
+        this.languageForm.value.id = null;
+        this.languageForm.value.owner_id = this.candidat?.id;
+      }
+      console.log(this.languageForm.value)
+      this.backService.candidateAddLanguage(this.languageForm.value)
+        .subscribe((res: any) => {
+          this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
+            (res: HttpResponse<ICandidat>) => {
+              this.candidat = res.body})
+          this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
+          this.languageForm?.reset();
+          this.modalService.dismissAll();
+        }, err => {
+          console.log(err);
+          this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
+        });
+      this.canEditLanguage = false;
     }
-    console.log(this.languageForm.value)
-    this.backService.candidateAddLanguage(this.languageForm.value)
-      .subscribe((res: any) => {
-        this.backService.candidatProfile(this.localStorageService.retrieve('account_id')).subscribe(
-          (res: HttpResponse<ICandidat>) => {
-            this.candidat = res.body})
-        this.toaster.success(this.translateService.instant('MESSAGES.SAVE_SUCCESS'), 'OK');
-        this.languageForm.reset();
-        this.modalService.dismissAll();
-      }, err => {
-        console.log(err);
-        this.toaster.error(this.translateService.instant('error.MESSAGES.SAVE_ERROR'), err.message);
-      });
-    this.canEditLanguage = false;
   }
 }

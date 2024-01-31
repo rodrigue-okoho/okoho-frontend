@@ -423,13 +423,36 @@
     "description": "Description",
     "browser-logo": "Browser logo",
     "looking-for-prof": "Looking for professional training or employment",
+    "social-network": "Social network",
+    "contact-info": "Contact information",
+    "country": "Country",
+    "city": "City",
+    "complet-adress": "Complete adress",
+    "find-map": "Find on map",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "experience": "Experience",
+    "branch-activity": "Branch activity",
+    "find-a-job": "Finding a job",
+    "search-for-training": "Search for professional training"
   }
 },
 "actions": {
   "save": "Save",
   "update": "Update",
   "close": "Close",
-  "search-location": "Search location"
-}
+  "search-location": "Search location",
+  "add-language": "Add language",
+  "add-branch-activity": "Add branch of activity"
+},
+"languages": {
+  "written": "Written",
+  "read-comp": "Reading comprehension",
+  "listening-comp": "Listening comprehension",
+  "oral-expression": "Oral expression",
+  "linguistic": "Linguistic skills"
+},
+"yes": "Yes",
+"no": "No"
 
 }

@@ -4,7 +4,7 @@
       <section class="user-dashboard">
         <div class="dashboard-outer">
           <div class="upper-title-box">
-            <h3>My Profile</h3>
+            <h3>{{ 'profile.items.title' | translate }}</h3>
             <div class="text">Ready to jump back in?</div>
           </div>
           <form #f="ngForm">
@@ -16,16 +16,16 @@
               <div class="ls-widget">
                 <div class="tabs-box">
                   <div class="widget-title">
-                    <h4>My Profile</h4>
+                    <h4>{{ 'profile.items.title' | translate }}</h4>
                   </div>
 
-                  <div class="widget-content">
+                  <div class="widget-content" *ngIf="itemForm">
 
                     <div class="uploading-outer">
                       <div class="uploadButton">
                         <input class="uploadButton-input" type="file" (change)="uploadCv($event)" name="attachments[]"
                                accept="image/*, application/pdf" id="upload" multiple="">
-                        <label class="uploadButton-button ripple-effect" for="upload">Browse Logo</label>
+                        <label class="uploadButton-button ripple-effect" for="upload">{{ 'profile.items.browser-logo' | translate }}</label>
                         <span class="uploadButton-file-name"></span>
                       </div>
                       <div class="uploadButton">
@@ -40,22 +40,21 @@
                       <div class="row" [formGroup]="itemForm">
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
-                          <label>First Name *</label>
+                          <label>{{ 'profile.items.firstname' | translate }} *</label>
                           <input type="text" formControlName="firstName" name="name" placeholder="Jerome">
                         </div>
                         <div class="form-group col-lg-6 col-md-12">
-                          <label>Last Name </label>
+                          <label>{{ 'profile.items.lastname' | translate }}</label>
                           <input type="text" formControlName="lastName" name="name" placeholder="Jerome">
                         </div>
 
                         <div class="form-group col-lg-6 col-md-12">
-                          <label>Job Title *</label>
+                          <label>{{ 'profile.items.job-title' | translate }} *</label>
                           <input type="text" formControlName="jobTitle" placeholder="UI Designer">
                         </div>
 
                         <div class="form-group col-lg-6 col-md-12">
-                           <label class="form-label">Phone</label>
-                         <!-- <input type="text"  placeholder="0 123 456 7890" hidden>-->
+                           <label class="form-label">{{ 'profile.items.phone' | translate }}</label>
                           <ngx-intl-tel-input [cssClass]="'form-group phone-tel'"
                                               [enableAutoCountrySelect]="true"
                                               [enablePlaceholder]="false"
@@ -73,32 +72,31 @@
                         </div>
 
                         <div class="form-group col-lg-6 col-md-12">
-                          <label>Email address</label>
+                          <label>{{ 'profile.items.email-adress' | translate }}</label>
                           <input type="text" formControlName="email" placeholder="creativelayers">
                         </div>
 
                         <!-- Input -->
                         <div class="form-group col-lg-3 col-md-12">
-                          <label>Date of born *</label>
+                          <label>{{ 'profile.items.date-of-born' | translate }} *</label>
                           <input type="date" formControlName="dob" name="name" placeholder="2000-03-12">
                         </div>
                         <div class="form-group col-lg-3 col-md-12">
-                          <label>Place of born</label>
+                          <label>{{ 'profile.items.place-of-born' | translate }}</label>
                           <input type="text" formControlName="placeofborn" name="name" placeholder="Douala,cameroon">
                         </div>
                         <div class="form-group col-lg-3 col-md-12">
-                          <label>Country of born</label>
+                          <label>{{ 'profile.items.country-of-born' | translate }}</label>
                           <ng-select class="chosen-select" [items]="countries"
                                      bindLabel="name"
                                      bindValue="name"
-                                     formControlName="countryofborn"
-                          >
+                                     formControlName="countryofborn">
                           </ng-select>
                         </div>
 
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
-                          <label>Education Levels</label>
+                          <label>{{ 'profile.items.education-level' | translate }}</label>
                           <select formControlName="educationLevel" class="chosen-select">
                             <option value="{{ 'profile.candidat.level-education.level-1' | translate }}">{{ 'profile.candidat.level-education.level-1' | translate }}</option>
                             <option value="{{ 'profile.candidat.level-education.level-2' | translate }}">{{ 'profile.candidat.level-education.level-2' | translate }}</option>
@@ -133,16 +131,16 @@
 
                         <!-- Input -->
                         <div class="form-group col-lg-3 col-md-12">
-                          <label>Allow In Search &amp; Listing</label>
-                          <select class="chosen-select" style="">
-                            <option>Yes</option>
-                            <option>No</option>
+                          <label>{{ 'profile.items.allow-in-search' | translate }}</label>
+                          <select class="chosen-select">
+                            <option>{{ 'yes' | translate }}</option>
+                            <option>{{ 'no' | translate }}</option>
                           </select>
                         </div>
 
                         <!-- About Company -->
                         <div class="form-group col-lg-12 col-md-12">
-                          <label>Description</label>
+                          <label>{{ 'profile.items.description' | translate}}</label>
                           <textarea formControlName="description"
                                     placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
                         </div>
@@ -165,18 +163,18 @@
               <div class="ls-widget">
                 <div class="tabs-box">
                   <div class="widget-title">
-                    <h4>Looking for professional training or employment</h4>
+                    <h4>{{ 'profile.items.looking-for-prof' | translate }}</h4>
                   </div>
 
                   <div class="widget-content">
                     <div class="form-group col-md-12">
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" name="salary_type" [(ngModel)]="salaryType" type="radio" id="salary_type_p" value="professional">
-                        <label class="form-check-label" for="salary_type_p">Search for professional training</label>
+                        <label class="form-check-label" for="salary_type_p">{{ 'profile.items.search-for-training"' | translate}}</label>
                       </div>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" name="salary_type" [(ngModel)]="salaryType" type="radio" id="salary_type_f" value="training">
-                        <label class="form-check-label" for="salary_type_f">Finding a job</label>
+                        <label class="form-check-label" for="salary_type_f">{{ 'profile.items.find-a-job' | translate}}</label>
                       </div>
                     </div>
                     <div class="resume-block" *ngFor="let b of candidat?.branches">
@@ -199,7 +197,7 @@
                       </div>
                     </div>
                     <div class="mb-3 mt-3 d-grid text-center">
-                    <button type="button" class="btn-cv" (click)="openLg(contentBranche)"><fa-icon icon="plus"></fa-icon> Add Branche activity</button>
+                    <button type="button" class="btn-cv" (click)="openLg(contentBranche)"><fa-icon icon="plus"></fa-icon>{{ 'actions.add-branch-activity' | translate }}</button>
                     </div>
                   </div>
                 </div>
@@ -209,7 +207,7 @@
               <div class="ls-widget" >
                 <div class="tabs-box">
                   <div class="widget-title">
-                    <h4>Language</h4>
+                    <h4>{{ 'language' | translate }}</h4>
                   </div>
 
                   <div class="widget-content">
@@ -230,22 +228,22 @@
                         </div>
                         <div class="text">
                                       <span class="break">
-                                        <span class="text-dark-3">Reading comprehension: </span> <span class="text-red">{{langue?.readingComprehension1}}</span>
+                                        <span class="text-dark-3">{{ 'languages.read-comp' | translate}}: </span> <span class="text-red">{{langue?.readingComprehension1}}</span>
                                       </span>
                           <span class="break">
-                                          <span class="text-dark-3">Listening comprehension: </span> <span class="text-red">{{langue?.readingComprehension2}}</span>
+                                          <span class="text-dark-3">{{ 'languages.listening-comp' | translate}}: </span> <span class="text-red">{{langue?.readingComprehension2}}</span>
                                         </span>
                           <span class="break">
-                                          <span class="text-dark-3">Oral expression: </span> <span class="text-red">{{langue?.oralIntegration}}</span>
+                                          <span class="text-dark-3">{{ 'languages.oral-expression' | translate}}: </span> <span class="text-red">{{langue?.oralIntegration}}</span>
                                         </span>
                           <span class="break">
-                                          <span class="text-dark-3">Writting: </span> <span class="text-red">{{langue?.written}}</span>
+                                          <span class="text-dark-3">{{ 'languages.written' | translate}}: </span> <span class="text-red">{{langue?.written}}</span>
                                         </span>
                         </div>
                       </div>
                     </div>
                     <div class="mb-3 d-grid text-center">
-                      <button class="btn-cv" (click)="openLg(contentLanguage)"><fa-icon icon="plus"></fa-icon> Add Language</button>
+                      <button class="btn-cv" (click)="openLg(contentLanguage)"><fa-icon icon="plus"></fa-icon>{{ 'actions.add-language' | translate }}</button>
                     </div>
                   </div>
                 </div>
@@ -255,10 +253,10 @@
               <div class="ls-widget">
                 <div class="tabs-box">
                   <div class="widget-title">
-                    <h4>Social Network</h4>
+                    <h4>{{ 'profile.items.social-network' | translate }}</h4>
                   </div>
 
-                  <div class="widget-content">
+                  <div class="widget-content" *ngIf="itemSocialForm">
                     <form class="default-form" [formGroup]="itemSocialForm" (submit)="saveSociale()">
                       <div class="row">
                         <!-- Input -->
@@ -306,15 +304,15 @@
               <div class="ls-widget">
                 <div class="tabs-box">
                   <div class="widget-title">
-                    <h4>Contact Information</h4>
+                    <h4>{{ 'profile.items.contact-info' | translate }}</h4>
                   </div>
 
-                  <div class="widget-content">
+                  <div class="widget-content" *ngIf="itemContactForm">
                     <form class="default-form" [formGroup]="itemContactForm" (submit)="saveContact()">
                       <div class="row">
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
-                          <label>Country</label>
+                          <label>{{ 'profile.items.country' | translate }}</label>
                           <ng-select class="chosen-select" [items]="countries"
                                      bindLabel="name"
                                      bindValue="name"
@@ -332,33 +330,33 @@
 
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
-                          <label>City</label>
+                          <label>{{ 'profile.items.city' | translate }}</label>
                           <input type="text" formControlName="town" placeholder="Berlin">
                         </div>
 
                         <!-- Input -->
                         <div class="form-group col-lg-12 col-md-12">
-                          <label>Complete Address</label>
+                          <label>{{ 'profile.items.complet-adress' | translate }}</label>
                           <input type="text" formControlName="address"
                                  placeholder="329 Queensberry Street, North Melbourne VIC 3051, Australia.">
                         </div>
 
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
-                          <label>Find On Map</label>
+                          <label>{{ 'profile.items.find-map' | translate }}</label>
                           <input formControlName="address" type="text"
                                  placeholder="329 Queensberry Street, North Melbourne VIC 3051, Australia.">
                         </div>
 
                         <!-- Input -->
                         <div class="form-group col-lg-3 col-md-12">
-                          <label>Latitude</label>
+                          <label>{{ 'profile.items.latitude' | translate }}</label>
                           <input formControlName="latitude" type="text" placeholder="51.989858047086535">
                         </div>
 
                         <!-- Input -->
                         <div class="form-group col-lg-3 col-md-12">
-                          <label>Longitude</label>
+                          <label>{{ 'profile.items.longitude' | translate }}</label>
                           <input formControlName="longitude" type="text" placeholder="8.78541302551178">
                         </div>
 
@@ -415,17 +413,17 @@
 
       <ng-template #contentBranche let-modal>
         <div class="modal-header">
-          <h6 class="modal-title">Add branches of activity</h6>
+          <h6 class="modal-title">{{ 'actions.add-branch-activity' | translate }}</h6>
           <button type="button" class="close" aria-label="Close" (click)="closeModal(modal)">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" *ngIf="brancheForm">
           <form class="default-form" [formGroup]="brancheForm" id="bookmark-form">
 
             <div class="row d-flex justify-content-center">
               <div class="form-group col-sm-10">
-                <label for="con-intitule">Branch Activity</label>
+                <label for="con-intitule">{{ 'profile.items.branch-activity' | translate }}</label>
                 <select formControlName="branch" class="form-control">
                   <option value="Medical care" jhiTranslate="dashboard.medical-care">Medical care</option>
                   <option value="Development of web and mobile applications" jhiTranslate="dashboard.development-of-web">Development of web and mobile applications</option>
@@ -435,7 +433,7 @@
                 </select>
               </div>
               <div class="form-group col-sm-10">
-                <label for="con-intitule">Experience</label>
+                <label for="con-intitule">{{ 'profile.items.experience' | translate }}</label>
                 <select formControlName="experience" class="form-control">
                   <option value="Stage">Stage</option>
                   <option value="Entry level">Entry level</option>
@@ -457,15 +455,15 @@
       </ng-template>
       <ng-template #contentLanguage let-modal>
         <div class="modal-header">
-          <h6 class="modal-title">Linguistic skills</h6>
+          <h6 class="modal-title">{{ 'languages.linguistic' | translate}}</h6>
           <button type="button" class="close" aria-label="Close" (click)="closeLanguageModal(modal)">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" *ngIf="languageForm">
           <form class="default-form" [formGroup]="languageForm" id="bookmark-form">
             <div class="form-group col-sm-12">
-              <label for="con-phone">Language</label>
+              <label for="con-phone">{{ 'language' | translate }}</label>
               <select formControlName="montherLanguage" class="form-control" id="con-phone"
                       placeholder="" required="" autocomplete="off">
                 <option></option>
@@ -477,7 +475,7 @@
             </div>
             <div class="row mt-3">
               <div class="form-group col-sm-6">
-                <label for="con-phone">Reading comprehension</label>
+                <label for="con-phone">{{ 'languages.read-comp' | translate }}</label>
                 <select formControlName="readingComprehension1" class="form-control" id="con-phone"
                         placeholder="" required="" autocomplete="off">
                   <option value="A1">A1</option>
@@ -489,7 +487,7 @@
                 </select>
               </div>
               <div class="form-group col-sm-6">
-                <label for="con-phone">Listening comprehension</label>
+                <label for="con-phone">{{ 'languages.listening-comp' | translate }}</label>
                 <select formControlName="readingComprehension2" class="form-control" id="con-phone"
                         placeholder="" required="" autocomplete="off">
                   <option value="A1">A1</option>
@@ -503,7 +501,7 @@
             </div>
             <div class="row mt-3">
               <div class="form-group col-sm-6">
-                <label for="con-phone">Oral expression</label>
+                <label for="con-phone">{{ 'languages.oal-expression' | translate }}</label>
                 <select formControlName="oralIntegration" class="form-control" id="con-phone"
                         placeholder="" required="" autocomplete="off">
                   <option value="A1">A1</option>
@@ -515,7 +513,7 @@
                 </select>
               </div>
               <div class="form-group col-sm-6">
-                <label for="con-phone">Written</label>
+                <label for="con-phone">{{ 'languages.written' | translate }}</label>
                 <select formControlName="written" class="form-control" id="con-phone"
                         placeholder="" required="" autocomplete="off">
                   <option value="A1" selected>A1</option>

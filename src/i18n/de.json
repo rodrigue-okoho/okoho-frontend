@@ -400,13 +400,52 @@
         "level-6": "Master oder gleichwertiges tertiäres Bildungsniveau",
         "level-7": "Doktorat oder gleichwertiges tertiäres Bildungsniveau"
       }
+    },
+    "items": {
+      "title": "My profile",
+      "firstname": "First name",
+      "lastname": "Last name",
+      "job-title": "Job title",
+      "phone": "Phone",
+      "email-Adress": "Email address",
+      "date-of-born": "Date of born",
+      "place-of-born": "Place of born",
+      "country-of-born": "Country of born",
+      "education-level": "Education level",
+      "allow-in-search": "Allow in search & listing",
+      "description": "Description",
+      "browser-logo": "Browser logo",
+      "looking-for-prof": "Looking for professional training or employment",
+      "social-network": "Social network",
+      "contact-info": "Contact information",
+      "country": "Country",
+      "city": "City",
+      "complet-adress": "Complete adress",
+      "find-map": "Find on map",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "experience": "Experience",
+      "branch-activity": "Branch activity",
+      "find-a-job": "Finding a job",
+      "search-for-training": "Search for professional training"
     }
   },
   "actions": {
     "save": "Speichern",
     "update": "Aktualisieren",
     "close": "Schließen",
-    "search-location": "Suche nach Ort"
+    "search-location": "Suche nach Ort",
+    "add-language": "Add language",
+    "add-branch-activity": "Add branch of activity"
   },
-  "language": "Sprache"
+  "languages": {
+    "written": "Written",
+    "read-comp": "Reading comprehension",
+    "listening-comp": "Listening comprehension",
+    "oral-expression": "Oral expression",
+    "linguistic": "Linguistic skills"
+  },
+  "language": "Sprache",
+  "yes": "Yes",
+  "no": "No"
 }
