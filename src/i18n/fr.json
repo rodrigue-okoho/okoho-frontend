@@ -405,7 +405,7 @@
       "lastname": "Prenom",
       "job-title": "Titre du poste",
       "phone": "Téléphone",
-      "email-Adress": "Adresse mail",
+      "email-adress": "Adresse mail",
       "date-of-born": "Date de naissance",
       "place-of-born": "Ville de naissance",
       "country-of-born": "Pays de naissance",
@@ -425,7 +425,8 @@
       "experience": "Experience",
       "branch-activity": "Activité de la branche",
       "find-a-job": "Trouver un emploi",
-      "search-for-training": "Recherche de formation professionnelle"
+      "search-for-training": "Recherche de formation professionnelle",
+      "logo-message": "La taille maximale du fichier est de 1 Mo, la dimension minimale est de 330 x 300. Les fichiers adaptés sont les suivants : .jpg et .png"
     }
   },
   "actions": {

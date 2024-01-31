@@ -407,7 +407,7 @@
       "lastname": "Nachname",
       "job-title": "Stellenbezeichnung",
       "phone": "Telefon",
-      "email-Adress": "E-Mail-Adresse",
+      "email-adress": "E-Mail-Adresse",
       "date-of-born": "Geburtsdatum",
       "place-of-born": "Ort der Geburt",
       "country-of-born": "Land der Geburt",
@@ -427,7 +427,8 @@
       "experience": "Erfahrung",
       "branch-activity": "Branchentätigkeit",
       "find-a-job": "Einen Job finden",
-      "search-for-training": "Suche nach einer Berufsausbildung"
+      "search-for-training": "Suche nach einer Berufsausbildung",
+      "logo-message": "Maximale Dateigröße ist 1MB, Mindestgröße: 330x300 und geeignete Dateien sind .jpg &amp; .png"
     }
   },
   "actions": {

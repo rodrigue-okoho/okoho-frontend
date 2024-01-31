@@ -31,8 +31,7 @@
                       <div class="uploadButton">
                         <img src="{{account?.imageUrl}}" height="150" width="100"/>
                       </div>
-                      <div class="text">Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg
-                        &amp; .png
+                      <div class="text">{{ 'profile.items.logo-message' | translate }}
                       </div>
                     </div>
 
@@ -170,11 +169,11 @@
                     <div class="form-group col-md-12">
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" name="salary_type" [(ngModel)]="salaryType" type="radio" id="salary_type_p" value="professional">
-                        <label class="form-check-label" for="salary_type_p">{{ 'profile.items.search-for-training"' | translate}}</label>
+                        <label class="form-check-label" for="salary_type_p">{{ 'profile.items.search-for-training' | translate }}</label>
                       </div>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" name="salary_type" [(ngModel)]="salaryType" type="radio" id="salary_type_f" value="training">
-                        <label class="form-check-label" for="salary_type_f">{{ 'profile.items.find-a-job' | translate}}</label>
+                        <label class="form-check-label" for="salary_type_f">{{ 'profile.items.find-a-job' | translate }}</label>
                       </div>
                     </div>
                     <div class="resume-block" *ngFor="let b of candidat?.branches">
@@ -279,7 +278,7 @@
 
                         <!-- Input -->
                         <div class="form-group col-lg-6 col-md-12">
-                          <label>Google Plus</label>
+                          <label>Google +</label>
                           <input type="text" formControlName="googleplus" placeholder="">
                         </div>
 
@@ -501,7 +500,7 @@
             </div>
             <div class="row mt-3">
               <div class="form-group col-sm-6">
-                <label for="con-phone">{{ 'languages.oal-expression' | translate }}</label>
+                <label for="con-phone">{{ 'languages.oral-expression' | translate }}</label>
                 <select formControlName="oralIntegration" class="form-control" id="con-phone"
                         placeholder="" required="" autocomplete="off">
                   <option value="A1">A1</option>

@@ -414,7 +414,7 @@
     "lastname": "Last name",
     "job-title": "Job title",
     "phone": "Phone",
-    "email-Adress": "Email address",
+    "email-adress": "Email address",
     "date-of-born": "Date of born",
     "place-of-born": "Place of born",
     "country-of-born": "Country of born",
@@ -434,7 +434,8 @@
     "experience": "Experience",
     "branch-activity": "Branch activity",
     "find-a-job": "Finding a job",
-    "search-for-training": "Search for professional training"
+    "search-for-training": "Search for professional training",
+    "logo-message": "Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg &amp; .png"
   }
 },
 "actions": {
